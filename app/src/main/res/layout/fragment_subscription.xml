@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".feature.subscriptions.SubscriptionFragment">
+
+    <include
+        android:id="@+id/header"
+        layout="@layout/header" />
+
+        <HorizontalScrollView
+            android:id="@+id/horizontalScrollView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="3dp"
+            android:layout_marginBottom="3dp"
+            android:scrollbars="none">
+
+            <com.doubleclick.rovleapp.views.togglebuttongroup.SingleSelectToggleGroup
+                android:id="@+id/toggle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:tbgCheckedButton="@id/mySubscriptions">
+
+                <com.doubleclick.rovleapp.views.togglebuttongroup.button.CircularToggle
+                    android:id="@+id/mySubscriptions"
+                    android:layout_width="166dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_salmon_r30"
+                    android:text="@string/mis_suscripciones"
+                    app:tbgMarkerColor="@color/blue" />
+
+                <com.doubleclick.rovleapp.views.togglebuttongroup.button.CircularToggle
+                    android:id="@+id/providerList"
+                    android:layout_width="142dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_salmon_r30"
+                    android:text="@string/proveedores"
+                    app:tbgMarkerColor="@color/blue" />
+
+            </com.doubleclick.rovleapp.views.togglebuttongroup.SingleSelectToggleGroup>
+        </HorizontalScrollView>
+
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="start"
+        android:layout_margin="10dp">
+
+        <!-- Sort icon -->
+        <TextView
+            android:id="@+id/sort"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_salmon_r30"
+            android:fontFamily="@font/excon_regular"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/sorting"
+            android:padding="15dp"
+            android:visibility="gone"
+            tools:visibility="visible"
+            android:textColor="@color/dark_brown"
+            android:textSize="18sp" />
+
+        <ImageView
+            android:id="@+id/filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:visibility="gone"
+            tools:visibility="visible"
+            android:background="@drawable/bg_salmon_r30"
+            android:padding="20dp"
+            android:src="@drawable/filter" />
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:id="@+id/emptyTextView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:visibility="gone"
+        android:gravity="center">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/no_te_has_suscrito_a_ninguna_oferta_todav_a"
+            android:textAppearance="?android:textAppearanceMedium"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+    </LinearLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_mysubscriptions"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="5dp"
+        android:orientation="vertical"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/layout_item_my_subscriptions" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_plans"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="5dp"
+        android:orientation="vertical"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/layout_item_subscription" />
+
+</LinearLayout>

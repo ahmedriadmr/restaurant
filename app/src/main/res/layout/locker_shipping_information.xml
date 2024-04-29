@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_gravity="center"
+    android:background="@color/colorless"
+    android:orientation="vertical"
+    android:visibility="gone"
+    tools:visibility="visible">
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="32dp"
+                    android:layout_marginEnd="16dp"
+                    android:background="@drawable/bg_white_r30"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginHorizontal="16dp"
+                        android:layout_marginVertical="5dp"
+                        android:src="@drawable/zip_location"
+                        android:importantForAccessibility="no" />
+
+                    <EditText
+                        android:id="@+id/et_zip_code"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:minHeight="60dp"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:hint="@string/zip_code"
+                        android:inputType="number"
+                        android:textColor="#252525"
+                        android:textColorHint="@color/hint_text_color" />
+
+
+                </LinearLayout>
+
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/bg_new_color_r30"
+                android:orientation="vertical"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="16dp">
+
+                <LinearLayout
+                    android:id="@+id/ll_locker_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="5dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/excon_regular"
+                        android:text="Lockers"
+                        android:textColor="#58291E"
+                        android:textSize="16sp" />
+
+                    <ImageView
+                        android:id="@+id/arrow_indicator_locker"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_frame_light_brown"
+                        android:minWidth="25dp"
+                        android:minHeight="25dp"
+                        android:rotation="180"
+                        android:scaleType="center"
+                        android:src="@drawable/arrow"
+                        app:tint="@color/dark_brown" />
+
+
+                </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_select_locker"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="visible"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:itemCount="3"
+                    tools:listitem="@layout/layout_item_choose_one"
+                    tools:visibility="visible" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/noLockers"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="No hay oficinas o lockers en este C.P."
+                android:textColor="@color/red"
+                android:visibility="gone"
+                android:textSize="20sp"/>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="32dp"
+                    android:layout_marginEnd="16dp"
+                    android:background="@drawable/bg_white_r30"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginHorizontal="16dp"
+                        android:layout_marginVertical="5dp"
+                        android:src="@drawable/user"
+                        android:importantForAccessibility="no" />
+
+                    <EditText
+                        android:id="@+id/et_nombre"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:minHeight="60dp"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:hint="@string/name"
+                        android:inputType="textPersonName"
+                        android:textColor="#252525"
+                        android:textColorHint="@color/hint_text_color"
+                        android:autofillHints="username" />
+
+
+                </LinearLayout>
+
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="32dp"
+                    android:layout_marginEnd="16dp"
+                    android:background="@drawable/bg_white_r30"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginHorizontal="16dp"
+                        android:layout_marginVertical="5dp"
+                        android:src="@drawable/phone"
+                        android:importantForAccessibility="no" />
+
+                    <EditText
+                        android:id="@+id/et_numero"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:minHeight="60dp"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:dropDownVerticalOffset="40dp"
+                        android:hint="@string/_322515"
+                        android:inputType="phone"
+                        android:textColor="#252525"
+                        android:textColorHint="@color/hint_text_color"
+                        android:autofillHints="phone" />
+
+
+                </LinearLayout>
+
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="32dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:background="@drawable/bg_white_r30"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginHorizontal="16dp"
+                        android:layout_marginVertical="5dp"
+                        android:src="@drawable/email"
+                        android:importantForAccessibility="no" />
+
+                    <EditText
+                        android:id="@+id/et_correo"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:minHeight="60dp"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:dropDownVerticalOffset="40dp"
+                        android:hint="@string/nombre_sitio_com"
+                        android:inputType="textEmailAddress"
+                        android:textColor="#252525"
+                        android:textColorHint="@color/hint_text_color"
+                        android:autofillHints="emailAddress" />
+
+
+                </LinearLayout>
+
+
+        </LinearLayout>
+
+</ScrollView>

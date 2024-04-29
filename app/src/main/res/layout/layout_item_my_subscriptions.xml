@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    android:background="@drawable/bg_salmon_r30"
+    android:orientation="vertical"
+    android:padding="12dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/plan_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Plan Name"
+                android:textColor="@color/dark_brown"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/roaster_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                tools:text="Roaster Name"
+                android:textColor="@color/dark_brown"
+                android:textSize="16sp" />
+
+            <Button
+                android:id="@+id/show"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_brown_r30"
+                android:fontFamily="@font/excon_regular"
+                android:text="@string/ver"
+                android:textColor="@color/white"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/Icon1"
+                android:layout_width="wrap_content"
+                android:minWidth="24dp"
+                android:layout_height="wrap_content"
+                android:minHeight="24dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_motorcycle"
+                android:importantForAccessibility="no" />
+            <TextView
+                android:id="@+id/subscription_not_payed_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:fontFamily="@font/excon_regular"
+                android:text="@string/pago_pendiente"
+                android:textColor="@color/dark_brown"
+                android:visibility="gone"
+                android:textSize="14sp" />
+            <TextView
+                android:id="@+id/date_arrive"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:fontFamily="@font/excon_regular"
+                tools:text=" Arrived Date"
+                android:textColor="@color/dark_brown"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+</LinearLayout>

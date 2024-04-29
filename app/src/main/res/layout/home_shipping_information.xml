@@ -1,0 +1,431 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:background="@color/colorless"
+    android:orientation="vertical"
+    android:visibility="gone"
+    tools:visibility="visible">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/ll_addressnameandlist"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/bg_new_color_r30"
+                android:orientation="vertical"
+                android:paddingHorizontal="5dp"
+                android:paddingVertical="5dp">
+
+                <LinearLayout
+                    android:id="@+id/ll_address_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="5dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/excon_regular"
+                        android:text="@string/direcciones_guardadas"
+                        android:textColor="#58291E"
+                        android:textSize="16sp" />
+
+                    <ImageView
+                        android:id="@+id/arrow_indicator_address"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_frame_light_brown"
+                        android:minWidth="25dp"
+                        android:minHeight="25dp"
+                        android:scaleType="center"
+                        android:src="@drawable/arrow"
+                        app:tint="@color/dark_brown" />
+
+
+                </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_select_address"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="visible"
+                    android:nestedScrollingEnabled="false"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:itemCount="3"
+                    tools:listitem="@layout/layout_item_country_province_city"
+                    tools:visibility="visible" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/bg_white_r30"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginVertical="5dp"
+                    android:importantForAccessibility="no"
+                    android:minWidth="20dp"
+                    android:minHeight="20dp"
+                    android:src="@drawable/zip_location" />
+
+                <EditText
+                    android:id="@+id/et_zip_code"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:dropDownVerticalOffset="40dp"
+                    android:hint="@string/zip_code"
+                    android:inputType="number"
+                    android:minHeight="60dp"
+                    android:textColor="#252525"
+                    android:textColorHint="@color/hint_text_color" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/bg_new_color_r30"
+                android:orientation="vertical"
+                android:paddingHorizontal="5dp"
+                android:paddingVertical="5dp">
+
+                <LinearLayout
+                    android:id="@+id/ll_country_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="5dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/excon_regular"
+                        android:text="Country"
+                        android:textColor="#58291E"
+                        android:textSize="16sp" />
+
+                    <ImageView
+                        android:id="@+id/arrow_indicator_country"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_frame_light_brown"
+                        android:minWidth="25dp"
+                        android:minHeight="25dp"
+                        android:scaleType="center"
+                        android:src="@drawable/arrow"
+                        app:tint="@color/dark_brown" />
+
+
+                </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_select_country"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="visible"
+                    android:nestedScrollingEnabled="false"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:itemCount="3"
+                    tools:listitem="@layout/layout_item_country_province_city"
+                    tools:visibility="visible" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/bg_new_color_r30"
+                android:orientation="vertical"
+                android:paddingHorizontal="5dp"
+                android:paddingVertical="5dp">
+
+                <LinearLayout
+                    android:id="@+id/ll_province_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="5dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/excon_regular"
+                        android:text="Province"
+                        android:textColor="#58291E"
+                        android:textSize="16sp" />
+
+                    <ImageView
+                        android:id="@+id/arrow_indicator_province"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_frame_light_brown"
+                        android:minWidth="25dp"
+                        android:minHeight="25dp"
+                        android:scaleType="center"
+                        android:src="@drawable/arrow"
+                        app:tint="@color/dark_brown" />
+
+
+                </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_select_province"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="visible"
+                    android:nestedScrollingEnabled="false"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:itemCount="3"
+                    tools:listitem="@layout/layout_item_country_province_city"
+                    tools:visibility="visible" />
+
+            </LinearLayout>
+
+            <!-- City ID -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/bg_new_color_r30"
+                android:orientation="vertical"
+                android:paddingHorizontal="5dp"
+                android:paddingVertical="5dp">
+
+                <LinearLayout
+                    android:id="@+id/ll_city_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="5dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/excon_regular"
+                        android:text="City"
+                        android:textColor="#58291E"
+                        android:textSize="16sp" />
+
+                    <ImageView
+                        android:id="@+id/arrow_indicator_city"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_frame_light_brown"
+                        android:minWidth="25dp"
+                        android:minHeight="25dp"
+                        android:scaleType="center"
+                        android:src="@drawable/arrow"
+                        app:tint="@color/dark_brown" />
+
+
+                </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_select_city"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="visible"
+                    android:nestedScrollingEnabled="false"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:itemCount="3"
+                    tools:listitem="@layout/layout_item_country_province_city"
+                    tools:visibility="visible" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/bg_white_r30"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginVertical="5dp"
+                    android:importantForAccessibility="no"
+                    android:minWidth="20dp"
+                    android:minHeight="20dp"
+                    android:src="@drawable/address_location" />
+
+                <EditText
+                    android:id="@+id/et_address"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:autofillHints="postalAddress"
+                    android:background="@null"
+                    android:dropDownVerticalOffset="40dp"
+                    android:hint="@string/address"
+                    android:inputType="textPostalAddress"
+                    android:minHeight="60dp"
+                    android:textColor="#252525"
+                    android:textColorHint="@color/hint_text_color" />
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/bg_white_r30"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginVertical="5dp"
+                    android:importantForAccessibility="no"
+                    android:src="@drawable/user" />
+
+                <EditText
+                    android:id="@+id/et_nombre"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:autofillHints="username"
+                    android:background="@null"
+                    android:hint="@string/name"
+                    android:inputType="textPersonName"
+                    android:minHeight="60dp"
+                    android:textColor="#252525"
+                    android:textColorHint="@color/hint_text_color" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/bg_white_r30"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginVertical="5dp"
+                    android:importantForAccessibility="no"
+                    android:src="@drawable/phone" />
+
+                <EditText
+                    android:id="@+id/et_numero"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:autofillHints="phone"
+                    android:background="@null"
+                    android:dropDownVerticalOffset="40dp"
+                    android:hint="@string/_322515"
+                    android:inputType="phone"
+                    android:minHeight="60dp"
+                    android:textColor="#252525"
+                    android:textColorHint="@color/hint_text_color" />
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/bg_white_r30"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginVertical="5dp"
+                    android:importantForAccessibility="no"
+                    android:src="@drawable/email" />
+
+                <EditText
+                    android:id="@+id/et_correo"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:autofillHints="emailAddress"
+                    android:background="@null"
+                    android:dropDownVerticalOffset="40dp"
+                    android:hint="@string/nombre_sitio_com"
+                    android:inputType="textEmailAddress"
+                    android:minHeight="60dp"
+                    android:textColor="#252525"
+                    android:textColorHint="@color/hint_text_color" />
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+
+</LinearLayout>

@@ -1,0 +1,554 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".feature.shop.searchProduct.presentation.FilterSelectionFragment">
+
+    <include
+        android:id="@+id/header"
+        layout="@layout/header" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:background="@drawable/bg_search_et"
+                android:gravity="center"
+                android:minHeight="50dp">
+
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:importantForAccessibility="no"
+                    android:paddingHorizontal="10dp"
+                    android:paddingVertical="5dp"
+                    android:src="@drawable/search"
+                    app:tint="@color/blue" />
+
+                <EditText
+                    android:id="@+id/coffee_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:fontFamily="@font/excon_regular"
+                    android:hint="@string/buscar_por_tipo_de_caf"
+                    android:inputType="text"
+                    android:minHeight="50dp"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:textColor="@color/brown"
+                    android:textColorHint="#C1BEBD"
+                    android:textSize="18sp"
+                    android:autofillHints="name" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/tv_toster"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_salmon_r30"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="16dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:fontFamily="@font/excon_regular"
+                        android:gravity="center_vertical"
+                        android:minHeight="50dp"
+                        android:text="@string/toaster"
+                        android:textColor="@color/brown"
+                        android:textSize="18sp" />
+
+                    <ImageView
+                        android:id="@+id/add_toster"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="5dp"
+                        android:src="@drawable/add" />
+                </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_select_provider"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:itemCount="3"
+                    tools:listitem="@layout/layout_item_check_box"
+                    tools:visibility="visible" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/tv_origen"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_salmon_r30"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="16dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:fontFamily="@font/excon_regular"
+                        android:gravity="center_vertical"
+                        android:minHeight="50dp"
+                        android:text="@string/origen"
+                        android:textColor="@color/brown"
+                        android:textSize="18sp" />
+
+                    <ImageView
+                        android:id="@+id/add_origen"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="5dp"
+                        android:src="@drawable/add" />
+                </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_select_origen"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:itemCount="3"
+                    tools:listitem="@layout/layout_item_check_box"
+                    tools:visibility="visible" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/tv_sca"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/container_sca"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_salmon_r30"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="16dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:drawablePadding="10dp"
+                        android:fontFamily="@font/excon_regular"
+                        android:gravity="center_vertical"
+                        android:minHeight="50dp"
+                        android:text="@string/sca"
+                        android:textColor="@color/brown"
+                        android:textSize="18sp"
+                        app:drawableStartCompat="@drawable/cup" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="5dp"
+                        android:src="@drawable/filter" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_sca"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="32dp"
+                    android:layout_marginEnd="16dp"
+                    android:orientation="vertical"
+                    android:padding="5dp"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/linearLayout21"
+                    tools:visibility="visible">
+
+                    <com.doubleclick.rovleapp.views.rubberpicker.RubberRangePicker
+                        android:id="@+id/rubberRangePickerSCA"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        app:highlightDefaultThumbOnTouchColor="@color/brown100"
+                        app:highlightTrackColor="@color/brown"
+                        app:initialEndValue="100"
+                        app:initialStartValue="80"
+                        app:layout_constraintBottom_toTopOf="@+id/rubberRangePickerValueHeading"
+                        app:maxValue="100"
+                        app:minValue="80"
+                        app:normalTrackColor="#AAAAAA"
+                        app:normalTrackWidth="2dp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="10dp"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/bg_frame_light_brown"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/excon_regular"
+                                android:padding="5dp"
+                                android:text="@string/min"
+                                android:textColor="@color/dark_brown"
+                                android:textSize="18sp" />
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:id="@+id/tl_min"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:minHeight="40dp"
+                                app:boxBackgroundColor="@color/white"
+                                app:boxBackgroundMode="none"
+                                app:boxStrokeWidth="0dp"
+                                app:boxStrokeWidthFocused="0dp"
+                                app:errorEnabled="true"
+                                app:hintEnabled="false">
+
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/min_sca"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:background="@null"
+                                    android:drawablePadding="5dp"
+                                    android:fontFamily="@font/excon_medium"
+                                    android:gravity="center"
+                                    android:hint="@string/four_dashes"
+                                    android:imeOptions="actionDone"
+                                    android:inputType="numberDecimal"
+                                    android:paddingStart="10dp"
+                                    android:paddingEnd="10dp"
+                                    android:textColor="@color/dark_brown"
+                                    android:textColorHint="@color/brown" />
+
+                            </com.google.android.material.textfield.TextInputLayout>
+                        </LinearLayout>
+
+
+                        <View
+                            android:layout_width="15dp"
+                            android:layout_height="1dp"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="5dp"
+                            android:layout_marginEnd="5dp"
+                            android:background="@color/dark_brown" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/bg_frame_light_brown"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/excon_regular"
+                                android:padding="5dp"
+                                android:text="@string/max"
+                                android:textColor="@color/dark_brown"
+                                android:textSize="18sp" />
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:id="@+id/tl_max"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:minHeight="40dp"
+                                app:boxBackgroundColor="@color/white"
+                                app:boxBackgroundMode="none"
+                                app:boxStrokeWidth="0dp"
+                                app:boxStrokeWidthFocused="0dp"
+                                app:errorEnabled="true"
+                                app:hintEnabled="false">
+
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/max_sca"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:background="@null"
+                                    android:fontFamily="@font/excon_medium"
+                                    android:gravity="center"
+                                    android:hint="@string/four_dashes"
+                                    android:imeOptions="actionDone"
+                                    android:inputType="numberDecimal"
+                                    android:paddingStart="10dp"
+                                    android:paddingEnd="10dp"
+                                    android:textColor="@color/dark_brown"
+                                    android:textColorHint="@color/brown" />
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/tv_altitud"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_salmon_r30"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="16dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:fontFamily="@font/excon_regular"
+                        android:gravity="center_vertical"
+                        android:minHeight="50dp"
+                        android:text="@string/altitud"
+                        android:textColor="@color/brown"
+                        android:textSize="18sp" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="5dp"
+                        android:src="@drawable/filter" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_altitud"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:orientation="vertical"
+                    android:padding="5dp"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/linearLayout21"
+                    tools:visibility="visible">
+
+                    <com.doubleclick.rovleapp.views.rubberpicker.RubberRangePicker
+                        android:id="@+id/rubberRangePickerAltitud"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        app:highlightDefaultThumbOnTouchColor="@color/brown100"
+                        app:highlightTrackColor="@color/brown"
+                        app:initialEndValue="8000"
+                        app:initialStartValue="0"
+                        app:layout_constraintBottom_toTopOf="@+id/rubberRangePickerValueHeading"
+                        app:maxValue="8000"
+                        app:minValue="0"
+                        app:normalTrackColor="#AAAAAA"
+                        app:normalTrackWidth="2dp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="10dp"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/bg_frame_light_brown"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/excon_regular"
+                                android:padding="5dp"
+                                android:text="@string/min"
+                                android:textColor="@color/dark_brown"
+                                android:textSize="18sp" />
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:id="@+id/tl_min_alt"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:minHeight="40dp"
+                                app:boxBackgroundColor="@color/white"
+                                app:boxBackgroundMode="none"
+                                app:boxStrokeWidth="0dp"
+                                app:boxStrokeWidthFocused="0dp"
+                                app:errorEnabled="true"
+                                app:hintEnabled="false">
+
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/min_altitude"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:background="@null"
+                                    android:drawablePadding="5dp"
+                                    android:fontFamily="@font/excon_medium"
+                                    android:gravity="center"
+                                    android:hint="@string/four_dashes"
+                                    android:imeOptions="actionDone"
+                                    android:inputType="numberDecimal"
+                                    android:paddingStart="10dp"
+                                    android:paddingEnd="10dp"
+                                    android:textColor="@color/dark_brown"
+                                    android:textColorHint="@color/brown" />
+
+                            </com.google.android.material.textfield.TextInputLayout>
+                        </LinearLayout>
+
+
+                        <View
+                            android:layout_width="15dp"
+                            android:layout_height="1dp"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="5dp"
+                            android:layout_marginEnd="5dp"
+                            android:background="@color/dark_brown" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/bg_frame_light_brown"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/excon_regular"
+                                android:padding="5dp"
+                                android:text="@string/max"
+                                android:textColor="@color/dark_brown"
+                                android:textSize="18sp" />
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:id="@+id/tl_max_alt"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:minHeight="40dp"
+                                app:boxBackgroundColor="@color/white"
+                                app:boxBackgroundMode="none"
+                                app:boxStrokeWidth="0dp"
+                                app:boxStrokeWidthFocused="0dp"
+                                app:errorEnabled="true"
+                                app:hintEnabled="false">
+
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/max_altitude"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:background="@null"
+                                    android:drawablePadding="5dp"
+                                    android:fontFamily="@font/excon_medium"
+                                    android:gravity="center"
+                                    android:hint="@string/four_dashes"
+                                    android:imeOptions="actionDone"
+                                    android:inputType="numberDecimal"
+                                    android:paddingStart="10dp"
+                                    android:paddingEnd="10dp"
+                                    android:textColor="@color/dark_brown"
+                                    android:textColorHint="@color/brown" />
+
+                            </com.google.android.material.textfield.TextInputLayout>
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+            <TextView
+                android:id="@+id/confirm_informations"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginVertical="20dp"
+                android:layout_marginBottom="25dp"
+                android:background="@drawable/bg_brown_r50"
+                android:gravity="center"
+                android:minHeight="50dp"
+                android:text="@string/buscar"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</LinearLayout>

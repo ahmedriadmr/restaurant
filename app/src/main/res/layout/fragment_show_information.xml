@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".feature.subscriptions.providerList.presentation.ShowSubscriptionInformationFragment">
+
+
+    <include
+        android:id="@+id/header"
+        layout="@layout/header" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/bg_salmon_r30"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/details"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="16dp">
+
+                    <TextView
+                        android:id="@+id/receipt_Id"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:padding="10dp"
+                        android:text="@string/factura_id"
+                        android:textColor="@color/dark_brown" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minHeight="50dp"
+                        android:layout_marginVertical="8dp"
+                        android:background="@drawable/bg_salmon_a50_r30"
+                        android:orientation="horizontal"
+                        android:padding="16dp">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/excon_regular"
+                            android:text="@string/plan"
+                            android:textColor="@color/hint_text_color"
+                            android:textSize="15sp" />
+
+                        <TextView
+                            android:id="@+id/plan_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/excon_bold"
+                            tools:text="el tinin"
+                            android:textColor="@color/dark_brown"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minHeight="50dp"
+                        android:layout_marginVertical="8dp"
+                        android:background="@drawable/bg_salmon_a50_r30"
+                        android:orientation="horizontal"
+                        android:padding="16dp">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/excon_regular"
+                            android:text="@string/precio"
+                            android:textColor="@color/hint_text_color"
+                            android:textSize="15sp" />
+
+
+                        <TextView
+                            android:id="@+id/price"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/excon_bold"
+                            tools:text="25.00$"
+                            android:textColor="@color/dark_brown"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minHeight="50dp"
+                        android:layout_marginVertical="8dp"
+                        android:background="@drawable/bg_salmon_a50_r30"
+                        android:orientation="horizontal"
+                        android:padding="16dp">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/excon_regular"
+                            android:text="@string/proveedor"
+                            android:textColor="@color/hint_text_color"
+                            android:textSize="15sp" />
+
+
+                        <TextView
+                            android:id="@+id/provider_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/excon_bold"
+                            tools:text="yebala coffee"
+                            android:textColor="@color/dark_brown"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="8dp"
+                        android:background="@drawable/bg_salmon_a50_r30"
+                        android:orientation="horizontal"
+                        android:padding="16dp">
+
+                        <com.doubleclick.rovleapp.views.customSpinner.CustomSpinner
+                            android:id="@+id/spinner_period"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_margin="5dp"
+                            android:layout_marginStart="2dp"
+                            android:layout_weight="1"
+                            android:background="@null"
+                            android:dropDownVerticalOffset="40dp"
+                            tools:listitem="@layout/text_spinner_layout" />
+
+                        <ImageView
+                            android:id="@+id/arrow_coffee_spinner"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:padding="5dp"
+                            android:src="@drawable/add"
+                            android:importantForAccessibility="no" />
+
+                    </LinearLayout>
+
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="8dp"
+                        android:background="@drawable/bg_salmon_a50_r30"
+                        android:orientation="horizontal"
+                        android:padding="16dp">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/excon_regular"
+                            android:text="@string/shipping"
+                            android:textColor="@color/hint_text_color"
+                            android:textSize="15sp" />
+
+
+
+                        <TextView
+                            android:id="@+id/shipping"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/excon_bold"
+                            tools:text="7.00$"
+                            android:textColor="@color/dark_brown"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="8dp"
+                        android:background="@drawable/bg_salmon_a50_r30"
+                        android:orientation="horizontal"
+                        android:padding="16dp">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/chaumont_scriptbeta_regular"
+                            android:text="@string/total_with_taxes"
+                            android:textColor="@color/brown"
+                            android:textSize="24sp" />
+
+
+                        <TextView
+                            android:id="@+id/total_cost"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/chaumont_scriptbeta_regular"
+                            tools:text="@string/_47_30"
+                            android:textColor="@color/blue"
+                            android:textSize="24sp" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/confirm_information"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="60dp"
+                    android:layout_margin="16dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_blue_r20"
+                    android:gravity="center"
+                    android:text="@string/proceder_al_pago"
+                    android:textColor="@color/dark_brown"
+                    android:textSize="18sp" />
+
+            </LinearLayout>
+
+    </ScrollView>
+
+
+</LinearLayout>

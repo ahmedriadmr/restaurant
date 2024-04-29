@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".feature.shop.cartList.CartListFragment">
+
+        <include
+            android:id="@+id/header"
+            layout="@layout/header" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_my_cart"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:itemCount="3"
+            tools:listitem="@layout/layout_item_cart_list" />
+        <LinearLayout
+            android:id="@+id/emptyTextView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:visibility="gone"
+            android:gravity="center">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/el_carrito_esta_vacio"
+            android:textAppearance="?android:textAppearanceMedium"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+        </LinearLayout>
+
+
+</LinearLayout>

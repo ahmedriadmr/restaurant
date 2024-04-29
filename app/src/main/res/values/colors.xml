@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="blue">#FF3EB9EF</color>
+    <color name="salmon">#FFEEE4</color>
+    <color name="blue_text_color">#FF3EB9EF</color>
+    <color name="blue_dark">#2D92CD</color>
+    <color name="brown">#44211D</color>
+    <color name="brown100">#935644</color>
+    <color name="colorless">#00FFFFFF</color>
+    <color name="brwon_light">#B7816C</color>
+    <color name="text_color">#252525</color>
+    <color name="text_color_green">#03C655</color>
+    <color name="yellow_star">#FAD11A</color>
+    <color name="text_color_brown">#44211D</color>
+    <color name="light_brown">#DBB29D</color>
+    <color name="dark_brown">#3F2621</color>
+    <color name="blue_light">#8BE7FA</color>
+    <color name="hint_et_color">#252525</color>
+    <color name="very_light_brown">#FFF5EF</color>
+    <color name="frame_et">#DBB29D</color>
+    <color name="brown200">#B7816C</color>
+    <color name="h_line">#0B377266</color>
+    <color name="pink_light">#FEE7D6</color>
+    <color name="hint_text_color">#C1BEBD</color>
+    <color name="bg_color_screens">#E1F7FF</color>
+    <color name="beige">#FFF7F2</color>
+    <color name="blue_simple">#E7F2F8</color>
+    <color name="blueLight">#8BD5F5</color>
+    <color name="red">#E30000</color>
+    <color name="bg_color_black">#1A1A1A</color>
+    <color name="gray">#D1D1D6</color>
+    <color name="gray_dark">#8E8E93</color>
+    <color name="green">#1F9120</color>
+    <color name="yellow">#F3FD00</color>
+
+    <integer-array name="progress_colors">
+        <item>@color/green</item>
+        <item>@color/yellow</item>
+        <item>@color/red</item>
+        <item>@color/blue</item>
+    </integer-array>
+</resources>

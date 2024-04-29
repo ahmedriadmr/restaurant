@@ -1,0 +1,7 @@
+<resources>
+    <array name="pause_periods">
+        <item>1 Month</item>
+        <item>3 Months</item>
+        <item>6 Months</item>
+    </array>
+</resources>

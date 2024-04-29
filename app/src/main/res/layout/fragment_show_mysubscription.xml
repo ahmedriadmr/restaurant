@@ -1,0 +1,535 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".feature.subscriptions.providerList.presentation.ShowSubscriptionInformationFragment">
+
+    <include
+        android:id="@+id/header"
+        layout="@layout/header" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/ll_image_date_arrived"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:orientation="horizontal"
+                android:visibility="gone"
+                tools:visibility="visible">
+
+                <ImageView
+                    android:id="@+id/Icon1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:importantForAccessibility="no"
+                    android:minWidth="24dp"
+                    android:minHeight="24dp"
+                    android:src="@drawable/ic_play_medium" />
+
+                <TextView
+                    android:id="@+id/date_arrive"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:fontFamily="@font/excon_regular"
+                    android:src="@drawable/ic_play_medium"
+                    android:textColor="@color/dark_brown"
+                    android:textSize="14sp"
+                    tools:text=" Arrived Date" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/details"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_salmon_r30"
+                android:orientation="vertical"
+                android:layout_marginBottom="5dp"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/plan_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/excon_regular"
+                        android:textColor="#44211D"
+                        android:textFontWeight="700"
+                        android:textSize="16sp"
+                        tools:text="Darryl Nicolas " />
+
+                    <TextView
+                        android:id="@+id/provider_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/excon_regular"
+                        android:textColor="#44211D"
+                        android:textFontWeight="400"
+                        android:textSize="16sp"
+                        tools:text="/yebala coffe" />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="8dp"
+                    android:background="@drawable/bg_salmon_a50_r30"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/excon_regular"
+                        android:text="@string/description"
+                        android:textColor="@color/dark_brown"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/description"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:fontFamily="@font/excon_regular"
+                        android:textColor="@color/dark_brown"
+                        android:textSize="14sp"
+                        tools:text="Dolor mollitia in ut libero voluptas. Porro perferendis qui consequatur. Atque voluptates facilis eaque. Vel mollitia aut corporis. Qui praesentium ipsa dicta qui qui totam dicta nisi.Odit ducimus fugit quisquam. Consequatur ea ut natus. " />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="8dp"
+                    android:background="@drawable/bg_salmon_a50_r30"
+                    android:orientation="horizontal"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/excon_regular"
+                        android:text="@string/plan"
+                        android:textColor="@color/dark_brown"
+                        android:textSize="14sp" />
+
+
+                    <TextView
+                        android:id="@+id/planname"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/excon_regular"
+                        android:textColor="@color/dark_brown"
+                        android:textFontWeight="700"
+                        android:textSize="14sp"
+                        tools:text="mctyyna" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="8dp"
+                    android:background="@drawable/bg_salmon_a50_r30"
+                    android:orientation="horizontal"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/excon_regular"
+                        android:text="@string/entrega_peri_dica"
+                        android:textColor="@color/dark_brown"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/delivery_periodic"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/excon_regular"
+                        android:textColor="@color/dark_brown"
+                        android:textFontWeight="700"
+                        android:textSize="14sp"
+                        tools:text="3 Month" />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="8dp"
+                    android:background="@drawable/bg_salmon_a50_r30"
+                    android:orientation="horizontal"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/excon_regular"
+                        android:text="@string/fecha_entrega"
+                        android:textColor="@color/dark_brown"
+                        android:textSize="14sp" />
+
+
+                    <TextView
+                        android:id="@+id/delivery_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/excon_regular"
+                        android:textColor="@color/dark_brown"
+                        android:textFontWeight="700"
+                        android:textSize="14sp"
+                        tools:text="mon Nov 07 2023" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="8dp"
+                    android:background="@drawable/bg_salmon_a50_r30"
+                    android:orientation="horizontal"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/excon_regular"
+                        android:text="@string/tama_o"
+                        android:textColor="@color/dark_brown"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/size"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/excon_regular"
+                        android:textColor="@color/dark_brown"
+                        android:textFontWeight="700"
+                        android:textSize="14sp"
+                        tools:text="xL (1/2 kg)" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="8dp"
+                    android:background="@drawable/bg_salmon_a50_r30"
+                    android:orientation="horizontal"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/excon_regular"
+                        android:text="@string/precio"
+                        android:textColor="@color/dark_brown"
+                        android:textSize="14sp" />
+
+
+                    <TextView
+                        android:id="@+id/price"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/excon_regular"
+                        android:textColor="@color/dark_brown"
+                        android:textFontWeight="700"
+                        android:textSize="14sp"
+                        tools:text="25.00$" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="8dp"
+                    android:background="@drawable/bg_salmon_a50_r30"
+                    android:orientation="horizontal"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        android:fontFamily="@font/excon_regular"
+                        android:text="@string/note"
+                        android:textColor="@color/dark_brown"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/note"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/excon_regular"
+                        android:textColor="@color/dark_brown"
+                        android:textFontWeight="700"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="8dp"
+                    android:background="@drawable/bg_salmon_a50_r30"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/excon_regular"
+                            android:text="@string/direcci_n"
+                            android:textColor="#252525"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:id="@+id/addressType"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/excon_regular"
+                            android:textColor="#252525"
+                            android:textSize="14sp"
+                            tools:text="Take Away" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/address"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/excon_regular"
+                            android:gravity="end"
+                            android:textColor="@color/hint_text_color"
+                            android:textSize="14sp"
+                            tools:text="5842 Ora Manor" />
+                    </LinearLayout>
+
+                </LinearLayout>
+                <TextView
+                    android:id="@+id/go_to_pay"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="60dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/bg_brown_btn"
+                    android:gravity="center"
+                    android:text="@string/proceder_al_pago"
+                    android:textColor="@color/white"
+                    android:visibility="gone"
+                    android:textSize="18sp" />
+                <HorizontalScrollView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:scrollbars="none">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="12dp"
+                            android:orientation="vertical">
+
+                            <FrameLayout
+                                android:id="@+id/edit"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:minWidth="74dp"
+                                android:minHeight="74dp">
+
+                                <ImageView
+                                    android:id="@+id/pencilIcon1"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:importantForAccessibility="no"
+                                    android:minWidth="32dp"
+                                    android:minHeight="32dp"
+                                    android:src="@drawable/ic_pencil" />
+
+
+                            </FrameLayout>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:fontFamily="@font/excon_regular"
+                                android:text="@string/editar"
+                                android:textColor="@color/dark_brown"
+                                android:textSize="14sp" />
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="12dp"
+                            android:layout_marginEnd="12dp"
+                            android:orientation="vertical">
+
+                            <FrameLayout
+                                android:id="@+id/change"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:minWidth="74dp"
+                                android:minHeight="74dp">
+
+                                <ImageView
+                                    android:id="@+id/changeIcon"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:importantForAccessibility="no"
+                                    android:minWidth="32dp"
+                                    android:minHeight="32dp"
+                                    android:src="@drawable/ic_arrowscounterclockwise" />
+                            </FrameLayout>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:fontFamily="@font/excon_regular"
+                                android:text="@string/cambiar"
+                                android:textColor="@color/dark_brown"
+                                android:textSize="14sp" />
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="12dp"
+                            android:layout_marginEnd="12dp"
+                            android:orientation="vertical">
+
+                            <FrameLayout
+                                android:id="@+id/pause_play"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:minWidth="74dp"
+                                android:minHeight="74dp">
+
+                                <ImageView
+                                    android:id="@+id/status_icon"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:importantForAccessibility="no"
+                                    android:minWidth="32dp"
+                                    android:minHeight="32dp"
+                                    android:src="@drawable/ic_pause" />
+                            </FrameLayout>
+
+                            <TextView
+                                android:id="@+id/status_title"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:fontFamily="@font/excon_regular"
+                                android:text="@string/pausa"
+                                android:textColor="@color/dark_brown"
+                                android:textSize="14sp" />
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="12dp"
+                            android:orientation="vertical">
+
+                            <FrameLayout
+                                android:id="@+id/cancel"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:minWidth="74dp"
+                                android:minHeight="74dp">
+
+                                <ImageView
+                                    android:id="@+id/cancelIcon"
+                                    android:layout_width="32dp"
+                                    android:layout_height="32dp"
+                                    android:layout_gravity="center"
+                                    android:importantForAccessibility="no"
+                                    android:src="@drawable/ic_cancel" />
+                            </FrameLayout>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:fontFamily="@font/excon_regular"
+                                android:text="@string/cancel"
+                                android:textColor="@color/dark_brown"
+                                android:textSize="14sp" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </HorizontalScrollView>
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>
+

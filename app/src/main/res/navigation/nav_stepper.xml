@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_stepper"
+    app:startDestination="@id/forgetPasswordStepOneFragment">
+
+    <fragment
+        android:id="@+id/forgetPasswordStepOneFragment"
+        android:name="com.doubleclick.rovleapp.feature.auth.forgetPassword.presentations.ForgetPasswordStepOneFragment"
+        android:label="fragment_forget_password_step_one"
+        tools:layout="@layout/fragment_forget_password_step_one">
+        <action
+            android:id="@+id/action_forgetPasswordStepOneFragment_to_forgetPasswordStepTwoFragment"
+            app:destination="@id/forgetPasswordStepTwoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/forgetPasswordStepTwoFragment"
+        android:name="com.doubleclick.rovleapp.feature.auth.forgetPassword.presentations.ForgetPasswordStepTwoFragment"
+        android:label="fragment_forget_password_step_two"
+        tools:layout="@layout/fragment_forget_password_step_two">
+        <action
+            android:id="@+id/action_forgetPasswordStepTwoFragment_to_forgetPasswordStepThreeFragment"
+            app:destination="@id/forgetPasswordStepThreeFragment" />
+        <argument
+            android:name="email"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/forgetPasswordStepThreeFragment"
+        android:name="com.doubleclick.rovleapp.feature.auth.forgetPassword.presentations.ForgetPasswordStepThreeFragment"
+        android:label="fragment_forget_password_step_three"
+        tools:layout="@layout/fragment_forget_password_step_three" >
+        <argument
+            android:name="email"
+            app:argType="string" />
+        <argument
+            android:name="otp"
+            app:argType="string" />
+    </fragment>
+</navigation>

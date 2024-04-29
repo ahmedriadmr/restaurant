@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "337958910840",
+    "project_id": "rovle-coffee",
+    "storage_bucket": "rovle-coffee.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:337958910840:android:070f076ba91c8c9d6b668d",
+        "android_client_info": {
+          "package_name": "com.doubleclick.rovleapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAHmcnYbkYFSe_KbMOj0ZIPM_uXXT5g9uI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

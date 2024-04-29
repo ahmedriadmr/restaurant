@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_user_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.doubleclick.rovleapp.activities.ui.HomeFragment"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/cartFragment"
+        android:name="com.doubleclick.rovleapp.activities.ui.CartFragment"
+        tools:layout="@layout/fragment_cart_new" >
+        <action
+            android:id="@+id/action_cartFragment_to_checkoutFragment"
+            app:destination="@id/checkoutFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/checkoutFragment"
+        android:name="com.doubleclick.rovleapp.activities.ui.CheckoutFragment"
+        tools:layout="@layout/fragment_checkout" />
+    <fragment
+        android:id="@+id/userProfileFragment"
+        android:name="com.doubleclick.rovleapp.activities.ui.UserProfileFragment"
+        tools:layout="@layout/fragment_user_profile">
+        <action
+            android:id="@+id/action_userProfileFragment_to_accountFragment"
+            app:destination="@id/accountFragment" />
+        <action
+            android:id="@+id/action_userProfileFragment_to_myOrdersFragment"
+            app:destination="@id/myOrdersFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/accountFragment"
+        android:name="com.doubleclick.rovleapp.activities.ui.AccountFragment"
+        tools:layout="@layout/fragment_account" />
+    <fragment
+        android:id="@+id/myOrdersFragment"
+        android:name="com.doubleclick.rovleapp.activities.ui.MyOrdersFragment"
+        tools:layout="@layout/fragment_my_orders" />
+</navigation>

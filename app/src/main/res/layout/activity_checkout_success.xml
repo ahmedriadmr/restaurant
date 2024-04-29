@@ -1,0 +1,26 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/success_activity"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:layout_margin="50dp">
+
+    <ImageView
+        android:id="@+id/success_image"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:src="@drawable/c"
+        android:importantForAccessibility="no" />
+
+    <TextView
+        android:id="@+id/payment_success_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/the_payment_completed_successfully_n_we_are_preparing_your_order"
+        android:textAlignment="center"
+        android:textColor="?android:textColorSecondary"
+        android:textSize="16sp" />
+
+</LinearLayout>

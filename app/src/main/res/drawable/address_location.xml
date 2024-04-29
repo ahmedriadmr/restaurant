@@ -1,0 +1,49 @@
+<vector
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="25dp"
+    android:height="22dp"
+    android:viewportWidth="25"
+    android:viewportHeight="22">
+
+    <!-- Existing Paths -->
+    <path
+        android:pathData="M7 15.5H15"
+        android:strokeWidth="1"
+        android:fillColor="#00000000"
+        android:strokeColor="#3EB9EF"
+        android:strokeLineCap="round"/>
+
+    <path
+        android:strokeWidth="1"
+        android:pathData="M7 12.5H13"
+        android:fillColor="#00000000"
+        android:strokeColor="#3EB9EF"
+        android:strokeLineCap="round"/>
+
+    <path
+        android:strokeWidth="1"
+        android:pathData="M7 9.5H11"
+        android:fillColor="#00000000"
+        android:strokeColor="#3EB9EF"
+        android:strokeLineCap="round"/>
+
+    <path
+        android:strokeWidth="1"
+        android:pathData="M4.5 9.65625H3.57812C3.0407 9.65625 2.77199 9.65625 2.54983 9.60493C1.80499 9.43286 1.22339 8.85126 1.05132 8.10642C1 7.88426 1 7.61555 1 7.07812V6.5C1 5.39543 1.89543 4.5 3 4.5V4.5M3 4.5V4.5C4.10457 4.5 5 5.39543 5 6.5V15.5C5 17.3856 5 18.3284 5.58579 18.9142C6.17157 19.5 7.11438 19.5 9 19.5H14C14.9319 19.5 15.3978 19.5 15.7654 19.3478C16.2554 19.1448 16.6448 18.7554 16.8478 18.2654C17 17.8978 17 17.4319 17 16.5V16.5M3 4.5H11"
+        android:fillColor="#00000000"
+        android:strokeColor="#3EB9EF"/>
+
+    <path
+        android:strokeWidth="1"
+        android:pathData="M23 6.5C23 9.36647 21.136 12.3661 19.486 14.4599C18.4755 15.7421 17.9703 16.3832 17 16.3832C16.0297 16.3832 15.5245 15.7421 14.514 14.4599C12.864 12.3661 11 9.36646 11 6.5C11 3.18629 13.6863 0.5 17 0.5C20.3137 0.5 23 3.18629 23 6.5Z"
+        android:fillColor="#00000000"
+        android:strokeColor="#3EB9EF"/>
+
+
+    <!-- Additional Path -->
+    <path
+        android:strokeWidth="1"
+        android:pathData="M17,7m-2.571,0a2.571,2.571 0,1 1,5.143 0a2.571,2.571 0,1 1,-5.143 0"
+        android:fillColor="#00000000"
+        android:strokeColor="#3EB9EF"/>
+</vector>

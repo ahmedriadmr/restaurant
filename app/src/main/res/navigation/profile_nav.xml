@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_profile"
+    app:startDestination="@id/userDataFragment">
+    <fragment
+        android:id="@+id/userDataFragment"
+        android:name="com.doubleclick.rovleapp.feature.profile.presentation.UserDataFragment"
+        android:label="fragment_user_data"
+        tools:layout="@layout/fragment_user_data">
+        <action
+            android:id="@+id/action_userDataFragment_to_facturaFragment"
+            app:destination="@id/facturaFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out" />
+        <action
+            android:id="@+id/action_userDataFragment_to_yourOrdersFragment"
+            app:destination="@id/yourOrdersFragment" />
+
+        <action
+            android:id="@+id/action_userDataFragment_to_AddressFragment"
+            app:destination="@id/AddressFragment"
+            app:launchSingleTop="true" />
+
+        <action
+            android:id="@+id/action_userDataFragment_to_productsInOrderFragment"
+            app:destination="@id/productsInOrderFragment" />
+    </fragment>
+    <dialog
+        android:id="@+id/facturaFragment"
+        android:name="com.doubleclick.rovleapp.feature.profile.presentation.FacturaFragment"
+        android:label="FacturaFragment"
+        tools:layout="@layout/fragment_factura">
+
+        <argument
+            android:name="orderId"
+            app:argType="string" />
+    </dialog>
+    <fragment
+        android:id="@+id/yourOrdersFragment"
+        android:name="com.doubleclick.rovleapp.feature.profile.presentation.AllOrdersFragment"
+        android:label="YourOrdersFragment"
+        tools:layout="@layout/fragment_yourorder">
+        <action
+            android:id="@+id/action_yourOrdersFragment_to_facturaFragment"
+            app:destination="@id/facturaFragment" />
+        <action
+            android:id="@+id/action_yourOrdersFragment_to_productsInOrderFragment"
+            app:destination="@id/productsInOrderFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/ratingOrderFragment"
+        android:name="com.doubleclick.rovleapp.feature.profile.presentation.RatingOrderFragment"
+        android:label="RatingOrderFragment"
+        tools:layout="@layout/fragment_rating_order">
+        <argument
+            android:name="productId"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/AddressFragment"
+        android:name="com.doubleclick.rovleapp.feature.profile.presentation.AddressFragment"
+        android:label="AddressFragment"
+        tools:layout="@layout/fragment_address">
+
+        <action
+            android:id="@+id/action_AddressFragment_to_userDataFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/userDataFragment" />
+        <argument
+            android:name="addressId"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/productsInOrderFragment"
+        android:name="com.doubleclick.rovleapp.feature.profile.presentation.ProductsInOrderFragment"
+        android:label="ProductsInOrderFragment"
+        tools:layout="@layout/fragment_products_in_order">
+        <argument
+            android:name="orderId"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_productsInOrderFragment_to_ratingOrderFragment"
+            app:destination="@id/ratingOrderFragment" />
+    </fragment>
+
+</navigation>

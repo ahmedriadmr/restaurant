@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="48dp"
+    android:background="@drawable/c"
+    android:clickable="true"
+    android:contentDescription=""
+    android:focusable="true"
+    android:minWidth="267dp">
+
+    <ImageView
+        android:layout_width="227dp"
+        android:layout_height="26dp"
+        android:layout_gravity="center"
+        android:duplicateParentState="true"
+        android:src="@drawable/c"
+        android:contentDescription="@null" />
+</FrameLayout>

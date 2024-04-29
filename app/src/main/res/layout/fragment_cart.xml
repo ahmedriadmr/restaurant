@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".feature.shop.cart.CartFragment"
+    android:orientation="vertical">
+    <include
+        android:id="@+id/header"
+        layout="@layout/header" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/excon_regular"
+                android:text="@string/estado_de_tu_pedido"
+                android:textColor="@color/brown"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="12dp"
+            android:orientation="vertical"
+            android:padding="5dp">
+
+            <LinearLayout
+                android:id="@+id/show_more_details"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_brown_r50"
+                android:gravity="center"
+                android:minHeight="35dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/excon_bold"
+                    android:text="@string/show_more_details"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
+
+
+                <ImageView
+                    android:id="@+id/arrow_indicator"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginEnd="15dp"
+                    android:rotation="180"
+                    android:background="@drawable/bg_carve_white_4r"
+                    android:minWidth="25dp"
+                    android:minHeight="25dp"
+                    android:scaleType="center"
+                    android:src="@drawable/arrow" />
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/more_details"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_salmon_r30"
+                android:orientation="vertical"
+                android:layout_marginVertical="5dp"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="16dp"
+                android:visibility="visible">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="30dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/provider_name"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:textColor="@color/text_color_brown"
+                        android:textSize="16sp"
+                        tools:text="Provider Name" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/products_names"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:layout_weight="1"
+                        android:textColor="@color/dark_brown"
+                        android:textSize="14sp"
+                        tools:text="roasted by yebala coffe, spain " />
+
+
+                </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_my_package"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:itemCount="2"
+                    tools:listitem="@layout/layout_items_in_provider_cart" />
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="12dp"
+            android:background="@drawable/bg_salmon_r30"
+            android:orientation="vertical"
+            android:padding="5dp">
+
+
+            <EditText
+                android:id="@+id/add_note"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="105dp"
+                android:gravity="start"
+                android:inputType="text"
+                android:hint="@string/a_ade_aqu_una_nota"
+                android:padding="12dp"
+                android:textColorHint="@color/hint_text_color"
+                android:textColor="@color/dark_brown"
+                android:autofillHints="note" />
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="12dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/bg_salmon_r30"
+            android:orientation="vertical"
+            android:padding="12dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/excon_regular"
+                android:textColor="@color/dark_brown"
+                android:textSize="18sp"
+                android:text="@string/selecciona_tipo_de_entrega" />
+
+            <RadioGroup
+                android:id="@+id/radio_group"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/rbtakeaway"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:buttonTint="@color/brown"
+                    android:fontFamily="@font/excon_regular"
+                    android:text="@string/para_llevar"
+                    android:textColor="@color/dark_brown"
+                    android:textSize="16sp" />
+
+
+                <RadioButton
+                    android:id="@+id/rblocker"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:buttonTint="@color/brown"
+                    android:fontFamily="@font/excon_regular"
+                    android:text="@string/locker"
+                    android:textColor="@color/dark_brown"
+                    android:textSize="16sp" />
+
+
+
+                <RadioButton
+                    android:id="@+id/rbhome"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:buttonTint="@color/brown"
+                    android:fontFamily="@font/excon_regular"
+                    android:text="@string/domicilio"
+                    android:textColor="@color/dark_brown"
+                    android:textSize="16sp" />
+
+
+            </RadioGroup>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <include
+                    android:id="@+id/i_take_away"
+                    layout="@layout/shop_shipping_information"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp" />
+
+                <include
+                    android:id="@+id/i_locker"
+                    layout="@layout/locker_shipping_information"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp" />
+
+                <include
+                    android:id="@+id/i_home"
+                    layout="@layout/home_shipping_information"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+        <TextView
+            android:id="@+id/show_information"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="50dp"
+            android:layout_margin="15dp"
+            android:enabled="false"
+            android:background="@drawable/bg_blue_btn_2"
+            android:backgroundTint="@color/selector_button"
+            android:gravity="center"
+            android:text="@string/make_order"
+            android:textColor="@color/white"
+            android:textAllCaps="true" />
+    </LinearLayout>
+</ScrollView>
+</LinearLayout>
