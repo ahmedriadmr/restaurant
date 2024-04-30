@@ -74,15 +74,7 @@
             android:value="AIzaSyAy6_DMNne9sBOYoeKER6vBDodI6o4yyfM" />
 
 
-        <activity
-            android:name=".feature.passport.PassportActivity"
-            android:exported="false"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat.NoActionBar">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
+
 
         <activity
             android:name=".feature.shop.ShopActivity"

@@ -1,7 +1,6 @@
 package com.doubleclick.restaurant.core.di
 
 import com.doubleclick.restaurant.feature.auth.data.AuthRepository
-import com.doubleclick.restaurant.feature.passport.PassportRepository
 import com.doubleclick.restaurant.feature.profile.ProfileRepository
 import com.doubleclick.restaurant.feature.shop.ShopRepository
 import com.doubleclick.restaurant.feature.subscriptions.SubscriptionsRepository
@@ -22,9 +21,7 @@ class RepositoryModule {
     @Singleton
     fun provideShopRepository(dataSource: ShopRepository.Network): ShopRepository = dataSource
 
-    @Provides
-    @Singleton
-    fun passportRepository(dataSource: PassportRepository.Network): PassportRepository = dataSource
+
 
     @Provides
     @Singleton
