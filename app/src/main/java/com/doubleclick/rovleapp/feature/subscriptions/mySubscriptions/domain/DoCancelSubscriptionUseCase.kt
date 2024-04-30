@@ -1,7 +1,7 @@
-package com.doubleclick.rovleapp.feature.subscriptions.mySubscriptions.domain
+package com.doubleclick.restaurant.feature.subscriptions.mySubscriptions.domain
 
-import com.doubleclick.rovleapp.core.interactor.UseCase
-import com.doubleclick.rovleapp.feature.subscriptions.SubscriptionsRepository
+import com.doubleclick.restaurant.core.interactor.UseCase
+import com.doubleclick.restaurant.feature.subscriptions.SubscriptionsRepository
 import javax.inject.Inject
 
 class DoCancelSubscriptionUseCase @Inject constructor(private val cancelSubscriptionRepository: SubscriptionsRepository) :

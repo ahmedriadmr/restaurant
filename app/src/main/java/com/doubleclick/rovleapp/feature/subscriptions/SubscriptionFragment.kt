@@ -1,4 +1,4 @@
-package com.doubleclick.rovleapp.feature.subscriptions
+package com.doubleclick.restaurant.feature.subscriptions
 
 import android.content.Intent
 import android.os.Bundle
@@ -8,21 +8,21 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import coil.load
 import coil.size.Scale
-import com.doubleclick.rovleapp.R
-import com.doubleclick.rovleapp.core.extension.failure
-import com.doubleclick.rovleapp.core.extension.observe
-import com.doubleclick.rovleapp.core.extension.viewBinding
-import com.doubleclick.rovleapp.core.functional.SortingOption
-import com.doubleclick.rovleapp.core.functional.SortingOption.Companion.SORTING
-import com.doubleclick.rovleapp.core.functional.SortingOption.Rating.toSortingOption
-import com.doubleclick.rovleapp.core.platform.BaseFragment
-import com.doubleclick.rovleapp.core.platform.local.UserAccess
-import com.doubleclick.rovleapp.databinding.FragmentSubscriptionBinding
-import com.doubleclick.rovleapp.feature.profile.ProfileActivity
-import com.doubleclick.rovleapp.feature.subscriptions.mySubscriptions.data.listSubscriptions.MySubscriptionsData
-import com.doubleclick.rovleapp.feature.subscriptions.mySubscriptions.presentation.MySubscriptionsAdapter
-import com.doubleclick.rovleapp.feature.subscriptions.providerList.data.listPlans.PlansData
-import com.doubleclick.rovleapp.feature.subscriptions.providerList.presentation.adapter.ProviderListAdapter
+import com.doubleclick.restaurant.R
+import com.doubleclick.restaurant.core.extension.failure
+import com.doubleclick.restaurant.core.extension.observe
+import com.doubleclick.restaurant.core.extension.viewBinding
+import com.doubleclick.restaurant.core.functional.SortingOption
+import com.doubleclick.restaurant.core.functional.SortingOption.Companion.SORTING
+import com.doubleclick.restaurant.core.functional.SortingOption.Rating.toSortingOption
+import com.doubleclick.restaurant.core.platform.BaseFragment
+import com.doubleclick.restaurant.core.platform.local.UserAccess
+import com.doubleclick.restaurant.databinding.FragmentSubscriptionBinding
+import com.doubleclick.restaurant.feature.profile.ProfileActivity
+import com.doubleclick.restaurant.feature.subscriptions.mySubscriptions.data.listSubscriptions.MySubscriptionsData
+import com.doubleclick.restaurant.feature.subscriptions.mySubscriptions.presentation.MySubscriptionsAdapter
+import com.doubleclick.restaurant.feature.subscriptions.providerList.data.listPlans.PlansData
+import com.doubleclick.restaurant.feature.subscriptions.providerList.presentation.adapter.ProviderListAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
 

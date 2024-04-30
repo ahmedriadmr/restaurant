@@ -1,18 +1,18 @@
-package com.doubleclick.rovleapp.feature.shop.cartList
+package com.doubleclick.restaurant.feature.shop.cartList
 
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.doubleclick.rovleapp.R
-import com.doubleclick.rovleapp.core.extension.inflate
-import com.doubleclick.rovleapp.core.extension.isVisible
-import com.doubleclick.rovleapp.databinding.LayoutItemCartListBinding
-import com.doubleclick.rovleapp.feature.shop.cart.response.getCart.NewCart
-import com.doubleclick.rovleapp.feature.shop.cart.response.updateCart.UpdateCart
-import com.doubleclick.rovleapp.feature.shop.cart.response.updateCart.request.UpdateCartRequest
-import com.doubleclick.rovleapp.feature.shop.response.Presentation
+import com.doubleclick.restaurant.R
+import com.doubleclick.restaurant.core.extension.inflate
+import com.doubleclick.restaurant.core.extension.isVisible
+import com.doubleclick.restaurant.databinding.LayoutItemCartListBinding
+import com.doubleclick.restaurant.feature.shop.cart.response.getCart.NewCart
+import com.doubleclick.restaurant.feature.shop.cart.response.updateCart.UpdateCart
+import com.doubleclick.restaurant.feature.shop.cart.response.updateCart.request.UpdateCartRequest
+import com.doubleclick.restaurant.feature.shop.response.Presentation
 
 class CartListAdapter : ListAdapter<NewCart, CartListAdapter.ViewHolder>(Differ) {
     private lateinit var _binding: LayoutItemCartListBinding

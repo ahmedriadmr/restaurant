@@ -1,4 +1,4 @@
-package com.doubleclick.rovleapp.feature.profile.presentation
+package com.doubleclick.restaurant.feature.profile.presentation
 
 import android.content.Intent
 import android.os.Bundle
@@ -9,20 +9,20 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import coil.load
 import coil.size.Scale
-import com.doubleclick.rovleapp.R
-import com.doubleclick.rovleapp.core.extension.failure
-import com.doubleclick.rovleapp.core.extension.loading
-import com.doubleclick.rovleapp.core.extension.observe
-import com.doubleclick.rovleapp.core.extension.observeOrNull
-import com.doubleclick.rovleapp.core.extension.viewBinding
-import com.doubleclick.rovleapp.core.functional.Either
-import com.doubleclick.rovleapp.core.functional.ProgressHandler
-import com.doubleclick.rovleapp.core.platform.BaseDialogFragment
-import com.doubleclick.rovleapp.core.platform.local.UserAccess
-import com.doubleclick.rovleapp.databinding.FragmentRatingOrderBinding
-import com.doubleclick.rovleapp.feature.profile.ProfileActivity
-import com.doubleclick.rovleapp.feature.profile.data.rates.RatingData
-import com.doubleclick.rovleapp.feature.shop.response.Product
+import com.doubleclick.restaurant.R
+import com.doubleclick.restaurant.core.extension.failure
+import com.doubleclick.restaurant.core.extension.loading
+import com.doubleclick.restaurant.core.extension.observe
+import com.doubleclick.restaurant.core.extension.observeOrNull
+import com.doubleclick.restaurant.core.extension.viewBinding
+import com.doubleclick.restaurant.core.functional.Either
+import com.doubleclick.restaurant.core.functional.ProgressHandler
+import com.doubleclick.restaurant.core.platform.BaseDialogFragment
+import com.doubleclick.restaurant.core.platform.local.UserAccess
+import com.doubleclick.restaurant.databinding.FragmentRatingOrderBinding
+import com.doubleclick.restaurant.feature.profile.ProfileActivity
+import com.doubleclick.restaurant.feature.profile.data.rates.RatingData
+import com.doubleclick.restaurant.feature.shop.response.Product
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

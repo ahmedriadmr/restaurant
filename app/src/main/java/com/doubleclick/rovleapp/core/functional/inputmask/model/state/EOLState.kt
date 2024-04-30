@@ -1,7 +1,7 @@
-package com.doubleclick.rovleapp.core.functional.inputmask.model.state
+package com.doubleclick.restaurant.core.functional.inputmask.model.state
 
-import com.doubleclick.rovleapp.core.functional.inputmask.model.Next
-import com.doubleclick.rovleapp.core.functional.inputmask.model.State
+import com.doubleclick.restaurant.core.functional.inputmask.model.Next
+import com.doubleclick.restaurant.core.functional.inputmask.model.State
 
 /**
  * ### EOLState

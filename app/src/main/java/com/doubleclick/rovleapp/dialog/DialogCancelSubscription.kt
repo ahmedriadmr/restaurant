@@ -1,12 +1,12 @@
-package com.doubleclick.rovleapp.dialog
+package com.doubleclick.restaurant.dialog
 
 import android.app.Dialog
 import android.content.Context
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
-import com.doubleclick.rovleapp.R
-import com.doubleclick.rovleapp.databinding.LayoutCancelSubscriptionBinding
+import com.doubleclick.restaurant.R
+import com.doubleclick.restaurant.databinding.LayoutCancelSubscriptionBinding
 
 class DialogCancelSubscription (context: Context) : Dialog(context) {
 

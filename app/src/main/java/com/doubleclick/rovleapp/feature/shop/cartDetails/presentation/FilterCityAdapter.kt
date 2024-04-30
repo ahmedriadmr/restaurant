@@ -1,4 +1,4 @@
-package com.doubleclick.rovleapp.feature.shop.cartDetails.presentation
+package com.doubleclick.restaurant.feature.shop.cartDetails.presentation
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -6,8 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.TextView
-import com.doubleclick.rovleapp.R
-import com.doubleclick.rovleapp.feature.shop.cartDetails.data.filterCities.City
+import com.doubleclick.restaurant.R
+import com.doubleclick.restaurant.feature.shop.cartDetails.data.filterCities.City
 
 class FilterCityAdapter (
     var context: Context,

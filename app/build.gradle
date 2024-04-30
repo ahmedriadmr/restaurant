@@ -12,11 +12,11 @@ plugins {
 }
 
 android {
-    namespace 'com.doubleclick.rovleapp'
+    namespace 'com.doubleclick.restaurant'
     compileSdk 34
 
     defaultConfig {
-        applicationId "com.doubleclick.rovleapp"
+        applicationId "com.doubleclick.restaurant"
         minSdk 21
         targetSdk 34
         versionCode 1

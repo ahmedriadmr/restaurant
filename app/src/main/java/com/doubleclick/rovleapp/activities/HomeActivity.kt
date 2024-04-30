@@ -1,4 +1,4 @@
-package com.doubleclick.rovleapp.activities
+package com.doubleclick.restaurant.activities
 
 import android.content.Context
 import android.content.Intent
@@ -10,9 +10,9 @@ import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
-import com.doubleclick.rovleapp.R
-import com.doubleclick.rovleapp.core.platform.BaseActivity
-import com.doubleclick.rovleapp.databinding.ActivityHomeBinding
+import com.doubleclick.restaurant.R
+import com.doubleclick.restaurant.databinding.ActivityHomeBinding
+import com.doubleclick.restaurant.core.platform.BaseActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

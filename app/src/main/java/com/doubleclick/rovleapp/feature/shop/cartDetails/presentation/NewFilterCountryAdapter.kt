@@ -1,14 +1,14 @@
-package com.doubleclick.rovleapp.feature.shop.cartDetails.presentation
+package com.doubleclick.restaurant.feature.shop.cartDetails.presentation
 
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.doubleclick.rovleapp.R
-import com.doubleclick.rovleapp.core.extension.inflate
-import com.doubleclick.rovleapp.databinding.LayoutItemCountryProvinceCityBinding
-import com.doubleclick.rovleapp.feature.shop.cartDetails.data.filterCities.FilterCitiesData
+import com.doubleclick.restaurant.R
+import com.doubleclick.restaurant.core.extension.inflate
+import com.doubleclick.restaurant.databinding.LayoutItemCountryProvinceCityBinding
+import com.doubleclick.restaurant.feature.shop.cartDetails.data.filterCities.FilterCitiesData
 
 class NewFilterCountryAdapter : ListAdapter<FilterCitiesData, NewFilterCountryAdapter.ViewHolder>(Differ) {
     internal var clickListenerEditCountry: () -> Unit = {}

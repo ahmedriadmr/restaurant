@@ -1,4 +1,4 @@
-package com.doubleclick.rovleapp.feature.shop.payment.data.response
+package com.doubleclick.restaurant.feature.shop.payment.data.response
 
 data class PayOrderResponse(
     val `data`: PayOrderData,

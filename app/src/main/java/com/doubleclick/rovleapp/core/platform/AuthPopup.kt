@@ -1,4 +1,4 @@
-package com.doubleclick.rovleapp.core.platform
+package com.doubleclick.restaurant.core.platform
 
 import android.app.AlertDialog
 import android.content.Context
@@ -7,7 +7,7 @@ import android.graphics.drawable.ColorDrawable
 import android.view.LayoutInflater
 import android.widget.Button
 import android.widget.TextView
-import com.doubleclick.rovleapp.R
+import com.doubleclick.restaurant.R
 
 object AuthPopup {
     private var dialog: AlertDialog? = null

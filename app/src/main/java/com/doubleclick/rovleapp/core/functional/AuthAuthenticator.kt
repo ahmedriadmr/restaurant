@@ -1,7 +1,7 @@
-package com.doubleclick.rovleapp.core.functional
+package com.doubleclick.restaurant.core.functional
 
-import com.doubleclick.rovleapp.core.functional.Authenticator.Companion.GUEST
-import com.doubleclick.rovleapp.core.platform.local.AppSettingsSource
+import com.doubleclick.restaurant.core.functional.Authenticator.Companion.GUEST
+import com.doubleclick.restaurant.core.platform.local.AppSettingsSource
 import kotlinx.coroutines.flow.firstOrNull
 import kotlinx.coroutines.runBlocking
 import okhttp3.Authenticator

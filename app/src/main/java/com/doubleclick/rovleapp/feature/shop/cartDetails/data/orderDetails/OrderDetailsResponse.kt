@@ -1,4 +1,4 @@
-package com.doubleclick.rovleapp.feature.shop.cartDetails.data.orderDetails
+package com.doubleclick.restaurant.feature.shop.cartDetails.data.orderDetails
 
 data class OrderDetailsResponse(
     val `data`: OrderDetailsData,

@@ -1,4 +1,4 @@
-package com.doubleclick.rovleapp.wallet.activity
+package com.doubleclick.restaurant.wallet.activity
 
 import android.content.Intent
 import android.os.Bundle
@@ -10,17 +10,17 @@ import androidx.activity.result.IntentSenderRequest
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.lifecycle.Observer
-import com.doubleclick.rovleapp.core.extension.observe
-import com.doubleclick.rovleapp.core.platform.BaseActivity
-import com.doubleclick.rovleapp.databinding.ActivityCheckoutBinding
-import com.doubleclick.rovleapp.feature.shop.cartDetails.data.makeOrder.request.MakeOrderRequest
-import com.doubleclick.rovleapp.feature.shop.cartDetails.data.orderDetails.OrderDetailsData
-import com.doubleclick.rovleapp.feature.shop.payment.data.googlePay.request.PayOrderGooglePayRequest
-import com.doubleclick.rovleapp.feature.shop.payment.data.googlePay.response.PayOrderGooglePayData
-import com.doubleclick.rovleapp.feature.shop.payment.presentation.PayOrderViewModel
-import com.doubleclick.rovleapp.feature.subscriptions.paymentSubscription.data.googlePay.request.PaymentDetails
-import com.doubleclick.rovleapp.wallet.util.PaymentsUtil
-import com.doubleclick.rovleapp.wallet.viewmodel.CheckoutViewModel
+import com.doubleclick.restaurant.core.extension.observe
+import com.doubleclick.restaurant.core.platform.BaseActivity
+import com.doubleclick.restaurant.databinding.ActivityCheckoutBinding
+import com.doubleclick.restaurant.feature.shop.cartDetails.data.makeOrder.request.MakeOrderRequest
+import com.doubleclick.restaurant.feature.shop.cartDetails.data.orderDetails.OrderDetailsData
+import com.doubleclick.restaurant.feature.shop.payment.data.googlePay.request.PayOrderGooglePayRequest
+import com.doubleclick.restaurant.feature.shop.payment.data.googlePay.response.PayOrderGooglePayData
+import com.doubleclick.restaurant.feature.shop.payment.presentation.PayOrderViewModel
+import com.doubleclick.restaurant.feature.subscriptions.paymentSubscription.data.googlePay.request.PaymentDetails
+import com.doubleclick.restaurant.wallet.util.PaymentsUtil
+import com.doubleclick.restaurant.wallet.viewmodel.CheckoutViewModel
 import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.common.api.CommonStatusCodes
 import com.google.android.gms.common.api.ResolvableApiException

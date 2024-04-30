@@ -5,7 +5,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.doubleclick.circleimageview.CircleImageView
-import com.doubleclick.rovleapp.R
+import com.doubleclick.restaurant.R
 
 class DishRowItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 

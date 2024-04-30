@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.doubleclick.rovleapp.wallet.activity
+package com.doubleclick.restaurant.wallet.activity
 
 import android.content.Intent
 import android.os.Bundle
@@ -26,16 +26,16 @@ import androidx.activity.result.IntentSenderRequest
 import androidx.activity.result.contract.ActivityResultContracts.StartIntentSenderForResult
 import androidx.activity.viewModels
 import androidx.lifecycle.Observer
-import com.doubleclick.rovleapp.core.extension.observe
-import com.doubleclick.rovleapp.core.platform.BaseActivity
-import com.doubleclick.rovleapp.databinding.ActivityCheckoutBinding
-import com.doubleclick.rovleapp.feature.subscriptions.mySubscriptions.data.showSubscription.SubscriptionData
-import com.doubleclick.rovleapp.feature.subscriptions.paymentSubscription.PaySubscriptionViewModel
-import com.doubleclick.rovleapp.feature.subscriptions.paymentSubscription.data.googlePay.request.PaySubscriptionGooglePayRequest
-import com.doubleclick.rovleapp.feature.subscriptions.paymentSubscription.data.googlePay.request.PaymentDetails
-import com.doubleclick.rovleapp.feature.subscriptions.paymentSubscription.data.googlePay.response.PaySubscriptionGooglePayData
-import com.doubleclick.rovleapp.wallet.util.PaymentsUtil
-import com.doubleclick.rovleapp.wallet.viewmodel.CheckoutViewModel
+import com.doubleclick.restaurant.core.extension.observe
+import com.doubleclick.restaurant.core.platform.BaseActivity
+import com.doubleclick.restaurant.databinding.ActivityCheckoutBinding
+import com.doubleclick.restaurant.feature.subscriptions.mySubscriptions.data.showSubscription.SubscriptionData
+import com.doubleclick.restaurant.feature.subscriptions.paymentSubscription.PaySubscriptionViewModel
+import com.doubleclick.restaurant.feature.subscriptions.paymentSubscription.data.googlePay.request.PaySubscriptionGooglePayRequest
+import com.doubleclick.restaurant.feature.subscriptions.paymentSubscription.data.googlePay.request.PaymentDetails
+import com.doubleclick.restaurant.feature.subscriptions.paymentSubscription.data.googlePay.response.PaySubscriptionGooglePayData
+import com.doubleclick.restaurant.wallet.util.PaymentsUtil
+import com.doubleclick.restaurant.wallet.viewmodel.CheckoutViewModel
 import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.common.api.CommonStatusCodes
 import com.google.android.gms.common.api.ResolvableApiException

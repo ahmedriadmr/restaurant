@@ -208,7 +208,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/linearLayout21"
                     tools:visibility="visible">
 
-                    <com.doubleclick.rovleapp.views.rubberpicker.RubberRangePicker
+                    <com.doubleclick.restaurant.views.rubberpicker.RubberRangePicker
                         android:id="@+id/rubberRangePickerSCA"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -394,7 +394,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/linearLayout21"
                     tools:visibility="visible">
 
-                    <com.doubleclick.rovleapp.views.rubberpicker.RubberRangePicker
+                    <com.doubleclick.restaurant.views.rubberpicker.RubberRangePicker
                         android:id="@+id/rubberRangePickerAltitud"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"

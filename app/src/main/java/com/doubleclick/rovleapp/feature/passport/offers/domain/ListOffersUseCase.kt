@@ -1,8 +1,8 @@
-package com.doubleclick.rovleapp.feature.passport.offers.domain
+package com.doubleclick.restaurant.feature.passport.offers.domain
 
-import com.doubleclick.rovleapp.core.interactor.UseCase
-import com.doubleclick.rovleapp.feature.passport.PassportRepository
-import com.doubleclick.rovleapp.feature.passport.offers.data.Offers
+import com.doubleclick.restaurant.core.interactor.UseCase
+import com.doubleclick.restaurant.feature.passport.PassportRepository
+import com.doubleclick.restaurant.feature.passport.offers.data.Offers
 import javax.inject.Inject
 
 class ListOffersUseCase @Inject constructor(private val repository: PassportRepository) :

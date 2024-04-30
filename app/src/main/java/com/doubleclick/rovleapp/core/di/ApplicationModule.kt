@@ -1,7 +1,7 @@
-package com.doubleclick.rovleapp.core.di
+package com.doubleclick.restaurant.core.di
 
-import com.doubleclick.rovleapp.core.platform.local.AppSettingsSource
-import com.doubleclick.rovleapp.core.platform.local.AppSettingsSourceImpl
+import com.doubleclick.restaurant.core.platform.local.AppSettingsSource
+import com.doubleclick.restaurant.core.platform.local.AppSettingsSourceImpl
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn

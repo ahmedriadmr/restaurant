@@ -1,4 +1,4 @@
-package com.doubleclick.rovleapp.feature.profile.data.updateAddress
+package com.doubleclick.restaurant.feature.profile.data.updateAddress
 
 data class UpdateAddressResponse(
     val `data`: UpdateAddressData,

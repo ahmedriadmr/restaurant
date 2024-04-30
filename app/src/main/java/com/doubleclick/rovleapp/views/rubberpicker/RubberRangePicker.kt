@@ -1,4 +1,4 @@
-package com.doubleclick.rovleapp.views.rubberpicker
+package com.doubleclick.restaurant.views.rubberpicker
 
 
 import android.content.Context
@@ -15,7 +15,7 @@ import android.view.ViewGroup
 import androidx.dynamicanimation.animation.FloatValueHolder
 import androidx.dynamicanimation.animation.SpringAnimation
 import androidx.dynamicanimation.animation.SpringForce
-import com.doubleclick.rovleapp.R
+import com.doubleclick.restaurant.R
 import java.util.concurrent.ArrayBlockingQueue
 import kotlin.math.absoluteValue
 import kotlin.math.roundToInt

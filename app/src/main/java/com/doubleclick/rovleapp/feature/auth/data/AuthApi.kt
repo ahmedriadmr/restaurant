@@ -1,15 +1,15 @@
-package com.doubleclick.rovleapp.feature.auth.data
+package com.doubleclick.restaurant.feature.auth.data
 
-import com.doubleclick.rovleapp.core.functional.DataWrapper
-import com.doubleclick.rovleapp.feature.auth.forgetPassword.data.ForgetPasswordResponse
-import com.doubleclick.rovleapp.feature.auth.forgetPassword.data.request.forgetPassword.ForgetPasswordRequest
-import com.doubleclick.rovleapp.feature.auth.forgetPassword.data.request.resetPassword.ResetPasswordRequest
-import com.doubleclick.rovleapp.feature.auth.forgetPassword.data.request.verifyOtp.VerifyOtpRequest
-import com.doubleclick.rovleapp.feature.auth.login.data.request.LoginRequest
-import com.doubleclick.rovleapp.feature.auth.login.data.response.LoginRes
-import com.doubleclick.rovleapp.feature.auth.login.data.response.User
-import com.doubleclick.rovleapp.feature.auth.signup.data.request.SignUpRequest
-import com.doubleclick.rovleapp.feature.auth.signup.data.response.UserData
+import com.doubleclick.restaurant.core.functional.DataWrapper
+import com.doubleclick.restaurant.feature.auth.forgetPassword.data.ForgetPasswordResponse
+import com.doubleclick.restaurant.feature.auth.forgetPassword.data.request.forgetPassword.ForgetPasswordRequest
+import com.doubleclick.restaurant.feature.auth.forgetPassword.data.request.resetPassword.ResetPasswordRequest
+import com.doubleclick.restaurant.feature.auth.forgetPassword.data.request.verifyOtp.VerifyOtpRequest
+import com.doubleclick.restaurant.feature.auth.login.data.request.LoginRequest
+import com.doubleclick.restaurant.feature.auth.login.data.response.LoginRes
+import com.doubleclick.restaurant.feature.auth.login.data.response.User
+import com.doubleclick.restaurant.feature.auth.signup.data.request.SignUpRequest
+import com.doubleclick.restaurant.feature.auth.signup.data.response.UserData
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.POST

@@ -1,14 +1,14 @@
-package com.doubleclick.rovleapp.feature.shop.payment.presentation
+package com.doubleclick.restaurant.feature.shop.payment.presentation
 
 import androidx.lifecycle.viewModelScope
-import com.doubleclick.rovleapp.core.platform.BaseViewModel
-import com.doubleclick.rovleapp.core.platform.local.AppSettingsSource
-import com.doubleclick.rovleapp.feature.shop.payment.data.googlePay.request.PayOrderGooglePayRequest
-import com.doubleclick.rovleapp.feature.shop.payment.data.googlePay.response.PayOrderGooglePayData
-import com.doubleclick.rovleapp.feature.shop.payment.data.request.PayOrderRequest
-import com.doubleclick.rovleapp.feature.shop.payment.data.response.PayOrderData
-import com.doubleclick.rovleapp.feature.shop.payment.domain.PayOrderGooglePayUseCase
-import com.doubleclick.rovleapp.feature.shop.payment.domain.PayOrderUseCase
+import com.doubleclick.restaurant.core.platform.BaseViewModel
+import com.doubleclick.restaurant.core.platform.local.AppSettingsSource
+import com.doubleclick.restaurant.feature.shop.payment.data.googlePay.request.PayOrderGooglePayRequest
+import com.doubleclick.restaurant.feature.shop.payment.data.googlePay.response.PayOrderGooglePayData
+import com.doubleclick.restaurant.feature.shop.payment.data.request.PayOrderRequest
+import com.doubleclick.restaurant.feature.shop.payment.data.response.PayOrderData
+import com.doubleclick.restaurant.feature.shop.payment.domain.PayOrderGooglePayUseCase
+import com.doubleclick.restaurant.feature.shop.payment.domain.PayOrderUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.Flow

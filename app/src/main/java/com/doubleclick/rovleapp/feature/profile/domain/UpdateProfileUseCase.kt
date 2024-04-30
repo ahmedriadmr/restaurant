@@ -1,8 +1,8 @@
-package com.doubleclick.rovleapp.feature.profile.domain
+package com.doubleclick.restaurant.feature.profile.domain
 
-import com.doubleclick.rovleapp.core.interactor.UseCase
-import com.doubleclick.rovleapp.feature.profile.ProfileRepository
-import com.doubleclick.rovleapp.feature.profile.data.showProfile.ProfileDetails
+import com.doubleclick.restaurant.core.interactor.UseCase
+import com.doubleclick.restaurant.feature.profile.ProfileRepository
+import com.doubleclick.restaurant.feature.profile.data.showProfile.ProfileDetails
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import javax.inject.Inject

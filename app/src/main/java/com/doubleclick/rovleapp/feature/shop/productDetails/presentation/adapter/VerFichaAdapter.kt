@@ -1,16 +1,17 @@
-package com.doubleclick.rovleapp.feature.shop.productDetails.presentation.adapter
+package com.doubleclick.restaurant.feature.shop.productDetails.presentation.adapter
 
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.doubleclick.rovleapp.R
-import com.doubleclick.rovleapp.core.extension.inflate
-import com.doubleclick.rovleapp.databinding.LayoutItemVerFichaBinding
-import com.doubleclick.rovleapp.feature.shop.response.Presentation
-import com.doubleclick.rovleapp.feature.shop.showOffer.data.ShowOfferData
-import com.doubleclick.rovleapp.utils.Constant.euroSign
+
+import com.doubleclick.restaurant.R
+import com.doubleclick.restaurant.core.extension.inflate
+import com.doubleclick.restaurant.databinding.LayoutItemVerFichaBinding
+import com.doubleclick.restaurant.feature.shop.response.Presentation
+import com.doubleclick.restaurant.feature.shop.showOffer.data.ShowOfferData
+import com.doubleclick.restaurant.utils.Constant.euroSign
 
 class VerFichaAdapter : ListAdapter<Presentation, VerFichaAdapter.ViewHolder>(Differ) {
 
@@ -39,7 +40,7 @@ class VerFichaAdapter : ListAdapter<Presentation, VerFichaAdapter.ViewHolder>(Di
             binding.price.text = itemView.context.getString(R.string.price_description, item.price.toString(), euroSign)
         }
     }
-    private fun findPresentationInShowOffer(presentationId: String): com.doubleclick.rovleapp.feature.shop.showOffer.data.Presentation? {
+    private fun findPresentationInShowOffer(presentationId: String): com.doubleclick.restaurant.feature.shop.showOffer.data.Presentation? {
         showOfferData?.products?.forEach { product ->
             product.presentations.forEach { presentation ->
                 if (presentation.id == presentationId) {

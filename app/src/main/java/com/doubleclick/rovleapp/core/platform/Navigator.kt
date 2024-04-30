@@ -1,10 +1,10 @@
-package com.doubleclick.rovleapp.core.platform
+package com.doubleclick.restaurant.core.platform
 
 import android.app.Activity
 import android.content.Context
-import com.doubleclick.rovleapp.activities.HomeActivity
-import com.doubleclick.rovleapp.core.functional.Authenticator
-import com.doubleclick.rovleapp.feature.auth.AuthActivity
+import com.doubleclick.restaurant.activities.HomeActivity
+import com.doubleclick.restaurant.core.functional.Authenticator
+import com.doubleclick.restaurant.feature.auth.AuthActivity
 import javax.inject.Inject
 import javax.inject.Singleton
 

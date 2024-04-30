@@ -1,4 +1,4 @@
-package com.doubleclick.rovleapp.feature.shop.payment.data.request
+package com.doubleclick.restaurant.feature.shop.payment.data.request
 
 data class PayOrderRequest(
     val card_number: String,

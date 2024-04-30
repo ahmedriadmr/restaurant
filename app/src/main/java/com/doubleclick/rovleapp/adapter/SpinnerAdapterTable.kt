@@ -5,7 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
 import com.doubleclick.domain.model.table.Table
-import com.doubleclick.rovleapp.databinding.TextSpinnerLayoutBinding
+import com.doubleclick.restaurant.databinding.TextSpinnerLayoutBinding
 
 
 class SpinnerAdapterTable(

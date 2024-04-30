@@ -1,4 +1,4 @@
-package com.doubleclick.rovleapp.core.functional.inputmask.model
+package com.doubleclick.restaurant.core.functional.inputmask.model
 
 /**
  * ### Notation

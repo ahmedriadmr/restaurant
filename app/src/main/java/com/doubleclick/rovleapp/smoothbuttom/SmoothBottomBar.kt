@@ -23,7 +23,7 @@ import androidx.core.content.res.ResourcesCompat
 import androidx.core.graphics.drawable.DrawableCompat
 import androidx.core.view.ViewCompat
 import androidx.navigation.NavController
-import com.doubleclick.rovleapp.R
+import com.doubleclick.restaurant.R
 import com.doubleclick.smoothbuttom.*
 import com.doubleclick.smoothbuttom.ext.d2p
 

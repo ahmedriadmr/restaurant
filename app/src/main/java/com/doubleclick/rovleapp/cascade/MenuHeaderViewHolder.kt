@@ -8,7 +8,6 @@ import android.graphics.drawable.Drawable
 import android.view.Gravity.CENTER_VERTICAL
 import android.view.Gravity.START
 import android.view.LayoutInflater
-import android.view.MenuItem
 import android.view.SubMenu
 import android.view.View
 import android.view.ViewGroup
@@ -18,9 +17,8 @@ import androidx.appcompat.view.menu.SubMenuBuilder
 import androidx.core.view.updatePaddingRelative
 import androidx.recyclerview.widget.RecyclerView
 import com.doubleclick.cascade.AdapterModel.HeaderModel
-import com.doubleclick.cascade.AdapterModel.ItemModel
 import com.doubleclick.cascade.internal.dip
-import com.doubleclick.rovleapp.R
+import com.doubleclick.restaurant.R
 import androidx.appcompat.R as appcompatR
 
 class MenuHeaderViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {

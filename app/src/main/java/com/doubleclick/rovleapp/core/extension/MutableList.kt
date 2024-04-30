@@ -1,4 +1,4 @@
-package com.doubleclick.rovleapp.core.extension
+package com.doubleclick.restaurant.core.extension
 
 fun <T> MutableList<T>.moveItemToFirst(item: T): List<T> {
     val index = indexOf(item)

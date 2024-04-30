@@ -1,6 +1,6 @@
-package com.doubleclick.rovleapp.core.platform.local
+package com.doubleclick.restaurant.core.platform.local
 
-import com.doubleclick.rovleapp.AndroidApplication
+import com.doubleclick.restaurant.AndroidApplication
 import com.google.crypto.tink.Aead
 import com.google.crypto.tink.KeyTemplates
 import com.google.crypto.tink.config.TinkConfig

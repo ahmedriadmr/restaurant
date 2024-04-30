@@ -1,4 +1,4 @@
-package com.doubleclick.rovleapp.feature.profile.data.showProfile
+package com.doubleclick.restaurant.feature.profile.data.showProfile
 
 data class ShowProfileResponse(
     val `data`: ProfileDetails,

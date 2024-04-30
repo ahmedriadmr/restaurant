@@ -1,4 +1,4 @@
-package com.doubleclick.rovleapp.feature.profile.data.logout
+package com.doubleclick.restaurant.feature.profile.data.logout
 
 data class LogoutResponse(
     val `data`: String,

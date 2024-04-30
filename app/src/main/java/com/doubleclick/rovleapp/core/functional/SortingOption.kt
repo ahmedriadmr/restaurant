@@ -1,4 +1,4 @@
-package com.doubleclick.rovleapp.core.functional
+package com.doubleclick.restaurant.core.functional
 
 sealed class SortingOption {
     object Rating : SortingOption()

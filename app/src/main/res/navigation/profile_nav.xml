@@ -6,7 +6,7 @@
     app:startDestination="@id/userDataFragment">
     <fragment
         android:id="@+id/userDataFragment"
-        android:name="com.doubleclick.rovleapp.feature.profile.presentation.UserDataFragment"
+        android:name="com.doubleclick.restaurant.feature.profile.presentation.UserDataFragment"
         android:label="fragment_user_data"
         tools:layout="@layout/fragment_user_data">
         <action
@@ -31,7 +31,7 @@
     </fragment>
     <dialog
         android:id="@+id/facturaFragment"
-        android:name="com.doubleclick.rovleapp.feature.profile.presentation.FacturaFragment"
+        android:name="com.doubleclick.restaurant.feature.profile.presentation.FacturaFragment"
         android:label="FacturaFragment"
         tools:layout="@layout/fragment_factura">
 
@@ -41,7 +41,7 @@
     </dialog>
     <fragment
         android:id="@+id/yourOrdersFragment"
-        android:name="com.doubleclick.rovleapp.feature.profile.presentation.AllOrdersFragment"
+        android:name="com.doubleclick.restaurant.feature.profile.presentation.AllOrdersFragment"
         android:label="YourOrdersFragment"
         tools:layout="@layout/fragment_yourorder">
         <action
@@ -53,7 +53,7 @@
     </fragment>
     <fragment
         android:id="@+id/ratingOrderFragment"
-        android:name="com.doubleclick.rovleapp.feature.profile.presentation.RatingOrderFragment"
+        android:name="com.doubleclick.restaurant.feature.profile.presentation.RatingOrderFragment"
         android:label="RatingOrderFragment"
         tools:layout="@layout/fragment_rating_order">
         <argument
@@ -62,7 +62,7 @@
     </fragment>
     <fragment
         android:id="@+id/AddressFragment"
-        android:name="com.doubleclick.rovleapp.feature.profile.presentation.AddressFragment"
+        android:name="com.doubleclick.restaurant.feature.profile.presentation.AddressFragment"
         android:label="AddressFragment"
         tools:layout="@layout/fragment_address">
 
@@ -78,7 +78,7 @@
 
     <fragment
         android:id="@+id/productsInOrderFragment"
-        android:name="com.doubleclick.rovleapp.feature.profile.presentation.ProductsInOrderFragment"
+        android:name="com.doubleclick.restaurant.feature.profile.presentation.ProductsInOrderFragment"
         android:label="ProductsInOrderFragment"
         tools:layout="@layout/fragment_products_in_order">
         <argument

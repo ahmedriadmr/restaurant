@@ -1,4 +1,4 @@
-package com.doubleclick.rovleapp.views.qrgenearator;
+package com.doubleclick.restaurant.views.qrgenearator;
 
 import android.graphics.Bitmap;
 import android.util.Log;

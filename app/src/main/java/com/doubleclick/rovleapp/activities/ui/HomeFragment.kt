@@ -1,4 +1,4 @@
-package com.doubleclick.rovleapp.activities.ui
+package com.doubleclick.restaurant.activities.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,8 +11,9 @@ import com.doubleclick.domain.model.items.get.Item
 import com.doubleclick.domain.model.items.get.Size
 import com.doubleclick.domain.ts.OnAddToCart
 import com.doubleclick.restaurant.adapter.CategoryAdapter
-import com.doubleclick.rovleapp.R
-import com.doubleclick.rovleapp.databinding.FragmentHomeBinding
+
+import com.doubleclick.restaurant.R
+import com.doubleclick.restaurant.databinding.FragmentHomeBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 private const val TAG = "HomeFragment"

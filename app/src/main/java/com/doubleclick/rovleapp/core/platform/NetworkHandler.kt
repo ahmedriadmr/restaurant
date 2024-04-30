@@ -1,9 +1,9 @@
-package com.doubleclick.rovleapp.core.platform
+package com.doubleclick.restaurant.core.platform
 
 import android.content.Context
 import android.net.NetworkCapabilities
 import android.os.Build
-import com.doubleclick.rovleapp.core.extension.connectivityManager
+import com.doubleclick.restaurant.core.extension.connectivityManager
 import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
 import javax.inject.Singleton

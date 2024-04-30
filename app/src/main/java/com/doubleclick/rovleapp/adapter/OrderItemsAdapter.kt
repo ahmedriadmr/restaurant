@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.doubleclick.domain.model.carts.get.CartsModel
 import com.doubleclick.restaurant.viewHolder.OrderItemsViewHolder
-import com.doubleclick.rovleapp.R
+import com.doubleclick.restaurant.R
 
 
 class OrderItemsAdapter(val carts: List<CartsModel>) :

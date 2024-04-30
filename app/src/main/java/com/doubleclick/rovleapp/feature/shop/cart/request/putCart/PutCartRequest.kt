@@ -1,4 +1,4 @@
-package com.doubleclick.rovleapp.feature.shop.cart.request.putCart
+package com.doubleclick.restaurant.feature.shop.cart.request.putCart
 
 data class PutCartRequest(
     val presentations: List<PresentationRequest>,

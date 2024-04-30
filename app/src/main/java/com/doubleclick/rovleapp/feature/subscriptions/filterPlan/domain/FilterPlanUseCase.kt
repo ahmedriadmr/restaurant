@@ -1,8 +1,8 @@
-package com.doubleclick.rovleapp.feature.subscriptions.filterPlan.domain
+package com.doubleclick.restaurant.feature.subscriptions.filterPlan.domain
 
-import com.doubleclick.rovleapp.core.interactor.UseCase
-import com.doubleclick.rovleapp.feature.subscriptions.SubscriptionsRepository
-import com.doubleclick.rovleapp.feature.subscriptions.providerList.data.listPlans.PlansData
+import com.doubleclick.restaurant.core.interactor.UseCase
+import com.doubleclick.restaurant.feature.subscriptions.SubscriptionsRepository
+import com.doubleclick.restaurant.feature.subscriptions.providerList.data.listPlans.PlansData
 import javax.inject.Inject
 
 class FilterPlanUseCase @Inject constructor(private val repository: SubscriptionsRepository) :

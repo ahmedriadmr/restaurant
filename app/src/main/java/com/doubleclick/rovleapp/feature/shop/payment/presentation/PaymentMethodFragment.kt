@@ -1,4 +1,4 @@
-package com.doubleclick.rovleapp.feature.shop.payment.presentation
+package com.doubleclick.restaurant.feature.shop.payment.presentation
 
 import android.content.Intent
 import android.os.Bundle
@@ -9,16 +9,16 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import coil.load
 import coil.size.Scale
-import com.doubleclick.rovleapp.R
-import com.doubleclick.rovleapp.core.extension.viewBinding
-import com.doubleclick.rovleapp.core.platform.BaseFragment
-import com.doubleclick.rovleapp.core.platform.local.UserAccess
-import com.doubleclick.rovleapp.databinding.FragmentPaymentMethodBinding
-import com.doubleclick.rovleapp.feature.auth.AuthActivity
-import com.doubleclick.rovleapp.feature.profile.ProfileActivity
-import com.doubleclick.rovleapp.feature.shop.cart.CartViewModel
-import com.doubleclick.rovleapp.utils.Constant.euroSign
-import com.doubleclick.rovleapp.wallet.activity.CheckoutOrderActivity
+import com.doubleclick.restaurant.R
+import com.doubleclick.restaurant.core.extension.viewBinding
+import com.doubleclick.restaurant.core.platform.BaseFragment
+import com.doubleclick.restaurant.core.platform.local.UserAccess
+import com.doubleclick.restaurant.databinding.FragmentPaymentMethodBinding
+import com.doubleclick.restaurant.feature.auth.AuthActivity
+import com.doubleclick.restaurant.feature.profile.ProfileActivity
+import com.doubleclick.restaurant.feature.shop.cart.CartViewModel
+import com.doubleclick.restaurant.utils.Constant.euroSign
+import com.doubleclick.restaurant.wallet.activity.CheckoutOrderActivity
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.firstOrNull
 import kotlinx.coroutines.launch

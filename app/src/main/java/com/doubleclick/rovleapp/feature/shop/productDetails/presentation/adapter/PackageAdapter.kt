@@ -1,4 +1,4 @@
-package com.doubleclick.rovleapp.feature.shop.productDetails.presentation.adapter
+package com.doubleclick.restaurant.feature.shop.productDetails.presentation.adapter
 
 import android.view.View
 import android.view.ViewGroup
@@ -6,15 +6,15 @@ import android.widget.CheckBox
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.doubleclick.rovleapp.R
-import com.doubleclick.rovleapp.core.extension.formatted
-import com.doubleclick.rovleapp.core.extension.inflate
-import com.doubleclick.rovleapp.feature.shop.cart.request.putCart.PresentationRequest
-import com.doubleclick.rovleapp.feature.shop.cart.request.putCart.PutCartRequest
-import com.doubleclick.rovleapp.feature.shop.cart.response.getCart.CartItem
-import com.doubleclick.rovleapp.feature.shop.response.Presentation
-import com.doubleclick.rovleapp.feature.shop.showOffer.data.ShowOfferData
-import com.doubleclick.rovleapp.utils.Constant.euroSign
+import com.doubleclick.restaurant.R
+import com.doubleclick.restaurant.core.extension.formatted
+import com.doubleclick.restaurant.core.extension.inflate
+import com.doubleclick.restaurant.feature.shop.cart.request.putCart.PresentationRequest
+import com.doubleclick.restaurant.feature.shop.cart.request.putCart.PutCartRequest
+import com.doubleclick.restaurant.feature.shop.cart.response.getCart.CartItem
+import com.doubleclick.restaurant.feature.shop.response.Presentation
+import com.doubleclick.restaurant.feature.shop.showOffer.data.ShowOfferData
+import com.doubleclick.restaurant.utils.Constant.euroSign
 import kotlin.properties.Delegates
 
 class PackageAdapter : RecyclerView.Adapter<PackageAdapter.ViewHolder>() {
@@ -165,7 +165,7 @@ class PackageAdapter : RecyclerView.Adapter<PackageAdapter.ViewHolder>() {
         cartUpdated(totalCartPrice.formatted)
     }
 
-    private fun findPresentationInShowOffer(presentationId: String): com.doubleclick.rovleapp.feature.shop.showOffer.data.Presentation? {
+    private fun findPresentationInShowOffer(presentationId: String): com.doubleclick.restaurant.feature.shop.showOffer.data.Presentation? {
         showOfferData?.products?.forEach { product ->
             product.presentations.forEach { presentation ->
                 if (presentation.id == presentationId) {

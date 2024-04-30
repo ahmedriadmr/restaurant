@@ -1,9 +1,9 @@
-package com.doubleclick.rovleapp.feature.shop.cart.usecase
+package com.doubleclick.restaurant.feature.shop.cart.usecase
 
-import com.doubleclick.rovleapp.core.interactor.UseCase
-import com.doubleclick.rovleapp.feature.shop.ShopRepository
-import com.doubleclick.rovleapp.feature.shop.cart.response.updateCart.UpdateCart
-import com.doubleclick.rovleapp.feature.shop.cart.response.updateCart.request.UpdateCartRequest
+import com.doubleclick.restaurant.core.interactor.UseCase
+import com.doubleclick.restaurant.feature.shop.ShopRepository
+import com.doubleclick.restaurant.feature.shop.cart.response.updateCart.UpdateCart
+import com.doubleclick.restaurant.feature.shop.cart.response.updateCart.request.UpdateCartRequest
 import javax.inject.Inject
 
 class UpdateCartUseCase @Inject constructor(private val repository: ShopRepository) :

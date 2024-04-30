@@ -1,24 +1,24 @@
-package com.doubleclick.rovleapp.feature.passport.offers.presentation
+package com.doubleclick.restaurant.feature.passport.offers.presentation
 
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
-import com.doubleclick.rovleapp.R
-import com.doubleclick.rovleapp.core.extension.failure
-import com.doubleclick.rovleapp.core.extension.loading
-import com.doubleclick.rovleapp.core.extension.observeOrNull
-import com.doubleclick.rovleapp.core.extension.viewBinding
-import com.doubleclick.rovleapp.core.functional.Either
-import com.doubleclick.rovleapp.core.functional.ProgressHandler
-import com.doubleclick.rovleapp.core.platform.BaseDialogFragment
-import com.doubleclick.rovleapp.databinding.FragmentOffersBinding
-import com.doubleclick.rovleapp.feature.passport.PassportActivity
-import com.doubleclick.rovleapp.feature.passport.offers.data.Offers
-import com.doubleclick.rovleapp.feature.passport.offers.presentation.adapter.OffersAdapter
-import com.doubleclick.rovleapp.feature.shop.ShopActivity
-import com.doubleclick.rovleapp.feature.shop.showOffer.OfferClickListener
+import com.doubleclick.restaurant.R
+import com.doubleclick.restaurant.core.extension.failure
+import com.doubleclick.restaurant.core.extension.loading
+import com.doubleclick.restaurant.core.extension.observeOrNull
+import com.doubleclick.restaurant.core.extension.viewBinding
+import com.doubleclick.restaurant.core.functional.Either
+import com.doubleclick.restaurant.core.functional.ProgressHandler
+import com.doubleclick.restaurant.core.platform.BaseDialogFragment
+import com.doubleclick.restaurant.databinding.FragmentOffersBinding
+import com.doubleclick.restaurant.feature.passport.PassportActivity
+import com.doubleclick.restaurant.feature.passport.offers.data.Offers
+import com.doubleclick.restaurant.feature.passport.offers.presentation.adapter.OffersAdapter
+import com.doubleclick.restaurant.feature.shop.ShopActivity
+import com.doubleclick.restaurant.feature.shop.showOffer.OfferClickListener
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

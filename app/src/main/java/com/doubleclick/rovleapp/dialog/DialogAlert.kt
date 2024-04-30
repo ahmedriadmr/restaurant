@@ -1,11 +1,11 @@
-package com.doubleclick.rovleapp.dialog
+package com.doubleclick.restaurant.dialog
 
 import android.app.Dialog
 import android.content.Context
 import android.os.Bundle
 import android.widget.ImageView
-import com.doubleclick.rovleapp.R
-import com.doubleclick.rovleapp.databinding.LayoutAlertBinding
+import com.doubleclick.restaurant.R
+import com.doubleclick.restaurant.databinding.LayoutAlertBinding
 
 class DialogAlert (context: Context) : Dialog(context) {
 

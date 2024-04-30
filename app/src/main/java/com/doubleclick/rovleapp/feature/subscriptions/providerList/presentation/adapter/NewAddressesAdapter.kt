@@ -1,14 +1,14 @@
-package com.doubleclick.rovleapp.feature.subscriptions.providerList.presentation.adapter
+package com.doubleclick.restaurant.feature.subscriptions.providerList.presentation.adapter
 
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.doubleclick.rovleapp.R
-import com.doubleclick.rovleapp.core.extension.inflate
-import com.doubleclick.rovleapp.databinding.LayoutItemCountryProvinceCityBinding
-import com.doubleclick.rovleapp.feature.profile.data.listAddresses.AddressesData
+import com.doubleclick.restaurant.R
+import com.doubleclick.restaurant.core.extension.inflate
+import com.doubleclick.restaurant.databinding.LayoutItemCountryProvinceCityBinding
+import com.doubleclick.restaurant.feature.profile.data.listAddresses.AddressesData
 
 class NewAddressesAdapter : ListAdapter<AddressesData, NewAddressesAdapter.ViewHolder>(Differ) {
     var selectedLocation: AddressesData? = null

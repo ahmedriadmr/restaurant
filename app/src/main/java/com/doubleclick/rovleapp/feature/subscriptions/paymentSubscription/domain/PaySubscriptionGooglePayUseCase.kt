@@ -1,9 +1,9 @@
-package com.doubleclick.rovleapp.feature.subscriptions.paymentSubscription.domain
+package com.doubleclick.restaurant.feature.subscriptions.paymentSubscription.domain
 
-import com.doubleclick.rovleapp.core.interactor.UseCase
-import com.doubleclick.rovleapp.feature.subscriptions.SubscriptionsRepository
-import com.doubleclick.rovleapp.feature.subscriptions.paymentSubscription.data.googlePay.request.PaySubscriptionGooglePayRequest
-import com.doubleclick.rovleapp.feature.subscriptions.paymentSubscription.data.googlePay.response.PaySubscriptionGooglePayData
+import com.doubleclick.restaurant.core.interactor.UseCase
+import com.doubleclick.restaurant.feature.subscriptions.SubscriptionsRepository
+import com.doubleclick.restaurant.feature.subscriptions.paymentSubscription.data.googlePay.request.PaySubscriptionGooglePayRequest
+import com.doubleclick.restaurant.feature.subscriptions.paymentSubscription.data.googlePay.response.PaySubscriptionGooglePayData
 import javax.inject.Inject
 
 class PaySubscriptionGooglePayUseCase @Inject constructor(private val repository: SubscriptionsRepository) :

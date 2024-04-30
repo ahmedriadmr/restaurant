@@ -1,4 +1,4 @@
-package com.doubleclick.rovleapp.feature.shop.cartDetails.data.makeOrder.request
+package com.doubleclick.restaurant.feature.shop.cartDetails.data.makeOrder.request
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize

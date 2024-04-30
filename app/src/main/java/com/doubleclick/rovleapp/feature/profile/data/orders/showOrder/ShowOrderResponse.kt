@@ -1,4 +1,4 @@
-package com.doubleclick.rovleapp.feature.profile.data.orders.showOrder
+package com.doubleclick.restaurant.feature.profile.data.orders.showOrder
 
 data class ShowOrderResponse(
     val `data`: ShowOrderData,

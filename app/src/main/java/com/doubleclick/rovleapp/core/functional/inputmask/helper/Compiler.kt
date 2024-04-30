@@ -1,12 +1,12 @@
-package com.doubleclick.rovleapp.core.functional.inputmask.helper
+package com.doubleclick.restaurant.core.functional.inputmask.helper
 
-import com.doubleclick.rovleapp.core.functional.inputmask.model.Notation
-import com.doubleclick.rovleapp.core.functional.inputmask.model.State
-import com.doubleclick.rovleapp.core.functional.inputmask.model.state.EOLState
-import com.doubleclick.rovleapp.core.functional.inputmask.model.state.FixedState
-import com.doubleclick.rovleapp.core.functional.inputmask.model.state.FreeState
-import com.doubleclick.rovleapp.core.functional.inputmask.model.state.OptionalValueState
-import com.doubleclick.rovleapp.core.functional.inputmask.model.state.ValueState
+import com.doubleclick.restaurant.core.functional.inputmask.model.Notation
+import com.doubleclick.restaurant.core.functional.inputmask.model.State
+import com.doubleclick.restaurant.core.functional.inputmask.model.state.EOLState
+import com.doubleclick.restaurant.core.functional.inputmask.model.state.FixedState
+import com.doubleclick.restaurant.core.functional.inputmask.model.state.FreeState
+import com.doubleclick.restaurant.core.functional.inputmask.model.state.OptionalValueState
+import com.doubleclick.restaurant.core.functional.inputmask.model.state.ValueState
 
 /**
  * ### Compiler

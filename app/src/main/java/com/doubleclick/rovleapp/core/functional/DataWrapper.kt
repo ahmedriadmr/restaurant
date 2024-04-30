@@ -1,6 +1,6 @@
-package com.doubleclick.rovleapp.core.functional
+package com.doubleclick.restaurant.core.functional
 
-import com.doubleclick.rovleapp.feature.auth.signup.data.response.ErrorsSignUp
+import com.doubleclick.restaurant.feature.auth.signup.data.response.ErrorsSignUp
 
 
 abstract class ModelWrapper

@@ -1,15 +1,15 @@
-package com.doubleclick.rovleapp.feature.shop.productDetails.presentation.adapter
+package com.doubleclick.restaurant.feature.shop.productDetails.presentation.adapter
 
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.doubleclick.rovleapp.R
-import com.doubleclick.rovleapp.core.extension.inflate
-import com.doubleclick.rovleapp.databinding.LayoutItemOurShopsBinding
+import com.doubleclick.restaurant.R
+import com.doubleclick.restaurant.core.extension.inflate
+import com.doubleclick.restaurant.databinding.LayoutItemOurShopsBinding
 
-class CoffeeShopsAdapter : ListAdapter<com.doubleclick.rovleapp.feature.shop.response.CoffeeShop, CoffeeShopsAdapter.ViewHolder>(Differ) {
+class CoffeeShopsAdapter : ListAdapter<com.doubleclick.restaurant.feature.shop.response.CoffeeShop, CoffeeShopsAdapter.ViewHolder>(Differ) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
         ViewHolder(parent.inflate(R.layout.layout_item_our_shops))
@@ -23,7 +23,7 @@ class CoffeeShopsAdapter : ListAdapter<com.doubleclick.rovleapp.feature.shop.res
 
         fun bind(
             binding: LayoutItemOurShopsBinding,
-            item: com.doubleclick.rovleapp.feature.shop.response.CoffeeShop
+            item: com.doubleclick.restaurant.feature.shop.response.CoffeeShop
         ) {
             binding.coffeeShopName.text = item.name
             binding.coffeeShopAddress.text = item.address
@@ -32,12 +32,12 @@ class CoffeeShopsAdapter : ListAdapter<com.doubleclick.rovleapp.feature.shop.res
 
     }
 
-    object Differ : DiffUtil.ItemCallback<com.doubleclick.rovleapp.feature.shop.response.CoffeeShop>() {
-        override fun areItemsTheSame(oldItem: com.doubleclick.rovleapp.feature.shop.response.CoffeeShop, newItem: com.doubleclick.rovleapp.feature.shop.response.CoffeeShop): Boolean {
+    object Differ : DiffUtil.ItemCallback<com.doubleclick.restaurant.feature.shop.response.CoffeeShop>() {
+        override fun areItemsTheSame(oldItem: com.doubleclick.restaurant.feature.shop.response.CoffeeShop, newItem: com.doubleclick.restaurant.feature.shop.response.CoffeeShop): Boolean {
             return oldItem.id == newItem.id
         }
 
-        override fun areContentsTheSame(oldItem: com.doubleclick.rovleapp.feature.shop.response.CoffeeShop, newItem: com.doubleclick.rovleapp.feature.shop.response.CoffeeShop): Boolean {
+        override fun areContentsTheSame(oldItem: com.doubleclick.restaurant.feature.shop.response.CoffeeShop, newItem: com.doubleclick.restaurant.feature.shop.response.CoffeeShop): Boolean {
             return oldItem == newItem
         }
     }

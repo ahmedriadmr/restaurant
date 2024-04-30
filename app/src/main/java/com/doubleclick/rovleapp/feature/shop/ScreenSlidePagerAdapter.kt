@@ -1,4 +1,4 @@
-package com.doubleclick.rovleapp.feature.shop
+package com.doubleclick.restaurant.feature.shop
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager

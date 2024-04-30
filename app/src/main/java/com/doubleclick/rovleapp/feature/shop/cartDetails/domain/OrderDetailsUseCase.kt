@@ -1,8 +1,8 @@
-package com.doubleclick.rovleapp.feature.shop.cartDetails.domain
+package com.doubleclick.restaurant.feature.shop.cartDetails.domain
 
-import com.doubleclick.rovleapp.core.interactor.UseCase
-import com.doubleclick.rovleapp.feature.shop.ShopRepository
-import com.doubleclick.rovleapp.feature.shop.cartDetails.data.orderDetails.OrderDetailsData
+import com.doubleclick.restaurant.core.interactor.UseCase
+import com.doubleclick.restaurant.feature.shop.ShopRepository
+import com.doubleclick.restaurant.feature.shop.cartDetails.data.orderDetails.OrderDetailsData
 import javax.inject.Inject
 
 class OrderDetailsUseCase @Inject constructor(private val repository: ShopRepository) :

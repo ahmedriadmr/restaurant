@@ -1,4 +1,4 @@
-package com.doubleclick.rovleapp.views.togglebuttongroup.button
+package com.doubleclick.restaurant.views.togglebuttongroup.button
 
 import android.widget.Checkable
 

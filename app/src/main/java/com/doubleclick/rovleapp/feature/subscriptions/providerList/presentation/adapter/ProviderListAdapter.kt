@@ -1,14 +1,14 @@
-package com.doubleclick.rovleapp.feature.subscriptions.providerList.presentation.adapter
+package com.doubleclick.restaurant.feature.subscriptions.providerList.presentation.adapter
 
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.doubleclick.rovleapp.R
-import com.doubleclick.rovleapp.core.extension.inflate
-import com.doubleclick.rovleapp.databinding.LayoutItemSubscriptionBinding
-import com.doubleclick.rovleapp.feature.subscriptions.providerList.data.listPlans.PlansData
+import com.doubleclick.restaurant.R
+import com.doubleclick.restaurant.core.extension.inflate
+import com.doubleclick.restaurant.databinding.LayoutItemSubscriptionBinding
+import com.doubleclick.restaurant.feature.subscriptions.providerList.data.listPlans.PlansData
 
 class ProviderListAdapter : ListAdapter<PlansData, ProviderListAdapter.ViewHolder>(Differ) {
 

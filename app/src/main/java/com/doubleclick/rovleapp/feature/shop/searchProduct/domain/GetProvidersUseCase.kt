@@ -1,8 +1,8 @@
-package com.doubleclick.rovleapp.feature.shop.searchProduct.domain
+package com.doubleclick.restaurant.feature.shop.searchProduct.domain
 
-import com.doubleclick.rovleapp.core.interactor.UseCase
-import com.doubleclick.rovleapp.feature.shop.ShopRepository
-import com.doubleclick.rovleapp.feature.shop.searchProduct.data.providers.ProvidersData
+import com.doubleclick.restaurant.core.interactor.UseCase
+import com.doubleclick.restaurant.feature.shop.ShopRepository
+import com.doubleclick.restaurant.feature.shop.searchProduct.data.providers.ProvidersData
 import javax.inject.Inject
 
 class GetProvidersUseCase @Inject constructor(private val repository: ShopRepository) :

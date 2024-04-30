@@ -1,4 +1,4 @@
-package com.doubleclick.rovleapp.feature.profile.presentation.adapter
+package com.doubleclick.restaurant.feature.profile.presentation.adapter
 
 import android.annotation.SuppressLint
 import android.view.View
@@ -6,10 +6,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.doubleclick.rovleapp.R
-import com.doubleclick.rovleapp.core.extension.inflate
-import com.doubleclick.rovleapp.databinding.LayoutPresentationsInOrderBinding
-import com.doubleclick.rovleapp.feature.profile.data.orders.showOrder.Product
+import com.doubleclick.restaurant.R
+import com.doubleclick.restaurant.core.extension.inflate
+import com.doubleclick.restaurant.databinding.LayoutPresentationsInOrderBinding
+import com.doubleclick.restaurant.feature.profile.data.orders.showOrder.Product
 
 class ShowOrderItemAdapter : ListAdapter<Product, ShowOrderItemAdapter.ViewHolder>(Differ) {
     private lateinit var _binding: LayoutPresentationsInOrderBinding

@@ -1,14 +1,14 @@
-package com.doubleclick.rovleapp.feature.shop.searchProduct.presentation
+package com.doubleclick.restaurant.feature.shop.searchProduct.presentation
 
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.doubleclick.rovleapp.R
-import com.doubleclick.rovleapp.core.extension.inflate
-import com.doubleclick.rovleapp.databinding.LayoutItemCheckBoxBinding
-import com.doubleclick.rovleapp.feature.shop.searchProduct.data.origins.Origins
+import com.doubleclick.restaurant.R
+import com.doubleclick.restaurant.core.extension.inflate
+import com.doubleclick.restaurant.databinding.LayoutItemCheckBoxBinding
+import com.doubleclick.restaurant.feature.shop.searchProduct.data.origins.Origins
 
 class SpinnerAdapterOrigins : ListAdapter<Origins, SpinnerAdapterOrigins.ViewHolder>(Differ) {
 

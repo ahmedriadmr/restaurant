@@ -1,15 +1,15 @@
-package com.doubleclick.rovleapp.feature.subscriptions
+package com.doubleclick.restaurant.feature.subscriptions
 
-import com.doubleclick.rovleapp.core.functional.DataWrapper
-import com.doubleclick.rovleapp.feature.subscriptions.mySubscriptions.data.listSubscriptions.MySubscriptionsData
-import com.doubleclick.rovleapp.feature.subscriptions.mySubscriptions.data.showSubscription.SubscriptionData
-import com.doubleclick.rovleapp.feature.subscriptions.paymentSubscription.data.googlePay.request.PaySubscriptionGooglePayRequest
-import com.doubleclick.rovleapp.feature.subscriptions.paymentSubscription.data.googlePay.response.PaySubscriptionGooglePayData
-import com.doubleclick.rovleapp.feature.subscriptions.paymentSubscription.data.request.PaySubscriptionRequest
-import com.doubleclick.rovleapp.feature.subscriptions.paymentSubscription.data.response.PaySubscriptionData
-import com.doubleclick.rovleapp.feature.subscriptions.providerList.data.listPlans.PlansData
-import com.doubleclick.rovleapp.feature.subscriptions.providerList.data.showPlan.PlanDetails
-import com.doubleclick.rovleapp.feature.subscriptions.providerList.data.subscribe.request.SubscribeRequest
+import com.doubleclick.restaurant.core.functional.DataWrapper
+import com.doubleclick.restaurant.feature.subscriptions.mySubscriptions.data.listSubscriptions.MySubscriptionsData
+import com.doubleclick.restaurant.feature.subscriptions.mySubscriptions.data.showSubscription.SubscriptionData
+import com.doubleclick.restaurant.feature.subscriptions.paymentSubscription.data.googlePay.request.PaySubscriptionGooglePayRequest
+import com.doubleclick.restaurant.feature.subscriptions.paymentSubscription.data.googlePay.response.PaySubscriptionGooglePayData
+import com.doubleclick.restaurant.feature.subscriptions.paymentSubscription.data.request.PaySubscriptionRequest
+import com.doubleclick.restaurant.feature.subscriptions.paymentSubscription.data.response.PaySubscriptionData
+import com.doubleclick.restaurant.feature.subscriptions.providerList.data.listPlans.PlansData
+import com.doubleclick.restaurant.feature.subscriptions.providerList.data.showPlan.PlanDetails
+import com.doubleclick.restaurant.feature.subscriptions.providerList.data.subscribe.request.SubscribeRequest
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.DELETE

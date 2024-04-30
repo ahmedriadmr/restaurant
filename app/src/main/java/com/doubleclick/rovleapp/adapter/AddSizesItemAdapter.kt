@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.doubleclick.domain.model.sizes.Sizes
 import com.doubleclick.restaurant.viewHolder.AddSizesItemViewHolder
-import com.doubleclick.rovleapp.R
+import com.doubleclick.restaurant.R
 
 
 class AddSizesItemAdapter(val sizes: List<Sizes>) : RecyclerView.Adapter<AddSizesItemViewHolder>() {

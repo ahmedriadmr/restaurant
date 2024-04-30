@@ -1,4 +1,4 @@
-package com.doubleclick.rovleapp.wallet.viewmodel
+package com.doubleclick.restaurant.wallet.viewmodel
 
 import android.app.Activity
 import android.app.Application
@@ -6,7 +6,7 @@ import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.doubleclick.rovleapp.wallet.util.PaymentsUtil
+import com.doubleclick.restaurant.wallet.util.PaymentsUtil
 import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.pay.Pay
 import com.google.android.gms.pay.PayApiAvailabilityStatus

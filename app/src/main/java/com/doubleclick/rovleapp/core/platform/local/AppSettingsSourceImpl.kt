@@ -1,8 +1,8 @@
-package com.doubleclick.rovleapp.core.platform.local
+package com.doubleclick.restaurant.core.platform.local
 
 import android.content.Context
-import com.doubleclick.rovleapp.core.extension.dataStore
-import com.doubleclick.rovleapp.core.functional.Authenticator.Companion.GUEST
+import com.doubleclick.restaurant.core.extension.dataStore
+import com.doubleclick.restaurant.core.functional.Authenticator.Companion.GUEST
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.first

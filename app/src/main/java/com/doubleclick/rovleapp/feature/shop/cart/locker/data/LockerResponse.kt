@@ -1,4 +1,4 @@
-package com.doubleclick.rovleapp.feature.shop.cart.locker.data
+package com.doubleclick.restaurant.feature.shop.cart.locker.data
 
 data class LockerResponse(
     val `data`: List<LockerData>,

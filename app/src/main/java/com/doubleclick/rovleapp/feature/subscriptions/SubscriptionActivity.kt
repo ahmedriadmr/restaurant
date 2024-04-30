@@ -1,9 +1,9 @@
-package com.doubleclick.rovleapp.feature.subscriptions
+package com.doubleclick.restaurant.feature.subscriptions
 
 import android.os.Bundle
-import com.doubleclick.rovleapp.core.platform.AuthPopup
-import com.doubleclick.rovleapp.core.platform.BaseActivity
-import com.doubleclick.rovleapp.databinding.ActivitySubscriptionBinding
+import com.doubleclick.restaurant.core.platform.AuthPopup
+import com.doubleclick.restaurant.core.platform.BaseActivity
+import com.doubleclick.restaurant.databinding.ActivitySubscriptionBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

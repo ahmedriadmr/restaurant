@@ -1,4 +1,4 @@
-package com.doubleclick.rovleapp.swipetoactionlayout.utils
+package com.doubleclick.restaurant.swipetoactionlayout.utils
 
 import android.text.Editable
 import android.text.TextWatcher

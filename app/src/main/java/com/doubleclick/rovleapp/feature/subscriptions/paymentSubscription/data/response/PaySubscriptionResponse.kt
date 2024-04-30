@@ -1,4 +1,4 @@
-package com.doubleclick.rovleapp.feature.subscriptions.paymentSubscription.data.response
+package com.doubleclick.restaurant.feature.subscriptions.paymentSubscription.data.response
 
 data class PaySubscriptionResponse(
     val `data`: PaySubscriptionData,

@@ -1,4 +1,4 @@
-package com.doubleclick.rovleapp
+package com.doubleclick.restaurant
 
 import android.app.Application
 import android.content.Context

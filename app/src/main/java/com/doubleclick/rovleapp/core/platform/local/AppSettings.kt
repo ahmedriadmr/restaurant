@@ -1,6 +1,6 @@
-package com.doubleclick.rovleapp.core.platform.local
+package com.doubleclick.restaurant.core.platform.local
 
-import com.doubleclick.rovleapp.core.extension.empty
+import com.doubleclick.restaurant.core.extension.empty
 import kotlinx.serialization.Serializable
 
 @Serializable

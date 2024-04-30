@@ -1,4 +1,4 @@
-package com.doubleclick.rovleapp.feature.auth.signup.data.response
+package com.doubleclick.restaurant.feature.auth.signup.data.response
 
 data class ErrorsSignUp(
     val user_email: List<String>,

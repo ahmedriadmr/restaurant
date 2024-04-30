@@ -1,4 +1,4 @@
-package com.doubleclick.rovleapp.views.smarttablayout
+package com.doubleclick.restaurant.views.smarttablayout
 
 import android.view.View
 import android.view.ViewGroup.MarginLayoutParams

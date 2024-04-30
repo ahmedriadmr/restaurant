@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.doubleclick.domain.model.items.get.Size
 import com.doubleclick.domain.ts.OnSizeSelected
 import com.doubleclick.restaurant.viewHolder.SizesDishViewHolder
-import com.doubleclick.rovleapp.R
+import com.doubleclick.restaurant.R
 
 
 class SizesDishAdapter(val sizes: List<Size>, val onSizeSelected: OnSizeSelected) :

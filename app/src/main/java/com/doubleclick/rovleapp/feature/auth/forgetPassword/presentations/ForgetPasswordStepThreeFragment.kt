@@ -1,4 +1,4 @@
-package com.doubleclick.rovleapp.feature.auth.forgetPassword.presentations
+package com.doubleclick.restaurant.feature.auth.forgetPassword.presentations
 
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
@@ -8,18 +8,18 @@ import android.widget.TextView
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.navArgs
-import com.doubleclick.rovleapp.R
-import com.doubleclick.rovleapp.core.extension.failure
-import com.doubleclick.rovleapp.core.extension.loading
-import com.doubleclick.rovleapp.core.extension.observe
-import com.doubleclick.rovleapp.core.extension.viewBinding
-import com.doubleclick.rovleapp.core.functional.Either
-import com.doubleclick.rovleapp.core.functional.ProgressHandler
-import com.doubleclick.rovleapp.core.platform.BaseFragment
-import com.doubleclick.rovleapp.databinding.FragmentForgetPasswordStepThreeBinding
-import com.doubleclick.rovleapp.dialog.DialogForgetPassword
-import com.doubleclick.rovleapp.feature.auth.AuthViewModel
-import com.doubleclick.rovleapp.feature.auth.forgetPassword.data.ForgetPasswordResponse
+import com.doubleclick.restaurant.R
+import com.doubleclick.restaurant.core.extension.failure
+import com.doubleclick.restaurant.core.extension.loading
+import com.doubleclick.restaurant.core.extension.observe
+import com.doubleclick.restaurant.core.extension.viewBinding
+import com.doubleclick.restaurant.core.functional.Either
+import com.doubleclick.restaurant.core.functional.ProgressHandler
+import com.doubleclick.restaurant.core.platform.BaseFragment
+import com.doubleclick.restaurant.databinding.FragmentForgetPasswordStepThreeBinding
+import com.doubleclick.restaurant.dialog.DialogForgetPassword
+import com.doubleclick.restaurant.feature.auth.AuthViewModel
+import com.doubleclick.restaurant.feature.auth.forgetPassword.data.ForgetPasswordResponse
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

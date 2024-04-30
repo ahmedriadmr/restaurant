@@ -8,7 +8,7 @@
 
     <fragment
         android:id="@+id/authFragment"
-        android:name="com.doubleclick.rovleapp.feature.auth.AuthFragment"
+        android:name="com.doubleclick.restaurant.feature.auth.AuthFragment"
         android:label="fragment_auth"
         tools:layout="@layout/fragment_auth">
         <action
@@ -21,7 +21,7 @@
 
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.doubleclick.rovleapp.feature.auth.login.presentation.LoginFragment"
+        android:name="com.doubleclick.restaurant.feature.auth.login.presentation.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login">
         <action
@@ -30,13 +30,13 @@
     </fragment>
     <fragment
         android:id="@+id/signUpFragment"
-        android:name="com.doubleclick.rovleapp.feature.auth.signup.presentation.SignUpFragment"
+        android:name="com.doubleclick.restaurant.feature.auth.signup.presentation.SignUpFragment"
         android:label="fragment_sign_up"
         tools:layout="@layout/fragment_sign_up">
     </fragment>
     <fragment
         android:id="@+id/forgetPasswordFragment"
-        android:name="com.doubleclick.rovleapp.feature.auth.forgetPassword.presentations.ForgetPasswordFragment"
+        android:name="com.doubleclick.restaurant.feature.auth.forgetPassword.presentations.ForgetPasswordFragment"
         android:label="fragment_forget_password"
         tools:layout="@layout/fragment_forget_password" />
 

@@ -1,4 +1,4 @@
-package com.doubleclick.rovleapp.feature.subscriptions.mySubscriptions.data.showSubscription
+package com.doubleclick.restaurant.feature.subscriptions.mySubscriptions.data.showSubscription
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize

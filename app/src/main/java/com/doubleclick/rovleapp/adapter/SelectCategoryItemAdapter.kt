@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.doubleclick.domain.model.category.get.Category
 import com.doubleclick.domain.ts.SelectedCategoryInterface
 import com.doubleclick.restaurant.viewHolder.SelectCategoryItemViewHolder
-import com.doubleclick.rovleapp.R
+import com.doubleclick.restaurant.R
 
 
 class SelectCategoryItemAdapter(

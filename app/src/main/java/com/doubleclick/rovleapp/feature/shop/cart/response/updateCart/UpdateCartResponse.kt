@@ -1,4 +1,4 @@
-package com.doubleclick.rovleapp.feature.shop.cart.response.updateCart
+package com.doubleclick.restaurant.feature.shop.cart.response.updateCart
 
 data class UpdateCartResponse(
     val `data`: UpdateCart,

@@ -1,6 +1,6 @@
-package com.doubleclick.rovleapp.core.functional
+package com.doubleclick.restaurant.core.functional
 
-import com.doubleclick.rovleapp.core.platform.local.AppSettingsSource
+import com.doubleclick.restaurant.core.platform.local.AppSettingsSource
 import kotlinx.coroutines.flow.firstOrNull
 import javax.inject.Inject
 import javax.inject.Singleton

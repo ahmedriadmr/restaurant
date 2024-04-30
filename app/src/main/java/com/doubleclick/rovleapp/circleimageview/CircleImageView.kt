@@ -16,7 +16,7 @@ import androidx.annotation.ColorRes
 import androidx.annotation.DrawableRes
 import androidx.annotation.RequiresApi
 import androidx.appcompat.widget.AppCompatImageView
-import com.doubleclick.rovleapp.R
+import com.doubleclick.restaurant.R
 
 class CircleImageView : AppCompatImageView {
     private val mDrawableRect = RectF()

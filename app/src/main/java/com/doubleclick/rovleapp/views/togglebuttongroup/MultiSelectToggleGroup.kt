@@ -1,10 +1,10 @@
-package com.doubleclick.rovleapp.views.togglebuttongroup
+package com.doubleclick.restaurant.views.togglebuttongroup
 
 import android.content.Context
 import android.util.AttributeSet
 import android.view.View
 import android.widget.Checkable
-import com.doubleclick.rovleapp.R
+import com.doubleclick.restaurant.R
 
 /**
  * Created By Eslam Ghazy on 11/20/2022

@@ -1,16 +1,16 @@
-package com.doubleclick.rovleapp.feature.shop.productDetails.presentation
+package com.doubleclick.restaurant.feature.shop.productDetails.presentation
 
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.viewModelScope
-import com.doubleclick.rovleapp.core.platform.BaseViewModel
-import com.doubleclick.rovleapp.core.platform.local.AppSettingsSource
-import com.doubleclick.rovleapp.feature.shop.cart.request.putCart.PutCartRequest
-import com.doubleclick.rovleapp.feature.shop.cart.response.putCart.StoreData
-import com.doubleclick.rovleapp.feature.shop.cart.usecase.PutCartWithOrWithoutOfferUseCase
-import com.doubleclick.rovleapp.feature.shop.productDetails.domain.ShowProductUseCase
-import com.doubleclick.rovleapp.feature.shop.response.Product
-import com.doubleclick.rovleapp.feature.shop.showOffer.data.ShowOfferData
-import com.doubleclick.rovleapp.feature.shop.showOffer.domain.ShowOfferUseCase
+import com.doubleclick.restaurant.core.platform.BaseViewModel
+import com.doubleclick.restaurant.core.platform.local.AppSettingsSource
+import com.doubleclick.restaurant.feature.shop.cart.request.putCart.PutCartRequest
+import com.doubleclick.restaurant.feature.shop.cart.response.putCart.StoreData
+import com.doubleclick.restaurant.feature.shop.cart.usecase.PutCartWithOrWithoutOfferUseCase
+import com.doubleclick.restaurant.feature.shop.productDetails.domain.ShowProductUseCase
+import com.doubleclick.restaurant.feature.shop.response.Product
+import com.doubleclick.restaurant.feature.shop.showOffer.data.ShowOfferData
+import com.doubleclick.restaurant.feature.shop.showOffer.domain.ShowOfferUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.Flow

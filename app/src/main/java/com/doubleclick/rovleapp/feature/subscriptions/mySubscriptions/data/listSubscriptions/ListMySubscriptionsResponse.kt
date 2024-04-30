@@ -1,4 +1,4 @@
-package com.doubleclick.rovleapp.feature.subscriptions.mySubscriptions.data.listSubscriptions
+package com.doubleclick.restaurant.feature.subscriptions.mySubscriptions.data.listSubscriptions
 
 data class ListMySubscriptionsResponse(
     val `data`: List<MySubscriptionsData>,

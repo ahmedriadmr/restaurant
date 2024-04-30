@@ -1,4 +1,4 @@
-package com.doubleclick.rovleapp.feature.auth.login.presentation
+package com.doubleclick.restaurant.feature.auth.login.presentation
 
 import android.os.Bundle
 import android.view.View
@@ -6,17 +6,17 @@ import android.widget.Toast
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import com.doubleclick.rovleapp.R
-import com.doubleclick.rovleapp.core.extension.failure
-import com.doubleclick.rovleapp.core.extension.loading
-import com.doubleclick.rovleapp.core.extension.observe
-import com.doubleclick.rovleapp.core.extension.viewBinding
-import com.doubleclick.rovleapp.core.functional.Either
-import com.doubleclick.rovleapp.core.functional.ProgressHandler
-import com.doubleclick.rovleapp.core.platform.BaseFragment
-import com.doubleclick.rovleapp.databinding.FragmentLoginBinding
-import com.doubleclick.rovleapp.feature.auth.AuthViewModel
-import com.doubleclick.rovleapp.feature.auth.login.data.response.User
+import com.doubleclick.restaurant.R
+import com.doubleclick.restaurant.core.extension.failure
+import com.doubleclick.restaurant.core.extension.loading
+import com.doubleclick.restaurant.core.extension.observe
+import com.doubleclick.restaurant.core.extension.viewBinding
+import com.doubleclick.restaurant.core.functional.Either
+import com.doubleclick.restaurant.core.functional.ProgressHandler
+import com.doubleclick.restaurant.core.platform.BaseFragment
+import com.doubleclick.restaurant.databinding.FragmentLoginBinding
+import com.doubleclick.restaurant.feature.auth.AuthViewModel
+import com.doubleclick.restaurant.feature.auth.login.data.response.User
 import dagger.hilt.android.AndroidEntryPoint
 
 

@@ -1,4 +1,4 @@
-package com.doubleclick.rovleapp.views.rubberpicker
+package com.doubleclick.restaurant.views.rubberpicker
 
 import android.content.Context
 import android.util.TypedValue

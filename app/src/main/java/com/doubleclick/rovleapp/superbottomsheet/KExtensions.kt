@@ -3,7 +3,7 @@ package com.doubleclick.superbottomsheet
 import android.content.Context
 import android.content.res.Configuration
 import android.util.TypedValue
-import com.doubleclick.rovleapp.R
+import com.doubleclick.restaurant.R
 
 //region NULL
 

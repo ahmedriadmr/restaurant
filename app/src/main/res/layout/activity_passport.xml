@@ -36,14 +36,14 @@
             android:gravity="center"
             android:scrollbars="none">
 
-            <com.doubleclick.rovleapp.views.togglebuttongroup.SingleSelectToggleGroup
+            <com.doubleclick.restaurant.views.togglebuttongroup.SingleSelectToggleGroup
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:id="@+id/toggleContainer"
                 app:tbgCheckedButton="@id/qr">
 
-                <com.doubleclick.rovleapp.views.togglebuttongroup.button.CircularToggle
+                <com.doubleclick.restaurant.views.togglebuttongroup.button.CircularToggle
                     android:id="@+id/qr"
                     android:layout_width="100dp"
                     android:layout_height="50dp"
@@ -53,7 +53,7 @@
                     android:text="@string/qr"
                     app:tbgMarkerColor="@color/blue" />
 
-                <com.doubleclick.rovleapp.views.togglebuttongroup.button.CircularToggle
+                <com.doubleclick.restaurant.views.togglebuttongroup.button.CircularToggle
                     android:id="@+id/offers"
                     android:layout_width="100dp"
                     android:layout_height="50dp"
@@ -64,7 +64,7 @@
                     android:text="@string/ofertas"
                     app:tbgMarkerColor="@color/blue" />
 
-                <com.doubleclick.rovleapp.views.togglebuttongroup.button.CircularToggle
+                <com.doubleclick.restaurant.views.togglebuttongroup.button.CircularToggle
                     android:id="@+id/logros"
                     android:layout_width="100dp"
                     android:layout_height="50dp"
@@ -74,7 +74,7 @@
                     android:text="@string/logros"
                     app:tbgMarkerColor="@color/blue" />
 
-            </com.doubleclick.rovleapp.views.togglebuttongroup.SingleSelectToggleGroup>
+            </com.doubleclick.restaurant.views.togglebuttongroup.SingleSelectToggleGroup>
 
         </HorizontalScrollView>
 

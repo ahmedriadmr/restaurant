@@ -1,4 +1,4 @@
-package com.doubleclick.rovleapp.feature.passport
+package com.doubleclick.restaurant.feature.passport
 
 import android.content.Context
 import android.graphics.Bitmap
@@ -9,12 +9,12 @@ import android.view.View
 import android.view.WindowManager
 import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
-import com.doubleclick.rovleapp.R
-import com.doubleclick.rovleapp.core.extension.viewBinding
-import com.doubleclick.rovleapp.core.platform.BaseFragment
-import com.doubleclick.rovleapp.databinding.FragmentQRBinding
-import com.doubleclick.rovleapp.views.qrgenearator.QRGContents
-import com.doubleclick.rovleapp.views.qrgenearator.QRGEncoder
+import com.doubleclick.restaurant.R
+import com.doubleclick.restaurant.core.extension.viewBinding
+import com.doubleclick.restaurant.core.platform.BaseFragment
+import com.doubleclick.restaurant.databinding.FragmentQRBinding
+import com.doubleclick.restaurant.views.qrgenearator.QRGContents
+import com.doubleclick.restaurant.views.qrgenearator.QRGEncoder
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch

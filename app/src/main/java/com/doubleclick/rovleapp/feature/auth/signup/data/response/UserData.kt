@@ -1,7 +1,7 @@
-package com.doubleclick.rovleapp.feature.auth.signup.data.response
+package com.doubleclick.restaurant.feature.auth.signup.data.response
 
 import android.os.Parcelable
-import com.doubleclick.rovleapp.feature.auth.login.data.response.User
+import com.doubleclick.restaurant.feature.auth.login.data.response.User
 import kotlinx.parcelize.Parcelize
 
 @Parcelize

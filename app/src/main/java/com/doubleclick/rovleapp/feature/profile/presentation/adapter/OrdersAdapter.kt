@@ -1,14 +1,14 @@
-package com.doubleclick.rovleapp.feature.profile.presentation.adapter
+package com.doubleclick.restaurant.feature.profile.presentation.adapter
 
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.doubleclick.rovleapp.R
-import com.doubleclick.rovleapp.core.extension.inflate
-import com.doubleclick.rovleapp.databinding.LayoutItemYourOrdersBinding
-import com.doubleclick.rovleapp.feature.profile.data.orders.listOrders.Order
+import com.doubleclick.restaurant.R
+import com.doubleclick.restaurant.core.extension.inflate
+import com.doubleclick.restaurant.databinding.LayoutItemYourOrdersBinding
+import com.doubleclick.restaurant.feature.profile.data.orders.listOrders.Order
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale

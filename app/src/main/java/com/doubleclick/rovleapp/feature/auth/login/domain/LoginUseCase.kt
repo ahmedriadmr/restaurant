@@ -1,9 +1,9 @@
-package com.doubleclick.rovleapp.feature.auth.login.domain
+package com.doubleclick.restaurant.feature.auth.login.domain
 
-import com.doubleclick.rovleapp.core.interactor.UseCase
-import com.doubleclick.rovleapp.feature.auth.data.AuthRepository
-import com.doubleclick.rovleapp.feature.auth.login.data.request.LoginRequest
-import com.doubleclick.rovleapp.feature.auth.login.data.response.User
+import com.doubleclick.restaurant.core.interactor.UseCase
+import com.doubleclick.restaurant.feature.auth.data.AuthRepository
+import com.doubleclick.restaurant.feature.auth.login.data.request.LoginRequest
+import com.doubleclick.restaurant.feature.auth.login.data.response.User
 import javax.inject.Inject
 
 

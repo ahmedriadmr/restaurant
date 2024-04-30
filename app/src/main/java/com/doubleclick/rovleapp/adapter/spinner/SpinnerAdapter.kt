@@ -1,4 +1,4 @@
-package com.doubleclick.rovleapp.adapter.spinner
+package com.doubleclick.restaurant.adapter.spinner
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.TextView
 import androidx.core.content.ContextCompat
-import com.doubleclick.rovleapp.R
+import com.doubleclick.restaurant.R
 
 
 class SpinnerAdapter(

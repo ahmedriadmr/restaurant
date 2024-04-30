@@ -1,4 +1,4 @@
-package com.doubleclick.rovleapp.feature.profile.data.addAddress.response
+package com.doubleclick.restaurant.feature.profile.data.addAddress.response
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize

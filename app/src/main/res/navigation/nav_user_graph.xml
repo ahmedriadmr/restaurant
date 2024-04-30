@@ -7,11 +7,11 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.doubleclick.rovleapp.activities.ui.HomeFragment"
+        android:name="com.doubleclick.restaurant.activities.ui.HomeFragment"
         tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/cartFragment"
-        android:name="com.doubleclick.rovleapp.activities.ui.CartFragment"
+        android:name="com.doubleclick.restaurant.activities.ui.CartFragment"
         tools:layout="@layout/fragment_cart_new" >
         <action
             android:id="@+id/action_cartFragment_to_checkoutFragment"
@@ -19,11 +19,11 @@
     </fragment>
     <fragment
         android:id="@+id/checkoutFragment"
-        android:name="com.doubleclick.rovleapp.activities.ui.CheckoutFragment"
+        android:name="com.doubleclick.restaurant.activities.ui.CheckoutFragment"
         tools:layout="@layout/fragment_checkout" />
     <fragment
         android:id="@+id/userProfileFragment"
-        android:name="com.doubleclick.rovleapp.activities.ui.UserProfileFragment"
+        android:name="com.doubleclick.restaurant.activities.ui.UserProfileFragment"
         tools:layout="@layout/fragment_user_profile">
         <action
             android:id="@+id/action_userProfileFragment_to_accountFragment"
@@ -34,10 +34,10 @@
     </fragment>
     <fragment
         android:id="@+id/accountFragment"
-        android:name="com.doubleclick.rovleapp.activities.ui.AccountFragment"
+        android:name="com.doubleclick.restaurant.activities.ui.AccountFragment"
         tools:layout="@layout/fragment_account" />
     <fragment
         android:id="@+id/myOrdersFragment"
-        android:name="com.doubleclick.rovleapp.activities.ui.MyOrdersFragment"
+        android:name="com.doubleclick.restaurant.activities.ui.MyOrdersFragment"
         tools:layout="@layout/fragment_my_orders" />
 </navigation>

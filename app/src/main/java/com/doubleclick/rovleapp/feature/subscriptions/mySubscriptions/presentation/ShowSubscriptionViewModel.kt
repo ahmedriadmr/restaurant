@@ -1,12 +1,12 @@
-package com.doubleclick.rovleapp.feature.subscriptions.mySubscriptions.presentation
+package com.doubleclick.restaurant.feature.subscriptions.mySubscriptions.presentation
 
 import androidx.lifecycle.viewModelScope
-import com.doubleclick.rovleapp.core.platform.BaseViewModel
-import com.doubleclick.rovleapp.core.platform.local.AppSettingsSource
-import com.doubleclick.rovleapp.feature.subscriptions.mySubscriptions.data.showSubscription.SubscriptionData
-import com.doubleclick.rovleapp.feature.subscriptions.mySubscriptions.domain.DoCancelSubscriptionUseCase
-import com.doubleclick.rovleapp.feature.subscriptions.mySubscriptions.domain.DoInitSubscriptionStatus
-import com.doubleclick.rovleapp.feature.subscriptions.mySubscriptions.domain.ShowSubscriptionUseCase
+import com.doubleclick.restaurant.core.platform.BaseViewModel
+import com.doubleclick.restaurant.core.platform.local.AppSettingsSource
+import com.doubleclick.restaurant.feature.subscriptions.mySubscriptions.data.showSubscription.SubscriptionData
+import com.doubleclick.restaurant.feature.subscriptions.mySubscriptions.domain.DoCancelSubscriptionUseCase
+import com.doubleclick.restaurant.feature.subscriptions.mySubscriptions.domain.DoInitSubscriptionStatus
+import com.doubleclick.restaurant.feature.subscriptions.mySubscriptions.domain.ShowSubscriptionUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.Flow

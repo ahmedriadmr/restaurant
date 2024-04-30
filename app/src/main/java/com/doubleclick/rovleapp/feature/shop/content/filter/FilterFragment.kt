@@ -1,4 +1,4 @@
-package com.doubleclick.rovleapp.feature.shop.content.filter
+package com.doubleclick.restaurant.feature.shop.content.filter
 
 import android.os.Bundle
 import android.view.View
@@ -8,17 +8,17 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-import com.doubleclick.rovleapp.R
-import com.doubleclick.rovleapp.core.extension.invisible
-import com.doubleclick.rovleapp.core.extension.observeOrNull
-import com.doubleclick.rovleapp.core.extension.viewBinding
-import com.doubleclick.rovleapp.core.extension.visible
-import com.doubleclick.rovleapp.core.platform.BaseFragment
-import com.doubleclick.rovleapp.databinding.FragmentContentBinding
-import com.doubleclick.rovleapp.feature.shop.ShopAdapter
-import com.doubleclick.rovleapp.feature.shop.ShopFragmentDirections
-import com.doubleclick.rovleapp.feature.shop.ShopViewModel
-import com.doubleclick.rovleapp.feature.shop.response.ProductData
+import com.doubleclick.restaurant.R
+import com.doubleclick.restaurant.core.extension.invisible
+import com.doubleclick.restaurant.core.extension.observeOrNull
+import com.doubleclick.restaurant.core.extension.viewBinding
+import com.doubleclick.restaurant.core.extension.visible
+import com.doubleclick.restaurant.core.platform.BaseFragment
+import com.doubleclick.restaurant.databinding.FragmentContentBinding
+import com.doubleclick.restaurant.feature.shop.ShopAdapter
+import com.doubleclick.restaurant.feature.shop.ShopFragmentDirections
+import com.doubleclick.restaurant.feature.shop.ShopViewModel
+import com.doubleclick.restaurant.feature.shop.response.ProductData
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

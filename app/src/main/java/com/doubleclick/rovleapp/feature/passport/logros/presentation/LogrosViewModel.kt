@@ -1,14 +1,14 @@
-package com.doubleclick.rovleapp.feature.passport.logros.presentation
+package com.doubleclick.restaurant.feature.passport.logros.presentation
 
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.viewModelScope
-import com.doubleclick.rovleapp.core.interactor.UseCase
-import com.doubleclick.rovleapp.core.platform.BaseViewModel
-import com.doubleclick.rovleapp.core.platform.local.AppSettingsSource
-import com.doubleclick.rovleapp.feature.passport.logros.data.finishTask.FinishTaskRequest
-import com.doubleclick.rovleapp.feature.passport.logros.data.newResponse.NewLogrosData
-import com.doubleclick.rovleapp.feature.passport.logros.domain.FinishTaskUseCase
-import com.doubleclick.rovleapp.feature.passport.logros.domain.ListLogrosUseCase
+import com.doubleclick.restaurant.core.interactor.UseCase
+import com.doubleclick.restaurant.core.platform.BaseViewModel
+import com.doubleclick.restaurant.core.platform.local.AppSettingsSource
+import com.doubleclick.restaurant.feature.passport.logros.data.finishTask.FinishTaskRequest
+import com.doubleclick.restaurant.feature.passport.logros.data.newResponse.NewLogrosData
+import com.doubleclick.restaurant.feature.passport.logros.domain.FinishTaskUseCase
+import com.doubleclick.restaurant.feature.passport.logros.domain.ListLogrosUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.Flow

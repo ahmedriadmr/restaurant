@@ -1,8 +1,8 @@
-package com.doubleclick.rovleapp.feature.shop.productDetails.domain
+package com.doubleclick.restaurant.feature.shop.productDetails.domain
 
-import com.doubleclick.rovleapp.core.interactor.UseCase
-import com.doubleclick.rovleapp.feature.shop.ShopRepository
-import com.doubleclick.rovleapp.feature.shop.response.Product
+import com.doubleclick.restaurant.core.interactor.UseCase
+import com.doubleclick.restaurant.feature.shop.ShopRepository
+import com.doubleclick.restaurant.feature.shop.response.Product
 import javax.inject.Inject
 
 class ShowProductUseCase

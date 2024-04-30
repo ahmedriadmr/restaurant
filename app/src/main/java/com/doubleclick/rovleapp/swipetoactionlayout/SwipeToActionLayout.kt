@@ -6,7 +6,7 @@ import android.view.*
 import androidx.annotation.MenuRes
 import androidx.core.view.ViewCompat
 import androidx.customview.widget.ViewDragHelper
-import com.doubleclick.rovleapp.R
+import com.doubleclick.restaurant.R
 import com.doubleclick.swipetoactionlayout.behaviour.BehaviourDelegate
 import com.doubleclick.swipetoactionlayout.behaviour.BehaviourDelegatesFactory
 import com.doubleclick.swipetoactionlayout.behaviour.NoOpBehaviourDelegate

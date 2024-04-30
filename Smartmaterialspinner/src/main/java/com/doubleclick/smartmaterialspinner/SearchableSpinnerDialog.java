@@ -2,7 +2,6 @@ package com.doubleclick.smartmaterialspinner;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
-import android.app.DialogFragment;
 import android.app.SearchManager;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -28,6 +27,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.AppCompatTextView;
 import androidx.appcompat.widget.SearchView;
+import androidx.fragment.app.DialogFragment;
 
 import com.doubleclick.smartmaterialspinner.adapter.SearchAdapter;
 import com.doubleclick.smartmaterialspinner.util.StringUtils;

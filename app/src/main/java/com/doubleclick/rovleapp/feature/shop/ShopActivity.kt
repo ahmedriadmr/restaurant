@@ -1,14 +1,14 @@
-package com.doubleclick.rovleapp.feature.shop
+package com.doubleclick.restaurant.feature.shop
 
 import android.os.Bundle
 import android.util.Log
 import androidx.navigation.Navigation.findNavController
 import androidx.navigation.fragment.findNavController
-import com.doubleclick.rovleapp.R
-import com.doubleclick.rovleapp.core.platform.AuthPopup
-import com.doubleclick.rovleapp.core.platform.BaseActivity
-import com.doubleclick.rovleapp.databinding.ActivityShopBinding
-import com.doubleclick.rovleapp.feature.shop.showOffer.OfferClickListener
+import com.doubleclick.restaurant.R
+import com.doubleclick.restaurant.core.platform.AuthPopup
+import com.doubleclick.restaurant.core.platform.BaseActivity
+import com.doubleclick.restaurant.databinding.ActivityShopBinding
+import com.doubleclick.restaurant.feature.shop.showOffer.OfferClickListener
 import dagger.hilt.android.AndroidEntryPoint
 
 

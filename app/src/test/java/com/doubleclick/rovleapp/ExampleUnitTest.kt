@@ -1,4 +1,4 @@
-package com.doubleclick.rovleapp
+package com.doubleclick.restaurant
 
 import org.junit.Assert.assertEquals
 import org.junit.Test

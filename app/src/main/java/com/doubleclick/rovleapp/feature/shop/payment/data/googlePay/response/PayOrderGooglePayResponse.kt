@@ -1,4 +1,4 @@
-package com.doubleclick.rovleapp.feature.shop.payment.data.googlePay.response
+package com.doubleclick.restaurant.feature.shop.payment.data.googlePay.response
 
 data class PayOrderGooglePayResponse(
     val `data`: PayOrderGooglePayData,

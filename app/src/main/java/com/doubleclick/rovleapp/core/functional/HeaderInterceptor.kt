@@ -1,8 +1,8 @@
-package com.doubleclick.rovleapp.core.functional
+package com.doubleclick.restaurant.core.functional
 
 import android.content.Context
-import com.doubleclick.rovleapp.core.platform.local.AppSettingsSource
-import com.doubleclick.rovleapp.utils.mobileId
+import com.doubleclick.restaurant.core.platform.local.AppSettingsSource
+import com.doubleclick.restaurant.utils.mobileId
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking

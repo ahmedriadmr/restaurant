@@ -1,4 +1,4 @@
-package com.doubleclick.rovleapp.feature.shop
+package com.doubleclick.restaurant.feature.shop
 
 
 import android.app.Activity
@@ -9,9 +9,9 @@ import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.doubleclick.rovleapp.R
-import com.doubleclick.rovleapp.core.extension.inflate
-import com.doubleclick.rovleapp.feature.shop.response.Product
+import com.doubleclick.restaurant.R
+import com.doubleclick.restaurant.core.extension.inflate
+import com.doubleclick.restaurant.feature.shop.response.Product
 
 
 class ShopAdapter(private val context: Activity) : ListAdapter<Product, ShopAdapter.ViewHolder>(Differ) {

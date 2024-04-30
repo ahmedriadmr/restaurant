@@ -1,4 +1,4 @@
-package com.doubleclick.rovleapp.feature.shop.response
+package com.doubleclick.restaurant.feature.shop.response
 
 data class ShopResponse(
     val productData: ProductData,

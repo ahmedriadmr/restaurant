@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-package com.doubleclick.rovleapp.wallet.util
+package com.doubleclick.restaurant.wallet.util
 
 import android.content.Context
-import com.doubleclick.rovleapp.wallet.Constants
+import com.doubleclick.restaurant.wallet.Constants
 import com.google.android.gms.wallet.PaymentsClient
 import com.google.android.gms.wallet.Wallet
 import org.json.JSONArray

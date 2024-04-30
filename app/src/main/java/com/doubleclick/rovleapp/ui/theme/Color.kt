@@ -1,4 +1,4 @@
-package com.doubleclick.rovleapp.ui.theme
+package com.doubleclick.restaurant.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

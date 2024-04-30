@@ -1,4 +1,4 @@
-package com.doubleclick.rovleapp.feature.profile.presentation
+package com.doubleclick.restaurant.feature.profile.presentation
 
 import android.content.Intent
 import android.os.Bundle
@@ -12,23 +12,23 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import coil.load
 import coil.size.Scale
-import com.doubleclick.rovleapp.R
-import com.doubleclick.rovleapp.core.extension.failure
-import com.doubleclick.rovleapp.core.extension.loading
-import com.doubleclick.rovleapp.core.extension.observe
-import com.doubleclick.rovleapp.core.extension.viewBinding
-import com.doubleclick.rovleapp.core.functional.Either
-import com.doubleclick.rovleapp.core.functional.ProgressHandler
-import com.doubleclick.rovleapp.core.platform.BaseFragment
-import com.doubleclick.rovleapp.core.platform.local.UserAccess
-import com.doubleclick.rovleapp.databinding.FragmentAddressBinding
-import com.doubleclick.rovleapp.feature.profile.ProfileActivity
-import com.doubleclick.rovleapp.feature.profile.data.addAddress.response.AddressData
-import com.doubleclick.rovleapp.feature.profile.data.updateAddress.UpdateAddressData
-import com.doubleclick.rovleapp.feature.shop.cartDetails.data.filterCities.FilterCitiesData
-import com.doubleclick.rovleapp.feature.shop.cartDetails.presentation.NewFilterCityAdapter
-import com.doubleclick.rovleapp.feature.shop.cartDetails.presentation.NewFilterCountryAdapter
-import com.doubleclick.rovleapp.feature.shop.cartDetails.presentation.NewFilterProvinceAdapter
+import com.doubleclick.restaurant.R
+import com.doubleclick.restaurant.core.extension.failure
+import com.doubleclick.restaurant.core.extension.loading
+import com.doubleclick.restaurant.core.extension.observe
+import com.doubleclick.restaurant.core.extension.viewBinding
+import com.doubleclick.restaurant.core.functional.Either
+import com.doubleclick.restaurant.core.functional.ProgressHandler
+import com.doubleclick.restaurant.core.platform.BaseFragment
+import com.doubleclick.restaurant.core.platform.local.UserAccess
+import com.doubleclick.restaurant.databinding.FragmentAddressBinding
+import com.doubleclick.restaurant.feature.profile.ProfileActivity
+import com.doubleclick.restaurant.feature.profile.data.addAddress.response.AddressData
+import com.doubleclick.restaurant.feature.profile.data.updateAddress.UpdateAddressData
+import com.doubleclick.restaurant.feature.shop.cartDetails.data.filterCities.FilterCitiesData
+import com.doubleclick.restaurant.feature.shop.cartDetails.presentation.NewFilterCityAdapter
+import com.doubleclick.restaurant.feature.shop.cartDetails.presentation.NewFilterCountryAdapter
+import com.doubleclick.restaurant.feature.shop.cartDetails.presentation.NewFilterProvinceAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

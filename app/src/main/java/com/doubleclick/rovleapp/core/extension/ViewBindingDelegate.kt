@@ -1,4 +1,4 @@
-package com.doubleclick.rovleapp.core.extension
+package com.doubleclick.restaurant.core.extension
 
 import android.view.LayoutInflater
 import android.view.View

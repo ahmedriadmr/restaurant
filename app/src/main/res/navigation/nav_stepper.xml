@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/forgetPasswordStepOneFragment"
-        android:name="com.doubleclick.rovleapp.feature.auth.forgetPassword.presentations.ForgetPasswordStepOneFragment"
+        android:name="com.doubleclick.restaurant.feature.auth.forgetPassword.presentations.ForgetPasswordStepOneFragment"
         android:label="fragment_forget_password_step_one"
         tools:layout="@layout/fragment_forget_password_step_one">
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/forgetPasswordStepTwoFragment"
-        android:name="com.doubleclick.rovleapp.feature.auth.forgetPassword.presentations.ForgetPasswordStepTwoFragment"
+        android:name="com.doubleclick.restaurant.feature.auth.forgetPassword.presentations.ForgetPasswordStepTwoFragment"
         android:label="fragment_forget_password_step_two"
         tools:layout="@layout/fragment_forget_password_step_two">
         <action
@@ -28,7 +28,7 @@
     </fragment>
     <fragment
         android:id="@+id/forgetPasswordStepThreeFragment"
-        android:name="com.doubleclick.rovleapp.feature.auth.forgetPassword.presentations.ForgetPasswordStepThreeFragment"
+        android:name="com.doubleclick.restaurant.feature.auth.forgetPassword.presentations.ForgetPasswordStepThreeFragment"
         android:label="fragment_forget_password_step_three"
         tools:layout="@layout/fragment_forget_password_step_three" >
         <argument

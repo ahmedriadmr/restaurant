@@ -4,7 +4,7 @@ import android.content.Context
 import android.graphics.Color
 import android.util.AttributeSet
 import android.util.Xml
-import com.doubleclick.rovleapp.R
+import com.doubleclick.restaurant.R
 import com.doubleclick.swipetoactionlayout.SwipeAction
 import org.xmlpull.v1.XmlPullParser
 

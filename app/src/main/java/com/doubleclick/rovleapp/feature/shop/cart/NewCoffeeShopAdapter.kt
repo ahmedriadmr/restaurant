@@ -1,14 +1,14 @@
-package com.doubleclick.rovleapp.feature.shop.cart
+package com.doubleclick.restaurant.feature.shop.cart
 
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.doubleclick.rovleapp.R
-import com.doubleclick.rovleapp.core.extension.inflate
-import com.doubleclick.rovleapp.databinding.LayoutItemChooseOneBinding
-import com.doubleclick.rovleapp.feature.shop.response.CoffeeShop
+import com.doubleclick.restaurant.R
+import com.doubleclick.restaurant.core.extension.inflate
+import com.doubleclick.restaurant.databinding.LayoutItemChooseOneBinding
+import com.doubleclick.restaurant.feature.shop.response.CoffeeShop
 
 class NewCoffeeShopAdapter : ListAdapter<CoffeeShop, NewCoffeeShopAdapter.ViewHolder>(Differ) {
 

@@ -1,10 +1,10 @@
-package com.doubleclick.rovleapp.core.platform
+package com.doubleclick.restaurant.core.platform
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.doubleclick.rovleapp.core.extension.observeOrNull
-import com.doubleclick.rovleapp.core.platform.local.AppSettingsSource
-import com.doubleclick.rovleapp.core.platform.local.UserAccess
+import com.doubleclick.restaurant.core.extension.observeOrNull
+import com.doubleclick.restaurant.core.platform.local.AppSettingsSource
+import com.doubleclick.restaurant.core.platform.local.UserAccess
 import javax.inject.Inject
 
 abstract class BaseActivity : AppCompatActivity() {

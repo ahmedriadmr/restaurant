@@ -1,11 +1,11 @@
-package com.doubleclick.rovleapp.feature.passport.offers.presentation
+package com.doubleclick.restaurant.feature.passport.offers.presentation
 
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.viewModelScope
-import com.doubleclick.rovleapp.core.interactor.UseCase
-import com.doubleclick.rovleapp.core.platform.BaseViewModel
-import com.doubleclick.rovleapp.feature.passport.offers.data.Offers
-import com.doubleclick.rovleapp.feature.passport.offers.domain.ListOffersUseCase
+import com.doubleclick.restaurant.core.interactor.UseCase
+import com.doubleclick.restaurant.core.platform.BaseViewModel
+import com.doubleclick.restaurant.feature.passport.offers.data.Offers
+import com.doubleclick.restaurant.feature.passport.offers.domain.ListOffersUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow

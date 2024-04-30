@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.doubleclick.rovleapp.wallet
+package com.doubleclick.restaurant.wallet
 
 import com.google.android.gms.wallet.WalletConstants
 

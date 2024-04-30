@@ -1,21 +1,21 @@
-package com.doubleclick.rovleapp.feature.profile.presentation
+package com.doubleclick.restaurant.feature.profile.presentation
 
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import com.doubleclick.rovleapp.R
-import com.doubleclick.rovleapp.core.extension.failure
-import com.doubleclick.rovleapp.core.extension.loading
-import com.doubleclick.rovleapp.core.extension.observeOrNull
-import com.doubleclick.rovleapp.core.extension.viewBinding
-import com.doubleclick.rovleapp.core.functional.Either
-import com.doubleclick.rovleapp.core.functional.ProgressHandler
-import com.doubleclick.rovleapp.core.platform.BaseFragment
-import com.doubleclick.rovleapp.databinding.FragmentProductsInOrderBinding
-import com.doubleclick.rovleapp.feature.profile.data.orders.showOrder.ShowOrderData
-import com.doubleclick.rovleapp.feature.profile.presentation.adapter.ProductInOrderAdapter
+import com.doubleclick.restaurant.R
+import com.doubleclick.restaurant.core.extension.failure
+import com.doubleclick.restaurant.core.extension.loading
+import com.doubleclick.restaurant.core.extension.observeOrNull
+import com.doubleclick.restaurant.core.extension.viewBinding
+import com.doubleclick.restaurant.core.functional.Either
+import com.doubleclick.restaurant.core.functional.ProgressHandler
+import com.doubleclick.restaurant.core.platform.BaseFragment
+import com.doubleclick.restaurant.databinding.FragmentProductsInOrderBinding
+import com.doubleclick.restaurant.feature.profile.data.orders.showOrder.ShowOrderData
+import com.doubleclick.restaurant.feature.profile.presentation.adapter.ProductInOrderAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

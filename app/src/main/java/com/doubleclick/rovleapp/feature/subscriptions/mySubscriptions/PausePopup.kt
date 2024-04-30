@@ -1,4 +1,4 @@
-package com.doubleclick.rovleapp.feature.subscriptions.mySubscriptions
+package com.doubleclick.restaurant.feature.subscriptions.mySubscriptions
 import android.app.AlertDialog
 import android.content.Context
 import android.graphics.Color
@@ -10,8 +10,8 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.Spinner
 import android.widget.TextView
-import com.doubleclick.rovleapp.R
-import com.doubleclick.rovleapp.views.customSpinner.CustomSpinner
+import com.doubleclick.restaurant.R
+import com.doubleclick.restaurant.views.customSpinner.CustomSpinner
 
 object PausePopup {
 

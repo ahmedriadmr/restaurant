@@ -1,4 +1,4 @@
-package com.doubleclick.rovleapp.feature.shop.cartDetails.data.filterCities
+package com.doubleclick.restaurant.feature.shop.cartDetails.data.filterCities
 
 data class FilterCitiesResponse(
     val `data`: List<FilterCitiesData>,

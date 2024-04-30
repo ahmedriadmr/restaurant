@@ -1,4 +1,4 @@
-package com.doubleclick.rovleapp.views.togglebuttongroup.button
+package com.doubleclick.restaurant.views.togglebuttongroup.button
 
 import android.animation.ArgbEvaluator
 import android.animation.ValueAnimator
@@ -10,7 +10,7 @@ import android.util.AttributeSet
 import android.view.animation.Animation
 import android.view.animation.ScaleAnimation
 import androidx.core.content.ContextCompat
-import com.doubleclick.rovleapp.R
+import com.doubleclick.restaurant.R
 
 /**
  * Created By Eslam Ghazy on 11/20/2022

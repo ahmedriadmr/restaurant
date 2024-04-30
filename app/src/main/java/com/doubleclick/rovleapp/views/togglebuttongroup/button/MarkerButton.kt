@@ -1,4 +1,4 @@
-package com.doubleclick.rovleapp.views.togglebuttongroup.button
+package com.doubleclick.restaurant.views.togglebuttongroup.button
 
 import android.content.Context
 import android.content.res.ColorStateList
@@ -8,7 +8,7 @@ import android.view.LayoutInflater
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.content.ContextCompat
-import com.doubleclick.rovleapp.R
+import com.doubleclick.restaurant.R
 
 /**
  * Created By Eslam Ghazy on 11/20/2022

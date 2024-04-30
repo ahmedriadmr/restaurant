@@ -1,11 +1,11 @@
-package com.doubleclick.rovleapp.activities.ui
+package com.doubleclick.restaurant.activities.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.doubleclick.rovleapp.databinding.FragmentMyOrdersBinding
+import com.doubleclick.restaurant.databinding.FragmentMyOrdersBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

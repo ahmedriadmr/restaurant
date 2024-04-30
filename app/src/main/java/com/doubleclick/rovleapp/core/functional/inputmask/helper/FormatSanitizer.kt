@@ -1,4 +1,4 @@
-package com.doubleclick.rovleapp.core.functional.inputmask.helper
+package com.doubleclick.restaurant.core.functional.inputmask.helper
 
 /**
  * ### FormatSanitizer

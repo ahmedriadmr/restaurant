@@ -21,14 +21,14 @@
             android:layout_marginBottom="3dp"
             android:scrollbars="none">
 
-            <com.doubleclick.rovleapp.views.togglebuttongroup.SingleSelectToggleGroup
+            <com.doubleclick.restaurant.views.togglebuttongroup.SingleSelectToggleGroup
                 android:id="@+id/toggle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 app:tbgCheckedButton="@id/mySubscriptions">
 
-                <com.doubleclick.rovleapp.views.togglebuttongroup.button.CircularToggle
+                <com.doubleclick.restaurant.views.togglebuttongroup.button.CircularToggle
                     android:id="@+id/mySubscriptions"
                     android:layout_width="166dp"
                     android:layout_height="50dp"
@@ -38,7 +38,7 @@
                     android:text="@string/mis_suscripciones"
                     app:tbgMarkerColor="@color/blue" />
 
-                <com.doubleclick.rovleapp.views.togglebuttongroup.button.CircularToggle
+                <com.doubleclick.restaurant.views.togglebuttongroup.button.CircularToggle
                     android:id="@+id/providerList"
                     android:layout_width="142dp"
                     android:layout_height="50dp"
@@ -48,7 +48,7 @@
                     android:text="@string/proveedores"
                     app:tbgMarkerColor="@color/blue" />
 
-            </com.doubleclick.rovleapp.views.togglebuttongroup.SingleSelectToggleGroup>
+            </com.doubleclick.restaurant.views.togglebuttongroup.SingleSelectToggleGroup>
         </HorizontalScrollView>
 
 

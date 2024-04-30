@@ -1,4 +1,4 @@
-package com.doubleclick.rovleapp.feature.subscriptions.mySubscriptions.data.editSubscription
+package com.doubleclick.restaurant.feature.subscriptions.mySubscriptions.data.editSubscription
 
 data class EditRequest(
     val periodicity: String,

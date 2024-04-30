@@ -1,7 +1,7 @@
-package com.doubleclick.rovleapp.feature.shop.cart.usecase
+package com.doubleclick.restaurant.feature.shop.cart.usecase
 
-import com.doubleclick.rovleapp.core.interactor.UseCase
-import com.doubleclick.rovleapp.feature.shop.ShopRepository
+import com.doubleclick.restaurant.core.interactor.UseCase
+import com.doubleclick.restaurant.feature.shop.ShopRepository
 import javax.inject.Inject
 
 class DeleteCartUseCase @Inject constructor(private val repository: ShopRepository) :

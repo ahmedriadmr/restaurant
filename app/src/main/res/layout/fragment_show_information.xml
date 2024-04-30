@@ -143,7 +143,7 @@
                         android:orientation="horizontal"
                         android:padding="16dp">
 
-                        <com.doubleclick.rovleapp.views.customSpinner.CustomSpinner
+                        <com.doubleclick.restaurant.views.customSpinner.CustomSpinner
                             android:id="@+id/spinner_period"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"

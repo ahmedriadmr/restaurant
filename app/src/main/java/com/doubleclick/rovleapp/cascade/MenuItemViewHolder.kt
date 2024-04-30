@@ -25,7 +25,7 @@ import androidx.core.view.updatePaddingRelative
 import androidx.recyclerview.widget.RecyclerView
 import com.doubleclick.cascade.AdapterModel.ItemModel
 import com.doubleclick.cascade.internal.dip
-import com.doubleclick.rovleapp.R
+import com.doubleclick.restaurant.R
 import kotlin.LazyThreadSafetyMode.NONE
 import androidx.appcompat.R as appcompatR
 

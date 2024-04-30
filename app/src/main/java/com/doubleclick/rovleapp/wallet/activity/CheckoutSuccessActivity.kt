@@ -1,8 +1,8 @@
-package com.doubleclick.rovleapp.wallet.activity
+package com.doubleclick.restaurant.wallet.activity
 
 import android.os.Bundle
-import com.doubleclick.rovleapp.core.platform.BaseActivity
-import com.doubleclick.rovleapp.databinding.ActivityCheckoutSuccessBinding
+import com.doubleclick.restaurant.core.platform.BaseActivity
+import com.doubleclick.restaurant.databinding.ActivityCheckoutSuccessBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

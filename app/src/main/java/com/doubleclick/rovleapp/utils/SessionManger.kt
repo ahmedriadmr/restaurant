@@ -1,13 +1,13 @@
-package com.doubleclick.rovleapp.utils
+package com.doubleclick.restaurant.utils
 
 import android.content.Context
 import android.util.Log
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.intPreferencesKey
 import androidx.datastore.preferences.core.stringPreferencesKey
-import com.doubleclick.rovleapp.utils.Constant.ID_KEY
-import com.doubleclick.rovleapp.utils.Constant.TOKEN_KEY
-import com.doubleclick.rovleapp.utils.DataStore.dataStore
+import com.doubleclick.restaurant.utils.Constant.ID_KEY
+import com.doubleclick.restaurant.utils.Constant.TOKEN_KEY
+import com.doubleclick.restaurant.utils.DataStore.dataStore
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.map

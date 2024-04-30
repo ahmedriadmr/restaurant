@@ -1,4 +1,4 @@
-package com.doubleclick.rovleapp.activities.ui
+package com.doubleclick.restaurant.activities.ui
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,9 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import com.doubleclick.rovleapp.databinding.FragmentUserProfileBinding
-import com.doubleclick.rovleapp.feature.auth.AuthActivity
-import com.doubleclick.rovleapp.utils.SessionManger.logout
+import com.doubleclick.restaurant.feature.auth.AuthActivity
+import com.doubleclick.restaurant.utils.SessionManger.logout
+import com.doubleclick.restaurant.databinding.FragmentUserProfileBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.runBlocking
 

@@ -1,11 +1,11 @@
-package com.doubleclick.rovleapp.dialog
+package com.doubleclick.restaurant.dialog
 
 import android.app.Dialog
 import android.content.Context
 import android.os.Bundle
 import android.widget.Button
-import com.doubleclick.rovleapp.R
-import com.doubleclick.rovleapp.databinding.DialogPaymentSuccessBinding
+import com.doubleclick.restaurant.R
+import com.doubleclick.restaurant.databinding.DialogPaymentSuccessBinding
 
 class DialogPaymentSuccess (context: Context) : Dialog(context) {
 

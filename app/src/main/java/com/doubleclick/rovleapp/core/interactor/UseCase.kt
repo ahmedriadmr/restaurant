@@ -1,8 +1,8 @@
-package com.doubleclick.rovleapp.core.interactor
+package com.doubleclick.restaurant.core.interactor
 
-import com.doubleclick.rovleapp.core.exception.Failure
-import com.doubleclick.rovleapp.core.functional.Either
-import com.doubleclick.rovleapp.core.platform.BaseViewModel
+import com.doubleclick.restaurant.core.exception.Failure
+import com.doubleclick.restaurant.core.functional.Either
+import com.doubleclick.restaurant.core.platform.BaseViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch

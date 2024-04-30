@@ -1,10 +1,10 @@
-package com.doubleclick.rovleapp.core.di
+package com.doubleclick.restaurant.core.di
 
 import android.content.Context
-import com.doubleclick.rovleapp.BuildConfig
-import com.doubleclick.rovleapp.core.functional.AuthAuthenticator
-import com.doubleclick.rovleapp.core.functional.HeaderInterceptor
-import com.doubleclick.rovleapp.utils.Constant
+import com.doubleclick.restaurant.BuildConfig
+import com.doubleclick.restaurant.core.functional.AuthAuthenticator
+import com.doubleclick.restaurant.core.functional.HeaderInterceptor
+import com.doubleclick.restaurant.utils.Constant
 import com.google.gson.GsonBuilder
 import dagger.Module
 import dagger.Provides

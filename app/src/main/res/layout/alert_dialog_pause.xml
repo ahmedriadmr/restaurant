@@ -25,7 +25,7 @@
         android:background="@drawable/bg_white_r50"
         android:orientation="horizontal">
 
-        <com.doubleclick.rovleapp.views.customSpinner.CustomSpinner
+        <com.doubleclick.restaurant.views.customSpinner.CustomSpinner
             android:id="@+id/pause_period_spinner"
             android:layout_width="0dp"
             android:layout_height="wrap_content"

@@ -11,8 +11,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.doubleclick.domain.model.carts.get.CartsModel
 import com.doubleclick.domain.ts.OnUpdateCart
-import com.doubleclick.rovleapp.R
-import com.doubleclick.rovleapp.utils.Constant.BASE_URL_IMAGE
+import com.doubleclick.restaurant.R
+import com.doubleclick.restaurant.utils.Constant.BASE_URL_IMAGE
 import com.doubleclick.swipetoactionlayout.ActionBindHelper
 import com.doubleclick.swipetoactionlayout.SwipeAction
 import com.doubleclick.swipetoactionlayout.SwipeMenuListener

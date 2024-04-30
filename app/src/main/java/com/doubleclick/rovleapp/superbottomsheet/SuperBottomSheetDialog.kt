@@ -15,7 +15,7 @@ import androidx.appcompat.app.AppCompatDialog
 import androidx.core.view.AccessibilityDelegateCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat
-import com.doubleclick.rovleapp.databinding.SuperBottomSheetDialogBinding
+import com.doubleclick.restaurant.databinding.SuperBottomSheetDialogBinding
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetBehavior.BottomSheetCallback
 import com.google.android.material.bottomsheet.BottomSheetBehavior.State

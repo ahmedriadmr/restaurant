@@ -1,14 +1,14 @@
-package com.doubleclick.rovleapp.feature.passport.offers.presentation.adapter
+package com.doubleclick.restaurant.feature.passport.offers.presentation.adapter
 
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.doubleclick.rovleapp.R
-import com.doubleclick.rovleapp.core.extension.inflate
-import com.doubleclick.rovleapp.databinding.LayoutItemLevelBinding
-import com.doubleclick.rovleapp.feature.passport.offers.data.Level
+import com.doubleclick.restaurant.R
+import com.doubleclick.restaurant.core.extension.inflate
+import com.doubleclick.restaurant.databinding.LayoutItemLevelBinding
+import com.doubleclick.restaurant.feature.passport.offers.data.Level
 
 class LevelDetailsAdapter : ListAdapter<Level, LevelDetailsAdapter.ViewHolder>(Differ) {
 

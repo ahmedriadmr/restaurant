@@ -7,10 +7,10 @@ import com.doubleclick.domain.model.sizes.Sizes
 import com.doubleclick.domain.ts.OnAddItem
 
 
-import com.doubleclick.rovleapp.R
-import com.doubleclick.rovleapp.databinding.LayoutAddItemSizeBinding
-import com.doubleclick.rovleapp.swipetoactionlayout.utils.SimpleTextWatcher
-import com.doubleclick.rovleapp.utils.isNotNullOrEmptyString
+import com.doubleclick.restaurant.R
+import com.doubleclick.restaurant.databinding.LayoutAddItemSizeBinding
+import com.doubleclick.restaurant.swipetoactionlayout.utils.SimpleTextWatcher
+import com.doubleclick.restaurant.utils.isNotNullOrEmptyString
 
 class AddSizeDialog(context: Context, private val onAddItem: OnAddItem) :
     Dialog(context, R.style.CustomAlertDialog) {

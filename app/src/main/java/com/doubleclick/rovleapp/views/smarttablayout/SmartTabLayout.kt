@@ -1,4 +1,4 @@
-package com.doubleclick.rovleapp.views.smarttablayout
+package com.doubleclick.restaurant.views.smarttablayout
 
 import android.content.Context
 import android.content.res.ColorStateList
@@ -12,7 +12,7 @@ import android.widget.TextView
 import androidx.core.view.ViewCompat
 import androidx.viewpager.widget.PagerAdapter
 import androidx.viewpager.widget.ViewPager
-import com.doubleclick.rovleapp.R
+import com.doubleclick.restaurant.R
 import kotlin.math.roundToInt
 
 /**

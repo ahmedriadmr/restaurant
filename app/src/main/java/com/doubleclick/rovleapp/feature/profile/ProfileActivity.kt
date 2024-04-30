@@ -1,9 +1,9 @@
-package com.doubleclick.rovleapp.feature.profile
+package com.doubleclick.restaurant.feature.profile
 
 import android.os.Bundle
-import com.doubleclick.rovleapp.core.platform.AuthPopup
-import com.doubleclick.rovleapp.core.platform.BaseActivity
-import com.doubleclick.rovleapp.databinding.ActivityProfileBinding
+import com.doubleclick.restaurant.core.platform.AuthPopup
+import com.doubleclick.restaurant.core.platform.BaseActivity
+import com.doubleclick.restaurant.databinding.ActivityProfileBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

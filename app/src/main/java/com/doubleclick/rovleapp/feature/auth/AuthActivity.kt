@@ -1,11 +1,11 @@
-package com.doubleclick.rovleapp.feature.auth
+package com.doubleclick.restaurant.feature.auth
 
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.doubleclick.rovleapp.core.extension.viewBinding
-import com.doubleclick.rovleapp.databinding.ActivityAuthBinding
+import com.doubleclick.restaurant.core.extension.viewBinding
+import com.doubleclick.restaurant.databinding.ActivityAuthBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

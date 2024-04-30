@@ -1,4 +1,4 @@
-package com.doubleclick.rovleapp.core.platform
+package com.doubleclick.restaurant.core.platform
 
 import android.os.Bundle
 import android.view.View
@@ -6,11 +6,11 @@ import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import com.doubleclick.rovleapp.R
-import com.doubleclick.rovleapp.core.exception.Failure
-import com.doubleclick.rovleapp.core.extension.observeOrNull
-import com.doubleclick.rovleapp.core.platform.local.AppSettingsSource
-import com.doubleclick.rovleapp.core.platform.local.UserAccess
+import com.doubleclick.restaurant.R
+import com.doubleclick.restaurant.core.exception.Failure
+import com.doubleclick.restaurant.core.extension.observeOrNull
+import com.doubleclick.restaurant.core.platform.local.AppSettingsSource
+import com.doubleclick.restaurant.core.platform.local.UserAccess
 import javax.inject.Inject
 
 

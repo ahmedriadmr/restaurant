@@ -1,4 +1,4 @@
-package com.doubleclick.rovleapp.views.customSpinner
+package com.doubleclick.restaurant.views.customSpinner
 
 import android.content.Context
 import android.content.res.Resources.Theme

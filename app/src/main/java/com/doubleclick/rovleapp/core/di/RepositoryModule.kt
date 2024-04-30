@@ -1,10 +1,10 @@
-package com.doubleclick.rovleapp.core.di
+package com.doubleclick.restaurant.core.di
 
-import com.doubleclick.rovleapp.feature.auth.data.AuthRepository
-import com.doubleclick.rovleapp.feature.passport.PassportRepository
-import com.doubleclick.rovleapp.feature.profile.ProfileRepository
-import com.doubleclick.rovleapp.feature.shop.ShopRepository
-import com.doubleclick.rovleapp.feature.subscriptions.SubscriptionsRepository
+import com.doubleclick.restaurant.feature.auth.data.AuthRepository
+import com.doubleclick.restaurant.feature.passport.PassportRepository
+import com.doubleclick.restaurant.feature.profile.ProfileRepository
+import com.doubleclick.restaurant.feature.shop.ShopRepository
+import com.doubleclick.restaurant.feature.subscriptions.SubscriptionsRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

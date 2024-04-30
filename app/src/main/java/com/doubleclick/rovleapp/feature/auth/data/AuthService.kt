@@ -1,10 +1,10 @@
-package com.doubleclick.rovleapp.feature.auth.data
+package com.doubleclick.restaurant.feature.auth.data
 
-import com.doubleclick.rovleapp.feature.auth.forgetPassword.data.request.forgetPassword.ForgetPasswordRequest
-import com.doubleclick.rovleapp.feature.auth.forgetPassword.data.request.resetPassword.ResetPasswordRequest
-import com.doubleclick.rovleapp.feature.auth.forgetPassword.data.request.verifyOtp.VerifyOtpRequest
-import com.doubleclick.rovleapp.feature.auth.login.data.request.LoginRequest
-import com.doubleclick.rovleapp.feature.auth.signup.data.request.SignUpRequest
+import com.doubleclick.restaurant.feature.auth.forgetPassword.data.request.forgetPassword.ForgetPasswordRequest
+import com.doubleclick.restaurant.feature.auth.forgetPassword.data.request.resetPassword.ResetPasswordRequest
+import com.doubleclick.restaurant.feature.auth.forgetPassword.data.request.verifyOtp.VerifyOtpRequest
+import com.doubleclick.restaurant.feature.auth.login.data.request.LoginRequest
+import com.doubleclick.restaurant.feature.auth.signup.data.request.SignUpRequest
 import retrofit2.Retrofit
 import javax.inject.Inject
 import javax.inject.Singleton

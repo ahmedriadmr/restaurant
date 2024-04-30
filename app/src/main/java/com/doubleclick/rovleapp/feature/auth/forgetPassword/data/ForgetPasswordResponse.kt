@@ -1,4 +1,4 @@
-package com.doubleclick.rovleapp.feature.auth.forgetPassword.data
+package com.doubleclick.restaurant.feature.auth.forgetPassword.data
 
 data class ForgetPasswordResponse(
     val `data`: String?,

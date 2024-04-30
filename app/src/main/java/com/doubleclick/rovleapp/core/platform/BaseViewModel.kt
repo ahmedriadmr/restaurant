@@ -1,9 +1,9 @@
-package com.doubleclick.rovleapp.core.platform
+package com.doubleclick.restaurant.core.platform
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.doubleclick.rovleapp.core.exception.Failure
-import com.doubleclick.rovleapp.core.functional.Either.*
+import com.doubleclick.restaurant.core.exception.Failure
+import com.doubleclick.restaurant.core.functional.Either.*
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.receiveAsFlow

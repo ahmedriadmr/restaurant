@@ -1,4 +1,4 @@
-package com.doubleclick.rovleapp.activities.ui
+package com.doubleclick.restaurant.activities.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,7 +11,7 @@ import androidx.navigation.fragment.findNavController
 import com.doubleclick.domain.model.carts.get.CartsModel
 import com.doubleclick.domain.ts.OnUpdateCart
 import com.doubleclick.restaurant.adapter.CartAdapter
-import com.doubleclick.rovleapp.databinding.FragmentCartNewBinding
+import com.doubleclick.restaurant.databinding.FragmentCartNewBinding
 import com.doubleclick.swipetoactionlayout.SwipeAction
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch

@@ -1,21 +1,21 @@
-package com.doubleclick.rovleapp.feature.auth
+package com.doubleclick.restaurant.feature.auth
 
 
 import androidx.lifecycle.viewModelScope
-import com.doubleclick.rovleapp.core.platform.BaseViewModel
-import com.doubleclick.rovleapp.feature.auth.forgetPassword.data.ForgetPasswordResponse
-import com.doubleclick.rovleapp.feature.auth.forgetPassword.data.request.forgetPassword.ForgetPasswordRequest
-import com.doubleclick.rovleapp.feature.auth.forgetPassword.data.request.resetPassword.ResetPasswordRequest
-import com.doubleclick.rovleapp.feature.auth.forgetPassword.data.request.verifyOtp.VerifyOtpRequest
-import com.doubleclick.rovleapp.feature.auth.forgetPassword.domain.ForgetPasswordUseCase
-import com.doubleclick.rovleapp.feature.auth.forgetPassword.domain.ResetPasswordUseCase
-import com.doubleclick.rovleapp.feature.auth.forgetPassword.domain.VerifyOtpUseCase
-import com.doubleclick.rovleapp.feature.auth.login.data.request.LoginRequest
-import com.doubleclick.rovleapp.feature.auth.login.data.response.User
-import com.doubleclick.rovleapp.feature.auth.login.domain.LoginUseCase
-import com.doubleclick.rovleapp.feature.auth.signup.data.request.SignUpRequest
-import com.doubleclick.rovleapp.feature.auth.signup.data.response.UserData
-import com.doubleclick.rovleapp.feature.auth.signup.domain.SignUpUseCase
+import com.doubleclick.restaurant.core.platform.BaseViewModel
+import com.doubleclick.restaurant.feature.auth.forgetPassword.data.ForgetPasswordResponse
+import com.doubleclick.restaurant.feature.auth.forgetPassword.data.request.forgetPassword.ForgetPasswordRequest
+import com.doubleclick.restaurant.feature.auth.forgetPassword.data.request.resetPassword.ResetPasswordRequest
+import com.doubleclick.restaurant.feature.auth.forgetPassword.data.request.verifyOtp.VerifyOtpRequest
+import com.doubleclick.restaurant.feature.auth.forgetPassword.domain.ForgetPasswordUseCase
+import com.doubleclick.restaurant.feature.auth.forgetPassword.domain.ResetPasswordUseCase
+import com.doubleclick.restaurant.feature.auth.forgetPassword.domain.VerifyOtpUseCase
+import com.doubleclick.restaurant.feature.auth.login.data.request.LoginRequest
+import com.doubleclick.restaurant.feature.auth.login.data.response.User
+import com.doubleclick.restaurant.feature.auth.login.domain.LoginUseCase
+import com.doubleclick.restaurant.feature.auth.signup.data.request.SignUpRequest
+import com.doubleclick.restaurant.feature.auth.signup.data.response.UserData
+import com.doubleclick.restaurant.feature.auth.signup.domain.SignUpUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.Flow

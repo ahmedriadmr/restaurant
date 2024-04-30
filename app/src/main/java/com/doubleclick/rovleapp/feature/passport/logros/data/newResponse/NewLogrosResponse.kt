@@ -1,4 +1,4 @@
-package com.doubleclick.rovleapp.feature.passport.logros.data.newResponse
+package com.doubleclick.restaurant.feature.passport.logros.data.newResponse
 
 data class NewLogrosResponse(
     val `data`: NewLogrosData,

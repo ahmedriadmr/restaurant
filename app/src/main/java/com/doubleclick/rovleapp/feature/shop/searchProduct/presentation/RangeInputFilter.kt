@@ -1,4 +1,4 @@
-package com.doubleclick.rovleapp.feature.shop.searchProduct.presentation
+package com.doubleclick.restaurant.feature.shop.searchProduct.presentation
 
 import android.text.InputFilter
 import android.text.Spanned

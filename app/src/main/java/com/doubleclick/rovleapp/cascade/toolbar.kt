@@ -17,7 +17,7 @@ import androidx.appcompat.widget.PopupMenu
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.children
 import androidx.core.view.forEach
-import com.doubleclick.rovleapp.R
+import com.doubleclick.restaurant.R
 import java.lang.ref.WeakReference
 import java.lang.reflect.Field
 import java.util.ArrayDeque

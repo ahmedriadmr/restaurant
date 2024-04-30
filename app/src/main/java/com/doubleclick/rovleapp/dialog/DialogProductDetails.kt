@@ -1,4 +1,4 @@
-package com.doubleclick.rovleapp.dialog
+package com.doubleclick.restaurant.dialog
 
 import android.app.AlertDialog
 import android.content.Context
@@ -7,7 +7,7 @@ import android.graphics.drawable.ColorDrawable
 import android.view.LayoutInflater
 import android.widget.Button
 import android.widget.TextView
-import com.doubleclick.rovleapp.R
+import com.doubleclick.restaurant.R
 
 object DialogProductDetails {
 

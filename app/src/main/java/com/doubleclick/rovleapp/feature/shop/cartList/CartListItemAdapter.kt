@@ -1,4 +1,4 @@
-package com.doubleclick.rovleapp.feature.shop.cartList
+package com.doubleclick.restaurant.feature.shop.cartList
 
 import android.annotation.SuppressLint
 import android.view.View
@@ -6,14 +6,14 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.doubleclick.rovleapp.R
-import com.doubleclick.rovleapp.core.extension.inflate
-import com.doubleclick.rovleapp.core.extension.isVisible
-import com.doubleclick.rovleapp.databinding.LayoutItemsInListCartBinding
-import com.doubleclick.rovleapp.feature.shop.cart.response.getCart.CartItem
-import com.doubleclick.rovleapp.feature.shop.cart.response.updateCart.UpdateCart
-import com.doubleclick.rovleapp.feature.shop.cart.response.updateCart.request.UpdateCartRequest
-import com.doubleclick.rovleapp.feature.shop.response.Presentation
+import com.doubleclick.restaurant.R
+import com.doubleclick.restaurant.core.extension.inflate
+import com.doubleclick.restaurant.core.extension.isVisible
+import com.doubleclick.restaurant.databinding.LayoutItemsInListCartBinding
+import com.doubleclick.restaurant.feature.shop.cart.response.getCart.CartItem
+import com.doubleclick.restaurant.feature.shop.cart.response.updateCart.UpdateCart
+import com.doubleclick.restaurant.feature.shop.cart.response.updateCart.request.UpdateCartRequest
+import com.doubleclick.restaurant.feature.shop.response.Presentation
 
 class CartListItemAdapter : ListAdapter<CartItem, CartListItemAdapter.ViewHolder>(Differ) {
     private lateinit var _binding: LayoutItemsInListCartBinding

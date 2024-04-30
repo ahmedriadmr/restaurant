@@ -1,14 +1,14 @@
-package com.doubleclick.rovleapp.feature.subscriptions.paymentSubscription
+package com.doubleclick.restaurant.feature.subscriptions.paymentSubscription
 
 import androidx.lifecycle.viewModelScope
-import com.doubleclick.rovleapp.core.platform.BaseViewModel
-import com.doubleclick.rovleapp.core.platform.local.AppSettingsSource
-import com.doubleclick.rovleapp.feature.subscriptions.paymentSubscription.data.googlePay.request.PaySubscriptionGooglePayRequest
-import com.doubleclick.rovleapp.feature.subscriptions.paymentSubscription.data.googlePay.response.PaySubscriptionGooglePayData
-import com.doubleclick.rovleapp.feature.subscriptions.paymentSubscription.data.request.PaySubscriptionRequest
-import com.doubleclick.rovleapp.feature.subscriptions.paymentSubscription.data.response.PaySubscriptionData
-import com.doubleclick.rovleapp.feature.subscriptions.paymentSubscription.domain.PaySubscriptionGooglePayUseCase
-import com.doubleclick.rovleapp.feature.subscriptions.paymentSubscription.domain.PaySubscriptionUseCase
+import com.doubleclick.restaurant.core.platform.BaseViewModel
+import com.doubleclick.restaurant.core.platform.local.AppSettingsSource
+import com.doubleclick.restaurant.feature.subscriptions.paymentSubscription.data.googlePay.request.PaySubscriptionGooglePayRequest
+import com.doubleclick.restaurant.feature.subscriptions.paymentSubscription.data.googlePay.response.PaySubscriptionGooglePayData
+import com.doubleclick.restaurant.feature.subscriptions.paymentSubscription.data.request.PaySubscriptionRequest
+import com.doubleclick.restaurant.feature.subscriptions.paymentSubscription.data.response.PaySubscriptionData
+import com.doubleclick.restaurant.feature.subscriptions.paymentSubscription.domain.PaySubscriptionGooglePayUseCase
+import com.doubleclick.restaurant.feature.subscriptions.paymentSubscription.domain.PaySubscriptionUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.Flow

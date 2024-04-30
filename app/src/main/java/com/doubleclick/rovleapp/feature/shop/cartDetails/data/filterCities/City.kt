@@ -1,4 +1,4 @@
-package com.doubleclick.rovleapp.feature.shop.cartDetails.data.filterCities
+package com.doubleclick.restaurant.feature.shop.cartDetails.data.filterCities
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize

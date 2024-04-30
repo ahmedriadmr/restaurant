@@ -1,4 +1,4 @@
-package com.doubleclick.rovleapp.core.platform.local
+package com.doubleclick.restaurant.core.platform.local
 
 import kotlinx.coroutines.flow.Flow
 

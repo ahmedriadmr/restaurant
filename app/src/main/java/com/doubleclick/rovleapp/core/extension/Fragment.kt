@@ -1,13 +1,11 @@
-package com.doubleclick.rovleapp.core.extension
+package com.doubleclick.restaurant.core.extension
 
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
-import com.doubleclick.rovleapp.core.exception.Failure
+import com.doubleclick.restaurant.core.exception.Failure
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch

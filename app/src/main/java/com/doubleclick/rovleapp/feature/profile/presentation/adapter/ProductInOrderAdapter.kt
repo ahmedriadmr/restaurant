@@ -1,14 +1,14 @@
-package com.doubleclick.rovleapp.feature.profile.presentation.adapter
+package com.doubleclick.restaurant.feature.profile.presentation.adapter
 
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.doubleclick.rovleapp.R
-import com.doubleclick.rovleapp.core.extension.inflate
-import com.doubleclick.rovleapp.databinding.LayoutProductInOrderBinding
-import com.doubleclick.rovleapp.feature.profile.data.orders.showOrder.Product
+import com.doubleclick.restaurant.R
+import com.doubleclick.restaurant.core.extension.inflate
+import com.doubleclick.restaurant.databinding.LayoutProductInOrderBinding
+import com.doubleclick.restaurant.feature.profile.data.orders.showOrder.Product
 
 class ProductInOrderAdapter : ListAdapter<Product, ProductInOrderAdapter.ViewHolder>(Differ) {
 

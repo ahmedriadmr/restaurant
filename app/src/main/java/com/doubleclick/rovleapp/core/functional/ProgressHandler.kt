@@ -1,8 +1,8 @@
-package com.doubleclick.rovleapp.core.functional
+package com.doubleclick.restaurant.core.functional
 
 import android.app.Dialog
 import android.content.Context
-import com.doubleclick.rovleapp.R
+import com.doubleclick.restaurant.R
 
 object ProgressHandler {
     private var progressDialog: Dialog? = null

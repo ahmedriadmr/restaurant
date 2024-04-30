@@ -1,4 +1,4 @@
-package com.doubleclick.rovleapp.feature.shop.productDetails.data
+package com.doubleclick.restaurant.feature.shop.productDetails.data
 
 import android.app.AlertDialog
 import android.content.Context

@@ -1,4 +1,4 @@
-package com.doubleclick.rovleapp.feature.subscriptions.providerList.data.subscribe.request
+package com.doubleclick.restaurant.feature.subscriptions.providerList.data.subscribe.request
 
 data class SubscribeRequest(
     val periodicity: String,

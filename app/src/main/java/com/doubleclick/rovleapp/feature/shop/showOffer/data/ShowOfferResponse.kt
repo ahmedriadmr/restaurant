@@ -1,4 +1,4 @@
-package com.doubleclick.rovleapp.feature.shop.showOffer.data
+package com.doubleclick.restaurant.feature.shop.showOffer.data
 
 data class ShowOfferResponse(
     val `data`: ShowOfferData,

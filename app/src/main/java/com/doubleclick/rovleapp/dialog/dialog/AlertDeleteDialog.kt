@@ -5,8 +5,8 @@ import android.content.Context
 import android.os.Bundle
 import com.doubleclick.domain.model.carts.get.CartsModel
 import com.doubleclick.domain.ts.OnClickAlert
-import com.doubleclick.rovleapp.R
-import com.doubleclick.rovleapp.databinding.LayoutDialogAlertDeleteBinding
+import com.doubleclick.restaurant.R
+import com.doubleclick.restaurant.databinding.LayoutDialogAlertDeleteBinding
 
 
 class AlertDeleteDialog(context: Context,val cartModel: CartsModel, val onClickAlert: OnClickAlert) :

@@ -1,4 +1,4 @@
-package com.doubleclick.rovleapp.feature.profile.data.listAddresses
+package com.doubleclick.restaurant.feature.profile.data.listAddresses
 
 data class ListAdddressesResponse(
     val `data`: List<AddressesData>,

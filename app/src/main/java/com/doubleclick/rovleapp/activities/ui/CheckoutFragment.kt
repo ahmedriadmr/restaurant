@@ -1,4 +1,4 @@
-package com.doubleclick.rovleapp.activities.ui
+package com.doubleclick.restaurant.activities.ui
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -14,9 +14,9 @@ import androidx.navigation.fragment.findNavController
 import com.doubleclick.customspinner.OnSpinnerEventsListener
 import com.doubleclick.domain.model.carts.get.CartsModel
 import com.doubleclick.domain.ts.OnClickAlert
-import com.doubleclick.rovleapp.databinding.FragmentCheckoutBinding
-import com.doubleclick.rovleapp.utils.collapse
-import com.doubleclick.rovleapp.utils.expand
+import com.doubleclick.restaurant.utils.collapse
+import com.doubleclick.restaurant.utils.expand
+import com.doubleclick.restaurant.databinding.FragmentCheckoutBinding
 import com.google.gson.JsonArray
 import com.google.gson.JsonObject
 import dagger.hilt.android.AndroidEntryPoint

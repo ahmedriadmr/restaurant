@@ -1,11 +1,11 @@
-package com.doubleclick.rovleapp.feature.passport
+package com.doubleclick.restaurant.feature.passport
 
-import com.doubleclick.rovleapp.core.exception.Failure
-import com.doubleclick.rovleapp.core.functional.Either
-import com.doubleclick.rovleapp.core.platform.NetworkHandler
-import com.doubleclick.rovleapp.feature.passport.logros.data.finishTask.FinishTaskRequest
-import com.doubleclick.rovleapp.feature.passport.logros.data.newResponse.NewLogrosData
-import com.doubleclick.rovleapp.feature.passport.offers.data.Offers
+import com.doubleclick.restaurant.core.exception.Failure
+import com.doubleclick.restaurant.core.functional.Either
+import com.doubleclick.restaurant.core.platform.NetworkHandler
+import com.doubleclick.restaurant.feature.passport.logros.data.finishTask.FinishTaskRequest
+import com.doubleclick.restaurant.feature.passport.logros.data.newResponse.NewLogrosData
+import com.doubleclick.restaurant.feature.passport.offers.data.Offers
 import org.json.JSONObject
 import retrofit2.Response
 import javax.inject.Inject

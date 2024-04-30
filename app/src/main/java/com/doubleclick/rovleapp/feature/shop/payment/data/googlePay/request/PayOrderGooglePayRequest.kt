@@ -1,8 +1,8 @@
-package com.doubleclick.rovleapp.feature.shop.payment.data.googlePay.request
+package com.doubleclick.restaurant.feature.shop.payment.data.googlePay.request
 
 import android.os.Parcelable
-import com.doubleclick.rovleapp.feature.shop.cartDetails.data.orderDetails.CartItem
-import com.doubleclick.rovleapp.feature.subscriptions.paymentSubscription.data.googlePay.request.PaymentDetails
+import com.doubleclick.restaurant.feature.shop.cartDetails.data.orderDetails.CartItem
+import com.doubleclick.restaurant.feature.subscriptions.paymentSubscription.data.googlePay.request.PaymentDetails
 import kotlinx.parcelize.Parcelize
 
 @Parcelize

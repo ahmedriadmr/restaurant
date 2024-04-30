@@ -1,16 +1,16 @@
-package com.doubleclick.rovleapp.feature.subscriptions
+package com.doubleclick.restaurant.feature.subscriptions
 
 import android.os.Bundle
 import android.view.View
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
-import com.doubleclick.rovleapp.R
-import com.doubleclick.rovleapp.core.extension.viewBinding
-import com.doubleclick.rovleapp.core.functional.SortingOption
-import com.doubleclick.rovleapp.core.functional.SortingOption.Companion.SORTING
-import com.doubleclick.rovleapp.core.functional.SortingOption.Periodicity.toStringValue
-import com.doubleclick.rovleapp.core.platform.BaseDialogFragment
-import com.doubleclick.rovleapp.databinding.FragmentSortInSubscriptionBinding
+import com.doubleclick.restaurant.R
+import com.doubleclick.restaurant.core.extension.viewBinding
+import com.doubleclick.restaurant.core.functional.SortingOption
+import com.doubleclick.restaurant.core.functional.SortingOption.Companion.SORTING
+import com.doubleclick.restaurant.core.functional.SortingOption.Periodicity.toStringValue
+import com.doubleclick.restaurant.core.platform.BaseDialogFragment
+import com.doubleclick.restaurant.databinding.FragmentSortInSubscriptionBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

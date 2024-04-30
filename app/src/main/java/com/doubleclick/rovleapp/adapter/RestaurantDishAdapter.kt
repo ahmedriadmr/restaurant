@@ -9,8 +9,8 @@ import com.doubleclick.domain.model.items.get.Size
 import com.doubleclick.domain.ts.OnAddToCart
 import com.doubleclick.domain.ts.OnSizeSelected
 import com.doubleclick.restaurant.viewHolder.RestaurantDishViewHolder
-import com.doubleclick.rovleapp.R
-import com.doubleclick.rovleapp.utils.Constant.BASE_URL_IMAGE
+import com.doubleclick.restaurant.R
+import com.doubleclick.restaurant.utils.Constant.BASE_URL_IMAGE
 
 class RestaurantDishAdapter(val items: List<Item>, val onAddToCart: OnAddToCart) :
     RecyclerView.Adapter<RestaurantDishViewHolder>() , OnSizeSelected{

@@ -1,4 +1,4 @@
-package com.doubleclick.rovleapp.feature.profile.data.points
+package com.doubleclick.restaurant.feature.profile.data.points
 
 data class PointsResponse(
     val `data`: List<PointsData>,

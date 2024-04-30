@@ -1,4 +1,4 @@
-package com.doubleclick.rovleapp.feature.subscriptions.paymentSubscription.data.googlePay.response
+package com.doubleclick.restaurant.feature.subscriptions.paymentSubscription.data.googlePay.response
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize

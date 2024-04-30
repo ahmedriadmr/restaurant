@@ -1,4 +1,4 @@
-package com.doubleclick.rovleapp.views.smarttablayout
+package com.doubleclick.restaurant.views.smarttablayout
 
 import android.content.Context
 import android.graphics.Canvas
@@ -8,7 +8,7 @@ import android.graphics.RectF
 import android.util.AttributeSet
 import android.util.TypedValue
 import android.widget.LinearLayout
-import com.doubleclick.rovleapp.R
+import com.doubleclick.restaurant.R
 import kotlin.math.abs
 
 /**

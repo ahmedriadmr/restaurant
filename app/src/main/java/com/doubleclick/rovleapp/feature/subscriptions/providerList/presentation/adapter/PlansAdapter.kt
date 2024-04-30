@@ -1,4 +1,4 @@
-package com.doubleclick.rovleapp.feature.subscriptions.providerList.presentation.adapter
+package com.doubleclick.restaurant.feature.subscriptions.providerList.presentation.adapter
 
 import android.view.View
 import android.view.ViewGroup
@@ -6,13 +6,13 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.doubleclick.rovleapp.R
-import com.doubleclick.rovleapp.core.extension.inflate
-import com.doubleclick.rovleapp.core.extension.moveItemToFirst
-import com.doubleclick.rovleapp.feature.subscriptions.providerList.data.showPlan.Size
-import com.doubleclick.rovleapp.utils.Constant.euroSign
-import com.doubleclick.rovleapp.utils.collapse
-import com.doubleclick.rovleapp.utils.expand
+import com.doubleclick.restaurant.R
+import com.doubleclick.restaurant.core.extension.inflate
+import com.doubleclick.restaurant.core.extension.moveItemToFirst
+import com.doubleclick.restaurant.feature.subscriptions.providerList.data.showPlan.Size
+import com.doubleclick.restaurant.utils.Constant.euroSign
+import com.doubleclick.restaurant.utils.collapse
+import com.doubleclick.restaurant.utils.expand
 import kotlin.properties.Delegates
 
 class PlansAdapter : RecyclerView.Adapter<PlansAdapter.ViewHolder>() {

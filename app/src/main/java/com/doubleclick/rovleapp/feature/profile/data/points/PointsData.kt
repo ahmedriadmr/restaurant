@@ -1,4 +1,4 @@
-package com.doubleclick.rovleapp.feature.profile.data.points
+package com.doubleclick.restaurant.feature.profile.data.points
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize

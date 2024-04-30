@@ -1,4 +1,4 @@
-package com.doubleclick.rovleapp.feature.subscriptions.providerList.presentation.adapter
+package com.doubleclick.restaurant.feature.subscriptions.providerList.presentation.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -6,8 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.TextView
-import com.doubleclick.rovleapp.R
-import com.doubleclick.rovleapp.feature.profile.data.listAddresses.AddressesData
+import com.doubleclick.restaurant.R
+import com.doubleclick.restaurant.feature.profile.data.listAddresses.AddressesData
 
 class LocationAdapter (
     var context: Context,

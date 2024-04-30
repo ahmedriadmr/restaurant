@@ -1,4 +1,4 @@
-package com.doubleclick.rovleapp.feature.profile.data.orders.listOrders
+package com.doubleclick.restaurant.feature.profile.data.orders.listOrders
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize

@@ -1,9 +1,9 @@
-package com.doubleclick.rovleapp.feature.passport
+package com.doubleclick.restaurant.feature.passport
 
-import com.doubleclick.rovleapp.core.functional.DataWrapper
-import com.doubleclick.rovleapp.feature.passport.logros.data.finishTask.FinishTaskRequest
-import com.doubleclick.rovleapp.feature.passport.logros.data.newResponse.NewLogrosData
-import com.doubleclick.rovleapp.feature.passport.offers.data.Offers
+import com.doubleclick.restaurant.core.functional.DataWrapper
+import com.doubleclick.restaurant.feature.passport.logros.data.finishTask.FinishTaskRequest
+import com.doubleclick.restaurant.feature.passport.logros.data.newResponse.NewLogrosData
+import com.doubleclick.restaurant.feature.passport.offers.data.Offers
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.GET

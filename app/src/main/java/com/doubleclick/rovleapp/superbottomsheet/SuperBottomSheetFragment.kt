@@ -12,7 +12,7 @@ import android.view.ViewTreeObserver.OnPreDrawListener
 import androidx.annotation.*
 import androidx.annotation.IntRange
 import androidx.core.content.ContextCompat
-import com.doubleclick.rovleapp.R
+import com.doubleclick.restaurant.R
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 

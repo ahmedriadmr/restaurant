@@ -1,8 +1,8 @@
-package com.doubleclick.rovleapp.feature.profile.domain
+package com.doubleclick.restaurant.feature.profile.domain
 
-import com.doubleclick.rovleapp.core.interactor.UseCase
-import com.doubleclick.rovleapp.feature.profile.ProfileRepository
-import com.doubleclick.rovleapp.feature.profile.data.addAddress.response.AddressData
+import com.doubleclick.restaurant.core.interactor.UseCase
+import com.doubleclick.restaurant.feature.profile.ProfileRepository
+import com.doubleclick.restaurant.feature.profile.data.addAddress.response.AddressData
 import javax.inject.Inject
 
 class ShowAddressUseCase @Inject constructor(private val repository: ProfileRepository) :

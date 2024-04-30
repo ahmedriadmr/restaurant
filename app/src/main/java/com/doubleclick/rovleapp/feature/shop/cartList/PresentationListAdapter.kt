@@ -1,4 +1,4 @@
-package com.doubleclick.rovleapp.feature.shop.cartList
+package com.doubleclick.restaurant.feature.shop.cartList
 
 import android.view.View
 import android.view.ViewGroup
@@ -10,11 +10,11 @@ import androidx.core.view.isVisible
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.doubleclick.rovleapp.R
-import com.doubleclick.rovleapp.core.extension.inflate
-import com.doubleclick.rovleapp.feature.shop.cart.request.putCart.PresentationRequest
-import com.doubleclick.rovleapp.feature.shop.cart.response.updateCart.request.UpdateCartRequest
-import com.doubleclick.rovleapp.feature.shop.response.Presentation
+import com.doubleclick.restaurant.R
+import com.doubleclick.restaurant.core.extension.inflate
+import com.doubleclick.restaurant.feature.shop.cart.request.putCart.PresentationRequest
+import com.doubleclick.restaurant.feature.shop.cart.response.updateCart.request.UpdateCartRequest
+import com.doubleclick.restaurant.feature.shop.response.Presentation
 
 class PresentationListAdapter : ListAdapter<Presentation, PresentationListAdapter.ViewHolder>(Differ) {
 

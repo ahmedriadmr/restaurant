@@ -1,4 +1,4 @@
-package com.doubleclick.rovleapp.core.functional
+package com.doubleclick.restaurant.core.functional
 
 /**
  * Represents a value of one of two possible types (a disjoint union).

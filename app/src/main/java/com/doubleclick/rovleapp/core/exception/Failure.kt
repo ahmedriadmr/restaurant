@@ -1,4 +1,4 @@
-package com.doubleclick.rovleapp.core.exception
+package com.doubleclick.restaurant.core.exception
 
 /**
  * Base Class for handling errors/failures/exceptions.

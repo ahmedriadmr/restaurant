@@ -1,9 +1,9 @@
-package com.doubleclick.rovleapp.core.extension
+package com.doubleclick.restaurant.core.extension
 
 import android.content.Context
 import android.net.ConnectivityManager
 import androidx.datastore.dataStore
-import com.doubleclick.rovleapp.core.platform.local.AppSettingsSerializer
+import com.doubleclick.restaurant.core.platform.local.AppSettingsSerializer
 
 val Context.connectivityManager: ConnectivityManager
     get() =

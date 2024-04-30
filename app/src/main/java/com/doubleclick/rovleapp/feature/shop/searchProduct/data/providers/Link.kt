@@ -1,4 +1,4 @@
-package com.doubleclick.rovleapp.feature.shop.searchProduct.data.providers
+package com.doubleclick.restaurant.feature.shop.searchProduct.data.providers
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize

@@ -1,11 +1,11 @@
-package com.doubleclick.rovleapp.activities
+package com.doubleclick.restaurant.activities
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
-import com.doubleclick.rovleapp.R
-import com.doubleclick.rovleapp.core.platform.Navigator
-import com.doubleclick.rovleapp.core.platform.local.AppSettingsSource
+import com.doubleclick.restaurant.core.platform.Navigator
+import com.doubleclick.restaurant.core.platform.local.AppSettingsSource
+import com.doubleclick.restaurant.R
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch

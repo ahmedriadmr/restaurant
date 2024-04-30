@@ -1,4 +1,4 @@
-package com.doubleclick.rovleapp.feature.auth.signup.data.request
+package com.doubleclick.restaurant.feature.auth.signup.data.request
 
 data class SignUpRequest(
     val user_name: String,

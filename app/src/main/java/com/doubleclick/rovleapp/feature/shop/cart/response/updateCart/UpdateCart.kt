@@ -1,7 +1,7 @@
-package com.doubleclick.rovleapp.feature.shop.cart.response.updateCart
+package com.doubleclick.restaurant.feature.shop.cart.response.updateCart
 
 import android.os.Parcelable
-import com.doubleclick.rovleapp.feature.shop.response.Presentation
+import com.doubleclick.restaurant.feature.shop.response.Presentation
 import kotlinx.parcelize.Parcelize
 
 @Parcelize

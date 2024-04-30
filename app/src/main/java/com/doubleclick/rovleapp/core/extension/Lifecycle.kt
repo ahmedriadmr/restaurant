@@ -1,12 +1,12 @@
-package com.doubleclick.rovleapp.core.extension
+package com.doubleclick.restaurant.core.extension
 
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
-import com.doubleclick.rovleapp.core.exception.Failure
-import com.doubleclick.rovleapp.core.functional.Either
+import com.doubleclick.restaurant.core.exception.Failure
+import com.doubleclick.restaurant.core.functional.Either
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch

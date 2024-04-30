@@ -1,4 +1,4 @@
-package com.doubleclick.rovleapp.feature.profile.presentation
+package com.doubleclick.restaurant.feature.profile.presentation
 
 import android.Manifest
 import android.app.Activity.RESULT_OK
@@ -23,30 +23,30 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
-import com.doubleclick.rovleapp.R
-import com.doubleclick.rovleapp.core.extension.failure
-import com.doubleclick.rovleapp.core.extension.loading
-import com.doubleclick.rovleapp.core.extension.observe
-import com.doubleclick.rovleapp.core.extension.observeOrNull
-import com.doubleclick.rovleapp.core.extension.viewBinding
-import com.doubleclick.rovleapp.core.extension.visible
-import com.doubleclick.rovleapp.core.functional.Either
-import com.doubleclick.rovleapp.core.functional.PermissionUtil
-import com.doubleclick.rovleapp.core.functional.PhotoUtils
-import com.doubleclick.rovleapp.core.functional.ProgressHandler
-import com.doubleclick.rovleapp.core.functional.sdk33AndUp
-import com.doubleclick.rovleapp.core.platform.BaseFragment
-import com.doubleclick.rovleapp.feature.profile.data.listAddresses.AddressesData
-import com.doubleclick.rovleapp.feature.profile.data.orders.listOrders.Order
-import com.doubleclick.rovleapp.feature.profile.data.points.PointsData
-import com.doubleclick.rovleapp.feature.profile.data.showProfile.ProfileDetails
-import com.doubleclick.rovleapp.feature.profile.data.visits.VisitsData
-import com.doubleclick.rovleapp.feature.profile.presentation.adapter.AddressesAdapter
-import com.doubleclick.rovleapp.feature.profile.presentation.adapter.OrdersAdapter
-import com.doubleclick.rovleapp.feature.profile.presentation.adapter.YourPointsAdapter
-import com.doubleclick.rovleapp.feature.profile.presentation.adapter.YourVisitsAdapter
-import com.doubleclick.rovleapp.utils.collapse
-import com.doubleclick.rovleapp.utils.expand
+import com.doubleclick.restaurant.R
+import com.doubleclick.restaurant.core.extension.failure
+import com.doubleclick.restaurant.core.extension.loading
+import com.doubleclick.restaurant.core.extension.observe
+import com.doubleclick.restaurant.core.extension.observeOrNull
+import com.doubleclick.restaurant.core.extension.viewBinding
+import com.doubleclick.restaurant.core.extension.visible
+import com.doubleclick.restaurant.core.functional.Either
+import com.doubleclick.restaurant.core.functional.PermissionUtil
+import com.doubleclick.restaurant.core.functional.PhotoUtils
+import com.doubleclick.restaurant.core.functional.ProgressHandler
+import com.doubleclick.restaurant.core.functional.sdk33AndUp
+import com.doubleclick.restaurant.core.platform.BaseFragment
+import com.doubleclick.restaurant.feature.profile.data.listAddresses.AddressesData
+import com.doubleclick.restaurant.feature.profile.data.orders.listOrders.Order
+import com.doubleclick.restaurant.feature.profile.data.points.PointsData
+import com.doubleclick.restaurant.feature.profile.data.showProfile.ProfileDetails
+import com.doubleclick.restaurant.feature.profile.data.visits.VisitsData
+import com.doubleclick.restaurant.feature.profile.presentation.adapter.AddressesAdapter
+import com.doubleclick.restaurant.feature.profile.presentation.adapter.OrdersAdapter
+import com.doubleclick.restaurant.feature.profile.presentation.adapter.YourPointsAdapter
+import com.doubleclick.restaurant.feature.profile.presentation.adapter.YourVisitsAdapter
+import com.doubleclick.restaurant.utils.collapse
+import com.doubleclick.restaurant.utils.expand
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
@@ -58,7 +58,7 @@ import java.util.UUID
 @AndroidEntryPoint
 class UserDataFragment : BaseFragment(R.layout.fragment_user_data) {
 
-    private val binding by viewBinding(com.doubleclick.rovleapp.databinding.FragmentUserDataBinding::bind)
+    private val binding by viewBinding(com.doubleclick.restaurant.databinding.FragmentUserDataBinding::bind)
     private val yourPointsAdapter = YourPointsAdapter()
     private val yourVisitsAdapter = YourVisitsAdapter()
     private var ordersAdapter = OrdersAdapter(false)

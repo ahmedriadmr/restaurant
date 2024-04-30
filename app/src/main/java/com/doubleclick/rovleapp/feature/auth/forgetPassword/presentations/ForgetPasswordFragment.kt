@@ -1,4 +1,4 @@
-package com.doubleclick.rovleapp.feature.auth.forgetPassword.presentations
+package com.doubleclick.restaurant.feature.auth.forgetPassword.presentations
 
 import android.os.Bundle
 import android.view.View
@@ -8,14 +8,14 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.NavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI.setupActionBarWithNavController
-import com.doubleclick.rovleapp.R
-import com.doubleclick.rovleapp.core.extension.findNavControllerFromFragmentContainer
-import com.doubleclick.rovleapp.core.extension.observe
-import com.doubleclick.rovleapp.core.extension.viewBinding
-import com.doubleclick.rovleapp.core.platform.BaseFragment
-import com.doubleclick.rovleapp.databinding.FragmentForgetPasswordBinding
-import com.doubleclick.rovleapp.feature.auth.AuthActivity
-import com.doubleclick.rovleapp.feature.auth.AuthViewModel
+import com.doubleclick.restaurant.R
+import com.doubleclick.restaurant.core.extension.findNavControllerFromFragmentContainer
+import com.doubleclick.restaurant.core.extension.observe
+import com.doubleclick.restaurant.core.extension.viewBinding
+import com.doubleclick.restaurant.core.platform.BaseFragment
+import com.doubleclick.restaurant.databinding.FragmentForgetPasswordBinding
+import com.doubleclick.restaurant.feature.auth.AuthActivity
+import com.doubleclick.restaurant.feature.auth.AuthViewModel
 import com.doubleclick.stepper.StepperNavListener
 import dagger.hilt.android.AndroidEntryPoint
 

@@ -17,8 +17,8 @@ import com.bumptech.glide.Glide
 import com.doubleclick.cascade.CascadePopupMenu
 import com.doubleclick.domain.model.items.get.Item
 import com.doubleclick.restaurant.viewHolder.DishRowItemViewHolder
-import com.doubleclick.rovleapp.R
-import com.doubleclick.rovleapp.utils.Constant.BASE_URL_IMAGE
+import com.doubleclick.restaurant.R
+import com.doubleclick.restaurant.utils.Constant.BASE_URL_IMAGE
 
 class DishRowItemAdapter(val items: List<Item>) : RecyclerView.Adapter<DishRowItemViewHolder>() {
 

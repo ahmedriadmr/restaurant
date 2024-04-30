@@ -6,8 +6,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.doubleclick.domain.model.category.get.Category
 import com.doubleclick.restaurant.viewHolder.CategoryViewHolder
-import com.doubleclick.rovleapp.R
-import com.doubleclick.rovleapp.utils.Constant.BASE_URL_IMAGE
+import com.doubleclick.restaurant.R
+import com.doubleclick.restaurant.utils.Constant.BASE_URL_IMAGE
 
 
 class CategoryAdapter(val categories: List<Category>) : RecyclerView.Adapter<CategoryViewHolder>() {
