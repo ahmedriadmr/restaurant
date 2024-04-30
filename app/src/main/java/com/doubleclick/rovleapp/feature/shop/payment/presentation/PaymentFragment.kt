@@ -223,6 +223,6 @@ class PaymentFragment : BaseFragment(R.layout.fragment_payment) {
     }
 
     override fun renderFeatureFailure(message: String?) {
-        Toast.makeText(requireContext(), "Los datos de latarjeta parecen ser erroneos, por favor reviselos.", Toast.LENGTH_SHORT).show()
+        Toast.makeText(requireContext(), "Los datos de latarjeta parecen ser erroneos, por favor reviselos..", Toast.LENGTH_SHORT).show()
     }
 }
