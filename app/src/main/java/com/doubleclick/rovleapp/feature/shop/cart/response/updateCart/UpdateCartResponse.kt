@@ -1,7 +1,0 @@
-package com.doubleclick.restaurant.feature.shop.cart.response.updateCart
-
-data class UpdateCartResponse(
-    val `data`: UpdateCart,
-    val message: String,
-    val status: String
-)
