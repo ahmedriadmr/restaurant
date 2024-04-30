@@ -42,7 +42,7 @@ import com.doubleclick.restaurant.feature.shop.cartDetails.presentation.NewFilte
 import com.doubleclick.restaurant.feature.shop.cartDetails.presentation.NewFilterCountryAdapter
 import com.doubleclick.restaurant.feature.shop.cartDetails.presentation.NewFilterProvinceAdapter
 import com.doubleclick.restaurant.feature.shop.response.CoffeeShop
-import com.doubleclick.restaurant.feature.subscriptions.providerList.presentation.adapter.NewAddressesAdapter
+import com.doubleclick.rovleapp.feature.shop.cart.NewAddressesAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.firstOrNull
 import kotlinx.coroutines.launch

@@ -1,4 +1,4 @@
-package com.doubleclick.restaurant.feature.subscriptions.providerList.presentation.adapter
+package com.doubleclick.rovleapp.feature.shop.cart
 
 import android.view.View
 import android.view.ViewGroup

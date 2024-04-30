@@ -50,14 +50,7 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-        <activity
-            android:name=".feature.subscriptions.SubscriptionActivity"
-            android:screenOrientation="portrait"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
+
         <!--
              TODO: Before you run your application, you need a Google Maps API key.
 
@@ -112,10 +105,7 @@
             android:name=".wallet.activity.CheckoutOrderActivity"
             android:exported="true"
             android:screenOrientation="portrait" />
-        <activity
-            android:name=".wallet.activity.CheckoutSubscriptionActivity"
-            android:exported="true"
-            android:screenOrientation="portrait" />
+
 
         <provider
             android:name="androidx.startup.InitializationProvider"
