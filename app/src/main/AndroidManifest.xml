@@ -34,7 +34,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".activities.HomeActivity"
+            android:name="com.doubleclick.rovleapp.feature.home.HomeActivity"
             android:screenOrientation="portrait"
             android:exported="false"
             android:windowSoftInputMode="adjustResize">

@@ -2,7 +2,7 @@ package com.doubleclick.restaurant.utils
 
 object Constant {
 
-    const val BASE_URL = "https://rovle.eslamghazy.net/api/v1/"
+    const val BASE_URL = "https://restaurant.eslamghazy.net/api/v1/"
     const val euroSign = "\u20AC"
     const val percentageSign = "%"
     const val BASE_URL_IMAGE = "https://restaurant.eslamghazy.net/public/item_images/"

@@ -22,7 +22,7 @@ class SplashActivity : AppCompatActivity() {
         setContentView(R.layout.activity_splash)
         resetUser()
         lifecycleScope.launch {
-            delay(2500)
+            delay(10000)
             navigator.showMain(this@SplashActivity)
         }
     }

@@ -2,7 +2,7 @@ package com.doubleclick.restaurant.core.platform
 
 import android.app.Activity
 import android.content.Context
-import com.doubleclick.restaurant.activities.HomeActivity
+import com.doubleclick.rovleapp.feature.home.HomeActivity
 import com.doubleclick.restaurant.core.functional.Authenticator
 import com.doubleclick.restaurant.feature.auth.AuthActivity
 import javax.inject.Inject
