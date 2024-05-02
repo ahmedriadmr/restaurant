@@ -13,7 +13,7 @@ data class AppSettings(
 
 @Serializable
 data class UserAccess(
-    val address: String? = String.empty(),
+    val address: String = String.empty(),
     val created_at: String = String.empty(),
     val email: String = String.empty(),
     val fcm_token: String = String.empty(),

@@ -11,6 +11,7 @@ import javax.inject.Inject
 interface HomeRepository {
 
     suspend fun getCategories(): Either<Failure, List<Categories>>
+    suspend fun logout(): Either<Failure, String>
 
     class Network
     @Inject constructor(
@@ -20,6 +21,12 @@ interface HomeRepository {
         override suspend fun getCategories(): Either<Failure, List<Categories>> {
             return when (networkHandler.isNetworkAvailable()) {
                 true -> request(service.getCategories()) { it.data }
+                false -> Either.Failure(Failure.NetworkConnection)
+            }
+        }
+        override suspend fun logout(): Either<Failure, String> {
+            return when (networkHandler.isNetworkAvailable()) {
+                true -> request(service.logout()) { it.data }
                 false -> Either.Failure(Failure.NetworkConnection)
             }
         }

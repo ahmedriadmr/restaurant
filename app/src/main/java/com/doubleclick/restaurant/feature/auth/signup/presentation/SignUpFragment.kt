@@ -17,7 +17,6 @@ import com.doubleclick.restaurant.databinding.FragmentSignUpBinding
 import com.doubleclick.restaurant.feature.auth.AuthViewModel
 import com.doubleclick.restaurant.feature.auth.login.data.responseNew.NewUser
 import com.doubleclick.restaurant.feature.auth.signup.data.responseNew.SignedUpUser
-
 import dagger.hilt.android.AndroidEntryPoint
 
 

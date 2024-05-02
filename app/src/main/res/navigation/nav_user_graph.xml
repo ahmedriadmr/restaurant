@@ -23,7 +23,7 @@
         tools:layout="@layout/fragment_checkout" />
     <fragment
         android:id="@+id/userProfileFragment"
-        android:name="com.doubleclick.restaurant.activities.ui.UserProfileFragment"
+        android:name="com.doubleclick.restaurant.feature.home.presentation.UserProfileFragment"
         tools:layout="@layout/fragment_user_profile">
         <action
             android:id="@+id/action_userProfileFragment_to_accountFragment"
