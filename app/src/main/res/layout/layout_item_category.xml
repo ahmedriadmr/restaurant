@@ -6,7 +6,7 @@
     android:layout_height="wrap_content">
 
 
-    <com.doubleclick.circleimageview.CircleImageView
+    <ImageView
         android:id="@+id/image"
         android:layout_width="66dp"
         android:layout_height="66dp"

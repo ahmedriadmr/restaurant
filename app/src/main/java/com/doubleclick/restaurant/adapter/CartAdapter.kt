@@ -12,7 +12,7 @@ import com.bumptech.glide.Glide
 import com.doubleclick.domain.model.carts.get.CartsModel
 import com.doubleclick.domain.ts.OnUpdateCart
 import com.doubleclick.restaurant.R
-import com.doubleclick.restaurant.utils.Constant.BASE_URL_IMAGE
+import com.doubleclick.restaurant.utils.Constant.BASE_URL_IMAGE_ITEMS
 import com.doubleclick.swipetoactionlayout.ActionBindHelper
 import com.doubleclick.swipetoactionlayout.SwipeAction
 import com.doubleclick.swipetoactionlayout.SwipeMenuListener
@@ -46,7 +46,7 @@ class CartAdapter(
         holder.bind()
         Log.e(TAG, "onBindViewHolder: ${items[holder.bindingAdapterPosition].size.name}")
         Glide.with(holder.itemView.context)
-            .load(BASE_URL_IMAGE + items[holder.bindingAdapterPosition].size.item.image)
+            .load(BASE_URL_IMAGE_ITEMS + items[holder.bindingAdapterPosition].size.item.image)
             .into(holder.image)
         holder.price.text = buildString {
             append(items[holder.bindingAdapterPosition].size.price)

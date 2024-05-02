@@ -18,7 +18,7 @@ import com.doubleclick.cascade.CascadePopupMenu
 import com.doubleclick.domain.model.items.get.Item
 import com.doubleclick.restaurant.viewHolder.DishRowItemViewHolder
 import com.doubleclick.restaurant.R
-import com.doubleclick.restaurant.utils.Constant.BASE_URL_IMAGE
+import com.doubleclick.restaurant.utils.Constant.BASE_URL_IMAGE_ITEMS
 
 class DishRowItemAdapter(val items: List<Item>) : RecyclerView.Adapter<DishRowItemViewHolder>() {
 
@@ -46,7 +46,7 @@ class DishRowItemAdapter(val items: List<Item>) : RecyclerView.Adapter<DishRowIt
                 R.color.yellow
             ) else ContextCompat.getColor(holder.itemView.context, R.color.gray)
         Glide.with(holder.itemView.context)
-            .load(BASE_URL_IMAGE + items[holder.absoluteAdapterPosition].image)
+            .load(BASE_URL_IMAGE_ITEMS + items[holder.absoluteAdapterPosition].image)
             .into(holder.circleImageView)
         holder.option.setOnClickListener {
             showCascadeMenu(anchor = it, holder.itemView.context)

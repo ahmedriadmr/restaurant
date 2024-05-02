@@ -10,7 +10,7 @@ import com.doubleclick.domain.ts.OnAddToCart
 import com.doubleclick.domain.ts.OnSizeSelected
 import com.doubleclick.restaurant.viewHolder.RestaurantDishViewHolder
 import com.doubleclick.restaurant.R
-import com.doubleclick.restaurant.utils.Constant.BASE_URL_IMAGE
+import com.doubleclick.restaurant.utils.Constant.BASE_URL_IMAGE_ITEMS
 
 class RestaurantDishAdapter(val items: List<Item>, val onAddToCart: OnAddToCart) :
     RecyclerView.Adapter<RestaurantDishViewHolder>() , OnSizeSelected{
@@ -27,7 +27,7 @@ class RestaurantDishAdapter(val items: List<Item>, val onAddToCart: OnAddToCart)
     override fun onBindViewHolder(holder: RestaurantDishViewHolder, position: Int) {
 
         Glide.with(holder.itemView.context)
-            .load(BASE_URL_IMAGE + items[holder.absoluteAdapterPosition].image)
+            .load(BASE_URL_IMAGE_ITEMS + items[holder.absoluteAdapterPosition].image)
             .into(holder.image_food)
         holder.name_food.text = buildString {
             append(items[holder.absoluteAdapterPosition].name)

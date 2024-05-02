@@ -10,6 +10,7 @@ import com.doubleclick.restaurant.R
 import com.doubleclick.restaurant.core.extension.inflate
 import com.doubleclick.restaurant.databinding.LayoutItemCategoryBinding
 import com.doubleclick.restaurant.feature.home.data.Categories
+import com.doubleclick.restaurant.utils.Constant
 
 
 class CategoryAdapter : ListAdapter<Categories, CategoryAdapter.ViewHolder>(Differ) {
@@ -35,7 +36,7 @@ class CategoryAdapter : ListAdapter<Categories, CategoryAdapter.ViewHolder>(Diff
 
             binding.name.text = item.name
             if (!item.image.isNullOrEmpty()) {
-                binding.image.load(item.image) {
+                binding.image.load(Constant.BASE_URL_IMAGE_CATEGORIES + item.image) {
                     crossfade(true)
                     placeholder(R.drawable.image)
                     error(R.drawable.image)

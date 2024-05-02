@@ -8,15 +8,15 @@ import retrofit2.http.GET
 
 interface HomeApi {
     companion object {
-        private const val categories = "categories"
-        private const val logout = "logout"
+        private const val CATEGORIES = "all_categories"
+        private const val LOGOUT = "logout"
 
     }
 
-    @GET(categories)
+    @GET(CATEGORIES)
     suspend fun getCategories(): Response<DataWrapper<List<Categories>>>
 
-    @DELETE(logout)
+    @DELETE(LOGOUT)
     suspend fun logout(): Response<DataWrapper<String>>
 
 }
