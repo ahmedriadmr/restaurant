@@ -4,7 +4,7 @@ import android.app.Activity
 import android.content.Context
 import com.doubleclick.restaurant.core.functional.Authenticator
 import com.doubleclick.restaurant.feature.auth.AuthActivity
-import com.doubleclick.restaurant.feature.home.HomeActivity
+import com.doubleclick.restaurant.feature.home.presentation.HomeActivity
 import javax.inject.Inject
 import javax.inject.Singleton
 

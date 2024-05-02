@@ -9,7 +9,7 @@ data class Item(
     val created_at: String,
     val description: String,
     val id: Int,
-    val image: String,
+    val image: String?,
     val name: String,
     val sizes: List<Size>,
     val status: String,

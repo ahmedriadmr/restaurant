@@ -1,11 +1,10 @@
-package com.doubleclick.restaurant.feature.home
+package com.doubleclick.restaurant.feature.home.presentation
 
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.View
-import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.PopupMenu
 import androidx.navigation.NavController
 import androidx.navigation.Navigation

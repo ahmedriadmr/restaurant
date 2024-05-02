@@ -6,7 +6,7 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 data class Size(
     val created_at: String,
-    val id: Int,
+    val id: String,
     val item_id: Int,
     val name: String,
     val price: Double,

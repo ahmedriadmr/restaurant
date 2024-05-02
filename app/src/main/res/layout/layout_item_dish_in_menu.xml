@@ -48,7 +48,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/roboto"
-                    android:text="Caprese Salad"
+                    tools:text="Caprese Salad"
                     android:textColor="@color/bg_color_black"
                     android:textSize="16sp" />
 
@@ -57,7 +57,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/roboto"
-                    android:text="An exquisite culinary masterpiece that will captivate "
+                    tools:text="An exquisite culinary masterpiece that will captivate "
                     android:textColor="@color/gray_dark"
                     android:textSize="16sp" />
 
@@ -85,7 +85,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text=""
+                    tools:text="9.80$"
+                    android:textSize="20sp"
                     android:textColor="@color/bg_color_black" />
 
                 <Space

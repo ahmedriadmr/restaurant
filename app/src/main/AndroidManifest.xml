@@ -34,7 +34,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".feature.home.HomeActivity"
+            android:name=".feature.home.presentation.HomeActivity"
             android:screenOrientation="portrait"
             android:exported="false"
             android:windowSoftInputMode="adjustResize">

@@ -1,4 +1,4 @@
-package com.doubleclick.restaurant.feature.home.presentation
+package com.doubleclick.restaurant.feature.home.presentation.adapter
 
 import android.view.View
 import android.view.ViewGroup
@@ -10,12 +10,13 @@ import com.doubleclick.restaurant.R
 import com.doubleclick.restaurant.core.extension.inflate
 import com.doubleclick.restaurant.databinding.LayoutItemCategoryBinding
 import com.doubleclick.restaurant.feature.home.data.Categories
+import com.doubleclick.restaurant.feature.home.data.Item
 import com.doubleclick.restaurant.utils.Constant
 
 
 class CategoryAdapter : ListAdapter<Categories, CategoryAdapter.ViewHolder>(Differ) {
 
-    internal var clickShowCategory: (String) -> Unit = { _ -> }
+    internal var clickShowCategory: (List<Item>) -> Unit = { _ -> }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(parent.inflate(R.layout.layout_item_category))
     }
@@ -31,7 +32,7 @@ class CategoryAdapter : ListAdapter<Categories, CategoryAdapter.ViewHolder>(Diff
         fun bind(
             binding: LayoutItemCategoryBinding,
             item: Categories,
-            clickShowCategory: (String) -> Unit
+            clickShowCategory: (List<Item>) -> Unit
         ) {
 
             binding.name.text = item.name
@@ -43,7 +44,10 @@ class CategoryAdapter : ListAdapter<Categories, CategoryAdapter.ViewHolder>(Diff
                 }
             }
 
-
+            // Set click listener for category item
+            itemView.setOnClickListener {
+                clickShowCategory.invoke(item.items)
+            }
 
         }
 

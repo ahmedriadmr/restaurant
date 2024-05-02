@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.doubleclick.restaurant.feature.home.HomeFragment"
+        android:name="com.doubleclick.restaurant.feature.home.presentation.HomeFragment"
         tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/cartFragment"

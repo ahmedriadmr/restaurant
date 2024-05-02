@@ -22,18 +22,10 @@
         android:padding="5dp"
         android:scrollHorizontally="true"
         android:singleLine="true"
-        android:text="S"
+        tools:text="S"
         android:textColor="@color/bg_color_black"
         android:textSize="16sp" />
 
-    <TextView
-        android:id="@+id/price"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:padding="3dp"
-        android:textColor="@color/bg_color_black"
-        android:textSize="16sp"
-        tools:text="name" />
+
 
 </LinearLayout>
