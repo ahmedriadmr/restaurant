@@ -98,7 +98,7 @@ class SignUpFragment : BaseFragment(R.layout.fragment_sign_up) {
 
     }
     private fun handleLogin(data: NewUser) {
-        Toast.makeText(context, "You have successfully signed Up and logged in ${data.frist_name}", Toast.LENGTH_SHORT).show()
+        Toast.makeText(context, "You have successfully signed Up and logged in ${data.first_name}", Toast.LENGTH_SHORT).show()
         navigator.showHome(requireContext())
     }
 

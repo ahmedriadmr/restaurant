@@ -1,10 +1,10 @@
-package com.doubleclick.restaurant.feature.auth.login.data.responseNew
+package com.doubleclick.restaurant.feature.auth.signup.data.responseNew
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-data class PermissionX(
+data class Role(
     val created_at: String,
     val guard_name: String,
     val id: Int,

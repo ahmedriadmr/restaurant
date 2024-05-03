@@ -63,7 +63,7 @@ class LoginFragment : BaseFragment(R.layout.fragment_login) {
     }
 
     private fun handleLogin(data: NewUser) {
-        Toast.makeText(requireContext(), "You Logged In Successfully ${data.frist_name}", Toast.LENGTH_SHORT).show()
+        Toast.makeText(requireContext(), "You Logged In Successfully ${data.first_name}", Toast.LENGTH_SHORT).show()
         navigator.showHome(requireContext())
     }
 

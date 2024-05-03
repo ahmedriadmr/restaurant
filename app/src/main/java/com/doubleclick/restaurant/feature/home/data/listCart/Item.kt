@@ -14,4 +14,4 @@ data class Item(
     val status: String,
     val updated_at: String,
     val vip: String
-): Parcelable
+) : Parcelable

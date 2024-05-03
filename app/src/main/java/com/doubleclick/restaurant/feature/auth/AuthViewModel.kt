@@ -11,7 +11,6 @@ import com.doubleclick.restaurant.feature.auth.forgetPassword.domain.ForgetPassw
 import com.doubleclick.restaurant.feature.auth.forgetPassword.domain.ResetPasswordUseCase
 import com.doubleclick.restaurant.feature.auth.forgetPassword.domain.VerifyOtpUseCase
 import com.doubleclick.restaurant.feature.auth.login.data.request.LoginRequest
-import com.doubleclick.restaurant.feature.auth.login.data.response.User
 import com.doubleclick.restaurant.feature.auth.login.data.responseNew.NewUser
 import com.doubleclick.restaurant.feature.auth.login.domain.LoginUseCase
 import com.doubleclick.restaurant.feature.auth.signup.data.request.SignUpRequest

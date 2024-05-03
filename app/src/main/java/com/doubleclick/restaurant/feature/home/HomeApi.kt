@@ -13,7 +13,7 @@ import retrofit2.http.POST
 
 interface HomeApi {
     companion object {
-        private const val CATEGORIES = "all_categories"
+        private const val CATEGORIES = "categories"
         private const val LOGOUT = "logout"
         private const val CART = "carts"
 

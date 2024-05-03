@@ -9,12 +9,11 @@ import coil.load
 import com.doubleclick.restaurant.R
 import com.doubleclick.restaurant.core.extension.inflate
 import com.doubleclick.restaurant.databinding.LayoutItemCategoryBinding
-import com.doubleclick.restaurant.feature.home.data.Categories.Categories
 import com.doubleclick.restaurant.feature.home.data.Categories.Item
 import com.doubleclick.restaurant.utils.Constant
 
 
-class CategoryAdapter : ListAdapter<Categories, CategoryAdapter.ViewHolder>(Differ) {
+class CategoryAdapter : ListAdapter<com.doubleclick.restaurant.feature.home.data.Categories.Categories, CategoryAdapter.ViewHolder>(Differ) {
 
     internal var clickShowCategory: (List<Item>) -> Unit = { _ -> }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -31,7 +30,7 @@ class CategoryAdapter : ListAdapter<Categories, CategoryAdapter.ViewHolder>(Diff
 
         fun bind(
             binding: LayoutItemCategoryBinding,
-            item: Categories,
+            item: com.doubleclick.restaurant.feature.home.data.Categories.Categories,
             clickShowCategory: (List<Item>) -> Unit
         ) {
 
@@ -53,17 +52,17 @@ class CategoryAdapter : ListAdapter<Categories, CategoryAdapter.ViewHolder>(Diff
 
     }
 
-    object Differ : DiffUtil.ItemCallback<Categories>() {
+    object Differ : DiffUtil.ItemCallback<com.doubleclick.restaurant.feature.home.data.Categories.Categories>() {
         override fun areItemsTheSame(
-            oldItem: Categories,
-            newItem: Categories
+            oldItem: com.doubleclick.restaurant.feature.home.data.Categories.Categories,
+            newItem: com.doubleclick.restaurant.feature.home.data.Categories.Categories
         ): Boolean {
             return oldItem.id == newItem.id
         }
 
         override fun areContentsTheSame(
-            oldItem: Categories,
-            newItem: Categories
+            oldItem: com.doubleclick.restaurant.feature.home.data.Categories.Categories,
+            newItem: com.doubleclick.restaurant.feature.home.data.Categories.Categories
         ): Boolean {
             return oldItem == newItem
         }

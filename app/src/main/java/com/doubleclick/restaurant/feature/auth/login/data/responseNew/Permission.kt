@@ -4,12 +4,11 @@ import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-data class Role(
+data class Permission(
     val created_at: String,
     val guard_name: String,
     val id: Int,
     val name: String,
-    val permissions: List<Permission>,
-    val pivot: PivotXX,
+    val pivot: Pivot,
     val updated_at: String
 ): Parcelable
