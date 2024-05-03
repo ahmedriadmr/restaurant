@@ -3,7 +3,10 @@ package com.doubleclick.restaurant.feature.home
 import com.doubleclick.restaurant.core.exception.Failure
 import com.doubleclick.restaurant.core.functional.Either
 import com.doubleclick.restaurant.core.platform.NetworkHandler
-import com.doubleclick.restaurant.feature.home.data.Categories
+import com.doubleclick.restaurant.feature.home.data.Categories.Categories
+import com.doubleclick.restaurant.feature.home.data.PutCart.request.PutCartRequest
+import com.doubleclick.restaurant.feature.home.data.PutCart.response.PutCartResponse
+import com.doubleclick.restaurant.feature.home.data.listCart.CartData
 import org.json.JSONObject
 import retrofit2.Response
 import javax.inject.Inject
@@ -12,6 +15,10 @@ interface HomeRepository {
 
     suspend fun getCategories(): Either<Failure, List<Categories>>
     suspend fun logout(): Either<Failure, String>
+
+    suspend fun putCart(request: PutCartRequest): Either<Failure, PutCartResponse>
+
+    suspend fun getCart(): Either<Failure, List<CartData>>
 
     class Network
     @Inject constructor(
@@ -31,7 +38,19 @@ interface HomeRepository {
             }
         }
 
+        override suspend fun putCart(request:PutCartRequest): Either<Failure, PutCartResponse> {
+            return when (networkHandler.isNetworkAvailable()) {
+                true -> request(service.putCart(request)) { it.data }
+                false -> Either.Failure(Failure.NetworkConnection)
+            }
+        }
 
+        override suspend fun getCart(): Either<Failure, List<CartData>> {
+            return when (networkHandler.isNetworkAvailable()) {
+                true -> request(service.getCart()) { it.data }
+                false -> Either.Failure(Failure.NetworkConnection)
+            }
+        }
         private fun <T, R> request(response: Response<T>, transform: (T) -> R): Either<Failure, R> {
             return try {
                 when (response.isSuccessful && response.body() != null) {

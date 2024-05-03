@@ -1,16 +1,15 @@
-package com.doubleclick.restaurant.feature.home.data
+package com.doubleclick.restaurant.feature.home.data.Categories
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-data class Categories(
+data class Size(
     val created_at: String,
-    val id: Int,
-    val image: String?,
-    val items: List<Item>,
-    val items_count: Int,
+    val id: String,
+    val item_id: Int,
     val name: String,
+    val price: Double,
     val status: String,
     val updated_at: String
 ) : Parcelable

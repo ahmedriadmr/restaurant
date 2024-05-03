@@ -9,7 +9,7 @@ import coil.load
 import com.doubleclick.restaurant.R
 import com.doubleclick.restaurant.core.extension.inflate
 import com.doubleclick.restaurant.databinding.LayoutItemDishInMenuBinding
-import com.doubleclick.restaurant.feature.home.data.Item
+import com.doubleclick.restaurant.feature.home.data.Categories.Item
 import com.doubleclick.restaurant.utils.Constant
 
 class RestaurantDishAdapter: ListAdapter<Item, RestaurantDishAdapter.ViewHolder>(Differ) {
@@ -52,6 +52,7 @@ class RestaurantDishAdapter: ListAdapter<Item, RestaurantDishAdapter.ViewHolder>
 
 
         }
+
 
     }
 

@@ -2,7 +2,7 @@ package com.doubleclick.restaurant.feature.home.domain
 
 import com.doubleclick.restaurant.core.interactor.UseCase
 import com.doubleclick.restaurant.feature.home.HomeRepository
-import com.doubleclick.restaurant.feature.home.data.Categories
+import com.doubleclick.restaurant.feature.home.data.Categories.Categories
 
 import javax.inject.Inject
 

@@ -9,8 +9,8 @@ import coil.load
 import com.doubleclick.restaurant.R
 import com.doubleclick.restaurant.core.extension.inflate
 import com.doubleclick.restaurant.databinding.LayoutItemCategoryBinding
-import com.doubleclick.restaurant.feature.home.data.Categories
-import com.doubleclick.restaurant.feature.home.data.Item
+import com.doubleclick.restaurant.feature.home.data.Categories.Categories
+import com.doubleclick.restaurant.feature.home.data.Categories.Item
 import com.doubleclick.restaurant.utils.Constant
 
 

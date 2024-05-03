@@ -15,7 +15,6 @@ import com.doubleclick.restaurant.feature.auth.login.data.responseNew.LoginRespo
 import com.doubleclick.restaurant.feature.auth.login.data.responseNew.NewUser
 import com.doubleclick.restaurant.feature.auth.signup.data.request.SignUpRequest
 import com.doubleclick.restaurant.feature.auth.signup.data.responseNew.SignedUpUser
-
 import kotlinx.coroutines.runBlocking
 import org.json.JSONObject
 import retrofit2.Response
@@ -37,7 +36,7 @@ interface AuthRepository {
             return when (networkHandler.isNetworkAvailable()) {
                 true -> request(service.login(request)) {
                     localSource(it)
-                    it.data
+                    it.user
                 }
 
                 false -> Either.Failure(Failure.NetworkConnection)
@@ -73,24 +72,23 @@ interface AuthRepository {
             }
         }
 
-        private fun localSource(model: DataWrapper<NewUser>) {
+        private fun localSource(model: LoginResponse<NewUser>) {
             runBlocking {
                 model.let { data ->
                     appSettingsSource.saveUserAccess(
-                        data.token?.let {
                             UserAccess(
-                                address = model.data.address,
-                                created_at = model.data.created_at,
-                                email = model.data.email,
-                                fcm_token = model.data.fcm_token,
-                                frist_name = model.data.frist_name,
-                                id = model.data.id,
-                                last_name = model.data.last_name,
-                                phone = model.data.phone,
-                                token = it,
-                                updated_at = data.data.updated_at
+                                address = model.user.address,
+                                created_at = model.user.created_at,
+                                email = model.user.email,
+                                fcm_token = model.user.fcm_token,
+                                frist_name = model.user.frist_name,
+                                id = model.user.id,
+                                last_name = model.user.last_name,
+                                phone = model.user.phone,
+                                token =  data.token,
+                                updated_at = data.user.updated_at
                             )
-                        }
+
                     )
                 }
             }

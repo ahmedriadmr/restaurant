@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.doubleclick.restaurant.R
 import com.doubleclick.restaurant.core.extension.inflate
 import com.doubleclick.restaurant.databinding.LayoutItemSizeDishBinding
-import com.doubleclick.restaurant.feature.home.data.Size
+import com.doubleclick.restaurant.feature.home.data.Categories.Size
 
 
 class SizesDishAdapter: ListAdapter<Size, SizesDishAdapter.ViewHolder>(Differ) {

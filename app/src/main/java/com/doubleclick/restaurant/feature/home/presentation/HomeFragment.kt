@@ -2,9 +2,9 @@ package com.doubleclick.restaurant.feature.home.presentation
 
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.fragment.app.viewModels
 import com.doubleclick.restaurant.R
-import com.doubleclick.restaurant.feature.home.presentation.adapter.RestaurantDishAdapter
 import com.doubleclick.restaurant.core.extension.failure
 import com.doubleclick.restaurant.core.extension.loading
 import com.doubleclick.restaurant.core.extension.observe
@@ -13,11 +13,12 @@ import com.doubleclick.restaurant.core.functional.Either
 import com.doubleclick.restaurant.core.functional.ProgressHandler
 import com.doubleclick.restaurant.core.platform.BaseFragment
 import com.doubleclick.restaurant.databinding.FragmentHomeBinding
-import com.doubleclick.restaurant.feature.home.data.Categories
-import com.doubleclick.restaurant.feature.home.data.Item
+import com.doubleclick.restaurant.feature.home.data.Categories.Categories
+import com.doubleclick.restaurant.feature.home.data.Categories.Item
+import com.doubleclick.restaurant.feature.home.data.PutCart.request.PutCartRequest
+import com.doubleclick.restaurant.feature.home.data.PutCart.response.PutCartResponse
 import com.doubleclick.restaurant.feature.home.presentation.adapter.CategoryAdapter
-import com.doubleclick.restaurant.feature.home.presentation.HomeViewModel
-
+import com.doubleclick.restaurant.feature.home.presentation.adapter.RestaurantDishAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
 
@@ -34,6 +35,7 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
 
         with(viewModel) {
             observe(listCategories) { categories -> renderListCategories(categories){categoriesListAdapter.submitList(null)}}
+            observe(putCart, ::renderPutCart)
             loading(loading, ::renderLoading)
             failure(failure, ::handleFailure)
             getCategories()
@@ -46,6 +48,10 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
             // Render the list of items when a category is clicked
             renderListDishes(items)
         }
+
+        dishesListAdapter.clickShowItem = { id ->
+            viewModel.putCart(PutCartRequest("1" , id))
+        }
     }
 
 
@@ -56,9 +62,12 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
             else -> categoriesListAdapter.submitList(categories)
         }
     }
-
+    private fun renderPutCart(@Suppress("UNUSED_PARAMETER") data: PutCartResponse) {
+        Toast.makeText(requireContext(), "Cart Stored Successfully", Toast.LENGTH_SHORT).show()
+    }
     private fun renderListDishes(items: List<Item>) {
-        dishesListAdapter.submitList(items)
+        val nonVipItems = items.filter { it.vip == "0" }
+        dishesListAdapter.submitList(nonVipItems)
     }
 
 

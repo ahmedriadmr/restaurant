@@ -49,7 +49,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/roboto"
-                    android:text="Caprese Salad"
+                    tools:text="Caprese Salad"
                     android:textColor="@color/bg_color_black"
                     android:textSize="16sp" />
 
@@ -58,7 +58,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/roboto"
-                    android:text="Small"
+                    tools:text="Small"
                     android:textColor="@color/bg_color_black"
                     android:textSize="12sp" />
 
@@ -67,7 +67,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/roboto"
-                    android:text="$8.99"
+                    tools:text="$8.99"
                     android:textColor="@color/gray_dark"
                     android:textSize="14sp" />
 

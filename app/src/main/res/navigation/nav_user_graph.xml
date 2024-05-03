@@ -11,7 +11,7 @@
         tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/cartFragment"
-        android:name="com.doubleclick.restaurant.activities.ui.CartFragment"
+        android:name="com.doubleclick.restaurant.feature.home.presentation.CartFragment"
         tools:layout="@layout/fragment_cart_new" >
         <action
             android:id="@+id/action_cartFragment_to_checkoutFragment"
