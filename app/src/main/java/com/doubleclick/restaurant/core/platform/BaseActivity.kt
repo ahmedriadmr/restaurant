@@ -19,7 +19,7 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     open fun renderAuthenticating(user: UserAccess?) {
-        if (user == null ) {
+        if (!isFinishing && user == null) {
             AuthPopup.showTwoButtonPopup(
                 this@BaseActivity,
                 "You Should Login First",

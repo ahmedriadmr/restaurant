@@ -39,7 +39,7 @@ interface HomeRepository {
             return when (networkHandler.isNetworkAvailable()) {
                 true -> request(service.logout()) {
                     clearLocal()
-                    it.data }
+                    it }
                 false -> Either.Failure(Failure.NetworkConnection)
             }
         }

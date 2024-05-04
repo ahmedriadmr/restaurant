@@ -24,7 +24,7 @@ interface HomeApi {
     suspend fun getCategories(): Response<DataWrapper<List<Categories>>>
 
     @DELETE(LOGOUT)
-    suspend fun logout(): Response<DataWrapper<LogoutResponse>>
+    suspend fun logout(): Response<LogoutResponse>
 
     @POST(CART)
     suspend fun putCart(@Body request:PutCartRequest) : Response<DataWrapper<PutCartResponse>>

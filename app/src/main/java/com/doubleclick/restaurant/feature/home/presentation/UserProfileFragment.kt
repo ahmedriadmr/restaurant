@@ -2,7 +2,7 @@ package com.doubleclick.restaurant.feature.home.presentation
 
 import android.os.Bundle
 import android.view.View
-import androidx.core.app.ActivityCompat
+import androidx.core.app.ActivityCompat.finishAffinity
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.doubleclick.restaurant.R
@@ -52,7 +52,7 @@ class UserProfileFragment : BaseFragment(R.layout.fragment_user_profile) {
     }
 
     private fun renderLogout(@Suppress("UNUSED_PARAMETER") data: LogoutResponse) {
-        ActivityCompat.finishAffinity(requireActivity())
+        finishAffinity(requireActivity())
         navigator.showAuth(requireActivity())
     }
     private fun renderLoading(loading: Either.Loading) {
