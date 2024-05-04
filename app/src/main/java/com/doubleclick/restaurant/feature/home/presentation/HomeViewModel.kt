@@ -6,6 +6,7 @@ import com.doubleclick.restaurant.core.interactor.UseCase
 import com.doubleclick.restaurant.core.platform.BaseViewModel
 import com.doubleclick.restaurant.core.platform.local.AppSettingsSource
 import com.doubleclick.restaurant.feature.home.data.Categories.Categories
+import com.doubleclick.restaurant.feature.home.data.LogoutResponse
 import com.doubleclick.restaurant.feature.home.data.PutCart.request.PutCartRequest
 import com.doubleclick.restaurant.feature.home.data.PutCart.response.PutCartResponse
 import com.doubleclick.restaurant.feature.home.data.listCart.CartData
@@ -55,8 +56,8 @@ class HomeViewModel @Inject constructor(
         }
     }
 
-    private val _logout: Channel<String> = Channel()
-    val logout: Flow<String> = _logout.receiveAsFlow()
+    private val _logout: Channel<LogoutResponse> = Channel()
+    val logout: Flow<LogoutResponse> = _logout.receiveAsFlow()
 
     fun doLogout() {
         logoutUseCase(
@@ -64,7 +65,7 @@ class HomeViewModel @Inject constructor(
         ) { it.fold(::handleFailure, ::handleLogout) }
     }
 
-    private fun handleLogout(data: String) {
+    private fun handleLogout(data: LogoutResponse) {
         viewModelScope.launch { _logout.send(data) }
     }
 

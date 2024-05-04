@@ -18,9 +18,9 @@ interface AuthApi {
     companion object {
         private const val LOGIN = "login"
         private const val SIGNUP = "register"
-        private const val forgetPassword = "auth/forgot-password"
-        private const val verifyOtp = "auth/verify-otp"
-        private const val resetPassword = "auth/reset-password"
+        private const val FORGETPASSWORD = "send_otp"
+        private const val VERIFYOTP = "confirm_code"
+        private const val RESETPASSWORD = "reset-password"
     }
 
     @POST(LOGIN)
@@ -29,12 +29,12 @@ interface AuthApi {
     @POST(SIGNUP)
     suspend fun signup(@Body request: SignUpRequest): Response<DataWrapper<SignedUpUser>>
 
-    @POST(forgetPassword)
+    @POST(FORGETPASSWORD)
     suspend fun forgetPassword(@Body request: ForgetPasswordRequest): Response<ForgetPasswordResponse>
 
-    @POST(verifyOtp)
+    @POST(VERIFYOTP)
     suspend fun verifyOtp(@Body request: VerifyOtpRequest): Response<ForgetPasswordResponse>
 
-    @POST(resetPassword)
+    @POST(RESETPASSWORD)
     suspend fun resetPassword(@Body request: ResetPasswordRequest): Response<ForgetPasswordResponse>
 }

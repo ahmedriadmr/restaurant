@@ -15,7 +15,7 @@ import javax.inject.Singleton
 class AppSettingsSourceImpl @Inject constructor(@ApplicationContext private val context: Context) : AppSettingsSource {
     private val dataStore = context.dataStore
     override fun user(): Flow<UserAccess?> = dataStore.data.map { it.userAccess }
-    override fun username(): Flow<String?> = dataStore.data.map { it.userAccess?.frist_name }
+    override fun username(): Flow<String?> = dataStore.data.map { it.userAccess?.first_name }
     override fun cartInventory(): Flow<Int> = dataStore.data.map { it.cartInventory.size }
 
     override suspend fun setCartInventory(inventory: Int) {

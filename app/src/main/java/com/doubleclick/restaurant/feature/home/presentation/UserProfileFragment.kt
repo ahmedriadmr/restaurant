@@ -14,6 +14,7 @@ import com.doubleclick.restaurant.core.functional.Either
 import com.doubleclick.restaurant.core.functional.ProgressHandler
 import com.doubleclick.restaurant.core.platform.BaseFragment
 import com.doubleclick.restaurant.databinding.FragmentUserProfileBinding
+import com.doubleclick.restaurant.feature.home.data.LogoutResponse
 import dagger.hilt.android.AndroidEntryPoint
 
 
@@ -50,7 +51,7 @@ class UserProfileFragment : BaseFragment(R.layout.fragment_user_profile) {
         }
     }
 
-    private fun renderLogout(@Suppress("UNUSED_PARAMETER") data: String) {
+    private fun renderLogout(@Suppress("UNUSED_PARAMETER") data: LogoutResponse) {
         ActivityCompat.finishAffinity(requireActivity())
         navigator.showAuth(requireActivity())
     }

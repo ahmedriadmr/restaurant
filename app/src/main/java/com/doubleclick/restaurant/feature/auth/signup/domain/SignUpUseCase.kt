@@ -3,6 +3,7 @@ package com.doubleclick.restaurant.feature.auth.signup.domain
 import com.doubleclick.restaurant.core.interactor.UseCase
 import com.doubleclick.restaurant.feature.auth.data.AuthRepository
 import com.doubleclick.restaurant.feature.auth.signup.data.request.SignUpRequest
+import com.doubleclick.restaurant.feature.auth.signup.data.responseNew.SignedUpUser
 import javax.inject.Inject
 
 class SignUpUseCase

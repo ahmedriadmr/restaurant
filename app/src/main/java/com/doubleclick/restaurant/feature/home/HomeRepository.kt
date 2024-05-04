@@ -3,10 +3,13 @@ package com.doubleclick.restaurant.feature.home
 import com.doubleclick.restaurant.core.exception.Failure
 import com.doubleclick.restaurant.core.functional.Either
 import com.doubleclick.restaurant.core.platform.NetworkHandler
+import com.doubleclick.restaurant.core.platform.local.AppSettingsSource
 import com.doubleclick.restaurant.feature.home.data.Categories.Categories
+import com.doubleclick.restaurant.feature.home.data.LogoutResponse
 import com.doubleclick.restaurant.feature.home.data.PutCart.request.PutCartRequest
 import com.doubleclick.restaurant.feature.home.data.PutCart.response.PutCartResponse
 import com.doubleclick.restaurant.feature.home.data.listCart.CartData
+import kotlinx.coroutines.runBlocking
 import org.json.JSONObject
 import retrofit2.Response
 import javax.inject.Inject
@@ -14,7 +17,7 @@ import javax.inject.Inject
 interface HomeRepository {
 
     suspend fun getCategories(): Either<Failure, List<Categories>>
-    suspend fun logout(): Either<Failure, String>
+    suspend fun logout(): Either<Failure, LogoutResponse>
 
     suspend fun putCart(request: PutCartRequest): Either<Failure, PutCartResponse>
 
@@ -23,7 +26,8 @@ interface HomeRepository {
     class Network
     @Inject constructor(
         private val networkHandler: NetworkHandler,
-        private val service: HomeService
+        private val service: HomeService,
+        private val appSettingsSource: AppSettingsSource
     ) : HomeRepository {
         override suspend fun getCategories(): Either<Failure, List<Categories>> {
             return when (networkHandler.isNetworkAvailable()) {
@@ -31,9 +35,11 @@ interface HomeRepository {
                 false -> Either.Failure(Failure.NetworkConnection)
             }
         }
-        override suspend fun logout(): Either<Failure, String> {
+        override suspend fun logout(): Either<Failure, LogoutResponse> {
             return when (networkHandler.isNetworkAvailable()) {
-                true -> request(service.logout()) { it.data }
+                true -> request(service.logout()) {
+                    clearLocal()
+                    it.data }
                 false -> Either.Failure(Failure.NetworkConnection)
             }
         }
@@ -49,6 +55,12 @@ interface HomeRepository {
             return when (networkHandler.isNetworkAvailable()) {
                 true -> request(service.getCart()) { it.data }
                 false -> Either.Failure(Failure.NetworkConnection)
+            }
+        }
+
+        private fun clearLocal(){
+            runBlocking {
+                appSettingsSource.saveUserAccess(null)
             }
         }
         private fun <T, R> request(response: Response<T>, transform: (T) -> R): Either<Failure, R> {

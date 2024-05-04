@@ -345,7 +345,7 @@
     <string name="address">Address</string>
     <string name="phone">Phone</string>
     <string name="forget_password">Forget Password</string>
-    <string name="sand">Sand</string>
+    <string name="send">Send</string>
     <string name="enter_otp_code">Enter OTP Code</string>
     <string name="check_your_email_and_you_will_find_the_otp_code">Check your email and you will find the OTP code.</string>
     <string name="code">Code</string>

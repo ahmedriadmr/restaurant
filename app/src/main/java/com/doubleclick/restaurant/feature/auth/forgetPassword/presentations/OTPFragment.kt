@@ -1,49 +1,62 @@
 package com.doubleclick.restaurant.feature.auth.forgetPassword.presentations
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import androidx.fragment.app.Fragment
+import android.widget.Toast
+import androidx.core.widget.doOnTextChanged
+import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
+import com.doubleclick.restaurant.R
+import com.doubleclick.restaurant.core.extension.failure
+import com.doubleclick.restaurant.core.extension.loading
+import com.doubleclick.restaurant.core.extension.observe
+import com.doubleclick.restaurant.core.extension.viewBinding
+import com.doubleclick.restaurant.core.functional.Either
+import com.doubleclick.restaurant.core.functional.ProgressHandler
+import com.doubleclick.restaurant.core.platform.BaseFragment
 import com.doubleclick.restaurant.databinding.FragmentOTPBinding
-import com.doubleclick.restaurant.swipetoactionlayout.utils.isNotNullOrEmptyEditText
+import com.doubleclick.restaurant.feature.auth.AuthViewModel
+import com.doubleclick.restaurant.feature.auth.forgetPassword.data.ForgetPasswordResponse
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class OTPFragment : Fragment() {
+class OTPFragment : BaseFragment(R.layout.fragment_o_t_p) {
 
-    private lateinit var binding: FragmentOTPBinding
-//    private val args by navArgs<OTPFragmentArgs>()
+    private val binding by viewBinding(FragmentOTPBinding::bind)
+    private val viewModel: AuthViewModel by viewModels()
+    private val navArgs: OTPFragmentArgs by navArgs()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-
-        }
-    }
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        // Inflate the layout for this fragment
-        binding = FragmentOTPBinding.inflate(inflater, container, false)
-        return binding.root
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        onClick()
-
-    }
-
-    private fun onClick() {
-        binding.verify.setOnClickListener {
+        with(viewModel) {
+            observe(verifyOtp, ::renderVerifyOtp)
+            loading(loading, ::renderLoading)
+            failure(failure, ::handleFailure)
         }
+
+        binding.verify.setOnClickListener {
+            viewModel.doVerifyOtp(binding.code.text.toString())
+        }
+        binding.code.doOnTextChanged { _, _, _, _ ->
+            checkEnableButton()
+        }
+
     }
 
-
-
-    private fun validation(): Boolean =
-        binding.code.isNotNullOrEmptyEditText()
+    private fun renderVerifyOtp(data: ForgetPasswordResponse) {
+        Toast.makeText(context, " ${data.message}", Toast.LENGTH_SHORT).show()
+        findNavController().navigate(OTPFragmentDirections.actionOTPFragmentToCreateNewPasswordFragment(navArgs.email))
+    }
+    private fun sendButton(isEnabled: Boolean) {
+        binding.verify.isEnabled = isEnabled
+    }
+    private fun checkEnableButton() {
+        val code = binding.code.text.isNullOrBlank()
+        sendButton(!code )
+    }
+    private fun renderLoading(loading: Either.Loading) {
+        ProgressHandler.handleProgress(loading.isLoading, requireContext())
+    }
 }

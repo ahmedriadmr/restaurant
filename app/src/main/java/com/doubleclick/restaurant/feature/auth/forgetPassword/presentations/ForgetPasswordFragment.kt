@@ -1,53 +1,61 @@
 package com.doubleclick.restaurant.feature.auth.forgetPassword.presentations
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import androidx.fragment.app.Fragment
-import androidx.lifecycle.lifecycleScope
+import android.widget.Toast
+import androidx.core.widget.doOnTextChanged
+import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
+import com.doubleclick.restaurant.R
+import com.doubleclick.restaurant.core.extension.failure
+import com.doubleclick.restaurant.core.extension.loading
+import com.doubleclick.restaurant.core.extension.observe
+import com.doubleclick.restaurant.core.extension.viewBinding
+import com.doubleclick.restaurant.core.functional.Either
+import com.doubleclick.restaurant.core.functional.ProgressHandler
+import com.doubleclick.restaurant.core.platform.BaseFragment
 import com.doubleclick.restaurant.databinding.FragmentForgetPasswordBinding
-import com.doubleclick.restaurant.swipetoactionlayout.utils.isNotNullOrEmptyEditText
+import com.doubleclick.restaurant.feature.auth.AuthViewModel
+import com.doubleclick.restaurant.feature.auth.forgetPassword.data.ForgetPasswordResponse
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
-class ForgetPasswordFragment : Fragment() {
+class ForgetPasswordFragment : BaseFragment(R.layout.fragment_forget_password) {
 
-    private lateinit var binding: FragmentForgetPasswordBinding
+    private val binding by viewBinding(FragmentForgetPasswordBinding::bind)
+    private val viewModel: AuthViewModel by viewModels()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-
-        }
-    }
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        // Inflate the layout for this fragment
-        binding = FragmentForgetPasswordBinding.inflate(inflater, container, false)
-        return binding.root
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        onClick()
+        with(viewModel) {
+            observe(forgetPassword, ::renderForgetPassword)
+            loading(loading, ::renderLoading)
+            failure(failure, ::handleFailure)
+        }
 
-    }
-
-    private fun onClick() {
-        binding.sand.setOnClickListener {
-            sandEmail()
+        binding.send.setOnClickListener {
+            viewModel.doForgetPassword(binding.email.text.toString())
+        }
+        binding.email.doOnTextChanged { _, _, _, _ ->
+            checkEnableButton()
         }
     }
 
-    private fun sandEmail() = lifecycleScope.launch {
-
+    private fun renderForgetPassword(data: ForgetPasswordResponse) {
+        Toast.makeText(context, " ${data.message}", Toast.LENGTH_SHORT).show()
+        findNavController().navigate(ForgetPasswordFragmentDirections.actionForgetPasswordFragmentToOTPFragment(binding.email.text.toString()))
+    }
+    private fun sendButton(isEnabled: Boolean) {
+        binding.send.isEnabled = isEnabled
+    }
+    private fun checkEnableButton() {
+        val userEmail = binding.email.text.isNullOrBlank()
+        sendButton(!userEmail )
+    }
+    private fun renderLoading(loading: Either.Loading) {
+        ProgressHandler.handleProgress(loading.isLoading, requireContext())
     }
 
-    private fun validation(): Boolean =
-        binding.userEmail.isNotNullOrEmptyEditText()
+
 }

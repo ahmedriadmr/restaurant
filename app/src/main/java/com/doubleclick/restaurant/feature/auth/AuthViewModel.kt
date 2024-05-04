@@ -89,8 +89,8 @@ class AuthViewModel @Inject constructor(
     private val _verifyOtp: Channel<ForgetPasswordResponse> = Channel()
     val verifyOtp: Flow<ForgetPasswordResponse> = _verifyOtp.receiveAsFlow()
 
-    fun doVerifyOtp(email: String, otp: String) =
-        verifyOtpUseCase(VerifyOtpUseCase.Params(VerifyOtpRequest(email, otp)), viewModelScope, this)
+    fun doVerifyOtp(otp: String) =
+        verifyOtpUseCase(VerifyOtpUseCase.Params(VerifyOtpRequest( otp)), viewModelScope, this)
         { it.fold(::handleFailure, ::handleVerifyOtp) }
 
     private fun handleVerifyOtp(data: ForgetPasswordResponse) {
@@ -100,8 +100,8 @@ class AuthViewModel @Inject constructor(
     private val _resetPassword: Channel<ForgetPasswordResponse> = Channel()
     val resetPassword: Flow<ForgetPasswordResponse> = _resetPassword.receiveAsFlow()
 
-    fun doResetPassword(email: String, otp: String, password: String, password_confirmation: String) =
-        resetPasswordUseCase(ResetPasswordUseCase.Params(ResetPasswordRequest(email, otp, password, password_confirmation)), viewModelScope, this)
+    fun doResetPassword(email: String, password: String, password_confirmation: String) =
+        resetPasswordUseCase(ResetPasswordUseCase.Params(ResetPasswordRequest(email, password, password_confirmation)), viewModelScope, this)
         { it.fold(::handleFailure, ::handleResetPassword) }
 
     private fun handleResetPassword(data: ForgetPasswordResponse) {

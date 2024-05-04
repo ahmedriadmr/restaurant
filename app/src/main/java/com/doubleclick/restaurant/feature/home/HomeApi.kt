@@ -2,6 +2,7 @@ package com.doubleclick.restaurant.feature.home
 
 import com.doubleclick.restaurant.core.functional.DataWrapper
 import com.doubleclick.restaurant.feature.home.data.Categories.Categories
+import com.doubleclick.restaurant.feature.home.data.LogoutResponse
 import com.doubleclick.restaurant.feature.home.data.PutCart.request.PutCartRequest
 import com.doubleclick.restaurant.feature.home.data.PutCart.response.PutCartResponse
 import com.doubleclick.restaurant.feature.home.data.listCart.CartData
@@ -23,7 +24,7 @@ interface HomeApi {
     suspend fun getCategories(): Response<DataWrapper<List<Categories>>>
 
     @DELETE(LOGOUT)
-    suspend fun logout(): Response<DataWrapper<String>>
+    suspend fun logout(): Response<DataWrapper<LogoutResponse>>
 
     @POST(CART)
     suspend fun putCart(@Body request:PutCartRequest) : Response<DataWrapper<PutCartResponse>>

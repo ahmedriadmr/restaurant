@@ -1,7 +1,7 @@
 package com.doubleclick.restaurant.feature.auth.signup.data.request
 
 data class SignUpRequest(
-    val frist_name: String,
+    val first_name: String,
     val last_name: String,
     val email: String,
     val password: String,

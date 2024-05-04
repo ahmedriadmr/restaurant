@@ -12,7 +12,7 @@ data class NewUser(
     val email_verified_at: String?,
     val fcm_token: String,
     val first_name: String,
-    val id: Int,
+    val id: String,
     val last_name: String,
     val otp_code: String?,
     val phone: String,
