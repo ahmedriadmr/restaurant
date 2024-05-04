@@ -1,6 +1,5 @@
 package com.doubleclick.restaurant.feature.auth.data
 
-import com.doubleclick.restaurant.core.functional.DataWrapper
 import com.doubleclick.restaurant.feature.auth.forgetPassword.data.ForgetPasswordResponse
 import com.doubleclick.restaurant.feature.auth.forgetPassword.data.request.forgetPassword.ForgetPasswordRequest
 import com.doubleclick.restaurant.feature.auth.forgetPassword.data.request.resetPassword.ResetPasswordRequest
@@ -9,6 +8,7 @@ import com.doubleclick.restaurant.feature.auth.login.data.request.LoginRequest
 import com.doubleclick.restaurant.feature.auth.login.data.responseNew.LoginResponse
 import com.doubleclick.restaurant.feature.auth.login.data.responseNew.NewUser
 import com.doubleclick.restaurant.feature.auth.signup.data.request.SignUpRequest
+import com.doubleclick.restaurant.feature.auth.signup.data.responseNew.SignUpResponse
 import com.doubleclick.restaurant.feature.auth.signup.data.responseNew.SignedUpUser
 import retrofit2.Response
 import retrofit2.http.Body
@@ -27,7 +27,7 @@ interface AuthApi {
     suspend fun login(@Body request: LoginRequest): Response<LoginResponse<NewUser>>
 
     @POST(SIGNUP)
-    suspend fun signup(@Body request: SignUpRequest): Response<DataWrapper<SignedUpUser>>
+    suspend fun signup(@Body request: SignUpRequest): Response<SignUpResponse<SignedUpUser>>
 
     @POST(FORGETPASSWORD)
     suspend fun forgetPassword(@Body request: ForgetPasswordRequest): Response<ForgetPasswordResponse>

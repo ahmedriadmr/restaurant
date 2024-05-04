@@ -15,12 +15,16 @@ data class AppSettings(
 data class UserAccess(
     val address: String? = String.empty(),
     val created_at: String = String.empty(),
+    val device_token: String = String.empty(),
     val email: String = String.empty(),
+    val email_verified_at: String? = String.empty(),
     val fcm_token: String = String.empty(),
     val first_name: String = String.empty(),
     val id: String = String.empty(),
     val last_name: String = String.empty(),
+    val otp_code: String? = String.empty(),
     val phone: String = String.empty(),
+    val status: String = String.empty(),
     val token: String = String.empty(),
     val updated_at: String = String.empty()
 )

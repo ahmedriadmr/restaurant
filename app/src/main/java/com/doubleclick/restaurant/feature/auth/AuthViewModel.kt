@@ -36,7 +36,7 @@ class AuthViewModel @Inject constructor(
     val signup: Flow<SignedUpUser> = _signup.receiveAsFlow()
 
     fun doSignUp(
-        fristName: String,
+        firstName: String,
         lastName: String,
         email: String,
         password: String,
@@ -47,7 +47,7 @@ class AuthViewModel @Inject constructor(
     ) = signUpUseCase(
         SignUpUseCase.Params(
             SignUpRequest(
-                fristName,
+                firstName,
                 lastName,
                 email,
                 password,

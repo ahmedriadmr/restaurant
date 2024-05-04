@@ -1,7 +1,6 @@
 package com.doubleclick.restaurant.feature.auth.data
 
 import com.doubleclick.restaurant.core.exception.Failure
-import com.doubleclick.restaurant.core.functional.DataWrapper
 import com.doubleclick.restaurant.core.functional.Either
 import com.doubleclick.restaurant.core.platform.NetworkHandler
 import com.doubleclick.restaurant.core.platform.local.AppSettingsSource
@@ -14,6 +13,7 @@ import com.doubleclick.restaurant.feature.auth.login.data.request.LoginRequest
 import com.doubleclick.restaurant.feature.auth.login.data.responseNew.LoginResponse
 import com.doubleclick.restaurant.feature.auth.login.data.responseNew.NewUser
 import com.doubleclick.restaurant.feature.auth.signup.data.request.SignUpRequest
+import com.doubleclick.restaurant.feature.auth.signup.data.responseNew.SignUpResponse
 import com.doubleclick.restaurant.feature.auth.signup.data.responseNew.SignedUpUser
 import kotlinx.coroutines.runBlocking
 import org.json.JSONObject
@@ -47,7 +47,7 @@ interface AuthRepository {
             return when (networkHandler.isNetworkAvailable()) {
                 true -> request(service.signup(request)) {
                     localSourceSignUp(it)
-                    it.data
+                    it.user
                 }
 
                 false -> Either.Failure(Failure.NetworkConnection)
@@ -79,12 +79,16 @@ interface AuthRepository {
                             UserAccess(
                                 address = model.user.address,
                                 created_at = model.user.created_at,
+                                device_token = model.user.device_token,
                                 email = model.user.email,
+                                email_verified_at = model.user.email_verified_at,
                                 fcm_token = model.user.fcm_token,
                                 first_name = model.user.first_name,
                                 id = model.user.id,
                                 last_name = model.user.last_name,
+                                otp_code = model.user.otp_code,
                                 phone = model.user.phone,
+                                status = model.user.status,
                                 token =  data.token,
                                 updated_at = data.user.updated_at
                             )
@@ -94,24 +98,25 @@ interface AuthRepository {
             }
         }
 
-        private fun localSourceSignUp(model: DataWrapper<SignedUpUser>) {
+        private fun localSourceSignUp(model: SignUpResponse<SignedUpUser>) {
             runBlocking {
-                model.let { data ->
+                model.let {
                     appSettingsSource.saveUserAccess(
-                        data.token?.let {
-                            UserAccess(
-                                address = model.data.address,
-                                created_at = model.data.created_at,
-                                email = model.data.email,
-                                fcm_token = model.data.fcm_token,
-                                first_name = model.data.first_name,
-                                id = model.data.id,
-                                last_name = model.data.last_name,
-                                phone = model.data.phone,
-                                token = it,
-                                updated_at = model.data.updated_at
-                            )
-                        }
+                        UserAccess(
+                            address = model.user.address,
+                            created_at = model.user.created_at,
+                            device_token = model.user.device_token,
+                            email = model.user.email,
+                            email_verified_at = model.user.email_verified_at,
+                            fcm_token = model.user.fcm_token,
+                            first_name = model.user.first_name,
+                            id = model.user.id,
+                            last_name = model.user.last_name,
+                            otp_code = model.user.otp_code,
+                            phone = model.user.phone,
+                            status = model.user.status,
+                            updated_at = model.user.updated_at
+                        )
                     )
                 }
             }
