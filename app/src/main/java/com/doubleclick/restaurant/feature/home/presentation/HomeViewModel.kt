@@ -11,11 +11,14 @@ import com.doubleclick.restaurant.feature.home.data.PutCart.request.PutCartReque
 import com.doubleclick.restaurant.feature.home.data.PutCart.response.PutCartResponse
 import com.doubleclick.restaurant.feature.home.data.UpdateProfileResponse
 import com.doubleclick.restaurant.feature.home.data.listCart.CartData
+import com.doubleclick.restaurant.feature.home.data.updateCart.request.UpdateCartRequest
+import com.doubleclick.restaurant.feature.home.data.updateCart.response.UpdateCartResponse
 import com.doubleclick.restaurant.feature.home.data.userProfile.UserProfileData
 import com.doubleclick.restaurant.feature.home.domain.CategoriesUseCase
 import com.doubleclick.restaurant.feature.home.domain.GetCartUseCase
 import com.doubleclick.restaurant.feature.home.domain.LogOutUseCase
 import com.doubleclick.restaurant.feature.home.domain.PutCartUseCase
+import com.doubleclick.restaurant.feature.home.domain.UpdateCartUseCase
 import com.doubleclick.restaurant.feature.home.domain.UpdateProfileUseCase
 import com.doubleclick.restaurant.feature.home.domain.UserProfileUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -35,6 +38,7 @@ class HomeViewModel @Inject constructor(
     val getCategoriesUseCase: CategoriesUseCase,
     private val logoutUseCase: LogOutUseCase,
     private val putCartUseCase: PutCartUseCase,
+    val updateCartUseCase: UpdateCartUseCase,
     val getCartUseCase: GetCartUseCase,
     val userProfileUseCase: UserProfileUseCase,
     val updateProfileUseCase: UpdateProfileUseCase,
@@ -92,6 +96,22 @@ class HomeViewModel @Inject constructor(
     private fun handlePutCart(data: PutCartResponse) {
         viewModelScope.launch {
             _putCart.send(data)
+        }
+    }
+
+    private val _updateCart: Channel<UpdateCartResponse> = Channel()
+    val updateCart: Flow<UpdateCartResponse> = _updateCart.receiveAsFlow()
+
+
+    fun updateCart(id: String, request: UpdateCartRequest) {
+        updateCartUseCase(UpdateCartUseCase.Params(id, request), viewModelScope, this) {
+            it.fold(::handleFailure, ::handlePutCart)
+        }
+    }
+
+    private fun handlePutCart(data: UpdateCartResponse) {
+        viewModelScope.launch {
+            _updateCart.send(data)
         }
     }
 

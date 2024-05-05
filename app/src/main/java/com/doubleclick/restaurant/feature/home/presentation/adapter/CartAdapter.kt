@@ -14,14 +14,14 @@ import com.doubleclick.restaurant.utils.Constant
 
 class CartAdapter: ListAdapter<CartData, CartAdapter.ViewHolder>(Differ) {
 
-    internal var clickShowItem: (String) -> Unit = { _ -> }
+    internal var clickUpdateCart: (String,String,String) -> Unit = {_,_, _ -> }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(parent.inflate(R.layout.item_cart))
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val binding = ItemCartBinding.bind(holder.itemView)
-        holder.bind(binding, getItem(position), clickShowItem)
+        holder.bind(binding, getItem(position), clickUpdateCart)
 
     }
 
@@ -29,7 +29,7 @@ class CartAdapter: ListAdapter<CartData, CartAdapter.ViewHolder>(Differ) {
         fun bind(
             binding: ItemCartBinding,
             cart: CartData,
-            clickShowItem: (String) -> Unit
+            clickUpdateCart: (String,String,String) -> Unit
         ) {
 
             binding.name.text = cart.size.item.name
@@ -43,6 +43,23 @@ class CartAdapter: ListAdapter<CartData, CartAdapter.ViewHolder>(Differ) {
                     error(R.drawable.image)
                 }
             }
+            binding.plus.setOnClickListener {
+                val currentQuantity = binding.quantity.text.toString().toInt()
+                val newQuantity = currentQuantity + 1
+                binding.quantity.text = newQuantity.toString()
+                clickUpdateCart(cart.id, newQuantity.toString(), cart.size_id)
+            }
+
+            binding.minus.setOnClickListener {
+                val currentQuantity = binding.quantity.text.toString().toInt()
+                if (currentQuantity > 1) {
+                    val newQuantity = currentQuantity - 1
+                    binding.quantity.text = newQuantity.toString()
+                    clickUpdateCart(cart.id, newQuantity.toString(), cart.size_id)
+                }
+            }
+
+
 
 
 

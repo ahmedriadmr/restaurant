@@ -62,8 +62,8 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
             else -> categoriesListAdapter.submitList(categories)
         }
     }
-    private fun renderPutCart(@Suppress("UNUSED_PARAMETER") data: PutCartResponse) {
-        Toast.makeText(requireContext(), "Cart Stored Successfully", Toast.LENGTH_SHORT).show()
+    private fun renderPutCart( data: PutCartResponse) {
+        Toast.makeText(requireContext(), data.message, Toast.LENGTH_SHORT).show()
     }
     private fun renderListDishes(items: List<Item>) {
         val nonVipItems = items.filter { it.vip == "0" }

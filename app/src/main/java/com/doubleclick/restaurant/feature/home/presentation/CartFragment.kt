@@ -2,6 +2,7 @@ package com.doubleclick.restaurant.feature.home.presentation
 
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.fragment.app.viewModels
 import com.doubleclick.restaurant.R
 import com.doubleclick.restaurant.core.extension.failure
@@ -13,6 +14,8 @@ import com.doubleclick.restaurant.core.functional.ProgressHandler
 import com.doubleclick.restaurant.core.platform.BaseFragment
 import com.doubleclick.restaurant.databinding.FragmentCartNewBinding
 import com.doubleclick.restaurant.feature.home.data.listCart.CartData
+import com.doubleclick.restaurant.feature.home.data.updateCart.request.UpdateCartRequest
+import com.doubleclick.restaurant.feature.home.data.updateCart.response.UpdateCartResponse
 import com.doubleclick.restaurant.feature.home.presentation.adapter.CartAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -27,11 +30,15 @@ class CartFragment : BaseFragment(R.layout.fragment_cart_new) {
         super.onViewCreated(view, savedInstanceState)
         with(viewModel) {
             observe(listCart) { cart -> renderListCart(cart){cartAdapter.submitList(null)}}
+            observe(updateCart, ::renderUpdateCart)
             loading(loading, ::renderLoading)
             failure(failure, ::handleFailure)
             getCart()
         }
         binding.rvCart.adapter = cartAdapter
+        cartAdapter.clickUpdateCart = {id,number,sizeId ->
+            viewModel.updateCart(id, UpdateCartRequest("PUT",number,sizeId))
+        }
 
     }
     private fun renderListCart(cart: List<CartData>, refreshData: (() -> Unit)?) {
@@ -39,6 +46,11 @@ class CartFragment : BaseFragment(R.layout.fragment_cart_new) {
             cart.isEmpty() -> refreshData?.invoke()
             else -> cartAdapter.submitList(cart)
         }
+    }
+
+    private fun renderUpdateCart( data: UpdateCartResponse) {
+        Toast.makeText(requireContext(), data.message, Toast.LENGTH_SHORT).show()
+        viewModel.getCart()
     }
     private fun renderLoading(loading: Either.Loading) {
         ProgressHandler.handleProgress(loading.isLoading, requireContext())

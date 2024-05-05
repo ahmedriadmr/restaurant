@@ -7,6 +7,8 @@ import com.doubleclick.restaurant.feature.home.data.PutCart.request.PutCartReque
 import com.doubleclick.restaurant.feature.home.data.PutCart.response.PutCartResponse
 import com.doubleclick.restaurant.feature.home.data.UpdateProfileResponse
 import com.doubleclick.restaurant.feature.home.data.listCart.CartData
+import com.doubleclick.restaurant.feature.home.data.updateCart.request.UpdateCartRequest
+import com.doubleclick.restaurant.feature.home.data.updateCart.response.UpdateCartResponse
 import com.doubleclick.restaurant.feature.home.data.userProfile.UserProfileData
 import okhttp3.RequestBody
 import retrofit2.Response
@@ -16,6 +18,7 @@ import retrofit2.http.GET
 import retrofit2.http.Multipart
 import retrofit2.http.POST
 import retrofit2.http.Part
+import retrofit2.http.Path
 
 interface HomeApi {
     companion object {
@@ -35,6 +38,8 @@ interface HomeApi {
 
     @POST(CART)
     suspend fun putCart(@Body request:PutCartRequest) : Response<DataWrapper<PutCartResponse>>
+    @POST("${CART}/{id}")
+    suspend fun updateCart(@Path("id") id: String,@Body request:UpdateCartRequest) : Response<UpdateCartResponse>
 
     @GET(CART)
     suspend fun getCart(): Response<DataWrapper<List<CartData>>>

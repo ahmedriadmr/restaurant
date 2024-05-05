@@ -1,6 +1,7 @@
 package com.doubleclick.restaurant.feature.home
 
 import com.doubleclick.restaurant.feature.home.data.PutCart.request.PutCartRequest
+import com.doubleclick.restaurant.feature.home.data.updateCart.request.UpdateCartRequest
 import okhttp3.RequestBody
 import retrofit2.Retrofit
 import javax.inject.Inject
@@ -14,6 +15,7 @@ class HomeService @Inject constructor(retrofit: Retrofit) : HomeApi {
     override suspend fun logout() = homeApi.logout()
 
     override suspend fun putCart(request: PutCartRequest) = homeApi.putCart(request)
+    override suspend fun updateCart(id: String, request: UpdateCartRequest) = homeApi.updateCart(id,request)
 
     override suspend fun getCart() = homeApi.getCart()
     override suspend fun userProfile() = homeApi.userProfile()

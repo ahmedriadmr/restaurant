@@ -10,6 +10,8 @@ import com.doubleclick.restaurant.feature.home.data.PutCart.request.PutCartReque
 import com.doubleclick.restaurant.feature.home.data.PutCart.response.PutCartResponse
 import com.doubleclick.restaurant.feature.home.data.UpdateProfileResponse
 import com.doubleclick.restaurant.feature.home.data.listCart.CartData
+import com.doubleclick.restaurant.feature.home.data.updateCart.request.UpdateCartRequest
+import com.doubleclick.restaurant.feature.home.data.updateCart.response.UpdateCartResponse
 import com.doubleclick.restaurant.feature.home.data.userProfile.UserProfileData
 import kotlinx.coroutines.runBlocking
 import okhttp3.RequestBody
@@ -23,6 +25,7 @@ interface HomeRepository {
     suspend fun logout(): Either<Failure, LogoutResponse>
 
     suspend fun putCart(request: PutCartRequest): Either<Failure, PutCartResponse>
+    suspend fun updateCart(id: String, request: UpdateCartRequest): Either<Failure, UpdateCartResponse>
 
     suspend fun getCart(): Either<Failure, List<CartData>>
 
@@ -64,6 +67,13 @@ interface HomeRepository {
         override suspend fun putCart(request: PutCartRequest): Either<Failure, PutCartResponse> {
             return when (networkHandler.isNetworkAvailable()) {
                 true -> request(service.putCart(request)) { it.data }
+                false -> Either.Failure(Failure.NetworkConnection)
+            }
+        }
+
+        override suspend fun updateCart(id: String, request: UpdateCartRequest): Either<Failure, UpdateCartResponse> {
+            return when (networkHandler.isNetworkAvailable()) {
+                true -> request(service.updateCart(id, request)) { it }
                 false -> Either.Failure(Failure.NetworkConnection)
             }
         }
