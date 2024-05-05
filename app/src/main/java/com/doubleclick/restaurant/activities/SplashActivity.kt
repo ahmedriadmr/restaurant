@@ -3,9 +3,9 @@ package com.doubleclick.restaurant.activities
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
+import com.doubleclick.restaurant.R
 import com.doubleclick.restaurant.core.platform.Navigator
 import com.doubleclick.restaurant.core.platform.local.AppSettingsSource
-import com.doubleclick.restaurant.R
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -22,7 +22,7 @@ class SplashActivity : AppCompatActivity() {
         setContentView(R.layout.activity_splash)
         resetUser()
         lifecycleScope.launch {
-            delay(1200)
+            delay(2000)
             navigator.showMain(this@SplashActivity)
         }
     }
