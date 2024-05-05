@@ -4,6 +4,7 @@ object Constant {
 
     const val BASE_URL = "https://restaurant.eslamghazy.net/api/v1/"
     const val euroSign = "\u20AC"
+    const val dollarSign = "\u0024"
     const val percentageSign = "%"
     const val BASE_URL_IMAGE_CATEGORIES = "https://restaurant.eslamghazy.net/public/category_images/"
     const val BASE_URL_IMAGE_ITEMS = "https://restaurant.eslamghazy.net/public/item_images/"

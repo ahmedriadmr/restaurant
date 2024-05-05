@@ -17,6 +17,7 @@ import com.doubleclick.restaurant.feature.home.data.listCart.CartData
 import com.doubleclick.restaurant.feature.home.data.updateCart.request.UpdateCartRequest
 import com.doubleclick.restaurant.feature.home.data.updateCart.response.UpdateCartResponse
 import com.doubleclick.restaurant.feature.home.presentation.adapter.CartAdapter
+import com.doubleclick.restaurant.utils.Constant.dollarSign
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -36,6 +37,9 @@ class CartFragment : BaseFragment(R.layout.fragment_cart_new) {
             getCart()
         }
         binding.rvCart.adapter = cartAdapter
+        cartAdapter.cartUpdated = { totalPrice ->
+            binding.totalPrice.text = "$dollarSign$totalPrice"
+        }
         cartAdapter.clickUpdateCart = {id,number,sizeId ->
             viewModel.updateCart(id, UpdateCartRequest("PUT",number,sizeId))
         }
@@ -44,7 +48,9 @@ class CartFragment : BaseFragment(R.layout.fragment_cart_new) {
     private fun renderListCart(cart: List<CartData>, refreshData: (() -> Unit)?) {
         when {
             cart.isEmpty() -> refreshData?.invoke()
-            else -> cartAdapter.submitList(cart)
+            else -> {
+                cartAdapter.submitList(cart)
+            }
         }
     }
 

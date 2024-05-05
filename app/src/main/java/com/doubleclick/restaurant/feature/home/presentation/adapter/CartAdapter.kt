@@ -7,14 +7,20 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.doubleclick.restaurant.R
+import com.doubleclick.restaurant.core.extension.formatted
 import com.doubleclick.restaurant.core.extension.inflate
 import com.doubleclick.restaurant.databinding.ItemCartBinding
 import com.doubleclick.restaurant.feature.home.data.listCart.CartData
 import com.doubleclick.restaurant.utils.Constant
+import com.doubleclick.restaurant.utils.Constant.dollarSign
 
 class CartAdapter: ListAdapter<CartData, CartAdapter.ViewHolder>(Differ) {
 
     internal var clickUpdateCart: (String,String,String) -> Unit = {_,_, _ -> }
+    internal var cartUpdated: (String) -> Unit = { _ -> }
+    private var totalCartPrice: Double = 0.0
+
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(parent.inflate(R.layout.item_cart))
     }
@@ -34,8 +40,9 @@ class CartAdapter: ListAdapter<CartData, CartAdapter.ViewHolder>(Differ) {
 
             binding.name.text = cart.size.item.name
             binding.size.text = cart.size.name
-            binding.price.text = cart.size.price.toString()
+            binding.price.text = "$dollarSign${cart.size.price}"
             binding.quantity.text = cart.number.toString()
+            calculateTotalPrice(currentList)
             if (!cart.size.item.image.isNullOrEmpty()) {
                 binding.image.load(Constant.BASE_URL_IMAGE_ITEMS + cart.size.item.image) {
                     crossfade(true)
@@ -48,6 +55,7 @@ class CartAdapter: ListAdapter<CartData, CartAdapter.ViewHolder>(Differ) {
                 val newQuantity = currentQuantity + 1
                 binding.quantity.text = newQuantity.toString()
                 clickUpdateCart(cart.id, newQuantity.toString(), cart.size_id)
+                calculateTotalPrice(currentList)
             }
 
             binding.minus.setOnClickListener {
@@ -57,6 +65,7 @@ class CartAdapter: ListAdapter<CartData, CartAdapter.ViewHolder>(Differ) {
                     binding.quantity.text = newQuantity.toString()
                     clickUpdateCart(cart.id, newQuantity.toString(), cart.size_id)
                 }
+                calculateTotalPrice(currentList)
             }
 
 
@@ -65,6 +74,13 @@ class CartAdapter: ListAdapter<CartData, CartAdapter.ViewHolder>(Differ) {
 
         }
 
+    }
+    private fun calculateTotalPrice(cartItems: List<CartData>) {
+        totalCartPrice = 0.0
+        for (item in cartItems) {
+            totalCartPrice += item.size.price * item.number
+        }
+        cartUpdated(totalCartPrice.formatted)
     }
 
     object Differ : DiffUtil.ItemCallback<CartData>() {

@@ -11,6 +11,7 @@ import com.doubleclick.restaurant.core.extension.inflate
 import com.doubleclick.restaurant.databinding.LayoutItemDishInMenuBinding
 import com.doubleclick.restaurant.feature.home.data.Categories.Item
 import com.doubleclick.restaurant.utils.Constant
+import com.doubleclick.restaurant.utils.Constant.dollarSign
 
 class RestaurantDishAdapter: ListAdapter<Item, RestaurantDishAdapter.ViewHolder>(Differ) {
 
@@ -44,7 +45,7 @@ class RestaurantDishAdapter: ListAdapter<Item, RestaurantDishAdapter.ViewHolder>
                 }
             }
             sizeDishAdapter.clickShowSize = { id , price ->
-                binding.price.text = price.toString()
+                binding.price.text = "$dollarSign${price}"
                 binding.addToCart.setOnClickListener {
                     clickShowItem(id)
                 }

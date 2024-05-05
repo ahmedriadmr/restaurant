@@ -37,7 +37,7 @@ interface HomeApi {
     suspend fun logout(): Response<LogoutResponse>
 
     @POST(CART)
-    suspend fun putCart(@Body request:PutCartRequest) : Response<DataWrapper<PutCartResponse>>
+    suspend fun putCart(@Body request:PutCartRequest) : Response<PutCartResponse>
     @POST("${CART}/{id}")
     suspend fun updateCart(@Path("id") id: String,@Body request:UpdateCartRequest) : Response<UpdateCartResponse>
 

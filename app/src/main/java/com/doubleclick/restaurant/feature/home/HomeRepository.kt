@@ -66,7 +66,7 @@ interface HomeRepository {
 
         override suspend fun putCart(request: PutCartRequest): Either<Failure, PutCartResponse> {
             return when (networkHandler.isNetworkAvailable()) {
-                true -> request(service.putCart(request)) { it.data }
+                true -> request(service.putCart(request)) { it }
                 false -> Either.Failure(Failure.NetworkConnection)
             }
         }
