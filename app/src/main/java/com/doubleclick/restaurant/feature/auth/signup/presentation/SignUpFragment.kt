@@ -5,6 +5,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.doubleclick.restaurant.R
 import com.doubleclick.restaurant.core.extension.failure
 import com.doubleclick.restaurant.core.extension.loading
@@ -40,6 +41,14 @@ class SignUpFragment : BaseFragment(R.layout.fragment_sign_up) {
 //        binding.back.setOnClickListener {
 //            findNavController().popBackStack()
 //        }
+
+        binding.guest.setOnClickListener {
+            navigator.showHome(requireContext())
+        }
+
+        binding.iHaveAccount.setOnClickListener {
+            findNavController().popBackStack()
+        }
 
         binding.signUp.setOnClickListener {
             viewModel.doSignUp(
