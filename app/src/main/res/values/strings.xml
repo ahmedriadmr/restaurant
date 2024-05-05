@@ -376,6 +376,7 @@
     <string name="create_employee">Create Employee</string>
     <string name="product_list">Product list</string>
     <string name="enter_category_name">Enter Category Name</string>
+    <string name="password_confirmation">Password Confirmation</string>
 
     <string-array name="sizes">
         <item>small</item>

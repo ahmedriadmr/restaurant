@@ -9,11 +9,15 @@ import com.doubleclick.restaurant.feature.home.data.Categories.Categories
 import com.doubleclick.restaurant.feature.home.data.LogoutResponse
 import com.doubleclick.restaurant.feature.home.data.PutCart.request.PutCartRequest
 import com.doubleclick.restaurant.feature.home.data.PutCart.response.PutCartResponse
+import com.doubleclick.restaurant.feature.home.data.UpdateProfileResponse
 import com.doubleclick.restaurant.feature.home.data.listCart.CartData
+import com.doubleclick.restaurant.feature.home.data.userProfile.UserProfileData
 import com.doubleclick.restaurant.feature.home.domain.CategoriesUseCase
 import com.doubleclick.restaurant.feature.home.domain.GetCartUseCase
 import com.doubleclick.restaurant.feature.home.domain.LogOutUseCase
 import com.doubleclick.restaurant.feature.home.domain.PutCartUseCase
+import com.doubleclick.restaurant.feature.home.domain.UpdateProfileUseCase
+import com.doubleclick.restaurant.feature.home.domain.UserProfileUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.Flow
@@ -21,6 +25,8 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
+import okhttp3.MultipartBody
+import okhttp3.RequestBody.Companion.toRequestBody
 import javax.inject.Inject
 
 @HiltViewModel
@@ -30,6 +36,8 @@ class HomeViewModel @Inject constructor(
     private val logoutUseCase: LogOutUseCase,
     private val putCartUseCase: PutCartUseCase,
     val getCartUseCase: GetCartUseCase,
+    val userProfileUseCase: UserProfileUseCase,
+    val updateProfileUseCase: UpdateProfileUseCase,
     val appSettingsSource: AppSettingsSource
 ) :
     BaseViewModel() {
@@ -46,7 +54,8 @@ class HomeViewModel @Inject constructor(
 
     fun getCategories() {
         getCategoriesUseCase(
-            UseCase.None(), viewModelScope, this) { it.fold(::handleFailure, ::handleListCategories) }
+            UseCase.None(), viewModelScope, this
+        ) { it.fold(::handleFailure, ::handleListCategories) }
     }
 
     private fun handleListCategories(data: List<Categories>) {
@@ -92,7 +101,8 @@ class HomeViewModel @Inject constructor(
 
     fun getCart() {
         getCartUseCase(
-            UseCase.None(), viewModelScope, this) { it.fold(::handleFailure, ::handleListCart) }
+            UseCase.None(), viewModelScope, this
+        ) { it.fold(::handleFailure, ::handleListCart) }
     }
 
     private fun handleListCart(data: List<CartData>) {
@@ -100,5 +110,46 @@ class HomeViewModel @Inject constructor(
             savedStateHandle[listCartDataKey] = this
             _listCart.value = this
         }
+    }
+
+    private val _profile: Channel<UserProfileData> = Channel()
+    val profile: Flow<UserProfileData> = _profile.receiveAsFlow()
+
+    fun getUserProfile() {
+        userProfileUseCase(
+            UseCase.None(), viewModelScope, this
+        ) { it.fold(::handleFailure, ::handleUserProfile) }
+    }
+
+    private fun handleUserProfile(data: UserProfileData) {
+        viewModelScope.launch { _profile.send(data) }
+    }
+
+
+    private val _updateProfile: Channel<UpdateProfileResponse> = Channel()
+    val updateProfile: Flow<UpdateProfileResponse> = _updateProfile.receiveAsFlow()
+
+    fun updateProfile(
+        firstName: String, lastName: String, email: String, password: String?, passwordConfirmation: String?, phone: String,
+        address: String
+    ) {
+        updateProfileUseCase(
+            UpdateProfileUseCase.Params(
+                initRequestBody(firstName),
+                initRequestBody(lastName),
+                initRequestBody(email),
+                password?.let { initRequestBody(it) },
+                passwordConfirmation?.let { initRequestBody(it) },
+                initRequestBody(phone),
+                initRequestBody(address),
+
+                ), viewModelScope, this
+        ) { it.fold(::handleFailure, ::handleUpdateProfile) }
+    }
+
+    private fun initRequestBody(data: String) = data.toRequestBody(MultipartBody.FORM)
+
+    private fun handleUpdateProfile(data: UpdateProfileResponse) {
+        viewModelScope.launch { _updateProfile.send(data) }
     }
 }

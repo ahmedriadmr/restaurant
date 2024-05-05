@@ -8,8 +8,11 @@ import com.doubleclick.restaurant.feature.home.data.Categories.Categories
 import com.doubleclick.restaurant.feature.home.data.LogoutResponse
 import com.doubleclick.restaurant.feature.home.data.PutCart.request.PutCartRequest
 import com.doubleclick.restaurant.feature.home.data.PutCart.response.PutCartResponse
+import com.doubleclick.restaurant.feature.home.data.UpdateProfileResponse
 import com.doubleclick.restaurant.feature.home.data.listCart.CartData
+import com.doubleclick.restaurant.feature.home.data.userProfile.UserProfileData
 import kotlinx.coroutines.runBlocking
+import okhttp3.RequestBody
 import org.json.JSONObject
 import retrofit2.Response
 import javax.inject.Inject
@@ -23,6 +26,17 @@ interface HomeRepository {
 
     suspend fun getCart(): Either<Failure, List<CartData>>
 
+    suspend fun userProfile(): Either<Failure, UserProfileData>
+    suspend fun updateProfile(
+        firstName: RequestBody?,
+        lastName: RequestBody?,
+        email: RequestBody?,
+        password: RequestBody?,
+        passwordConfirmation: RequestBody?,
+        phone: RequestBody?,
+        address: RequestBody?
+    ): Either<Failure, UpdateProfileResponse>
+
     class Network
     @Inject constructor(
         private val networkHandler: NetworkHandler,
@@ -35,16 +49,19 @@ interface HomeRepository {
                 false -> Either.Failure(Failure.NetworkConnection)
             }
         }
+
         override suspend fun logout(): Either<Failure, LogoutResponse> {
             return when (networkHandler.isNetworkAvailable()) {
                 true -> request(service.logout()) {
                     clearLocal()
-                    it }
+                    it
+                }
+
                 false -> Either.Failure(Failure.NetworkConnection)
             }
         }
 
-        override suspend fun putCart(request:PutCartRequest): Either<Failure, PutCartResponse> {
+        override suspend fun putCart(request: PutCartRequest): Either<Failure, PutCartResponse> {
             return when (networkHandler.isNetworkAvailable()) {
                 true -> request(service.putCart(request)) { it.data }
                 false -> Either.Failure(Failure.NetworkConnection)
@@ -58,11 +75,45 @@ interface HomeRepository {
             }
         }
 
-        private fun clearLocal(){
+        override suspend fun userProfile(): Either<Failure, UserProfileData> {
+            return when (networkHandler.isNetworkAvailable()) {
+                true -> request(service.userProfile()) { it.data }
+                false -> Either.Failure(Failure.NetworkConnection)
+            }
+        }
+
+        override suspend fun updateProfile(
+            firstName: RequestBody?,
+            lastName: RequestBody?,
+            email: RequestBody?,
+            password: RequestBody?,
+            passwordConfirmation: RequestBody?,
+            phone: RequestBody?,
+            address: RequestBody?
+        ): Either<Failure, UpdateProfileResponse> {
+            return when (networkHandler.isNetworkAvailable()) {
+                true -> request(
+                    service.updateProfile(
+                        firstName,
+                        lastName,
+                        email,
+                        password,
+                        passwordConfirmation,
+                        phone,
+                        address
+                    )
+                ) { it }
+
+                false -> Either.Failure(Failure.NetworkConnection)
+            }
+        }
+
+        private fun clearLocal() {
             runBlocking {
                 appSettingsSource.saveUserAccess(null)
             }
         }
+
         private fun <T, R> request(response: Response<T>, transform: (T) -> R): Either<Failure, R> {
             return try {
                 when (response.isSuccessful && response.body() != null) {
