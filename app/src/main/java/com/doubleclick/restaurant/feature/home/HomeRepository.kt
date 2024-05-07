@@ -10,6 +10,8 @@ import com.doubleclick.restaurant.feature.home.data.PutCart.request.PutCartReque
 import com.doubleclick.restaurant.feature.home.data.PutCart.response.PutCartResponse
 import com.doubleclick.restaurant.feature.home.data.UpdateProfileResponse
 import com.doubleclick.restaurant.feature.home.data.listCart.CartData
+import com.doubleclick.restaurant.feature.home.data.makeOrder.request.MakeOrderRequest
+import com.doubleclick.restaurant.feature.home.data.makeOrder.response.MakeOrderResponse
 import com.doubleclick.restaurant.feature.home.data.updateCart.request.UpdateCartRequest
 import com.doubleclick.restaurant.feature.home.data.updateCart.response.UpdateCartResponse
 import com.doubleclick.restaurant.feature.home.data.userProfile.UserProfileData
@@ -39,6 +41,8 @@ interface HomeRepository {
         phone: RequestBody?,
         address: RequestBody?
     ): Either<Failure, UpdateProfileResponse>
+
+    suspend fun makeOrder(request: MakeOrderRequest): Either<Failure, MakeOrderResponse>
 
     class Network
     @Inject constructor(
@@ -118,6 +122,12 @@ interface HomeRepository {
             }
         }
 
+        override suspend fun makeOrder(request: MakeOrderRequest): Either<Failure, MakeOrderResponse> {
+            return when (networkHandler.isNetworkAvailable()) {
+                true -> request(service.makeOrder(request)) { it }
+                false -> Either.Failure(Failure.NetworkConnection)
+            }
+        }
         private fun clearLocal() {
             runBlocking {
                 appSettingsSource.saveUserAccess(null)

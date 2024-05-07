@@ -7,6 +7,8 @@ import com.doubleclick.restaurant.feature.home.data.PutCart.request.PutCartReque
 import com.doubleclick.restaurant.feature.home.data.PutCart.response.PutCartResponse
 import com.doubleclick.restaurant.feature.home.data.UpdateProfileResponse
 import com.doubleclick.restaurant.feature.home.data.listCart.CartData
+import com.doubleclick.restaurant.feature.home.data.makeOrder.request.MakeOrderRequest
+import com.doubleclick.restaurant.feature.home.data.makeOrder.response.MakeOrderResponse
 import com.doubleclick.restaurant.feature.home.data.updateCart.request.UpdateCartRequest
 import com.doubleclick.restaurant.feature.home.data.updateCart.response.UpdateCartResponse
 import com.doubleclick.restaurant.feature.home.data.userProfile.UserProfileData
@@ -27,6 +29,7 @@ interface HomeApi {
         private const val CART = "carts"
         private const val PROFILE = "user_profile"
         private const val UPDATEPROFILE = "user_profile/update"
+        private const val ORDER = "orders"
 
     }
 
@@ -59,5 +62,8 @@ interface HomeApi {
         @Part("address") address: RequestBody?,
 
     ): Response<UpdateProfileResponse>
+
+    @POST(ORDER)
+    suspend fun makeOrder(@Body request:MakeOrderRequest) : Response<MakeOrderResponse>
 
 }

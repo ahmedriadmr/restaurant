@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".activities.ui.CheckoutFragment">
+    tools:context=".feature.home.presentation.CheckoutFragment">
 
     <ImageView
         android:id="@+id/back"
@@ -66,99 +66,78 @@
         </androidx.cardview.widget.CardView>
 
         <RadioGroup
+            android:id="@+id/radio_group"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:orientation="horizontal">
 
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_weight="1" />
-
             <RadioButton
                 android:id="@+id/restaurant"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/restaurant" />
-
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_weight="4" />
+                android:layout_weight="1"
+                android:buttonTint="@color/black"
+                android:text="@string/restaurant"
+                android:textColor="@color/black" />
 
             <RadioButton
                 android:id="@+id/delivery"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/delivery" />
-
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_weight="4" />
+                android:layout_weight="1"
+                android:buttonTint="@color/black"
+                android:text="@string/delivery"
+                android:textColor="@color/black" />
 
             <RadioButton
                 android:id="@+id/take_away"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/take_away" />
+                android:layout_weight="1"
+                android:buttonTint="@color/black"
+                android:text="@string/take_away"
+                android:textColor="@color/black" />
 
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_weight="1" />
         </RadioGroup>
 
-        <LinearLayout
-            android:id="@+id/ll_table_number"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/bg_et"
-            android:visibility="gone"
-            tools:visibility="visible">
-
-            <com.doubleclick.customspinner.CustomSpinner
-                android:id="@+id/table_number"
-                android:layout_width="0dp"
-                android:layout_height="50dp"
-                android:layout_weight="1"
-                android:background="@color/colorless"
-                android:fontFamily="@font/roboto"
-                android:paddingHorizontal="8dp" />
-
-            <ImageView
-                android:id="@+id/arrow"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:padding="5dp"
-                android:src="@drawable/ic_baseline_arrow_drop_down_24" />
-
-        </LinearLayout>
 
         <LinearLayout
             android:id="@+id/ll_location"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:visibility="gone"
-            tools:layout_marginTop="10dp"
-            tools:visibility="visible">
+            tools:layout_marginTop="10dp">
+
+            <EditText
+                android:id="@+id/table_number"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/bg_et"
+                android:fontFamily="@font/roboto"
+                android:layout_marginTop="10dp"
+                android:hint="@string/table_number"
+                android:inputType="number"
+                android:paddingHorizontal="8dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/gray"
+                android:visibility="gone"
+                tools:visibility="visible" />
 
             <EditText
                 android:id="@+id/location"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
+                android:layout_marginTop="10dp"
                 android:background="@drawable/bg_et"
                 android:fontFamily="@font/roboto"
                 android:hint="@string/location"
+                android:inputType="textPostalAddress"
                 android:paddingHorizontal="8dp"
-                android:textColorHint="@color/gray" />
+                android:textColor="@color/black"
+                android:textColorHint="@color/gray"
+                android:visibility="gone"
+                tools:visibility="visible" />
 
             <EditText
                 android:id="@+id/phone_number"
@@ -168,8 +147,12 @@
                 android:background="@drawable/bg_et"
                 android:fontFamily="@font/roboto"
                 android:hint="@string/phone_number"
+                android:textColor="@color/black"
+                android:inputType="phone"
                 android:paddingHorizontal="8dp"
-                android:textColorHint="@color/gray" />
+                android:textColorHint="@color/gray"
+                android:visibility="gone"
+                tools:visibility="visible" />
 
 
         </LinearLayout>
@@ -213,7 +196,7 @@
                         android:textSize="18sp" />
 
                     <TextView
-                        android:id="@+id/total_number"
+                        android:id="@+id/total_price"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/roboto"
@@ -232,11 +215,11 @@
                     android:layout_weight="1" />
 
                 <LinearLayout
-                    android:id="@+id/comfirm"
+                    android:id="@+id/confirm"
                     android:layout_width="wrap_content"
                     android:layout_height="35dp"
                     android:layout_gravity="bottom"
-                    android:background="@drawable/bg_black_rec_fill"
+                    android:background="@drawable/bg_gray_fill"
                     android:paddingHorizontal="20dp">
 
                     <TextView

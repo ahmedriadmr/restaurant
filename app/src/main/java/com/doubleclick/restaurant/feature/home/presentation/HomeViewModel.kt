@@ -11,12 +11,15 @@ import com.doubleclick.restaurant.feature.home.data.PutCart.request.PutCartReque
 import com.doubleclick.restaurant.feature.home.data.PutCart.response.PutCartResponse
 import com.doubleclick.restaurant.feature.home.data.UpdateProfileResponse
 import com.doubleclick.restaurant.feature.home.data.listCart.CartData
+import com.doubleclick.restaurant.feature.home.data.makeOrder.request.MakeOrderRequest
+import com.doubleclick.restaurant.feature.home.data.makeOrder.response.MakeOrderResponse
 import com.doubleclick.restaurant.feature.home.data.updateCart.request.UpdateCartRequest
 import com.doubleclick.restaurant.feature.home.data.updateCart.response.UpdateCartResponse
 import com.doubleclick.restaurant.feature.home.data.userProfile.UserProfileData
 import com.doubleclick.restaurant.feature.home.domain.CategoriesUseCase
 import com.doubleclick.restaurant.feature.home.domain.GetCartUseCase
 import com.doubleclick.restaurant.feature.home.domain.LogOutUseCase
+import com.doubleclick.restaurant.feature.home.domain.MakeOrderUseCase
 import com.doubleclick.restaurant.feature.home.domain.PutCartUseCase
 import com.doubleclick.restaurant.feature.home.domain.UpdateCartUseCase
 import com.doubleclick.restaurant.feature.home.domain.UpdateProfileUseCase
@@ -42,6 +45,7 @@ class HomeViewModel @Inject constructor(
     val getCartUseCase: GetCartUseCase,
     val userProfileUseCase: UserProfileUseCase,
     val updateProfileUseCase: UpdateProfileUseCase,
+    val makeOrderUseCase: MakeOrderUseCase,
     val appSettingsSource: AppSettingsSource
 ) :
     BaseViewModel() {
@@ -105,11 +109,11 @@ class HomeViewModel @Inject constructor(
 
     fun updateCart(id: String, request: UpdateCartRequest) {
         updateCartUseCase(UpdateCartUseCase.Params(id, request), viewModelScope, this) {
-            it.fold(::handleFailure, ::handlePutCart)
+            it.fold(::handleFailure, ::handleUpdateCart)
         }
     }
 
-    private fun handlePutCart(data: UpdateCartResponse) {
+    private fun handleUpdateCart(data: UpdateCartResponse) {
         viewModelScope.launch {
             _updateCart.send(data)
         }
@@ -171,5 +175,22 @@ class HomeViewModel @Inject constructor(
 
     private fun handleUpdateProfile(data: UpdateProfileResponse) {
         viewModelScope.launch { _updateProfile.send(data) }
+    }
+
+
+    private val _makeOrder: Channel<MakeOrderResponse> = Channel()
+    val makeOrder: Flow<MakeOrderResponse> = _makeOrder.receiveAsFlow()
+
+
+    fun makeOrder(request: MakeOrderRequest) {
+        makeOrderUseCase(MakeOrderUseCase.Params(request), viewModelScope, this) {
+            it.fold(::handleFailure, ::handleMakeOrder)
+        }
+    }
+
+    private fun handleMakeOrder(data: MakeOrderResponse) {
+        viewModelScope.launch {
+            _makeOrder.send(data)
+        }
     }
 }

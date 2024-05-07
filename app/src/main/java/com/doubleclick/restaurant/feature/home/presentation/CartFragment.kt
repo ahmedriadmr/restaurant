@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.doubleclick.restaurant.R
 import com.doubleclick.restaurant.core.extension.failure
 import com.doubleclick.restaurant.core.extension.loading
@@ -42,6 +43,10 @@ class CartFragment : BaseFragment(R.layout.fragment_cart_new) {
         }
         cartAdapter.clickUpdateCart = {id,number,sizeId ->
             viewModel.updateCart(id, UpdateCartRequest("PUT",number,sizeId))
+        }
+
+        binding.checkout.setOnClickListener {
+            findNavController().navigate(CartFragmentDirections.actionCartFragmentToCheckoutFragment())
         }
 
     }

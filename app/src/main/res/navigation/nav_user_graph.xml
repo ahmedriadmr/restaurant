@@ -19,7 +19,7 @@
     </fragment>
     <fragment
         android:id="@+id/checkoutFragment"
-        android:name="com.doubleclick.restaurant.activities.ui.CheckoutFragment"
+        android:name="com.doubleclick.restaurant.feature.home.presentation.CheckoutFragment"
         tools:layout="@layout/fragment_checkout" />
     <fragment
         android:id="@+id/userProfileFragment"

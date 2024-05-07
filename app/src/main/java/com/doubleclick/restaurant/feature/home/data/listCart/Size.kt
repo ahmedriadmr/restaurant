@@ -10,7 +10,7 @@ data class Size(
     val item: Item,
     val item_id: Int,
     val name: String,
-    val price: Int,
+    val price: Double,
     val status: String,
     val updated_at: String
 ) : Parcelable

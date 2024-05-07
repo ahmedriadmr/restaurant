@@ -49,8 +49,8 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
             renderListDishes(items)
         }
 
-        dishesListAdapter.clickShowItem = { id ->
-            viewModel.putCart(PutCartRequest("1" , id))
+        dishesListAdapter.clickShowItem = { id , total ->
+            viewModel.putCart(PutCartRequest("1" , id , total))
         }
     }
 
