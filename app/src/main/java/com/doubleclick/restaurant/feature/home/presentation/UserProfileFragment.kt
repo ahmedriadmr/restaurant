@@ -46,9 +46,9 @@ class UserProfileFragment : BaseFragment(R.layout.fragment_user_profile) {
         binding.myOrdersFragment.setOnClickListener {
             findNavController().navigate(UserProfileFragmentDirections.actionUserProfileFragmentToMyOrdersFragment())
         }
-        binding.infoFragment.setOnClickListener {
-
-        }
+//        binding.infoFragment.setOnClickListener {
+//
+//        }
         binding.logout.setOnClickListener {
             viewModel.doLogout()
         }

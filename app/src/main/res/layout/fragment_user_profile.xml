@@ -145,50 +145,50 @@
 
             </LinearLayout>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/gray_dark" />
+<!--            <View-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="1dp"-->
+<!--                android:background="@color/gray_dark" />-->
 
-            <LinearLayout
-                android:id="@+id/infoFragment"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:orientation="horizontal">
+<!--            <LinearLayout-->
+<!--                android:id="@+id/infoFragment"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="60dp"-->
+<!--                android:orientation="horizontal">-->
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:src="@drawable/info" />
+<!--                <ImageView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_gravity="center"-->
+<!--                    android:src="@drawable/info" />-->
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginEnd="10dp"
-                    android:fontFamily="@font/roboto"
-                    android:text="@string/info"
-                    android:textColor="@color/bg_color_black"
-                    android:textSize="16sp"
-                    android:textStyle="normal" />
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_gravity="center"-->
+<!--                    android:layout_marginStart="10dp"-->
+<!--                    android:layout_marginEnd="10dp"-->
+<!--                    android:fontFamily="@font/roboto"-->
+<!--                    android:text="@string/info"-->
+<!--                    android:textColor="@color/bg_color_black"-->
+<!--                    android:textSize="16sp"-->
+<!--                    android:textStyle="normal" />-->
 
-                <Space
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_weight="1" />
+<!--                <Space-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_gravity="center"-->
+<!--                    android:layout_weight="1" />-->
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:rotation="180"
-                    android:src="@drawable/ic_baseline_arrow_back_ios_24" />
+<!--                <ImageView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_gravity="center"-->
+<!--                    android:rotation="180"-->
+<!--                    android:src="@drawable/ic_baseline_arrow_back_ios_24" />-->
 
 
-            </LinearLayout>
+<!--            </LinearLayout>-->
 
             <View
                 android:layout_width="match_parent"
