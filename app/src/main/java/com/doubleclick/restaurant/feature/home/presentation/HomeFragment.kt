@@ -4,6 +4,9 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.doubleclick.restaurant.R
 import com.doubleclick.restaurant.core.extension.failure
 import com.doubleclick.restaurant.core.extension.loading
@@ -28,6 +31,7 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
     private val viewModel: HomeViewModel by viewModels()
     private val categoriesListAdapter = CategoryAdapter()
     private val dishesListAdapter = RestaurantDishAdapter()
+    private var isCategoryExpanded = false
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -51,6 +55,26 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
 
         dishesListAdapter.clickShowItem = { id , total ->
             viewModel.putCart(PutCartRequest("1" , id , total))
+        }
+
+        binding.seeAll.setOnClickListener {
+            val layoutManager = binding.rvCategory.layoutManager as LinearLayoutManager
+            if (isCategoryExpanded) {
+                // Change orientation to vertical and span count to 1
+                val linearLayoutManager = LinearLayoutManager(requireContext())
+                linearLayoutManager.orientation = RecyclerView.HORIZONTAL
+                binding.rvCategory.layoutManager = linearLayoutManager
+                binding.rvCategory.invalidate()
+                binding.rvCategory.requestLayout()
+                isCategoryExpanded = false
+            } else {
+                // Change orientation to grid and span count to 3
+                val gridLayoutManager = GridLayoutManager(requireContext(), 3)
+                binding.rvCategory.layoutManager = gridLayoutManager
+                binding.rvCategory.invalidate()
+                binding.rvCategory.requestLayout()
+                isCategoryExpanded = true
+            }
         }
     }
 
