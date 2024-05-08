@@ -7,6 +7,7 @@ import com.doubleclick.restaurant.feature.home.data.PutCart.request.PutCartReque
 import com.doubleclick.restaurant.feature.home.data.PutCart.response.PutCartResponse
 import com.doubleclick.restaurant.feature.home.data.UpdateProfileResponse
 import com.doubleclick.restaurant.feature.home.data.listCart.CartData
+import com.doubleclick.restaurant.feature.home.data.listOrders.OrdersData
 import com.doubleclick.restaurant.feature.home.data.makeOrder.request.MakeOrderRequest
 import com.doubleclick.restaurant.feature.home.data.makeOrder.response.MakeOrderResponse
 import com.doubleclick.restaurant.feature.home.data.updateCart.request.UpdateCartRequest
@@ -65,5 +66,8 @@ interface HomeApi {
 
     @POST(ORDER)
     suspend fun makeOrder(@Body request:MakeOrderRequest) : Response<MakeOrderResponse>
+
+    @GET(ORDER)
+    suspend fun listOrders(): Response<DataWrapper<List<OrdersData>>>
 
 }

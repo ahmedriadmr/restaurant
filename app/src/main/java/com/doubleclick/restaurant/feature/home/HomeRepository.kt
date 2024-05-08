@@ -10,6 +10,7 @@ import com.doubleclick.restaurant.feature.home.data.PutCart.request.PutCartReque
 import com.doubleclick.restaurant.feature.home.data.PutCart.response.PutCartResponse
 import com.doubleclick.restaurant.feature.home.data.UpdateProfileResponse
 import com.doubleclick.restaurant.feature.home.data.listCart.CartData
+import com.doubleclick.restaurant.feature.home.data.listOrders.OrdersData
 import com.doubleclick.restaurant.feature.home.data.makeOrder.request.MakeOrderRequest
 import com.doubleclick.restaurant.feature.home.data.makeOrder.response.MakeOrderResponse
 import com.doubleclick.restaurant.feature.home.data.updateCart.request.UpdateCartRequest
@@ -43,6 +44,7 @@ interface HomeRepository {
     ): Either<Failure, UpdateProfileResponse>
 
     suspend fun makeOrder(request: MakeOrderRequest): Either<Failure, MakeOrderResponse>
+    suspend fun listOrders(): Either<Failure, List<OrdersData>>
 
     class Network
     @Inject constructor(
@@ -125,6 +127,13 @@ interface HomeRepository {
         override suspend fun makeOrder(request: MakeOrderRequest): Either<Failure, MakeOrderResponse> {
             return when (networkHandler.isNetworkAvailable()) {
                 true -> request(service.makeOrder(request)) { it }
+                false -> Either.Failure(Failure.NetworkConnection)
+            }
+        }
+
+        override suspend fun listOrders(): Either<Failure, List<OrdersData>> {
+            return when (networkHandler.isNetworkAvailable()) {
+                true -> request(service.listOrders()) { it.data }
                 false -> Either.Failure(Failure.NetworkConnection)
             }
         }

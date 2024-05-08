@@ -11,6 +11,7 @@ import com.doubleclick.restaurant.feature.home.data.PutCart.request.PutCartReque
 import com.doubleclick.restaurant.feature.home.data.PutCart.response.PutCartResponse
 import com.doubleclick.restaurant.feature.home.data.UpdateProfileResponse
 import com.doubleclick.restaurant.feature.home.data.listCart.CartData
+import com.doubleclick.restaurant.feature.home.data.listOrders.OrdersData
 import com.doubleclick.restaurant.feature.home.data.makeOrder.request.MakeOrderRequest
 import com.doubleclick.restaurant.feature.home.data.makeOrder.response.MakeOrderResponse
 import com.doubleclick.restaurant.feature.home.data.updateCart.request.UpdateCartRequest
@@ -18,6 +19,7 @@ import com.doubleclick.restaurant.feature.home.data.updateCart.response.UpdateCa
 import com.doubleclick.restaurant.feature.home.data.userProfile.UserProfileData
 import com.doubleclick.restaurant.feature.home.domain.CategoriesUseCase
 import com.doubleclick.restaurant.feature.home.domain.GetCartUseCase
+import com.doubleclick.restaurant.feature.home.domain.ListOrdersUseCase
 import com.doubleclick.restaurant.feature.home.domain.LogOutUseCase
 import com.doubleclick.restaurant.feature.home.domain.MakeOrderUseCase
 import com.doubleclick.restaurant.feature.home.domain.PutCartUseCase
@@ -46,6 +48,7 @@ class HomeViewModel @Inject constructor(
     val userProfileUseCase: UserProfileUseCase,
     val updateProfileUseCase: UpdateProfileUseCase,
     val makeOrderUseCase: MakeOrderUseCase,
+    val listOrdersUseCase: ListOrdersUseCase,
     val appSettingsSource: AppSettingsSource
 ) :
     BaseViewModel() {
@@ -53,6 +56,7 @@ class HomeViewModel @Inject constructor(
     companion object {
         const val newCategoriesKey = "CATEGORIES"
         const val listCartDataKey = "CART"
+        const val listOrderDataKey = "ORDER"
 
     }
 
@@ -191,6 +195,23 @@ class HomeViewModel @Inject constructor(
     private fun handleMakeOrder(data: MakeOrderResponse) {
         viewModelScope.launch {
             _makeOrder.send(data)
+        }
+    }
+
+    private val _listOrders: MutableStateFlow<List<OrdersData>> =
+        MutableStateFlow(savedStateHandle[listOrderDataKey] ?: emptyList())
+    val listOrders: StateFlow<List<OrdersData>> = _listOrders
+
+    fun getOrders() {
+        listOrdersUseCase(
+            UseCase.None(), viewModelScope, this
+        ) { it.fold(::handleFailure, ::handleListOrders) }
+    }
+
+    private fun handleListOrders(data: List<OrdersData>) {
+        with(data) {
+            savedStateHandle[listOrderDataKey] = this
+            _listOrders.value = this
         }
     }
 }

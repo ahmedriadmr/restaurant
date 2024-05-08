@@ -2,9 +2,11 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
     android:gravity="center"
     android:orientation="vertical"
     android:padding="4dp"
+    android:background="@color/white"
     android:paddingHorizontal="5dp">
 
 
@@ -15,14 +17,16 @@
         android:orientation="horizontal">
 
         <TextView
+            android:id="@+id/name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/roboto"
-            android:text="Caprese Salad"
+            tools:text="Caprese Salad"
             android:textColor="@color/bg_color_black"
             android:textSize="16sp" />
 
         <TextView
+            android:id="@+id/size_name"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_marginStart="10dp"
@@ -31,7 +35,7 @@
             android:background="@drawable/bg_et_black"
             android:gravity="center"
             android:padding="5dp"
-            android:text="S"
+            tools:text="S"
             android:textColor="@color/bg_color_black"
             android:textSize="16sp" />
 
@@ -43,10 +47,11 @@
         android:orientation="horizontal">
 
         <TextView
+            android:id="@+id/quantity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/roboto"
-            android:text="X1"
+            tools:text="X1"
             android:textColor="@color/gray_dark"
             android:textSize="16sp" />
 
@@ -57,13 +62,14 @@
             android:layout_weight="1" />
 
         <TextView
+            android:id="@+id/price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
             android:gravity="center"
             android:padding="5dp"
-            android:text="$8.99"
+            tools:text="$8.99"
             android:textColor="@color/gray_dark"
             android:textSize="16sp" />
 

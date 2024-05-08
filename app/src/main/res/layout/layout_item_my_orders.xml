@@ -53,8 +53,15 @@
                         android:id="@+id/name_food"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Caprese Salad"
+                        tools:text="Caprese Salad"
                         android:textColor="@color/bg_color_black"
+                        android:textSize="16sp" />
+                    <TextView
+                        android:id="@+id/date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        tools:text="Today"
+                        android:textColor="@color/gray_dark"
                         android:textSize="16sp" />
 
                     <LinearLayout
@@ -65,17 +72,18 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:paddingEnd="5dp"
                             android:text="@string/total"
-                            android:textColor="@color/gray_dark"
+                            android:textColor="@color/black"
                             android:textSize="16sp" />
 
                         <TextView
                             android:id="@+id/total"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="$20.99"
-                            android:textColor="@color/gray_dark"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp"
+                            tools:text="$20.99"
+                            android:textColor="@color/black"
                             android:textSize="16sp" />
 
                     </LinearLayout>
@@ -94,9 +102,10 @@
                             android:textSize="16sp" />
 
                         <TextView
+                            android:id="@+id/place"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/restaurant"
+                            tools:text="@string/restaurant"
                             android:textColor="@color/bg_color_black"
                             android:textSize="16sp" />
 
@@ -106,17 +115,41 @@
                 </LinearLayout>
 
                 <Space
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_weight="1" />
 
+                <LinearLayout
+                    android:id="@+id/ll_status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:paddingHorizontal="10dp"
+                    android:background="@drawable/bg_yellow_rec_fill_r15"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/status"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/white"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:paddingHorizontal="5dp"
+                        android:textSize="16sp"
+                        tools:text="Ongoing" />
+
+
+                </LinearLayout>
+
                 <ImageView
-                    android:id="@+id/open"
+                    android:id="@+id/arrow"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom"
                     android:paddingHorizontal="10dp"
+                    android:layout_marginBottom="10dp"
                     android:rotation="270"
                     android:src="@drawable/ic_baseline_arrow_back_ios_24" />
 

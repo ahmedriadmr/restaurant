@@ -1,4 +1,4 @@
-package com.doubleclick.restaurant.adapter
+package com.doubleclick.restaurant.feature.home.presentation.adapter
 
 import android.view.View
 import android.view.ViewGroup
@@ -26,7 +26,7 @@ class OrderItemsAdapter: ListAdapter<CartData, OrderItemsAdapter.ViewHolder>(Dif
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val binding = LayoutItemOrderItemBinding.bind(holder.itemView)
+        val binding = com.doubleclick.restaurant.databinding.LayoutItemOrderItemBinding.bind(holder.itemView)
         holder.bind(binding, getItem(position))
 
     }

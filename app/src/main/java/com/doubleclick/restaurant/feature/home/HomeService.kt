@@ -39,6 +39,7 @@ class HomeService @Inject constructor(retrofit: Retrofit) : HomeApi {
     )
 
     override suspend fun makeOrder(request: MakeOrderRequest) = homeApi.makeOrder(request)
+    override suspend fun listOrders() = homeApi.listOrders()
 
 
 }

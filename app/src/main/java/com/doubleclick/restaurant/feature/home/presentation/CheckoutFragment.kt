@@ -7,7 +7,6 @@ import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.doubleclick.restaurant.R
-import com.doubleclick.restaurant.adapter.OrderItemsAdapter
 import com.doubleclick.restaurant.core.extension.failure
 import com.doubleclick.restaurant.core.extension.loading
 import com.doubleclick.restaurant.core.extension.observe
@@ -19,6 +18,7 @@ import com.doubleclick.restaurant.databinding.FragmentCheckoutBinding
 import com.doubleclick.restaurant.feature.home.data.listCart.CartData
 import com.doubleclick.restaurant.feature.home.data.makeOrder.request.MakeOrderRequest
 import com.doubleclick.restaurant.feature.home.data.makeOrder.response.MakeOrderResponse
+import com.doubleclick.restaurant.feature.home.presentation.adapter.OrderItemsAdapter
 import com.doubleclick.restaurant.utils.Constant.dollarSign
 import dagger.hilt.android.AndroidEntryPoint
 

@@ -38,6 +38,6 @@
         tools:layout="@layout/fragment_account" />
     <fragment
         android:id="@+id/myOrdersFragment"
-        android:name="com.doubleclick.restaurant.activities.ui.MyOrdersFragment"
+        android:name="com.doubleclick.restaurant.feature.home.presentation.MyOrdersFragment"
         tools:layout="@layout/fragment_my_orders" />
 </navigation>
