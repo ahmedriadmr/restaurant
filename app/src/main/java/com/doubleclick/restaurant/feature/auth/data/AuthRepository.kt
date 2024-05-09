@@ -90,6 +90,7 @@ interface AuthRepository {
                                 phone = model.user.phone,
                                 status = model.user.status,
                                 token =  data.token,
+                                role = data.role,
                                 updated_at = data.user.updated_at
                             )
 
@@ -115,6 +116,7 @@ interface AuthRepository {
                             otp_code = model.user.otp_code,
                             phone = model.user.phone,
                             status = model.user.status,
+                            role = model.role,
                             updated_at = model.user.updated_at
                         )
                     )

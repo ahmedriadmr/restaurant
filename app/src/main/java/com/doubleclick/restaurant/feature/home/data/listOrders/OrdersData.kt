@@ -10,6 +10,7 @@ data class OrdersData(
     val items: List<Item>,
     val location: String,
     val order_type: String,
+    val phone:String?,
     val status: String,
     val table_number: Int,
     val total: Int,

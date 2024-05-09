@@ -5,6 +5,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.doubleclick.restaurant.R
 import com.doubleclick.restaurant.core.extension.failure
@@ -21,6 +22,8 @@ import com.doubleclick.restaurant.feature.home.data.makeOrder.response.MakeOrder
 import com.doubleclick.restaurant.feature.home.presentation.adapter.OrderItemsAdapter
 import com.doubleclick.restaurant.utils.Constant.dollarSign
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.firstOrNull
+import kotlinx.coroutines.launch
 
 
 @AndroidEntryPoint
@@ -31,6 +34,7 @@ class CheckoutFragment : BaseFragment(R.layout.fragment_checkout) {
     private val checkoutAdapter = OrderItemsAdapter()
     private var selectedRadio: Int = -1
     var total:Double = 0.0
+    private var isUserOrWaiter:String? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -45,6 +49,19 @@ class CheckoutFragment : BaseFragment(R.layout.fragment_checkout) {
         checkoutAdapter.cartUpdated = { totalPrice ->
             binding.totalPrice.text = "${dollarSign}$totalPrice"
             total = totalPrice.toDouble()
+        }
+        viewLifecycleOwner.lifecycleScope.launch {
+            if(viewModel.appSettingsSource.user().firstOrNull()?.role == "user"){
+                binding.restaurant.visibility = View.VISIBLE
+                binding.delivery.visibility = View.VISIBLE
+                binding.takeAway.visibility = View.VISIBLE
+                isUserOrWaiter = null
+            } else if (appSettingsSource.user().firstOrNull()?.role == "waiter"){
+                binding.restaurant.visibility = View.VISIBLE
+                binding.delivery.visibility = View.GONE
+                binding.takeAway.visibility = View.GONE
+                isUserOrWaiter = appSettingsSource.user().firstOrNull()?.id
+            }
         }
         onClick()
     }
@@ -110,13 +127,20 @@ class CheckoutFragment : BaseFragment(R.layout.fragment_checkout) {
                     R.id.delivery -> "Delivery"
                     else -> ""
                 },
+
+                when(selectedRadio){
+                    R.id.restaurant -> null
+                    R.id.take_away -> binding.phoneNumber.text.toString()
+                    R.id.delivery -> binding.phoneNumber.text.toString()
+                    else -> null
+                },
                 when(selectedRadio){
                     R.id.restaurant -> binding.tableNumber.text.toString()
                     R.id.take_away -> null
                     R.id.delivery -> null
                     else -> {null}
                 },
-                total, null))
+                total, isUserOrWaiter))
         }
     }
 
