@@ -1,6 +1,7 @@
 package com.doubleclick.restaurant.core.di
 
 import com.doubleclick.restaurant.feature.auth.data.AuthRepository
+import com.doubleclick.restaurant.feature.chef.ChefRepository
 import com.doubleclick.restaurant.feature.home.HomeRepository
 import dagger.Module
 import dagger.Provides
@@ -19,5 +20,8 @@ class RepositoryModule {
     @Singleton
     fun provideHomeRepository(dataSource: HomeRepository.Network): HomeRepository = dataSource
 
+    @Provides
+    @Singleton
+    fun provideChefRepository(dataSource: ChefRepository.Network): ChefRepository = dataSource
 
 }

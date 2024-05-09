@@ -1,4 +1,4 @@
-package com.doubleclick.superbottomsheet
+package com.doubleclick.restaurant.superbottomsheet
 
 import android.annotation.SuppressLint
 import android.app.Dialog
@@ -13,6 +13,15 @@ import androidx.annotation.*
 import androidx.annotation.IntRange
 import androidx.core.content.ContextCompat
 import com.doubleclick.restaurant.R
+import com.doubleclick.superbottomsheet.CornerRadiusFrameLayout
+import com.doubleclick.superbottomsheet.INVALID_RESOURCE_ID
+import com.doubleclick.superbottomsheet.SuperBottomSheetDialog
+import com.doubleclick.superbottomsheet.calculateColor
+import com.doubleclick.superbottomsheet.getAttrId
+import com.doubleclick.superbottomsheet.hasMinimumSdk
+import com.doubleclick.superbottomsheet.isInPortrait
+import com.doubleclick.superbottomsheet.isTablet
+import com.doubleclick.superbottomsheet.runIfNotNull
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 

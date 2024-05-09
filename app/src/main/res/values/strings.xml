@@ -378,6 +378,8 @@
     <string name="enter_category_name">Enter Category Name</string>
     <string name="password_confirmation">Password Confirmation</string>
     <string name="guest">Guest</string>
+    <string name="history">History</string>
+    <string name="finished">Finished</string>
 
     <string-array name="sizes">
         <item>small</item>

@@ -12,7 +12,7 @@ import com.doubleclick.domain.ts.OnClickAlert
 import com.doubleclick.restaurant.databinding.AlertAddCategoryBinding
 import com.doubleclick.restaurant.swipetoactionlayout.utils.getFileName
 import com.doubleclick.restaurant.utils.UploadRequestBody
-import com.doubleclick.superbottomsheet.SuperBottomSheetFragment
+import com.doubleclick.restaurant.superbottomsheet.SuperBottomSheetFragment
 import com.iceteck.silicompressorr.SiliCompressor
 import dagger.hilt.android.AndroidEntryPoint
 import java.io.File

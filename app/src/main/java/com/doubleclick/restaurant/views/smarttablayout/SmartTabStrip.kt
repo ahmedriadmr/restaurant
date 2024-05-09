@@ -9,7 +9,6 @@ import android.util.AttributeSet
 import android.util.TypedValue
 import android.widget.LinearLayout
 import com.doubleclick.restaurant.R
-import kotlin.math.abs
 
 /**
  * Created By Eslam Ghazy on 11/20/2022
@@ -35,16 +34,49 @@ class SmartTabStrip(context: Context, attrs: AttributeSet?) :
     private val dividerHeight: Float
     private val defaultTabColorizer: SimpleTabColorizer
     private val drawDecorationAfterTab: Boolean
+    private var lastPosition = 0
     private var selectedPosition = 0
     private var selectionOffset = 0f
     private var indicationInterpolator: SmartTabIndicationInterpolator
     private var customTabColorizer: SmartTabLayout.TabColorizer? = null
+    fun setIndicationInterpolator(interpolator: SmartTabIndicationInterpolator) {
+        indicationInterpolator = interpolator
+        invalidate()
+    }
+
+    fun setCustomTabColorizer(customTabColorizer: SmartTabLayout.TabColorizer?) {
+        this.customTabColorizer = customTabColorizer
+        invalidate()
+    }
+
+    fun setSelectedIndicatorColors(colors: Int) {
+        // Make sure that the custom colorizer is removed
+        customTabColorizer = null
+        defaultTabColorizer.setIndicatorColors(colors)
+        invalidate()
+    }
+
+    fun setDividerColors(vararg colors: Int) {
+        // Make sure that the custom colorizer is removed
+        customTabColorizer = null
+        defaultTabColorizer.setDividerColors(*colors)
+        invalidate()
+    }
+
+    fun onViewPagerPageChanged(position: Int, positionOffset: Float) {
+        selectedPosition = position
+        selectionOffset = positionOffset
+        if (positionOffset == 0f && lastPosition != selectedPosition) {
+            lastPosition = selectedPosition
+        }
+        invalidate()
+    }
 
     fun isIndicatorAlwaysInCenter(): Boolean {
         return indicatorAlwaysInCenter
     }
 
-    private fun getTabColorizer(): SmartTabLayout.TabColorizer {
+    fun getTabColorizer(): SmartTabLayout.TabColorizer {
         return customTabColorizer ?: defaultTabColorizer
     }
 
@@ -108,7 +140,7 @@ class SmartTabStrip(context: Context, attrs: AttributeSet?) :
                     left = (startOffset * nextStart + (1.0f - startOffset) * left).toInt()
                     right = (endOffset * nextEnd + (1.0f - endOffset) * right).toInt()
                 }
-                thickness *= thicknessOffset
+                thickness = thickness * thicknessOffset
             }
             drawIndicator(canvas, left, right, height, thickness, color)
         }
@@ -125,7 +157,7 @@ class SmartTabStrip(context: Context, attrs: AttributeSet?) :
         if (dividerThickness <= 0) {
             return
         }
-        val dividerHeightPx = (0f.coerceAtLeast(dividerHeight).coerceAtMost(1f) * height).toInt()
+        val dividerHeightPx = (Math.min(Math.max(0f, dividerHeight), 1f) * height).toInt()
         val tabColorizer: SmartTabLayout.TabColorizer = getTabColorizer()
 
         // Vertical separators between the titles
@@ -164,19 +196,16 @@ class SmartTabStrip(context: Context, attrs: AttributeSet?) :
                 top = center - thickness / 2f
                 bottom = center + thickness / 2f
             }
-
             GRAVITY_CENTER -> {
                 center = height / 2f
                 top = center - thickness / 2f
                 bottom = center + thickness / 2f
             }
-
             GRAVITY_BOTTOM -> {
                 center = height - indicatorThickness / 2f
                 top = center - thickness / 2f
                 bottom = center + thickness / 2f
             }
-
             else -> {
                 center = height - indicatorThickness / 2f
                 top = center - thickness / 2f
@@ -187,7 +216,7 @@ class SmartTabStrip(context: Context, attrs: AttributeSet?) :
         if (indicatorWidth == AUTO_WIDTH) {
             indicatorRectF[left.toFloat(), top, right.toFloat()] = bottom
         } else {
-            val padding = (abs(left - right) - indicatorWidth) / 2f
+            val padding = (Math.abs(left - right) - indicatorWidth) / 2f
             indicatorRectF[left + padding, top, right - padding] = bottom
         }
         if (indicatorCornerRadius > 0f) {

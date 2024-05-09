@@ -1,30 +1,34 @@
 package com.doubleclick.restaurant.views.smarttablayout
 
+
 import android.content.Context
 import android.content.res.ColorStateList
+import android.graphics.Typeface
+import android.os.Build
 import android.util.AttributeSet
 import android.util.TypedValue
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.HorizontalScrollView
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.core.view.ViewCompat
 import androidx.viewpager.widget.PagerAdapter
 import androidx.viewpager.widget.ViewPager
+import androidx.viewpager.widget.ViewPager.OnPageChangeListener
 import com.doubleclick.restaurant.R
-import kotlin.math.roundToInt
 
 /**
  * Created By Eslam Ghazy on 11/20/2022
  */
-class SmartTabLayout @JvmOverloads constructor(
+open class SmartTabLayout @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyle: Int = 0
-) :
-    HorizontalScrollView(context, attrs, defStyle) {
-    val tabStrip: SmartTabStrip
+) : HorizontalScrollView(context, attrs, defStyle) {
+    public val tabStrip: SmartTabStrip
     private val titleOffset: Int
     private val tabViewBackgroundResId: Int
     private val tabViewTextAllCaps: Boolean
@@ -33,6 +37,7 @@ class SmartTabLayout @JvmOverloads constructor(
     private val tabViewTextHorizontalPadding: Int
     private val tabViewTextMinWidth: Int
     private var viewPager: ViewPager? = null
+    private var viewPagerPageChangeListener: OnPageChangeListener? = null
     private var onScrollChangeListener: OnScrollChangeListener? = null
     private var tabProvider: TabProvider? = null
     private val internalTabClickListener: InternalTabClickListener?
@@ -53,7 +58,7 @@ class SmartTabLayout @JvmOverloads constructor(
             val start: Int =
                 (w - Utils.getMeasuredWidth(firstTab)) / 2 - Utils.getMarginStart(firstTab)
             val end: Int = (w - Utils.getMeasuredWidth(lastTab)) / 2 - Utils.getMarginEnd(lastTab)
-            tabStrip.minimumWidth = tabStrip.measuredWidth
+            tabStrip.setMinimumWidth(tabStrip.getMeasuredWidth())
             ViewCompat.setPaddingRelative(this, start, paddingTop, end, paddingBottom)
             clipToPadding = false
         }
@@ -67,6 +72,97 @@ class SmartTabLayout @JvmOverloads constructor(
         }
     }
 
+    /**
+     * Set the behavior of the Indicator scrolling feedback.
+     *
+     * @param interpolator [com.ogaclejapan.smarttablayout.SmartTabIndicationInterpolator]
+     */
+    fun setIndicationInterpolator(interpolator: SmartTabIndicationInterpolator?) {
+        tabStrip.setIndicationInterpolator(interpolator!!)
+    }
+
+    /**
+     * Set the custom [TabColorizer] to be used.
+     *
+     * If you only require simple customisation then you can use
+     * [.setSelectedIndicatorColors] and [.setDividerColors] to achieve
+     * similar effects.
+     */
+    fun setCustomTabColorizer(tabColorizer: TabColorizer?) {
+        tabStrip.setCustomTabColorizer(tabColorizer)
+    }
+
+    /**
+     * Set the color used for styling the tab text. This will need to be called prior to calling
+     * [.setViewPager] otherwise it will not get set
+     *
+     * @param color to use for tab text
+     */
+    fun setDefaultTabTextColor(color: Int) {
+        tabViewTextColors = ColorStateList.valueOf(color)
+    }
+
+    /**
+     * Sets the colors used for styling the tab text. This will need to be called prior to calling
+     * [.setViewPager] otherwise it will not get set
+     *
+     * @param colors ColorStateList to use for tab text
+     */
+    fun setDefaultTabTextColor(colors: ColorStateList) {
+        tabViewTextColors = colors
+    }
+
+    /**
+     * Set the same weight for tab
+     */
+    fun setDistributeEvenly(distributeEvenly: Boolean) {
+        this.distributeEvenly = distributeEvenly
+    }
+
+    /**
+     * Sets the colors to be used for indicating the selected tab. These colors are treated as a
+     * circular array. Providing one color will mean that all tabs are indicated with the same color.
+     */
+    fun setSelectedIndicatorColors(colors: Int) {
+        tabStrip.setSelectedIndicatorColors(colors)
+    }
+
+    /**
+     * Sets the colors to be used for tab dividers. These colors are treated as a circular array.
+     * Providing one color will mean that all tabs are indicated with the same color.
+     */
+    fun setDividerColors(colors: Int) {
+        tabStrip.setDividerColors(colors)
+    }
+
+    /**
+     * Set the [ViewPager.OnPageChangeListener]. When using [SmartTabLayout] you are
+     * required to set any [ViewPager.OnPageChangeListener] through this method. This is so
+     * that the layout can update it's scroll position correctly.
+     *
+     * @see ViewPager.setOnPageChangeListener
+     */
+    fun setOnPageChangeListener(listener: OnPageChangeListener?) {
+        viewPagerPageChangeListener = listener
+    }
+
+    /**
+     * Set [OnScrollChangeListener] for obtaining values of scrolling.
+     *
+     * @param listener the [OnScrollChangeListener] to set
+     */
+    fun setOnScrollChangeListener(listener: OnScrollChangeListener?) {
+        onScrollChangeListener = listener
+    }
+
+    /**
+     * Set [OnTabClickListener] for obtaining click event.
+     *
+     * @param listener the [OnTabClickListener] to set
+     */
+    fun setOnTabClickListener(listener: OnTabClickListener?) {
+        onTabClickListener = listener
+    }
 
     /**
      * Set the custom layout to be inflated for the tab views.
@@ -74,12 +170,107 @@ class SmartTabLayout @JvmOverloads constructor(
      * @param layoutResId Layout id to be inflated
      * @param textViewId id of the [TextView] in the inflated view
      */
-    private fun setCustomTabView(layoutResId: Int, textViewId: Int) {
+    fun setCustomTabView(layoutResId: Int, textViewId: Int) {
         tabProvider = SimpleTabProvider(context, layoutResId, textViewId)
     }
 
+    /**
+     * Set the custom layout to be inflated for the tab views.
+     *
+     * @param provider [TabProvider]
+     */
+    fun setCustomTabView(provider: TabProvider?) {
+        tabProvider = provider
+    }
+
+    /**
+     * Sets the associated view pager. Note that the assumption here is that the pager content
+     * (number of tabs and tab titles) does not change after this call has been made.
+     */
+    fun setViewPager(viewPager: ViewPager?) {
+        tabStrip.removeAllViews()
+        this.viewPager = viewPager
+        if (viewPager != null && viewPager.adapter != null) {
+            viewPager.addOnPageChangeListener(InternalViewPagerListener())
+            populateTabStrip()
+        }
+    }
+
+    /**
+     * Returns the view at the specified position in the tabs.
+     *
+     * @param position the position at which to get the view from
+     * @return the view at the specified position or null if the position does not exist within the
+     * tabs
+     */
+    fun getTabAt(position: Int): View {
+        return tabStrip.getChildAt(position)
+    }
+
+    /**
+     * Create a default view to be used for tabs. This is called if a custom tab view is not set via
+     * [.setCustomTabView].
+     */
+    protected fun createDefaultTabView(title: CharSequence?): TextView {
+        val textView = TextView(context)
+        textView.gravity = Gravity.CENTER
+        textView.text = title
+        textView.setTextColor(tabViewTextColors)
+        textView.setTextSize(TypedValue.COMPLEX_UNIT_PX, tabViewTextSize)
+        textView.typeface = Typeface.DEFAULT_BOLD
+        textView.layoutParams = LinearLayout.LayoutParams(
+            LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.MATCH_PARENT
+        )
+        if (tabViewBackgroundResId != NO_ID) {
+            textView.setBackgroundResource(tabViewBackgroundResId)
+        } else {
+            // If we're running on Honeycomb or newer, then we can use the Theme's
+            // selectableItemBackground to ensure that the View has a pressed state
+            val outValue = TypedValue()
+            context.theme.resolveAttribute(
+                android.R.attr.selectableItemBackground,
+                outValue, true
+            )
+            textView.setBackgroundResource(outValue.resourceId)
+        }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
+            // If we're running on ICS or newer, enable all-caps to match the Action Bar tab style
+            textView.isAllCaps = tabViewTextAllCaps
+        }
+        textView.setPadding(
+            tabViewTextHorizontalPadding, 0,
+            tabViewTextHorizontalPadding, 0
+        )
+        if (tabViewTextMinWidth > 0) {
+            textView.minWidth = tabViewTextMinWidth
+        }
+        return textView
+    }
+
+    private fun populateTabStrip() {
+        val adapter = viewPager!!.adapter
+        for (i in 0 until adapter!!.count) {
+            val tabView = if (tabProvider == null) createDefaultTabView(
+                adapter.getPageTitle(i)
+            ) else tabProvider!!.createTabView(tabStrip, i, adapter)
+            checkNotNull(tabView) { "tabView is null." }
+            if (distributeEvenly) {
+                val lp = tabView.layoutParams as LinearLayout.LayoutParams
+                lp.width = 0
+                lp.weight = 1f
+            }
+            if (internalTabClickListener != null) {
+                tabView.setOnClickListener(internalTabClickListener)
+            }
+            tabStrip.addView(tabView)
+            if (i == viewPager!!.currentItem) {
+                tabView.isSelected = true
+            }
+        }
+    }
+
     private fun scrollToTab(tabIndex: Int, positionOffset: Float) {
-        val tabStripChildCount: Int = tabStrip.childCount
+        val tabStripChildCount: Int = tabStrip.getChildCount()
         if (tabStripChildCount == 0 || tabIndex < 0 || tabIndex >= tabStripChildCount) {
             return
         }
@@ -94,7 +285,7 @@ class SmartTabLayout @JvmOverloads constructor(
                 val selectHalfWidth: Int =
                     Utils.getWidth(selectedTab) / 2 + Utils.getMarginEnd(selectedTab)
                 val nextHalfWidth: Int = Utils.getWidth(nextTab) / 2 + Utils.getMarginStart(nextTab)
-                extraOffset = (positionOffset * (selectHalfWidth + nextHalfWidth)).roundToInt()
+                extraOffset = Math.round(positionOffset * (selectHalfWidth + nextHalfWidth))
             }
             val firstTab: View = tabStrip.getChildAt(0)
             var x: Int
@@ -119,7 +310,7 @@ class SmartTabLayout @JvmOverloads constructor(
                 val selectHalfWidth: Int =
                     Utils.getWidth(selectedTab) / 2 + Utils.getMarginEnd(selectedTab)
                 val nextHalfWidth: Int = Utils.getWidth(nextTab) / 2 + Utils.getMarginStart(nextTab)
-                extraOffset = (positionOffset * (selectHalfWidth + nextHalfWidth)).roundToInt()
+                extraOffset = Math.round(positionOffset * (selectHalfWidth + nextHalfWidth))
             }
             if (isLayoutRtl) {
                 x = -Utils.getWidthWithMargin(selectedTab) / 2 + width / 2
@@ -137,10 +328,10 @@ class SmartTabLayout @JvmOverloads constructor(
         }
         val start: Int = Utils.getStart(selectedTab)
         val startMargin: Int = Utils.getMarginStart(selectedTab)
-        x += if (isLayoutRtl) {
-            start + startMargin - extraOffset - width + Utils.getPaddingHorizontally(this)
+        if (isLayoutRtl) {
+            x += start + startMargin - extraOffset - width + Utils.getPaddingHorizontally(this)
         } else {
-            start - startMargin + extraOffset
+            x += start - startMargin + extraOffset
         }
         scrollTo(x, 0)
     }
@@ -202,11 +393,7 @@ class SmartTabLayout @JvmOverloads constructor(
         private val tabViewLayoutId: Int
         private val tabViewTextViewId: Int
 
-        override fun createTabView(
-            container: ViewGroup?,
-            position: Int,
-            adapter: PagerAdapter?
-        ): View? {
+        override fun createTabView(container: ViewGroup?, position: Int, adapter: PagerAdapter?): View? {
             var tabView: View? = null
             var tabTitleView: TextView? = null
             if (tabViewLayoutId != NO_ID) {
@@ -223,7 +410,6 @@ class SmartTabLayout @JvmOverloads constructor(
             }
             return tabView
         }
-
         init {
             inflater = LayoutInflater.from(context)
             tabViewLayoutId = layoutResId
@@ -231,9 +417,55 @@ class SmartTabLayout @JvmOverloads constructor(
         }
     }
 
+    private inner class InternalViewPagerListener : OnPageChangeListener {
+        private var scrollState = 0
+        override fun onPageScrolled(
+            position: Int,
+            positionOffset: Float,
+            positionOffsetPixels: Int
+        ) {
+            val tabStripChildCount: Int = tabStrip.getChildCount()
+            if (tabStripChildCount == 0 || position < 0 || position >= tabStripChildCount) {
+                return
+            }
+            tabStrip.onViewPagerPageChanged(position, positionOffset)
+            scrollToTab(position, positionOffset)
+            if (viewPagerPageChangeListener != null) {
+                viewPagerPageChangeListener!!.onPageScrolled(
+                    position,
+                    positionOffset,
+                    positionOffsetPixels
+                )
+            }
+        }
+
+        override fun onPageScrollStateChanged(state: Int) {
+            scrollState = state
+            if (viewPagerPageChangeListener != null) {
+                viewPagerPageChangeListener!!.onPageScrollStateChanged(state)
+            }
+        }
+
+        override fun onPageSelected(position: Int) {
+            if (scrollState == ViewPager.SCROLL_STATE_IDLE) {
+                tabStrip.onViewPagerPageChanged(position, 0f)
+                scrollToTab(position, 0f)
+            }
+            var i = 0
+            val size: Int = tabStrip.getChildCount()
+            while (i < size) {
+                tabStrip.getChildAt(i).setSelected(position == i)
+                i++
+            }
+            if (viewPagerPageChangeListener != null) {
+                viewPagerPageChangeListener!!.onPageSelected(position)
+            }
+        }
+    }
+
     private inner class InternalTabClickListener : OnClickListener {
         override fun onClick(v: View) {
-            for (i in 0 until tabStrip.childCount) {
+            for (i in 0 until tabStrip.getChildCount()) {
                 if (v === tabStrip.getChildAt(i)) {
                     if (onTabClickListener != null) {
                         onTabClickListener!!.onTabClicked(i)
@@ -252,6 +484,7 @@ class SmartTabLayout @JvmOverloads constructor(
         private const val TAB_VIEW_PADDING_DIPS = 16
         private const val TAB_VIEW_TEXT_ALL_CAPS = true
         private const val TAB_VIEW_TEXT_SIZE_SP = 12
+        private const val TAB_VIEW_TEXT_COLOR = -0x4000000
         private const val TAB_VIEW_TEXT_MIN_WIDTH = 0
         private const val TAB_CLICKABLE = true
     }
@@ -314,7 +547,7 @@ class SmartTabLayout @JvmOverloads constructor(
         this.titleOffset = titleOffset
         tabViewBackgroundResId = tabBackgroundResId
         tabViewTextAllCaps = textAllCaps
-        tabViewTextColors = textColors
+        tabViewTextColors = textColors ?: ColorStateList.valueOf(TAB_VIEW_TEXT_COLOR)
         tabViewTextSize = textSize
         tabViewTextHorizontalPadding = textHorizontalPadding
         tabViewTextMinWidth = textMinWidth
@@ -335,3 +568,4 @@ class SmartTabLayout @JvmOverloads constructor(
         addView(tabStrip, LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT)
     }
 }
+

@@ -24,25 +24,27 @@
         android:theme="@style/Theme.AppCompat.NoActionBar"
         tools:targetApi="31">
         <activity
+            android:name=".feature.chef.presentation.ChefActivity"
+            android:exported="false" />
+        <activity
             android:name=".feature.auth.AuthActivity"
             android:exported="false"
-            android:windowSoftInputMode="adjustPan"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.MaterialComponents.NoActionBar"
-            android:screenOrientation="portrait">
+            android:windowSoftInputMode="adjustPan">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
             android:name=".feature.home.presentation.HomeActivity"
-            android:screenOrientation="portrait"
             android:exported="false"
+            android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
         <!--
              TODO: Before you run your application, you need a Google Maps API key.
 
@@ -58,10 +60,6 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyAy6_DMNne9sBOYoeKER6vBDodI6o4yyfM" />
 
-
-
-
-
         <activity
             android:name=".activities.SplashActivity"
             android:exported="true"
@@ -70,6 +68,7 @@
             android:theme="@style/Theme.AppCompat.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
 
@@ -81,9 +80,6 @@
         <meta-data
             android:name="com.google.android.gms.wallet.api.enabled"
             android:value="true" />
-
-
-
 
         <provider
             android:name="androidx.startup.InitializationProvider"

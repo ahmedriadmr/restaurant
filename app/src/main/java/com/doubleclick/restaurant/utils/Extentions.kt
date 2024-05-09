@@ -7,7 +7,8 @@ import android.view.animation.Transformation
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 
-fun expand(v: View) {
+fun View.expand() {
+    val v = this
     val matchParentMeasureSpec =
         View.MeasureSpec.makeMeasureSpec((v.parent as View).width, View.MeasureSpec.EXACTLY)
     val wrapContentMeasureSpec =
@@ -38,7 +39,8 @@ fun expand(v: View) {
     v.startAnimation(a)
 }
 
-fun collapse(v: View) {
+fun View.collapse() {
+    val v = this
     val initialHeight = v.measuredHeight
     val a: Animation = object : Animation() {
         override fun applyTransformation(
