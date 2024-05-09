@@ -4,6 +4,7 @@ data class MakeOrderRequest(
     val items: List<ItemRequest>,
     val location: String?,
     val order_type: String,
+    val phone:String,
     val table_number: String?,
     val total: Double,
     val waiter_id: Int?

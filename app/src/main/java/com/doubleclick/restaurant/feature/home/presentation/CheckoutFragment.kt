@@ -110,6 +110,7 @@ class CheckoutFragment : BaseFragment(R.layout.fragment_checkout) {
                     R.id.delivery -> "Delivery"
                     else -> ""
                 },
+                binding.phoneNumber.text.toString(),
                 when(selectedRadio){
                     R.id.restaurant -> binding.tableNumber.text.toString()
                     R.id.take_away -> null
