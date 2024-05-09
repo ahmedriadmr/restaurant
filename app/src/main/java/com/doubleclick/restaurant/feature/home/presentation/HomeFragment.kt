@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -23,6 +24,8 @@ import com.doubleclick.restaurant.feature.home.data.PutCart.response.PutCartResp
 import com.doubleclick.restaurant.feature.home.presentation.adapter.CategoryAdapter
 import com.doubleclick.restaurant.feature.home.presentation.adapter.RestaurantDishAdapter
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.firstOrNull
+import kotlinx.coroutines.launch
 
 
 @AndroidEntryPoint
@@ -32,6 +35,7 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
     private val categoriesListAdapter = CategoryAdapter()
     private val dishesListAdapter = RestaurantDishAdapter()
     private var isCategoryExpanded = false
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -91,7 +95,14 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
     }
     private fun renderListDishes(items: List<Item>) {
         val nonVipItems = items.filter { it.vip == "0" }
-        dishesListAdapter.submitList(nonVipItems)
+        viewLifecycleOwner.lifecycleScope.launch {
+            if(viewModel.appSettingsSource.user().firstOrNull()?.role == "user"){
+                dishesListAdapter.submitList(nonVipItems)
+            } else if (appSettingsSource.user().firstOrNull()?.role == "waiter"){
+                dishesListAdapter.submitList(items)
+            }
+        }
+
     }
 
 

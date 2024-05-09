@@ -26,6 +26,7 @@ data class UserAccess(
     val phone: String = String.empty(),
     val status: String = String.empty(),
     val token: String = String.empty(),
+    val role: String = String.empty(),
     val updated_at: String = String.empty()
 )
 
