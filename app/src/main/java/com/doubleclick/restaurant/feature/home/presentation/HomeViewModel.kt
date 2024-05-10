@@ -22,6 +22,7 @@ import com.doubleclick.restaurant.feature.home.data.updateCart.response.UpdateCa
 import com.doubleclick.restaurant.feature.home.data.userProfile.UserProfileData
 import com.doubleclick.restaurant.feature.home.domain.CancelOrderUseCase
 import com.doubleclick.restaurant.feature.home.domain.CategoriesUseCase
+import com.doubleclick.restaurant.feature.home.domain.DeleteCartUseCase
 import com.doubleclick.restaurant.feature.home.domain.GetCartUseCase
 import com.doubleclick.restaurant.feature.home.domain.ListOrdersUseCase
 import com.doubleclick.restaurant.feature.home.domain.LogOutUseCase
@@ -56,6 +57,7 @@ class HomeViewModel @Inject constructor(
     val listOrdersUseCase: ListOrdersUseCase,
     val cancelOrderUseCase: CancelOrderUseCase,
     val searchOrdersUseCase: SearchOrdersUseCase,
+    val deleteCartUseCase: DeleteCartUseCase,
     val appSettingsSource: AppSettingsSource
 ) :
     BaseViewModel() {
@@ -255,6 +257,22 @@ class HomeViewModel @Inject constructor(
         with(data) {
             savedStateHandle[searchOrdersKey] = this
             _searchOrders.value = this
+        }
+    }
+
+    private val _deleteCart: Channel<PutCartResponse> = Channel()
+    val deleteCart: Flow<PutCartResponse> = _deleteCart.receiveAsFlow()
+
+
+    fun deleteCart(id: String) {
+        deleteCartUseCase(DeleteCartUseCase.Params(id), viewModelScope, this) {
+            it.fold(::handleFailure, ::handleDeleteCart)
+        }
+    }
+
+    private fun handleDeleteCart(data: PutCartResponse) {
+        viewModelScope.launch {
+            _deleteCart.send(data)
         }
     }
 }

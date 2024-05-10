@@ -87,9 +87,6 @@ class SignUpFragment : BaseFragment(R.layout.fragment_sign_up) {
         binding.address.doOnTextChanged { _, _, _, _ ->
             checkEnableShopInformationButton()
         }
-        binding.fcmToken.doOnTextChanged { _, _, _, _ ->
-            checkEnableShopInformationButton()
-        }
 
 
     }
@@ -133,11 +130,10 @@ class SignUpFragment : BaseFragment(R.layout.fragment_sign_up) {
             val lastName = binding.lastName.text.isNullOrBlank()
             val phone = binding.phone.text.isNullOrBlank()
             val address = binding.address.text.isNullOrBlank()
-            val fcmToken = binding.fcmToken.text.isNullOrBlank()
             val userEmail = binding.email.text.isNullOrBlank()
             val userPassword = binding.password.text?.length!! >= 8
             val userPasswordConfirmation = binding.confirmPassword.text?.length!! >= 8
-            showInformationButton(!firstName && !lastName && !phone && !address && !fcmToken && !userEmail && userPassword && userPasswordConfirmation)
+            showInformationButton(!firstName && !lastName && !phone && !address && !userEmail && userPassword && userPasswordConfirmation)
         }
     }
 

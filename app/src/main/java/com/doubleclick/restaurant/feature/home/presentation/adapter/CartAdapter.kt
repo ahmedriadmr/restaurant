@@ -7,11 +7,9 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
-import com.doubleclick.domain.model.carts.get.CartsModel
 import com.doubleclick.restaurant.R
 import com.doubleclick.restaurant.core.extension.formatted
 import com.doubleclick.restaurant.core.extension.inflate
-import com.doubleclick.restaurant.databinding.ItemCartBinding
 import com.doubleclick.restaurant.databinding.ItemSwipeToActionBinding
 import com.doubleclick.restaurant.feature.home.data.listCart.CartData
 import com.doubleclick.restaurant.utils.Constant
@@ -29,6 +27,7 @@ class CartAdapter : ListAdapter<CartData, CartAdapter.ViewHolder>(Differ) {
 
     internal var clickUpdateCart: (String, String, String) -> Unit = { _, _, _ -> }
     internal var cartUpdated: (String) -> Unit = { _ -> }
+    internal var deleteCart: (String) -> Unit = { _ -> }
     private var totalCartPrice: Double = 0.0
     private lateinit var actionClicked: OnActionClicked
     private val actionsBindHelper = ActionBindHelper()
@@ -39,7 +38,7 @@ class CartAdapter : ListAdapter<CartData, CartAdapter.ViewHolder>(Differ) {
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val binding = ItemSwipeToActionBinding.bind(holder.itemView)
-        holder.bind(binding, getItem(position), clickUpdateCart)
+        holder.bind(binding, getItem(position), clickUpdateCart,deleteCart)
 
     }
 
@@ -48,7 +47,8 @@ class CartAdapter : ListAdapter<CartData, CartAdapter.ViewHolder>(Differ) {
         fun bind(
             binding: ItemSwipeToActionBinding,
             cart: CartData,
-            clickUpdateCart: (String, String, String) -> Unit
+            clickUpdateCart: (String, String, String) -> Unit,
+            deleteCart: (String) -> Unit = { _ -> }
         ) {
             swipeToActionLayout = binding.swipeToActionLayout
             binding.swipeToActionLayout.menuListener = this
@@ -56,6 +56,7 @@ class CartAdapter : ListAdapter<CartData, CartAdapter.ViewHolder>(Differ) {
             binding.itemCart.size.text = cart.size.name
             binding.itemCart.price.text = "$dollarSign${cart.size.price}"
             binding.itemCart.quantity.text = cart.number.toString()
+            deleteCart(cart.id)
             calculateTotalPrice(currentList)
             if (!cart.size.item.image.isNullOrEmpty()) {
                 binding.itemCart.image.load(Constant.BASE_URL_IMAGE_ITEMS + cart.size.item.image) {

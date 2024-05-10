@@ -9,6 +9,8 @@ import com.doubleclick.restaurant.R
 import com.doubleclick.restaurant.core.extension.inflate
 import com.doubleclick.restaurant.feature.home.data.searchOrders.response.SearchOrdersData
 import com.doubleclick.restaurant.utils.Constant
+import java.text.SimpleDateFormat
+import java.util.Locale
 
 class OrdersAdapter : ListAdapter<SearchOrdersData, OrdersAdapter.ViewHolder>(Differ) {
     internal var clickCancelOrder: (String) -> Unit = { _ -> }
@@ -30,7 +32,9 @@ class OrdersAdapter : ListAdapter<SearchOrdersData, OrdersAdapter.ViewHolder>(Di
             clickCancelOrder: (String) -> Unit
         ) {
 
-            binding.date.text = order.created_at
+            // Convert timestamp to desired format
+            val formattedDate = convertDateFormat(order.created_at)
+            binding.date.text = formattedDate
             binding.total.text = "${Constant.dollarSign}${order.total}"
             binding.place.text = order.order_type
             binding.status.text = order.status
@@ -72,6 +76,13 @@ class OrdersAdapter : ListAdapter<SearchOrdersData, OrdersAdapter.ViewHolder>(Di
 
         }
 
+    }
+    // Function to convert timestamp to desired format
+    private fun convertDateFormat(originalDate: String): String {
+        val originalFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSSSS'Z'", Locale.US)
+        val targetFormat = SimpleDateFormat("EEE MMM dd yyyy", Locale.US)
+        val date = originalFormat.parse(originalDate)
+        return targetFormat.format(date)
     }
 
 
