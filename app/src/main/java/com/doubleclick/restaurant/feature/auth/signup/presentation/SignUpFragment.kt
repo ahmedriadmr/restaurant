@@ -5,6 +5,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.doubleclick.restaurant.R
 import com.doubleclick.restaurant.core.extension.failure
@@ -19,6 +20,7 @@ import com.doubleclick.restaurant.feature.auth.AuthViewModel
 import com.doubleclick.restaurant.feature.auth.login.data.responseNew.NewUser
 import com.doubleclick.restaurant.feature.auth.signup.data.responseNew.SignedUpUser
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 
 
 @AndroidEntryPoint
@@ -26,7 +28,7 @@ class SignUpFragment : BaseFragment(R.layout.fragment_sign_up) {
 
     private val viewModel: AuthViewModel by viewModels()
     private val binding by viewBinding(FragmentSignUpBinding::bind)
-    
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -51,17 +53,7 @@ class SignUpFragment : BaseFragment(R.layout.fragment_sign_up) {
         }
 
         binding.signUp.setOnClickListener {
-            viewModel.doSignUp(
-                binding.firstName.text.toString(),
-                binding.lastName.text.toString(),
-                binding.email.text.toString(),
-                binding.password.text.toString(),
-                binding.confirmPassword.text.toString(),
-                binding.phone.text.toString(),
-                binding.address.text.toString(),
-                binding.fcmToken.text.toString()
-
-            )
+            signUp()
         }
 
         binding.firstName.doOnTextChanged { _, _, _, _ ->
@@ -77,7 +69,7 @@ class SignUpFragment : BaseFragment(R.layout.fragment_sign_up) {
             checkEnableShopInformationButton()
             if (binding.password.text?.length!! < 8) {
                 binding.password.error = "min length must be 8"
-            }else{
+            } else {
                 binding.password.error = null
             }
         }
@@ -85,7 +77,7 @@ class SignUpFragment : BaseFragment(R.layout.fragment_sign_up) {
             checkEnableShopInformationButton()
             if (binding.confirmPassword.text?.length!! < 8) {
                 binding.confirmPassword.error = "min length must be 8"
-            }else{
+            } else {
                 binding.confirmPassword.error = null
             }
         }
@@ -102,12 +94,32 @@ class SignUpFragment : BaseFragment(R.layout.fragment_sign_up) {
 
     }
 
+    private fun signUp() = lifecycleScope.launch {
+        viewModel.token().collect { token ->
+            viewModel.doSignUp(
+                binding.firstName.text.toString(),
+                binding.lastName.text.toString(),
+                binding.email.text.toString(),
+                binding.password.text.toString(),
+                binding.confirmPassword.text.toString(),
+                binding.phone.text.toString(),
+                binding.address.text.toString(),
+                token
+            )
+        }
+    }
+
     private fun handleSignUp(@Suppress("UNUSED_PARAMETER") data: SignedUpUser) {
         viewModel.doLogin(binding.email.text.toString(), binding.password.text.toString())
 
     }
+
     private fun handleLogin(data: NewUser) {
-        Toast.makeText(context, "You have successfully signed Up and logged in ${data.first_name}", Toast.LENGTH_SHORT).show()
+        Toast.makeText(
+            context,
+            "You have successfully signed Up and logged in ${data.first_name}",
+            Toast.LENGTH_SHORT
+        ).show()
         navigator.showHome(requireContext())
     }
 
@@ -125,9 +137,10 @@ class SignUpFragment : BaseFragment(R.layout.fragment_sign_up) {
             val userEmail = binding.email.text.isNullOrBlank()
             val userPassword = binding.password.text?.length!! >= 8
             val userPasswordConfirmation = binding.confirmPassword.text?.length!! >= 8
-            showInformationButton(!firstName && !lastName && !phone && !address && !fcmToken&& !userEmail && userPassword && userPasswordConfirmation)
+            showInformationButton(!firstName && !lastName && !phone && !address && !fcmToken && !userEmail && userPassword && userPasswordConfirmation)
         }
     }
+
     private fun renderLoading(loading: Either.Loading) {
         ProgressHandler.handleProgress(loading.isLoading, requireContext())
     }

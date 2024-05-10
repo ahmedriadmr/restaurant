@@ -1,12 +1,15 @@
 package com.doubleclick.restaurant.feature.chef.presentation
 
 import android.os.Bundle
+import androidx.activity.viewModels
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.doubleclick.restaurant.R
 import com.doubleclick.restaurant.core.platform.BaseActivity
 import com.doubleclick.restaurant.core.platform.local.UserAccess
 import com.doubleclick.restaurant.databinding.ActivityChefBinding
 import com.doubleclick.restaurant.feature.home.presentation.HistoryOrdersFragment
+import com.doubleclick.restaurant.feature.home.presentation.HomeViewModel
 import com.doubleclick.restaurant.feature.home.presentation.ListOrdersFragment
 import com.doubleclick.restaurant.views.smarttablayout.utils.v4.FragmentPagerItemAdapter
 import com.doubleclick.restaurant.views.smarttablayout.utils.v4.FragmentPagerItems
@@ -18,6 +21,7 @@ import kotlinx.coroutines.launch
 class ChefActivity : BaseActivity() {
 
     private lateinit var binding: ActivityChefBinding
+    private val viewModel: HomeViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityChefBinding.inflate(layoutInflater)
@@ -64,6 +68,10 @@ class ChefActivity : BaseActivity() {
                 binding.viewpagertab.setViewPager(binding.viewpager)
             }
 
+        }
+
+        binding.logout.setOnClickListener {
+            viewModel.doLogout()
         }
 
     }

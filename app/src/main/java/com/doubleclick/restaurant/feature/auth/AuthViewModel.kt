@@ -17,9 +17,13 @@ import com.doubleclick.restaurant.feature.auth.login.domain.LoginUseCase
 import com.doubleclick.restaurant.feature.auth.signup.data.request.SignUpRequest
 import com.doubleclick.restaurant.feature.auth.signup.data.responseNew.SignedUpUser
 import com.doubleclick.restaurant.feature.auth.signup.domain.SignUpUseCase
+import com.google.android.gms.tasks.Task
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -31,7 +35,8 @@ class AuthViewModel @Inject constructor(
     val forgetPasswordUseCase: ForgetPasswordUseCase,
     val verifyOtpUseCase: VerifyOtpUseCase,
     val resetPasswordUseCase: ResetPasswordUseCase,
-    val appSettingsSource: AppSettingsSource
+    val appSettingsSource: AppSettingsSource,
+    val token: Task<String>
 ) : BaseViewModel() {
 
     private val _signup: Channel<SignedUpUser> = Channel()
@@ -81,7 +86,11 @@ class AuthViewModel @Inject constructor(
     val forgetPassword: Flow<ForgetPasswordResponse> = _forgetPassword.receiveAsFlow()
 
     fun doForgetPassword(email: String) =
-        forgetPasswordUseCase(ForgetPasswordUseCase.Params(ForgetPasswordRequest(email)), viewModelScope, this)
+        forgetPasswordUseCase(
+            ForgetPasswordUseCase.Params(ForgetPasswordRequest(email)),
+            viewModelScope,
+            this
+        )
         { it.fold(::handleFailure, ::handleForgetPassword) }
 
     private fun handleForgetPassword(data: ForgetPasswordResponse) {
@@ -92,7 +101,7 @@ class AuthViewModel @Inject constructor(
     val verifyOtp: Flow<ForgetPasswordResponse> = _verifyOtp.receiveAsFlow()
 
     fun doVerifyOtp(otp: String) =
-        verifyOtpUseCase(VerifyOtpUseCase.Params(VerifyOtpRequest( otp)), viewModelScope, this)
+        verifyOtpUseCase(VerifyOtpUseCase.Params(VerifyOtpRequest(otp)), viewModelScope, this)
         { it.fold(::handleFailure, ::handleVerifyOtp) }
 
     private fun handleVerifyOtp(data: ForgetPasswordResponse) {
@@ -103,7 +112,15 @@ class AuthViewModel @Inject constructor(
     val resetPassword: Flow<ForgetPasswordResponse> = _resetPassword.receiveAsFlow()
 
     fun doResetPassword(email: String, password: String, password_confirmation: String) =
-        resetPasswordUseCase(ResetPasswordUseCase.Params(ResetPasswordRequest(email, password, password_confirmation)), viewModelScope, this)
+        resetPasswordUseCase(
+            ResetPasswordUseCase.Params(
+                ResetPasswordRequest(
+                    email,
+                    password,
+                    password_confirmation
+                )
+            ), viewModelScope, this
+        )
         { it.fold(::handleFailure, ::handleResetPassword) }
 
     private fun handleResetPassword(data: ForgetPasswordResponse) {
@@ -116,4 +133,10 @@ class AuthViewModel @Inject constructor(
     fun isBackPressedDispatcherEnabled(isEnabled: Boolean) {
         viewModelScope.launch { _isBackPressedEnabled.send(isEnabled) }
     }
+
+    fun token() = flow {
+        if (token.isComplete) {
+            emit(token.result)
+        }
+    }.flowOn(Dispatchers.IO)
 }

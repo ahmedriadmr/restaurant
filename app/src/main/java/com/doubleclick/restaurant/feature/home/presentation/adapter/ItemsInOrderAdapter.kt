@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.doubleclick.restaurant.R
 import com.doubleclick.restaurant.core.extension.inflate
-import com.doubleclick.restaurant.feature.home.data.listOrders.Item
+import com.doubleclick.restaurant.feature.home.data.searchOrders.response.Item
 import com.doubleclick.restaurant.utils.Constant
 
 class ItemsInOrderAdapter : ListAdapter<Item, ItemsInOrderAdapter.ViewHolder>(Differ) {
