@@ -51,6 +51,7 @@ interface HomeRepository {
 
     suspend fun cancelOrder(id: String, request: CancelOrderRequest): Either<Failure, CancelOrderResponse>
     suspend fun searchOrders(request: SearchOrdersRequest): Either<Failure, List<SearchOrdersData>>
+    suspend fun deleteCart(id:String): Either<Failure, PutCartResponse>
 
     class Network
     @Inject constructor(
@@ -154,6 +155,12 @@ interface HomeRepository {
         override suspend fun searchOrders(request: SearchOrdersRequest): Either<Failure, List<SearchOrdersData>> {
             return when (networkHandler.isNetworkAvailable()) {
                 true -> request(service.searchOrders(request)) { it.data }
+                false -> Either.Failure(Failure.NetworkConnection)
+            }
+        }
+        override suspend fun deleteCart(id: String): Either<Failure, PutCartResponse> {
+            return when (networkHandler.isNetworkAvailable()) {
+                true -> request(service.deleteCart(id)) { it }
                 false -> Either.Failure(Failure.NetworkConnection)
             }
         }

@@ -44,6 +44,7 @@ class HomeService @Inject constructor(retrofit: Retrofit) : HomeApi {
     override suspend fun listOrders() = homeApi.listOrders()
     override suspend fun cancelOrder(id: String, request: CancelOrderRequest) = homeApi.cancelOrder(id,request)
     override suspend fun searchOrders(request: SearchOrdersRequest) = homeApi.searchOrders(request)
+    override suspend fun deleteCart(id: String) = homeApi.deleteCart(id)
 
 
 }

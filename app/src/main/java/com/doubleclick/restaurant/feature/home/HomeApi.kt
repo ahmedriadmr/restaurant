@@ -79,4 +79,7 @@ interface HomeApi {
     @POST("${ORDER}/search")
     suspend fun searchOrders(@Body request: SearchOrdersRequest): Response<DataWrapper<List<SearchOrdersData>>>
 
+    @DELETE("${CART}/{id}")
+    suspend fun deleteCart(@Path("id") id: String): Response<PutCartResponse>
+
 }
