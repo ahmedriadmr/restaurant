@@ -1,4 +1,4 @@
-package com.doubleclick.restaurant.feature.home.data.listOrders
+package com.doubleclick.restaurant.feature.home.data.searchOrders.response
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize

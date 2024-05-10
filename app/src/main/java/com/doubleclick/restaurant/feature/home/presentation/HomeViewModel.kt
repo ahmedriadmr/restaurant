@@ -10,19 +10,24 @@ import com.doubleclick.restaurant.feature.home.data.LogoutResponse
 import com.doubleclick.restaurant.feature.home.data.PutCart.request.PutCartRequest
 import com.doubleclick.restaurant.feature.home.data.PutCart.response.PutCartResponse
 import com.doubleclick.restaurant.feature.home.data.UpdateProfileResponse
+import com.doubleclick.restaurant.feature.home.data.cancelOrder.CancelOrderRequest
+import com.doubleclick.restaurant.feature.home.data.cancelOrder.CancelOrderResponse
 import com.doubleclick.restaurant.feature.home.data.listCart.CartData
-import com.doubleclick.restaurant.feature.home.data.listOrders.OrdersData
 import com.doubleclick.restaurant.feature.home.data.makeOrder.request.MakeOrderRequest
 import com.doubleclick.restaurant.feature.home.data.makeOrder.response.MakeOrderResponse
+import com.doubleclick.restaurant.feature.home.data.searchOrders.request.SearchOrdersRequest
+import com.doubleclick.restaurant.feature.home.data.searchOrders.response.SearchOrdersData
 import com.doubleclick.restaurant.feature.home.data.updateCart.request.UpdateCartRequest
 import com.doubleclick.restaurant.feature.home.data.updateCart.response.UpdateCartResponse
 import com.doubleclick.restaurant.feature.home.data.userProfile.UserProfileData
+import com.doubleclick.restaurant.feature.home.domain.CancelOrderUseCase
 import com.doubleclick.restaurant.feature.home.domain.CategoriesUseCase
 import com.doubleclick.restaurant.feature.home.domain.GetCartUseCase
 import com.doubleclick.restaurant.feature.home.domain.ListOrdersUseCase
 import com.doubleclick.restaurant.feature.home.domain.LogOutUseCase
 import com.doubleclick.restaurant.feature.home.domain.MakeOrderUseCase
 import com.doubleclick.restaurant.feature.home.domain.PutCartUseCase
+import com.doubleclick.restaurant.feature.home.domain.SearchOrdersUseCase
 import com.doubleclick.restaurant.feature.home.domain.UpdateCartUseCase
 import com.doubleclick.restaurant.feature.home.domain.UpdateProfileUseCase
 import com.doubleclick.restaurant.feature.home.domain.UserProfileUseCase
@@ -49,6 +54,8 @@ class HomeViewModel @Inject constructor(
     val updateProfileUseCase: UpdateProfileUseCase,
     val makeOrderUseCase: MakeOrderUseCase,
     val listOrdersUseCase: ListOrdersUseCase,
+    val cancelOrderUseCase: CancelOrderUseCase,
+    val searchOrdersUseCase: SearchOrdersUseCase,
     val appSettingsSource: AppSettingsSource
 ) :
     BaseViewModel() {
@@ -57,6 +64,7 @@ class HomeViewModel @Inject constructor(
         const val newCategoriesKey = "CATEGORIES"
         const val listCartDataKey = "CART"
         const val listOrderDataKey = "ORDER"
+        const val searchOrdersKey = "SEARCH ORDERS"
 
     }
 
@@ -198,9 +206,9 @@ class HomeViewModel @Inject constructor(
         }
     }
 
-    private val _listOrders: MutableStateFlow<List<OrdersData>> =
+    private val _listOrders: MutableStateFlow<List<SearchOrdersData>> =
         MutableStateFlow(savedStateHandle[listOrderDataKey] ?: emptyList())
-    val listOrders: StateFlow<List<OrdersData>> = _listOrders
+    val listOrders: StateFlow<List<SearchOrdersData>> = _listOrders
 
     fun getOrders() {
         listOrdersUseCase(
@@ -208,10 +216,45 @@ class HomeViewModel @Inject constructor(
         ) { it.fold(::handleFailure, ::handleListOrders) }
     }
 
-    private fun handleListOrders(data: List<OrdersData>) {
+    private fun handleListOrders(data: List<SearchOrdersData>) {
         with(data) {
             savedStateHandle[listOrderDataKey] = this
             _listOrders.value = this
+        }
+    }
+
+
+    private val _cancelOrder: Channel<CancelOrderResponse> = Channel()
+    val cancelOrder: Flow<CancelOrderResponse> = _cancelOrder.receiveAsFlow()
+
+
+    fun cancelOrder(id: String, request: CancelOrderRequest) {
+        cancelOrderUseCase(CancelOrderUseCase.Params(id, request), viewModelScope, this) {
+            it.fold(::handleFailure, ::handleCancelOrder)
+        }
+    }
+
+    private fun handleCancelOrder(data: CancelOrderResponse) {
+        viewModelScope.launch {
+            _cancelOrder.send(data)
+        }
+    }
+
+
+    private val _searchOrders: MutableStateFlow<List<SearchOrdersData>> =
+        MutableStateFlow(savedStateHandle[searchOrdersKey] ?: emptyList())
+    val searchOrders: StateFlow<List<SearchOrdersData>> = _searchOrders
+
+    fun searchOrders(request: SearchOrdersRequest) {
+        searchOrdersUseCase(SearchOrdersUseCase.Params(request), viewModelScope, this) {
+            it.fold(::handleFailure, ::handleSearchOrders)
+        }
+    }
+
+    private fun handleSearchOrders(data: List<SearchOrdersData>) {
+        with(data) {
+            savedStateHandle[searchOrdersKey] = this
+            _searchOrders.value = this
         }
     }
 }

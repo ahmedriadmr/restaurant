@@ -3,6 +3,7 @@ package com.doubleclick.restaurant.feature.auth
 
 import androidx.lifecycle.viewModelScope
 import com.doubleclick.restaurant.core.platform.BaseViewModel
+import com.doubleclick.restaurant.core.platform.local.AppSettingsSource
 import com.doubleclick.restaurant.feature.auth.forgetPassword.data.ForgetPasswordResponse
 import com.doubleclick.restaurant.feature.auth.forgetPassword.data.request.forgetPassword.ForgetPasswordRequest
 import com.doubleclick.restaurant.feature.auth.forgetPassword.data.request.resetPassword.ResetPasswordRequest
@@ -29,7 +30,8 @@ class AuthViewModel @Inject constructor(
     val loginUseCase: LoginUseCase,
     val forgetPasswordUseCase: ForgetPasswordUseCase,
     val verifyOtpUseCase: VerifyOtpUseCase,
-    val resetPasswordUseCase: ResetPasswordUseCase
+    val resetPasswordUseCase: ResetPasswordUseCase,
+    val appSettingsSource: AppSettingsSource
 ) : BaseViewModel() {
 
     private val _signup: Channel<SignedUpUser> = Channel()

@@ -6,10 +6,13 @@ import com.doubleclick.restaurant.feature.home.data.LogoutResponse
 import com.doubleclick.restaurant.feature.home.data.PutCart.request.PutCartRequest
 import com.doubleclick.restaurant.feature.home.data.PutCart.response.PutCartResponse
 import com.doubleclick.restaurant.feature.home.data.UpdateProfileResponse
+import com.doubleclick.restaurant.feature.home.data.cancelOrder.CancelOrderRequest
+import com.doubleclick.restaurant.feature.home.data.cancelOrder.CancelOrderResponse
 import com.doubleclick.restaurant.feature.home.data.listCart.CartData
-import com.doubleclick.restaurant.feature.home.data.listOrders.OrdersData
 import com.doubleclick.restaurant.feature.home.data.makeOrder.request.MakeOrderRequest
 import com.doubleclick.restaurant.feature.home.data.makeOrder.response.MakeOrderResponse
+import com.doubleclick.restaurant.feature.home.data.searchOrders.request.SearchOrdersRequest
+import com.doubleclick.restaurant.feature.home.data.searchOrders.response.SearchOrdersData
 import com.doubleclick.restaurant.feature.home.data.updateCart.request.UpdateCartRequest
 import com.doubleclick.restaurant.feature.home.data.updateCart.response.UpdateCartResponse
 import com.doubleclick.restaurant.feature.home.data.userProfile.UserProfileData
@@ -68,6 +71,12 @@ interface HomeApi {
     suspend fun makeOrder(@Body request:MakeOrderRequest) : Response<MakeOrderResponse>
 
     @GET(ORDER)
-    suspend fun listOrders(): Response<DataWrapper<List<OrdersData>>>
+    suspend fun listOrders(): Response<DataWrapper<List<SearchOrdersData>>>
+
+    @POST("${ORDER}/{id}")
+    suspend fun cancelOrder(@Path("id") id: String,@Body request:CancelOrderRequest) : Response<CancelOrderResponse>
+
+    @POST("${ORDER}/search")
+    suspend fun searchOrders(@Body request: SearchOrdersRequest): Response<DataWrapper<List<SearchOrdersData>>>
 
 }

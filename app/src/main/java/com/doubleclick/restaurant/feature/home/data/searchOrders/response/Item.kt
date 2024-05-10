@@ -1,4 +1,4 @@
-package com.doubleclick.restaurant.feature.home.data.listOrders
+package com.doubleclick.restaurant.feature.home.data.searchOrders.response
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
@@ -7,6 +7,7 @@ import kotlinx.parcelize.Parcelize
 data class Item(
     val created_at: String,
     val id: Int,
+    val item: ItemX,
     val item_id: Int,
     val number: Int,
     val order_id: Int,

@@ -1,5 +1,6 @@
 package com.doubleclick.restaurant.feature.home.presentation
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
@@ -17,6 +18,7 @@ import com.doubleclick.restaurant.core.functional.Either
 import com.doubleclick.restaurant.core.functional.ProgressHandler
 import com.doubleclick.restaurant.core.platform.BaseFragment
 import com.doubleclick.restaurant.databinding.FragmentHomeBinding
+import com.doubleclick.restaurant.feature.chef.presentation.ChefActivity
 import com.doubleclick.restaurant.feature.home.data.Categories.Categories
 import com.doubleclick.restaurant.feature.home.data.Categories.Item
 import com.doubleclick.restaurant.feature.home.data.PutCart.request.PutCartRequest
@@ -59,6 +61,10 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
 
         dishesListAdapter.clickShowItem = { id , total ->
             viewModel.putCart(PutCartRequest("1" , id , total))
+        }
+
+        binding.allOrders.setOnClickListener {
+            startActivity(Intent(requireActivity(), ChefActivity::class.java))
         }
 
         binding.seeAll.setOnClickListener {

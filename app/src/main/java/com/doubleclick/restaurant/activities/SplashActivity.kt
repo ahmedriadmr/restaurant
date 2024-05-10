@@ -24,6 +24,11 @@ class SplashActivity : AppCompatActivity() {
         lifecycleScope.launch {
             delay(2000)
             navigator.showMain(this@SplashActivity)
+//            if(appSettingsSource.user().firstOrNull()?.role == "chief"){
+//                startActivity(Intent(this@SplashActivity, ChefActivity::class.java))
+//            } else {
+//                navigator.showMain(this@SplashActivity)
+//            }
         }
     }
 

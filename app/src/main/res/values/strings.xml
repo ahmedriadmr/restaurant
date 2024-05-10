@@ -130,7 +130,7 @@
     <string name="no_back">No, Back</string>
     <string name="yes_go">Yes, Go</string>
     <string name="yes_cancel">Yes, Cancel</string>
-    <string name="cancel">Cancelar</string>
+    <string name="cancel">Cancel</string>
     <string name="level2_closed">Nivel 2 \ncerrado!</string>
     <string name="level3_closed">Nivel 3 \ncerrado!</string>
     <string name="complete_previous_level">Completa el nivel anterior para \ndesbloquear el nivel.</string>
@@ -380,6 +380,10 @@
     <string name="guest">Guest</string>
     <string name="history">History</string>
     <string name="finished">Finished</string>
+    <string name="are_you_sure_you_want_to_cancel_this_order">Are you sure you want to Cancel this Order?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+
 
     <string-array name="sizes">
         <item>small</item>

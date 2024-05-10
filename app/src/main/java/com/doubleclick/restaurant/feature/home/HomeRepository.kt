@@ -9,10 +9,13 @@ import com.doubleclick.restaurant.feature.home.data.LogoutResponse
 import com.doubleclick.restaurant.feature.home.data.PutCart.request.PutCartRequest
 import com.doubleclick.restaurant.feature.home.data.PutCart.response.PutCartResponse
 import com.doubleclick.restaurant.feature.home.data.UpdateProfileResponse
+import com.doubleclick.restaurant.feature.home.data.cancelOrder.CancelOrderRequest
+import com.doubleclick.restaurant.feature.home.data.cancelOrder.CancelOrderResponse
 import com.doubleclick.restaurant.feature.home.data.listCart.CartData
-import com.doubleclick.restaurant.feature.home.data.listOrders.OrdersData
 import com.doubleclick.restaurant.feature.home.data.makeOrder.request.MakeOrderRequest
 import com.doubleclick.restaurant.feature.home.data.makeOrder.response.MakeOrderResponse
+import com.doubleclick.restaurant.feature.home.data.searchOrders.request.SearchOrdersRequest
+import com.doubleclick.restaurant.feature.home.data.searchOrders.response.SearchOrdersData
 import com.doubleclick.restaurant.feature.home.data.updateCart.request.UpdateCartRequest
 import com.doubleclick.restaurant.feature.home.data.updateCart.response.UpdateCartResponse
 import com.doubleclick.restaurant.feature.home.data.userProfile.UserProfileData
@@ -44,7 +47,10 @@ interface HomeRepository {
     ): Either<Failure, UpdateProfileResponse>
 
     suspend fun makeOrder(request: MakeOrderRequest): Either<Failure, MakeOrderResponse>
-    suspend fun listOrders(): Either<Failure, List<OrdersData>>
+    suspend fun listOrders(): Either<Failure, List<SearchOrdersData>>
+
+    suspend fun cancelOrder(id: String, request: CancelOrderRequest): Either<Failure, CancelOrderResponse>
+    suspend fun searchOrders(request: SearchOrdersRequest): Either<Failure, List<SearchOrdersData>>
 
     class Network
     @Inject constructor(
@@ -131,9 +137,23 @@ interface HomeRepository {
             }
         }
 
-        override suspend fun listOrders(): Either<Failure, List<OrdersData>> {
+        override suspend fun listOrders(): Either<Failure, List<SearchOrdersData>> {
             return when (networkHandler.isNetworkAvailable()) {
                 true -> request(service.listOrders()) { it.data }
+                false -> Either.Failure(Failure.NetworkConnection)
+            }
+        }
+
+        override suspend fun cancelOrder(id: String, request: CancelOrderRequest): Either<Failure, CancelOrderResponse> {
+            return when (networkHandler.isNetworkAvailable()) {
+                true -> request(service.cancelOrder(id, request)) { it }
+                false -> Either.Failure(Failure.NetworkConnection)
+            }
+        }
+
+        override suspend fun searchOrders(request: SearchOrdersRequest): Either<Failure, List<SearchOrdersData>> {
+            return when (networkHandler.isNetworkAvailable()) {
+                true -> request(service.searchOrders(request)) { it.data }
                 false -> Either.Failure(Failure.NetworkConnection)
             }
         }

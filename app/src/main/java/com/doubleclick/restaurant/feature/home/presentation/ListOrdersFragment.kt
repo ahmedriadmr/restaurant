@@ -18,25 +18,26 @@ import com.doubleclick.restaurant.core.platform.BaseFragment
 import com.doubleclick.restaurant.dialog.dialog.AlertDialogCancelOrder
 import com.doubleclick.restaurant.feature.home.data.cancelOrder.CancelOrderRequest
 import com.doubleclick.restaurant.feature.home.data.cancelOrder.CancelOrderResponse
+import com.doubleclick.restaurant.feature.home.data.searchOrders.request.SearchOrdersRequest
 import com.doubleclick.restaurant.feature.home.data.searchOrders.response.SearchOrdersData
 import com.doubleclick.restaurant.feature.home.presentation.adapter.OrdersAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class MyOrdersFragment : BaseFragment(R.layout.fragment_my_orders) {
+class ListOrdersFragment : BaseFragment(R.layout.fragment_list_orders) {
 
-    private val binding by viewBinding(com.doubleclick.restaurant.databinding.FragmentMyOrdersBinding::bind)
+    private val binding by viewBinding(com.doubleclick.restaurant.databinding.FragmentListOrdersBinding::bind)
     private val viewModel: HomeViewModel by viewModels()
     private val ordersAdapter = OrdersAdapter()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         with(viewModel) {
-            observe(listOrders) { order -> renderListOrders(order) { ordersAdapter.submitList(null) } }
+            observe(searchOrders) { searchOrders -> renderSearchOrders(searchOrders) { ordersAdapter.submitList(null) } }
             observe(cancelOrder, ::renderCancelOrder)
             loading(loading, ::renderLoading)
             failure(failure, ::handleFailure)
-            getOrders()
+            searchOrders(SearchOrdersRequest("Ongoing"))
         }
         binding.rvMyOrders.adapter = ordersAdapter
         ordersAdapter.clickCancelOrder = { id ->
@@ -56,9 +57,10 @@ class MyOrdersFragment : BaseFragment(R.layout.fragment_my_orders) {
 
         }
 
+
     }
 
-    private fun renderListOrders(order: List<SearchOrdersData>, refreshData: (() -> Unit)?) {
+    private fun renderSearchOrders(order: List<SearchOrdersData>, refreshData: (() -> Unit)?) {
         when {
             order.isEmpty() -> refreshData?.invoke()
             else -> {

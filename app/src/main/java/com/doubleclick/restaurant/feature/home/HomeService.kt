@@ -1,7 +1,9 @@
 package com.doubleclick.restaurant.feature.home
 
 import com.doubleclick.restaurant.feature.home.data.PutCart.request.PutCartRequest
+import com.doubleclick.restaurant.feature.home.data.cancelOrder.CancelOrderRequest
 import com.doubleclick.restaurant.feature.home.data.makeOrder.request.MakeOrderRequest
+import com.doubleclick.restaurant.feature.home.data.searchOrders.request.SearchOrdersRequest
 import com.doubleclick.restaurant.feature.home.data.updateCart.request.UpdateCartRequest
 import okhttp3.RequestBody
 import retrofit2.Retrofit
@@ -40,6 +42,8 @@ class HomeService @Inject constructor(retrofit: Retrofit) : HomeApi {
 
     override suspend fun makeOrder(request: MakeOrderRequest) = homeApi.makeOrder(request)
     override suspend fun listOrders() = homeApi.listOrders()
+    override suspend fun cancelOrder(id: String, request: CancelOrderRequest) = homeApi.cancelOrder(id,request)
+    override suspend fun searchOrders(request: SearchOrdersRequest) = homeApi.searchOrders(request)
 
 
 }
