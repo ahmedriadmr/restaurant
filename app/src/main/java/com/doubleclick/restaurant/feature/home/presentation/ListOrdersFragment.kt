@@ -16,6 +16,7 @@ import com.doubleclick.restaurant.core.functional.Either
 import com.doubleclick.restaurant.core.functional.ProgressHandler
 import com.doubleclick.restaurant.core.platform.BaseFragment
 import com.doubleclick.restaurant.dialog.dialog.AlertDialogCancelOrder
+import com.doubleclick.restaurant.feature.chef.domain.model.OrderState
 import com.doubleclick.restaurant.feature.home.data.cancelOrder.CancelOrderRequest
 import com.doubleclick.restaurant.feature.home.data.cancelOrder.CancelOrderResponse
 import com.doubleclick.restaurant.feature.home.data.searchOrders.request.SearchOrdersRequest
@@ -37,7 +38,7 @@ class ListOrdersFragment : BaseFragment(R.layout.fragment_list_orders) {
             observe(cancelOrder, ::renderCancelOrder)
             loading(loading, ::renderLoading)
             failure(failure, ::handleFailure)
-            searchOrders(SearchOrdersRequest("Ongoing"))
+            searchOrders(SearchOrdersRequest(OrderState.ONGOING.value))
         }
         binding.rvMyOrders.adapter = ordersAdapter
         ordersAdapter.clickCancelOrder = { id ->
@@ -50,7 +51,7 @@ class ListOrdersFragment : BaseFragment(R.layout.fragment_list_orders) {
 
             dialog.findViewById<TextView>(R.id.cancel)?.setOnClickListener {
 
-                viewModel.cancelOrder(id, CancelOrderRequest("PUT", "Canceled"))
+                viewModel.cancelOrder(id, CancelOrderRequest("PUT", OrderState.CANCELED.value))
                 dialog.dismiss()
             }
 
