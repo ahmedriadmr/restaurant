@@ -36,7 +36,7 @@ class HistoryOrdersFragment : BaseFragment(R.layout.fragment_history_orders) {
     }
 
     private fun renderListOrders(order: List<SearchOrdersData>, refreshData: (() -> Unit)?) {
-        val filteredOrders = order.filter { it.order_type != "Ongoing" }
+        val filteredOrders = order.filter { it.status != "Ongoing" }
         when {
             filteredOrders.isEmpty() -> refreshData?.invoke()
             else -> {

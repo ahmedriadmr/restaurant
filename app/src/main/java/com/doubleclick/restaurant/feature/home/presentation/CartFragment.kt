@@ -91,6 +91,7 @@ class CartFragment : BaseFragment(R.layout.fragment_cart_new), OnClickAlert {
                 cartAdapter.submitList(cart)
             }
         }
+
     }
 
     private fun renderUpdateCart(data: UpdateCartResponse) {

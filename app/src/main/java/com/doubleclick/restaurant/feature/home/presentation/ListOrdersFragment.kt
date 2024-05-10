@@ -4,7 +4,7 @@ import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.View
-import android.widget.Button
+import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import com.doubleclick.restaurant.R
@@ -44,11 +44,11 @@ class ListOrdersFragment : BaseFragment(R.layout.fragment_list_orders) {
             val dialog = AlertDialogCancelOrder(requireActivity())
             dialog.show()
             dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-            dialog.findViewById<Button>(R.id.dismiss)?.setOnClickListener {
+            dialog.findViewById<TextView>(R.id.dismiss)?.setOnClickListener {
                 dialog.dismiss()
             }
 
-            dialog.findViewById<Button>(R.id.cancel)?.setOnClickListener {
+            dialog.findViewById<TextView>(R.id.cancel)?.setOnClickListener {
 
                 viewModel.cancelOrder(id, CancelOrderRequest("PUT", "Canceled"))
                 dialog.dismiss()
