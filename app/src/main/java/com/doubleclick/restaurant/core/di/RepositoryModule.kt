@@ -1,5 +1,6 @@
 package com.doubleclick.restaurant.core.di
 
+import com.doubleclick.restaurant.feature.admin.AdminRepository
 import com.doubleclick.restaurant.feature.auth.data.AuthRepository
 import com.doubleclick.restaurant.feature.chef.ChefRepository
 import com.doubleclick.restaurant.feature.home.HomeRepository
@@ -23,5 +24,9 @@ class RepositoryModule {
     @Provides
     @Singleton
     fun provideChefRepository(dataSource: ChefRepository.Network): ChefRepository = dataSource
+
+    @Provides
+    @Singleton
+    fun provideAdminRepository(dataSource: AdminRepository.Network): AdminRepository = dataSource
 
 }

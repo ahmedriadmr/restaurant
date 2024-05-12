@@ -43,7 +43,7 @@
                 android:layout_marginEnd="8dp"
                 android:background="@drawable/bg_yellow_circle"
                 android:gravity="center"
-                android:text="VIP"
+                tools:text="VIP"
                 android:textColor="@color/black"
                 android:textSize="11sp"
                 android:textStyle="normal"
@@ -97,7 +97,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Catecory : "
+                    android:text="Category : "
                     android:textColor="@color/black"
                     android:textSize="16sp"
                     android:textStyle="bold" />
@@ -109,7 +109,7 @@
                     android:textColor="@color/black"
                     android:textSize="16sp"
                     android:textStyle="normal"
-                    tools:text="Catecory" />
+                    tools:text="Category" />
 
             </LinearLayout>
 
