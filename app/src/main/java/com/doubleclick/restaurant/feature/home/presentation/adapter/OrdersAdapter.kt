@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.doubleclick.restaurant.R
 import com.doubleclick.restaurant.core.extension.inflate
+import com.doubleclick.restaurant.feature.chef.domain.model.OrderState
 import com.doubleclick.restaurant.feature.home.data.searchOrders.response.SearchOrdersData
 import com.doubleclick.restaurant.utils.Constant
 import java.text.SimpleDateFormat
@@ -19,8 +20,9 @@ class OrdersAdapter : ListAdapter<SearchOrdersData, OrdersAdapter.ViewHolder>(Di
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val binding = com.doubleclick.restaurant.databinding.LayoutItemMyOrdersBinding.bind(holder.itemView)
-        holder.bind(binding, getItem(position),clickCancelOrder)
+        val binding =
+            com.doubleclick.restaurant.databinding.LayoutItemMyOrdersBinding.bind(holder.itemView)
+        holder.bind(binding, getItem(position), clickCancelOrder)
 
     }
 
@@ -40,27 +42,30 @@ class OrdersAdapter : ListAdapter<SearchOrdersData, OrdersAdapter.ViewHolder>(Di
             binding.status.text = order.status
             binding.rvMyOldOrders.adapter = itemsInOrderAdapter
             itemsInOrderAdapter.submitList(order.items)
-            when(order.status){
-                "Ongoing" -> {
+            when (order.status) {
+                OrderState.ONGOING.value -> {
                     binding.llStatus.setBackgroundResource(R.drawable.bg_yellow_rec_fill_r15)
                     binding.cancel.visibility = View.VISIBLE
                 }
-                "Canceled" ->  {
+
+                OrderState.CANCELED.value -> {
                     binding.llStatus.setBackgroundResource(R.drawable.bg_red_rec_fill_r15)
                     binding.cancel.visibility = View.GONE
                 }
-                "Received" -> {
+
+                OrderState.RECEIVED.value -> {
                     binding.llStatus.setBackgroundResource(R.drawable.bg_green_rec_fill_r15)
                     binding.cancel.visibility = View.GONE
                 }
-                "Done" -> {
+
+                OrderState.DONE.value -> {
                     binding.llStatus.setBackgroundResource(R.drawable.bg_gray_rec_fill_r15)
                     binding.cancel.visibility = View.GONE
                 }
             }
 
             binding.arrow.setOnClickListener {
-                if(binding.llOldOrder.visibility == View.VISIBLE){
+                if (binding.llOldOrder.visibility == View.VISIBLE) {
                     binding.llOldOrder.visibility = View.GONE
                     binding.arrow.rotation = 90f
                 } else {
@@ -77,6 +82,7 @@ class OrdersAdapter : ListAdapter<SearchOrdersData, OrdersAdapter.ViewHolder>(Di
         }
 
     }
+
     // Function to convert timestamp to desired format
     private fun convertDateFormat(originalDate: String): String {
         val originalFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSSSS'Z'", Locale.US)
@@ -87,10 +93,17 @@ class OrdersAdapter : ListAdapter<SearchOrdersData, OrdersAdapter.ViewHolder>(Di
 
 
     object Differ : DiffUtil.ItemCallback<SearchOrdersData>() {
-        override fun areItemsTheSame(oldItem: SearchOrdersData, newItem: SearchOrdersData): Boolean {
+        override fun areItemsTheSame(
+            oldItem: SearchOrdersData,
+            newItem: SearchOrdersData
+        ): Boolean {
             return oldItem.id == newItem.id
         }
-        override fun areContentsTheSame(oldItem: SearchOrdersData, newItem: SearchOrdersData): Boolean {
+
+        override fun areContentsTheSame(
+            oldItem: SearchOrdersData,
+            newItem: SearchOrdersData
+        ): Boolean {
             return oldItem == newItem
         }
     }

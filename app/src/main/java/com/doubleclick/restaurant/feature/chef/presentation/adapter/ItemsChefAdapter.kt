@@ -21,7 +21,7 @@ class ItemsChefAdapter(private val items: List<Item>) :
 
     override fun onBindViewHolder(holder: ItemsChefViewHolder, position: Int) {
         holder.name.text = buildString {
-            append(items[holder.bindingAdapterPosition].item_id)
+            append(items[holder.bindingAdapterPosition].item.name)
         }
         holder.count.text = buildString {
             append("X")

@@ -33,7 +33,21 @@ data class Item(
     val size_name: String,
     val size_price: Int,
     val total: Int,
+    val item: ItemDish,
     val user_id: Int
+) : Parcelable
+
+@Parcelize
+data class ItemDish(
+    val category_id: Int,
+    val created_at: String,
+    val description: String,
+    val id: Int,
+    val image: String,
+    val name: String,
+    val status: String,
+    val updated_at: String,
+    val vip: String
 ) : Parcelable
 
 @Parcelize
