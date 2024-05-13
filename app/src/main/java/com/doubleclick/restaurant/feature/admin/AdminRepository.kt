@@ -4,6 +4,8 @@ import com.doubleclick.restaurant.core.exception.Failure
 import com.doubleclick.restaurant.core.functional.Either
 import com.doubleclick.restaurant.core.platform.NetworkHandler
 import com.doubleclick.restaurant.core.platform.local.AppSettingsSource
+import com.doubleclick.restaurant.feature.admin.data.addStaff.request.AddStaffRequest
+import com.doubleclick.restaurant.feature.admin.data.addStaff.response.AddStaffData
 import com.doubleclick.restaurant.feature.admin.data.listItems.ItemsData
 import com.doubleclick.restaurant.feature.admin.data.listStaff.UsersData
 import org.json.JSONObject
@@ -15,6 +17,8 @@ interface AdminRepository {
     suspend fun getItems(): Either<Failure, List<ItemsData>>
 
     suspend fun getUsers(): Either<Failure, List<UsersData>>
+
+    suspend fun addStaff(request: AddStaffRequest): Either<Failure, AddStaffData>
 
     class Network
     @Inject constructor(
@@ -32,6 +36,13 @@ interface AdminRepository {
         override suspend fun getUsers(): Either<Failure, List<UsersData>> {
             return when (networkHandler.isNetworkAvailable()) {
                 true -> request(service.getUsers()) { it.data }
+                false -> Either.Failure(Failure.NetworkConnection)
+            }
+        }
+
+        override suspend fun addStaff(request: AddStaffRequest): Either<Failure, AddStaffData> {
+            return when (networkHandler.isNetworkAvailable()) {
+                true -> request(service.addStaff(request)) { it.data }
                 false -> Either.Failure(Failure.NetworkConnection)
             }
         }

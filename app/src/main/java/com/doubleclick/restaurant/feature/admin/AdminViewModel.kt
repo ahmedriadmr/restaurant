@@ -5,13 +5,24 @@ import androidx.lifecycle.viewModelScope
 import com.doubleclick.restaurant.core.interactor.UseCase
 import com.doubleclick.restaurant.core.platform.BaseViewModel
 import com.doubleclick.restaurant.core.platform.local.AppSettingsSource
+import com.doubleclick.restaurant.feature.admin.data.addStaff.request.AddStaffRequest
+import com.doubleclick.restaurant.feature.admin.data.addStaff.response.AddStaffData
 import com.doubleclick.restaurant.feature.admin.data.listItems.ItemsData
 import com.doubleclick.restaurant.feature.admin.data.listStaff.UsersData
+import com.doubleclick.restaurant.feature.admin.domain.AddStaffUseCase
 import com.doubleclick.restaurant.feature.admin.domain.GetItemsUseCase
 import com.doubleclick.restaurant.feature.admin.domain.GetUsersUseCase
+import com.google.android.gms.tasks.Task
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.channels.Channel
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.flowOn
+import kotlinx.coroutines.flow.receiveAsFlow
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
@@ -19,7 +30,9 @@ class AdminViewModel @Inject constructor(
     private val savedStateHandle: SavedStateHandle,
     val getItemsUseCase: GetItemsUseCase,
     val getUsersUSeCase: GetUsersUseCase,
-    val appSettingsSource: AppSettingsSource
+    val addStaffUseCase: AddStaffUseCase,
+    val appSettingsSource: AppSettingsSource,
+    val token: Task<String>
 ) :
     BaseViewModel() {
 
@@ -29,6 +42,14 @@ class AdminViewModel @Inject constructor(
 
 
     }
+
+    fun token() = flow {
+        if (token.isComplete) {
+            emit(token.result)
+        }
+    }.flowOn(Dispatchers.IO)
+
+
 
     private val _listItems: MutableStateFlow<List<ItemsData>> =
         MutableStateFlow(savedStateHandle[newItemsKey] ?: emptyList())
@@ -64,6 +85,24 @@ class AdminViewModel @Inject constructor(
             _listUsers.value = this
         }
     }
+
+
+    private val _addStaff: Channel<AddStaffData> = Channel()
+    val addStaff: Flow<AddStaffData> = _addStaff.receiveAsFlow()
+
+
+    fun addStaff(request: AddStaffRequest) {
+        addStaffUseCase(AddStaffUseCase.Params(request), viewModelScope, this) {
+            it.fold(::handleFailure, ::handleAddStaff)
+        }
+    }
+
+    private fun handleAddStaff(data: AddStaffData) {
+        viewModelScope.launch {
+            _addStaff.send(data)
+        }
+    }
+
 
 
 }

@@ -54,10 +54,8 @@ class CustomSpinner : AppCompatSpinner {
     /**
      * Register the listener which will listen for events.
      */
-    fun setSpinnerEventsListener(
-        onSpinnerEventsListener: OnSpinnerEventsListener?
-    ) {
-        mListener = onSpinnerEventsListener
+    fun setSpinnerEventsListener() {
+//        mListener = onSpinnerEventsListener
     }
 
     /**
