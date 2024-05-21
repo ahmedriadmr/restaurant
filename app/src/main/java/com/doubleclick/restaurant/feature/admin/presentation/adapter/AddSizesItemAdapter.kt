@@ -10,7 +10,7 @@ import com.doubleclick.restaurant.feature.admin.data.addProduct.request.Size
 
 
 class AddSizesItemAdapter: RecyclerView.Adapter<AddSizesItemAdapter.ViewHolder>() {
-    private val items = mutableListOf<Size>()
+    private val items = mutableListOf(Size())
     internal var clickListener: (List<Size>) -> Unit = { _ -> }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(LayoutItemSizeBinding.inflate(LayoutInflater.from(parent.context), parent, false))

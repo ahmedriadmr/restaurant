@@ -45,6 +45,13 @@ class AddProductFragment : BaseFragment(R.layout.fragment_add_product) {
             failure(failure, ::handleFailure)
             getCategories()
         }
+        binding.llCategory.setOnClickListener {
+            if(binding.categories.visibility == View.VISIBLE){
+                binding.categories.visibility = View.GONE
+            } else {
+                binding.categories.visibility = View.VISIBLE
+            }
+        }
 
         binding.addMore.setOnClickListener {
             // For example, add a new size with default values or from input fields
