@@ -1,6 +1,8 @@
 package com.doubleclick.restaurant.feature.admin
 
 import com.doubleclick.restaurant.core.functional.DataWrapper
+import com.doubleclick.restaurant.feature.admin.data.addProduct.request.AddProductRequest
+import com.doubleclick.restaurant.feature.admin.data.addProduct.response.AddProductResponse
 import com.doubleclick.restaurant.feature.admin.data.addStaff.request.AddStaffRequest
 import com.doubleclick.restaurant.feature.admin.data.addStaff.response.AddStaffData
 import com.doubleclick.restaurant.feature.admin.data.listItems.ItemsData
@@ -26,4 +28,7 @@ interface AdminApi {
 
     @POST(USERS)
     suspend fun addStaff(@Body request: AddStaffRequest) : Response<DataWrapper<AddStaffData>>
+
+    @POST(ITEMS)
+    suspend fun addProduct(@Body request: AddProductRequest) : Response<AddProductResponse>
 }

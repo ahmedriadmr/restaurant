@@ -1,91 +1,88 @@
 package com.doubleclick.restaurant.presentation.ui.admin.ui
 
-import android.net.Uri
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import androidx.core.view.isVisible
-import androidx.fragment.app.Fragment
-import com.doubleclick.domain.model.category.get.Category
-import com.doubleclick.domain.model.sizes.Sizes
-import com.doubleclick.restaurant.adapter.AddSizesItemAdapter
+import android.widget.Toast
+import androidx.fragment.app.viewModels
+import com.doubleclick.restaurant.R
+import com.doubleclick.restaurant.core.extension.failure
+import com.doubleclick.restaurant.core.extension.loading
+import com.doubleclick.restaurant.core.extension.observe
+import com.doubleclick.restaurant.core.extension.viewBinding
+import com.doubleclick.restaurant.core.functional.Either
+import com.doubleclick.restaurant.core.functional.ProgressHandler
+import com.doubleclick.restaurant.core.platform.BaseFragment
 import com.doubleclick.restaurant.databinding.FragmentAddProductBinding
-import com.doubleclick.restaurant.swipetoactionlayout.utils.collapse
-import com.doubleclick.restaurant.swipetoactionlayout.utils.expand
-import com.doubleclick.restaurant.utils.UploadRequestBody
+import com.doubleclick.restaurant.feature.admin.AdminViewModel
+import com.doubleclick.restaurant.feature.admin.data.addProduct.request.AddProductRequest
+import com.doubleclick.restaurant.feature.admin.data.addProduct.request.Size
+import com.doubleclick.restaurant.feature.admin.data.addProduct.response.AddProductResponse
+import com.doubleclick.restaurant.feature.admin.presentation.adapter.AddSizesItemAdapter
+import com.doubleclick.restaurant.feature.admin.presentation.adapter.SelectCategoryItemAdapter
+import com.doubleclick.restaurant.feature.home.data.Categories.Categories
 import dagger.hilt.android.AndroidEntryPoint
 
-
-private const val TAG = "AddProductFragment"
-
 @AndroidEntryPoint
-class AddProductFragment : Fragment() {
+class AddProductFragment : BaseFragment(R.layout.fragment_add_product) {
+    private val binding by viewBinding(FragmentAddProductBinding::bind)
+    private val viewModel: AdminViewModel by viewModels()
+    private val adapter = AddSizesItemAdapter()
+    private val categoriesListAdapter = SelectCategoryItemAdapter()
+    private var categoryId : String = ""
+    private var allSizes : List<Size> = emptyList()
+    private var isVip : Int = 0
 
-    private lateinit var binding: FragmentAddProductBinding
-    private lateinit var body: UploadRequestBody
-    private var uri: Uri? = null;
-    private lateinit var addSizesItemAdapter: AddSizesItemAdapter
-    private val list: MutableList<Sizes> = mutableListOf()
-    private val categorySelect: MutableList<Category> = mutableListOf()
-
-
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-
-        }
-    }
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        // Inflate the layout for this fragment
-        binding = FragmentAddProductBinding.inflate(inflater, container, false)
-        return binding.root
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        init()
-        onClick()
+        binding.rvSizes.adapter = adapter
+        binding.categories.adapter = categoriesListAdapter
 
-    }
-
-    private fun init() {
-        addSizesItemAdapter = AddSizesItemAdapter(list)
-        binding.rvSizes.adapter = addSizesItemAdapter
-    }
-
-
-
-    private fun onClick() {
-        binding.upload.setOnClickListener {
+        with(viewModel) {
+            observe(listCategories) { categories -> renderListCategories(categories){categoriesListAdapter.submitList(null)}}
+            observe(addProduct, ::renderAddProduct)
+            loading(loading, ::renderLoading)
+            failure(failure, ::handleFailure)
+            getCategories()
         }
-        binding.selectImage.setOnClickListener {
-        }
-        binding.selectCatecory.setOnClickListener {
-            if (binding.categories.isVisible) {
-                collapse(binding.categories)
-            } else {
-                expand(binding.categories)
-            }
-        }
-        binding.addCategory.setOnClickListener {
-        }
+
         binding.addMore.setOnClickListener {
+            // For example, add a new size with default values or from input fields
+            adapter.addItem(Size("", ""))
         }
-        addSizesItemAdapter.onItemClick {
-            addSizesItemAdapter.notifyItemRemoved(it)
-            list.removeAt(it)
+        categoriesListAdapter.clickListenerChooseCategory = { id ->
+            categoryId = id
+        }
+
+        adapter.clickListener = { sizes ->
+            allSizes = sizes
+        }
+        binding.isVip.setOnCheckedChangeListener { _, isChecked ->
+            isVip = if (isChecked) 1 else 0
+        }
+        binding.upload.setOnClickListener {
+            viewModel.addProduct(AddProductRequest(categoryId.toInt(),binding.description.text.toString(),binding.name.text.toString(),allSizes,isVip))
+        }
+
+    }
+    private fun renderListCategories(categories: List<Categories>, refreshData: (() -> Unit)?) {
+        when {
+            categories.isEmpty() -> refreshData?.invoke()
+            else -> categoriesListAdapter.submitList(categories)
         }
     }
 
+    private fun renderAddProduct(data: AddProductResponse) {
+        Toast.makeText(requireContext(), "Product Added Successfully", Toast.LENGTH_SHORT).show()
+    }
 
-
-
+    private fun renderLoading(loading: Either.Loading) {
+        ProgressHandler.handleProgress(loading.isLoading, requireContext())
+    }
 
 
 }
+
+
+
+

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/white"
     android:orientation="vertical"
     android:paddingHorizontal="10dp"
@@ -38,7 +38,8 @@
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:fillViewport="true">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -67,6 +68,7 @@
                     android:background="@drawable/bg_et"
                     android:hint="@string/enter_product_name"
                     android:paddingHorizontal="10dp"
+                    android:textColor="@color/black"
                     android:textColorHint="@color/gray" />
 
             </LinearLayout>
@@ -86,13 +88,14 @@
 
 
                 <EditText
-                    android:id="@+id/discription"
+                    android:id="@+id/description"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_marginTop="5dp"
                     android:background="@drawable/bg_et"
                     android:hint="@string/enter_product_name"
                     android:paddingHorizontal="10dp"
+                    android:textColor="@color/black"
                     android:textColorHint="@color/gray" />
 
             </LinearLayout>
@@ -144,8 +147,8 @@
                     android:id="@+id/categories"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:nestedScrollingEnabled="false"
                     android:orientation="vertical"
-                    android:visibility="gone"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     tools:itemCount="3"
                     tools:listitem="@layout/layout_item_select_box"
@@ -190,6 +193,7 @@
                 android:id="@+id/rv_sizes"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="false"
                 android:orientation="vertical"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 tools:itemCount="2"
@@ -223,6 +227,7 @@
 
 
             </LinearLayout>
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -236,13 +241,13 @@
                 android:layout_height="wrap_content" />
 
             <TextView
-                android:layout_marginVertical="10dp"
-                android:gravity="center"
                 android:id="@+id/upload"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_gravity="center"
+                android:layout_marginVertical="10dp"
                 android:background="@drawable/bg_ripple"
+                android:gravity="center"
                 android:text="@string/create_product"
                 android:textColor="@color/white" />
 

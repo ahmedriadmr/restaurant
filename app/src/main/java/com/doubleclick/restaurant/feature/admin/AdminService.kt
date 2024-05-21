@@ -1,5 +1,6 @@
 package com.doubleclick.restaurant.feature.admin
 
+import com.doubleclick.restaurant.feature.admin.data.addProduct.request.AddProductRequest
 import com.doubleclick.restaurant.feature.admin.data.addStaff.request.AddStaffRequest
 import retrofit2.Retrofit
 import javax.inject.Inject
@@ -14,5 +15,6 @@ class AdminService @Inject constructor(retrofit: Retrofit) : AdminApi {
 
     override suspend fun getUsers() = adminApi.getUsers()
     override suspend fun addStaff(request: AddStaffRequest) =adminApi.addStaff(request)
+    override suspend fun addProduct(request: AddProductRequest) = adminApi.addProduct(request)
 
 }
