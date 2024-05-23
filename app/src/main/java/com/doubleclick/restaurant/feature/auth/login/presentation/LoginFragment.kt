@@ -1,10 +1,12 @@
 package com.doubleclick.restaurant.feature.auth.login.presentation
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.doubleclick.restaurant.R
 import com.doubleclick.restaurant.core.extension.failure
@@ -17,7 +19,10 @@ import com.doubleclick.restaurant.core.platform.BaseFragment
 import com.doubleclick.restaurant.databinding.FragmentLoginBinding
 import com.doubleclick.restaurant.feature.auth.AuthViewModel
 import com.doubleclick.restaurant.feature.auth.login.data.responseNew.NewUser
+import com.doubleclick.restaurant.feature.chef.presentation.ChefActivity
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.firstOrNull
+import kotlinx.coroutines.launch
 
 
 @AndroidEntryPoint
@@ -64,14 +69,14 @@ class LoginFragment : BaseFragment(R.layout.fragment_login) {
 
     private fun handleLogin(data: NewUser) {
         Toast.makeText(requireContext(), "You Logged In Successfully ${data.first_name}", Toast.LENGTH_SHORT).show()
-        navigator.showHome(requireContext())
-//        viewLifecycleOwner.lifecycleScope.launch {
-//            if(viewModel.appSettingsSource.user().firstOrNull()?.role == "chief"){
-//                startActivity(Intent(requireContext(), ChefActivity::class.java))
-//            } else {
-//                navigator.showHome(requireContext())
-//            }
-//        }
+//        navigator.showHome(requireContext())
+        viewLifecycleOwner.lifecycleScope.launch {
+            if(viewModel.appSettingsSource.user().firstOrNull()?.role == "chief"){
+                startActivity(Intent(requireContext(), ChefActivity::class.java))
+            } else {
+                navigator.showHome(requireContext())
+            }
+        }
 
     }
 
