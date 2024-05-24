@@ -106,6 +106,8 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
                 dishesListAdapter.submitList(nonVipItems)
             } else if (appSettingsSource.user().firstOrNull()?.role == "waiter"){
                 dishesListAdapter.submitList(items)
+            } else {
+                dishesListAdapter.submitList(nonVipItems)
             }
         }
 

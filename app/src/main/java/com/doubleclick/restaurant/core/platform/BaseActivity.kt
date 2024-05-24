@@ -2,6 +2,9 @@ package com.doubleclick.restaurant.core.platform
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.NavController
+import androidx.navigation.findNavController
+import com.doubleclick.restaurant.R
 import com.doubleclick.restaurant.core.extension.observeOrNull
 import com.doubleclick.restaurant.core.platform.local.AppSettingsSource
 import com.doubleclick.restaurant.core.platform.local.UserAccess
@@ -13,9 +16,18 @@ abstract class BaseActivity : AppCompatActivity() {
 
     @Inject
     lateinit var appSettingsSource: AppSettingsSource
+
+    // NavController reference
+    private lateinit var navController: NavController
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         observeOrNull(appSettingsSource.user(), ::renderAuthenticating)
+    }
+
+    override fun onPostCreate(savedInstanceState: Bundle?) {
+        super.onPostCreate(savedInstanceState)
+        navController = findNavController(R.id.home_fragment)
     }
 
     open fun renderAuthenticating(user: UserAccess?) {
@@ -29,7 +41,8 @@ abstract class BaseActivity : AppCompatActivity() {
                     navigator.showAuth(this@BaseActivity)
                 },
                 onCancelClicked = {
-                    finish() // Finish the activity
+                    // Navigate to homeFragment instead of finishing activity
+                    navController.navigate(R.id.homeFragment)
                 }
             )
         }
