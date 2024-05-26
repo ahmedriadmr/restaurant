@@ -54,7 +54,7 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
         binding.rvCategory.adapter = categoriesListAdapter
         binding.rvDishes.adapter = dishesListAdapter
 
-        categoriesListAdapter.clickShowCategory = { items ->
+        categoriesListAdapter.onCategoryClick = { items ->
             // Render the list of items when a category is clicked
             renderListDishes(items)
         }

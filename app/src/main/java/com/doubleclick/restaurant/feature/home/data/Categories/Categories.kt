@@ -13,5 +13,6 @@ data class Categories(
     val name: String,
     val status: String,
     val updated_at: String,
-    var isSelected: Boolean
+    var isSelected: Boolean,
+    var isClicked: Boolean
 ) : Parcelable
