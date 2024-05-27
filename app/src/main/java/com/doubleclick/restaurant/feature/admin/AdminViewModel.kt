@@ -16,7 +16,9 @@ import com.doubleclick.restaurant.feature.admin.domain.AddStaffUseCase
 import com.doubleclick.restaurant.feature.admin.domain.GetItemsUseCase
 import com.doubleclick.restaurant.feature.admin.domain.GetUsersUseCase
 import com.doubleclick.restaurant.feature.home.data.Categories.Categories
+import com.doubleclick.restaurant.feature.home.data.LogoutResponse
 import com.doubleclick.restaurant.feature.home.domain.CategoriesUseCase
+import com.doubleclick.restaurant.feature.home.domain.LogOutUseCase
 import com.doubleclick.restaurant.feature.home.presentation.HomeViewModel
 import com.google.android.gms.tasks.Task
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -39,6 +41,7 @@ class AdminViewModel @Inject constructor(
     val addStaffUseCase: AddStaffUseCase,
     val addProductUseCase: AddProductUseCase,
     val getCategoriesUseCase: CategoriesUseCase,
+    private val logoutUseCase: LogOutUseCase,
     val appSettingsSource: AppSettingsSource,
     val token: Task<String>
 ) :
@@ -143,6 +146,19 @@ class AdminViewModel @Inject constructor(
             savedStateHandle[HomeViewModel.newCategoriesKey] = this
             _listCategories.value = this
         }
+    }
+
+    private val _logout: Channel<LogoutResponse> = Channel()
+    val logout: Flow<LogoutResponse> = _logout.receiveAsFlow()
+
+    fun doLogout() {
+        logoutUseCase(
+            UseCase.None(), viewModelScope, this
+        ) { it.fold(::handleFailure, ::handleLogout) }
+    }
+
+    private fun handleLogout(data: LogoutResponse) {
+        viewModelScope.launch { _logout.send(data) }
     }
 
 }

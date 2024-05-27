@@ -20,7 +20,7 @@
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.doubleclick.restaurant.presentation.ui.admin.ui.ProfileFragment"
+        android:name="com.doubleclick.restaurant.feature.admin.presentation.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
     <fragment
