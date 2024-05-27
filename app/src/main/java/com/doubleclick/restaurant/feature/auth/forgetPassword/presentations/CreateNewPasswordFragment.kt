@@ -39,9 +39,19 @@ class CreateNewPasswordFragment : BaseFragment(R.layout.fragment_create_new_pass
         }
         binding.password.doOnTextChanged { _, _, _, _ ->
             checkEnableButton()
+            if (binding.password.text?.length!! < 8) {
+                binding.password.error = "min length must be 8"
+            } else {
+                binding.password.error = null
+            }
         }
         binding.confirmPassword.doOnTextChanged { _, _, _, _ ->
             checkEnableButton()
+            if (binding.confirmPassword.text?.length!! < 8) {
+                binding.confirmPassword.error = "min length must be 8"
+            } else {
+                binding.confirmPassword.error = null
+            }
         }
 
     }
@@ -53,9 +63,9 @@ class CreateNewPasswordFragment : BaseFragment(R.layout.fragment_create_new_pass
         binding.resetPassword.isEnabled = isEnabled
     }
     private fun checkEnableButton() {
-        val password = binding.password.text.isNullOrBlank()
-        val confirmPassword = binding.confirmPassword.text.isNullOrBlank()
-        sendButton(!password && !confirmPassword )
+        val password = binding.password.text.length >= 8
+        val confirmPassword = binding.confirmPassword.text.length >= 8
+        sendButton(password && confirmPassword )
     }
     private fun renderLoading(loading: Either.Loading) {
         ProgressHandler.handleProgress(loading.isLoading, requireContext())
