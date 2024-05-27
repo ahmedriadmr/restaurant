@@ -38,7 +38,7 @@
             android:exported="false"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.MaterialComponents.NoActionBar"
-            android:windowSoftInputMode="adjustPan">
+            android:windowSoftInputMode="adjustResize">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
