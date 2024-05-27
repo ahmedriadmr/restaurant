@@ -8,6 +8,7 @@ import com.doubleclick.restaurant.R
 import com.doubleclick.restaurant.core.platform.Navigator
 import com.doubleclick.restaurant.core.platform.local.AppSettingsSource
 import com.doubleclick.restaurant.feature.chef.presentation.ChefActivity
+import com.doubleclick.restaurant.presentation.ui.admin.AdminActivity
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.firstOrNull
@@ -26,13 +27,13 @@ class SplashActivity : AppCompatActivity() {
         resetUser()
         lifecycleScope.launch {
             delay(2000)
-//            navigator.showMain(this@SplashActivity)
-//            startActivity(Intent(this@SplashActivity, AdminActivity::class.java))
-            if(appSettingsSource.user().firstOrNull()?.role == "chief"){
-                startActivity(Intent(this@SplashActivity, ChefActivity::class.java))
-            } else {
-                navigator.showMain(this@SplashActivity)
+
+            when (appSettingsSource.user().firstOrNull()?.role) {
+                "chief" -> startActivity(Intent(this@SplashActivity, ChefActivity::class.java))
+                "admin" -> startActivity(Intent(this@SplashActivity, AdminActivity::class.java))
+                else -> navigator.showMain(this@SplashActivity)
             }
+
         }
     }
 

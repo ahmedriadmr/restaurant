@@ -20,6 +20,7 @@ import com.doubleclick.restaurant.databinding.FragmentLoginBinding
 import com.doubleclick.restaurant.feature.auth.AuthViewModel
 import com.doubleclick.restaurant.feature.auth.login.data.responseNew.NewUser
 import com.doubleclick.restaurant.feature.chef.presentation.ChefActivity
+import com.doubleclick.restaurant.presentation.ui.admin.AdminActivity
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.firstOrNull
 import kotlinx.coroutines.launch
@@ -69,12 +70,11 @@ class LoginFragment : BaseFragment(R.layout.fragment_login) {
 
     private fun handleLogin(data: NewUser) {
         Toast.makeText(requireContext(), "You Logged In Successfully ${data.first_name}", Toast.LENGTH_SHORT).show()
-//        navigator.showHome(requireContext())
         viewLifecycleOwner.lifecycleScope.launch {
-            if(viewModel.appSettingsSource.user().firstOrNull()?.role == "chief"){
-                startActivity(Intent(requireContext(), ChefActivity::class.java))
-            } else {
-                navigator.showHome(requireContext())
+            when (viewModel.appSettingsSource.user().firstOrNull()?.role) {
+                "chief" -> startActivity(Intent(requireContext(), ChefActivity::class.java))
+                "admin" -> startActivity(Intent(requireContext(), AdminActivity::class.java))
+                else -> navigator.showMain(requireContext())
             }
         }
 
