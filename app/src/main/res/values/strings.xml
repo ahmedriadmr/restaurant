@@ -383,6 +383,8 @@
     <string name="are_you_sure_you_want_to_cancel_this_order">Are you sure you want to Cancel this Order?</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
+    <string name="successfully_you_will_receive_your_order_soon">Successfully! You will Receive \n your order soon</string>
+    <string name="home_page">Home Page</string>
 
 
     <string-array name="sizes">

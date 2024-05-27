@@ -1,8 +1,10 @@
 package com.doubleclick.restaurant.feature.home.presentation
 
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
+import android.widget.TextView
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -16,6 +18,7 @@ import com.doubleclick.restaurant.core.functional.Either
 import com.doubleclick.restaurant.core.functional.ProgressHandler
 import com.doubleclick.restaurant.core.platform.BaseFragment
 import com.doubleclick.restaurant.databinding.FragmentCheckoutBinding
+import com.doubleclick.restaurant.dialog.dialog.AlertDoneDialog
 import com.doubleclick.restaurant.feature.home.data.listCart.CartData
 import com.doubleclick.restaurant.feature.home.data.makeOrder.request.MakeOrderRequest
 import com.doubleclick.restaurant.feature.home.data.makeOrder.response.MakeOrderResponse
@@ -157,7 +160,19 @@ class CheckoutFragment : BaseFragment(R.layout.fragment_checkout) {
     }
 
     private fun renderMakeOrder( data: MakeOrderResponse) {
-        Toast.makeText(requireContext(), data.message, Toast.LENGTH_SHORT).show()
+//        Toast.makeText(requireContext(), data.message, Toast.LENGTH_SHORT).show()
+        val dialog = AlertDoneDialog(requireActivity())
+        dialog.show()
+        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        dialog.findViewById<TextView>(R.id.your_order)?.setOnClickListener {
+            findNavController().navigate(CheckoutFragmentDirections.actionCheckoutFragmentToMyOrdersFragment())
+            dialog.dismiss()
+        }
+
+        dialog.findViewById<TextView>(R.id.home)?.setOnClickListener {
+            findNavController().navigate(R.id.homeFragment)
+            dialog.dismiss()
+        }
     }
     private fun renderLoading(loading: Either.Loading) {
         ProgressHandler.handleProgress(loading.isLoading, requireContext())

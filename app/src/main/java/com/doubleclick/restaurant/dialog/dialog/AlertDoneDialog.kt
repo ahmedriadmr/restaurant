@@ -1,32 +1,33 @@
-package com.doubleclick.restaurant.utils.dialog
+package com.doubleclick.restaurant.dialog.dialog
 
 import android.app.Dialog
 import android.content.Context
 import android.os.Bundle
-import com.doubleclick.domain.ts.OnClickAlert
-
+import android.widget.TextView
 import com.doubleclick.restaurant.R
 import com.doubleclick.restaurant.databinding.LayoutDialogAlertDoneBinding
 
-class AlertDoneDialog(context: Context, val onClickAlert: OnClickAlert) :
-    Dialog(context, R.style.CustomAlertDialog) {
+class AlertDoneDialog(context: Context) : Dialog(context) {
 
     private lateinit var binding: LayoutDialogAlertDoneBinding
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = LayoutDialogAlertDoneBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-
-        binding.cancel.setOnClickListener {
-            onClickAlert.onClickOk()
-            dismiss()
-        }
-
+        setupClickListeners()
 
     }
 
+    private fun setupClickListeners() {
+        // TODO: Add any necessary click listeners here
+        val yourOrder: TextView = findViewById(R.id.your_order)
+        yourOrder.setOnClickListener {
+            dismiss()
+        }
 
+        val home: TextView = findViewById(R.id.home)
+        home.setOnClickListener {
+            dismiss()
+        }
+    }
 }
