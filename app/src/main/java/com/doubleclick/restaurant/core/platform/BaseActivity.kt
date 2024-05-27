@@ -27,8 +27,15 @@ abstract class BaseActivity : AppCompatActivity() {
 
     override fun onPostCreate(savedInstanceState: Bundle?) {
         super.onPostCreate(savedInstanceState)
-        navController = findNavController(R.id.home_fragment)
+        // Check if the current activity has a navController for the given ID
+        try {
+            navController = findNavController(R.id.home_fragment)
+        } catch (e: IllegalArgumentException) {
+            // Handle the absence of the navController gracefully
+            // For example, log the error or handle it in a way specific to ChefActivity
+        }
     }
+
 
     open fun renderAuthenticating(user: UserAccess?) {
         if (!isFinishing && user == null) {
