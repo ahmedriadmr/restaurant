@@ -68,7 +68,6 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
         }
 
         binding.seeAll.setOnClickListener {
-            val layoutManager = binding.rvCategory.layoutManager as LinearLayoutManager
             if (isCategoryExpanded) {
                 // Change orientation to vertical and span count to 1
                 val linearLayoutManager = LinearLayoutManager(requireContext())
@@ -86,11 +85,20 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
                 isCategoryExpanded = true
             }
         }
+
+        // Set up SwipeRefreshLayout
+        binding.swipeRefreshLayout.setOnRefreshListener {
+            viewModel.getCategories() // Refresh the categories list
+            binding.swipeRefreshLayout.isRefreshing = true
+        }
+
+
     }
 
 
 
     private fun renderListCategories(categories: List<Categories>, refreshData: (() -> Unit)?) {
+        binding.swipeRefreshLayout.isRefreshing = false
         when {
             categories.isEmpty() -> refreshData?.invoke()
             else -> categoriesListAdapter.submitList(categories)
@@ -113,7 +121,15 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
 
     }
 
+    override fun renderFailure(message: String?) {
+        super.renderFailure(message)
+        binding.swipeRefreshLayout.isRefreshing = false
+    }
 
+    override fun renderFeatureFailure(message: String?) {
+        super.renderFeatureFailure(message)
+        binding.swipeRefreshLayout.isRefreshing = false
+    }
 
     private fun renderLoading(loading: Either.Loading) {
         ProgressHandler.handleProgress(loading.isLoading, requireContext())
