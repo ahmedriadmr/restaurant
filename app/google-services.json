@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "337958910840",
-    "project_id": "rovle-coffee",
-    "storage_bucket": "rovle-coffee.appspot.com"
+    "project_number": "169464940337",
+    "project_id": "restaurant-spain",
+    "storage_bucket": "restaurant-spain.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:337958910840:android:070f076ba91c8c9d6b668d",
+        "mobilesdk_app_id": "1:169464940337:android:04535101cce927eaec5210",
         "android_client_info": {
           "package_name": "com.doubleclick.restaurant"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyAHmcnYbkYFSe_KbMOj0ZIPM_uXXT5g9uI"
+          "current_key": "AIzaSyBgdEVQY5SpfDLflsC2O4D90hRk8g2iqPI"
         }
       ],
       "services": {
