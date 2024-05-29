@@ -46,6 +46,9 @@ class AdminActivity : AppCompatActivity() {
         val popupMenu = PopupMenu(this@AdminActivity, binding.root)
         popupMenu.inflate(R.menu.admin_nav_menu)
         val menu: Menu = popupMenu.menu
+        // Remove adminHomeFragment and profileFragment programmatically
+        menu.removeItem(R.id.adminHomeFragment)
+        menu.removeItem(R.id.profileFragment)
         binding.bottomBar.setupWithNavController(menu, navController)
     }
 }
