@@ -11,6 +11,8 @@ import com.doubleclick.restaurant.R
 import com.doubleclick.restaurant.feature.chef.domain.model.Data
 import com.doubleclick.restaurant.utils.collapse
 import com.doubleclick.restaurant.utils.expand
+import java.text.SimpleDateFormat
+import java.util.Locale
 
 class HistoryOderChefAdapter(private val data: List<Data>) :
     RecyclerView.Adapter<HistoryOderChefAdapter.HistoryOrderChefViewHolder>() {
@@ -35,7 +37,7 @@ class HistoryOderChefAdapter(private val data: List<Data>) :
             append(data[holder.bindingAdapterPosition].id)
         }
         holder.time.text = buildString {
-            append(data[holder.bindingAdapterPosition].created_at)
+            append(convertDateFormat(data[holder.bindingAdapterPosition].created_at))
         }
         holder.status.text = buildString {
             append(data[holder.bindingAdapterPosition].status)
@@ -50,7 +52,13 @@ class HistoryOderChefAdapter(private val data: List<Data>) :
         holder.rv_items.adapter = ItemsChefAdapter(data[holder.bindingAdapterPosition].items)
 
     }
-
+    // Function to convert timestamp to desired format
+    private fun convertDateFormat(originalDate: String): String {
+        val originalFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSSSS'Z'", Locale.US)
+        val targetFormat = SimpleDateFormat("EEE MMM dd yyyy", Locale.US)
+        val date = originalFormat.parse(originalDate)
+        return targetFormat.format(date)
+    }
     inner class HistoryOrderChefViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val table_number: TextView = itemView.findViewById(R.id.table_number)
         val order_number: TextView = itemView.findViewById(R.id.order_number)
