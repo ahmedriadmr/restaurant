@@ -12,7 +12,7 @@ import android.os.Looper
 import android.util.Log
 import androidx.core.app.NotificationCompat
 import com.doubleclick.restaurant.R
-import com.doubleclick.restaurant.dialog.dialog.AlertDoneDialog
+import com.doubleclick.restaurant.dialog.dialog.AlertDialogReceiveOrderDone
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
 import org.json.JSONObject
@@ -55,8 +55,12 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
 
 
     private fun sendNotification(body: JSONObject) {
-        val intent = Intent(this, AlertDoneDialog::class.java)
-        intent.putExtra("FCM_MESSAGE_TEST", body.optString("id"))
+        val id = body.optString("id")
+        val tableNumber = body.optString("table_number")
+        val status = body.optString("status")
+
+        val intent = Intent(this, AlertDialogReceiveOrderDone::class.java)
+        intent.putExtra("FCM_MESSAGE_TEST", body.optString("table_number"))
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         val requestCode = 0
@@ -71,13 +75,14 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
         Handler(Looper.getMainLooper()).post {
             startActivity(intent)
         }
+        val notificationText = "Order No. $id on table $tableNumber is $status"
 
         val channelId = "fcm_default_channel"
         val defaultSoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
         val notificationBuilder = NotificationCompat.Builder(this, channelId)
             .setSmallIcon(R.drawable.image)
             .setContentTitle(body.optString("order_type"))
-            .setContentText(body.optString("status"))
+            .setContentText(notificationText)
             .setAutoCancel(true)
             .setSound(defaultSoundUri)
             .setContentIntent(pendingIntent)

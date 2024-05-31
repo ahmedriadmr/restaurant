@@ -53,14 +53,14 @@
                 android:value="" />
         </activity>
 
-<!--        <activity-->
-<!--            android:name=".dialog.dialog.AlertDoneDialog"-->
-<!--            android:theme="@style/Theme.AppCompat.Dialog"-->
-<!--            android:exported="false"-->
-<!--            android:screenOrientation="portrait"-->
-<!--            android:windowSoftInputMode="adjustResize">-->
+        <activity
+            android:name=".dialog.dialog.AlertDialogReceiveOrderDone"
+            android:theme="@style/AlertDialogTheme"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize">
 
-<!--        </activity>-->
+        </activity>
         <!--
 
              To get one, follow the directions here:

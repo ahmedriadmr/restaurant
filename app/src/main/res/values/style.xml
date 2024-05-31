@@ -4,5 +4,9 @@
     <style name="superBottomSheetDialog" parent="Theme.Design.Light.BottomSheetDialog">
         <item name="android:windowIsFloating">false</item>
     </style>
-
+    <!-- Custom theme for AlertDialog without title bar -->
+    <style name="AlertDialogTheme" parent="Theme.AppCompat.Light.Dialog">
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+    </style>
 </resources>
