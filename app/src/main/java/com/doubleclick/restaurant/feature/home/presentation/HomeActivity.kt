@@ -5,14 +5,15 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.widget.PopupMenu
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
 import com.doubleclick.restaurant.R
-import com.doubleclick.restaurant.databinding.ActivityHomeBinding
 import com.doubleclick.restaurant.core.platform.BaseActivity
+import com.doubleclick.restaurant.databinding.ActivityHomeBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -42,6 +43,8 @@ class HomeActivity : BaseActivity() {
             appBarConfiguration
         );
         setupSmoothBottomMenu()
+            intent.extras?.getString("FCM_MESSAGE_TEST","TEST_DEFAULT")?.let { message -> Toast.makeText(this, message, Toast.LENGTH_SHORT).show()}
+
     }
 
     private fun setupSmoothBottomMenu() {

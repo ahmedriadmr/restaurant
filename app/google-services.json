@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "169464940337",
-    "project_id": "restaurant-spain",
-    "storage_bucket": "restaurant-spain.appspot.com"
+    "project_number": "710236497487",
+    "project_id": "restaurant-45753",
+    "storage_bucket": "restaurant-45753.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:169464940337:android:04535101cce927eaec5210",
+        "mobilesdk_app_id": "1:710236497487:android:f657d719702144ebe92c3a",
         "android_client_info": {
           "package_name": "com.doubleclick.restaurant"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyBgdEVQY5SpfDLflsC2O4D90hRk8g2iqPI"
+          "current_key": "AIzaSyBeyBQmyFG8yJ-Ggx92U9dhPIPgkY_QCNs"
         }
       ],
       "services": {
