@@ -13,7 +13,7 @@ data class SearchOrdersData(
     val phone: String?,
     val status: String,
     val table_number: Int,
-    val total: Int,
+    val total: Double,
     val updated_at: String,
     val user: User,
     val user_id: Int,

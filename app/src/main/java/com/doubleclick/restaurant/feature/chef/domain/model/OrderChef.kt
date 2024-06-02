@@ -17,7 +17,7 @@ data class Data(
     val order_type: String,
     val status: String,
     val table_number: Int?,
-    val total: Int,
+    val total: Double,
     val user: User,
     val user_id: Int,
     val created_at: String,
@@ -31,8 +31,8 @@ data class Item(
     val number: Int,
     val order_id: Int,
     val size_name: String,
-    val size_price: Int,
-    val total: Int,
+    val size_price: Double,
+    val total: Double,
     val item: ItemDish,
     val user_id: Int
 ) : Parcelable

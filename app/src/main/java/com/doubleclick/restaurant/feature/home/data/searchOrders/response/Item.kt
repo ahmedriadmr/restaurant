@@ -12,8 +12,8 @@ data class Item(
     val number: Int,
     val order_id: Int,
     val size_name: String,
-    val size_price: Int,
-    val total: Int,
+    val size_price: Double,
+    val total: Double,
     val updated_at: String,
     val user_id: Int
 ) : Parcelable
