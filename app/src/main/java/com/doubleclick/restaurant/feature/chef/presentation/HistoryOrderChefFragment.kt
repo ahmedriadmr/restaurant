@@ -14,7 +14,6 @@ import com.doubleclick.restaurant.feature.chef.domain.model.Data
 import com.doubleclick.restaurant.feature.chef.domain.model.OrderState
 import com.doubleclick.restaurant.feature.chef.domain.model.Status
 import com.doubleclick.restaurant.feature.chef.presentation.adapter.HistoryOderChefAdapter
-import com.doubleclick.restaurant.feature.chef.presentation.adapter.OrderChefAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -44,6 +43,10 @@ class HistoryOrderChefFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         load()
+        binding.swipeRefreshLayout.setOnRefreshListener {
+            load()
+            binding.swipeRefreshLayout.isRefreshing = true
+        }
     }
 
 
@@ -56,10 +59,12 @@ class HistoryOrderChefFragment : Fragment() {
     private fun success(data: List<Data>) {
         Log.d(TAG, "good: $data")
         binding.rvOrders.adapter = HistoryOderChefAdapter(data)
+        binding.swipeRefreshLayout.isRefreshing = false
     }
 
     private fun failure(failure: Failure) {
         Log.d(TAG, "failure: $failure")
+        binding.swipeRefreshLayout.isRefreshing = false
     }
 
 }

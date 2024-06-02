@@ -46,6 +46,10 @@ class ListOrderChefFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         getOrder()
+        binding.swipeRefreshLayout.setOnRefreshListener {
+            getOrder()
+            binding.swipeRefreshLayout.isRefreshing = true
+        }
     }
 
     private fun getOrder() = lifecycleScope.launch {
@@ -62,6 +66,7 @@ class ListOrderChefFragment : Fragment() {
 
     private fun finishSuccess(message: Message) {
         Toast.makeText(requireActivity(), message.message,Toast.LENGTH_SHORT).show()
+        getOrder()
     }
 
     private fun success(data: List<Data>) {
@@ -69,10 +74,12 @@ class ListOrderChefFragment : Fragment() {
         binding.rvOrders.adapter = OrderChefAdapter(data){
             finish(it)
         }
+        binding.swipeRefreshLayout.isRefreshing = false
     }
 
     private fun failure(failure: Failure) {
         Log.d(TAG, "failure: $failure")
+        binding.swipeRefreshLayout.isRefreshing = false
     }
 
 
