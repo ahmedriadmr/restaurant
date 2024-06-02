@@ -107,7 +107,14 @@ class SignUpFragment : BaseFragment(R.layout.fragment_sign_up) {
     }
 
     private fun handleSignUp(@Suppress("UNUSED_PARAMETER") data: SignedUpUser) {
-        viewModel.doLogin(binding.email.text.toString(), binding.password.text.toString())
+        lifecycleScope.launch {
+            viewModel.token().collect { token ->
+                viewModel.doLogin(
+                    binding.email.text.toString(), binding.password.text.toString(),
+                    token
+                )
+            }
+        }
 
     }
 

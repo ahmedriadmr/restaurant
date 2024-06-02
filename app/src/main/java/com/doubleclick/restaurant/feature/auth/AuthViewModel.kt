@@ -74,8 +74,9 @@ class AuthViewModel @Inject constructor(
     private val _login: Channel<NewUser> = Channel()
     val login: Flow<NewUser> = _login.receiveAsFlow()
 
-    fun doLogin(email: String, password: String) =
-        loginUseCase(LoginUseCase.Params(LoginRequest(email, password)), viewModelScope, this)
+    fun doLogin(email: String, password: String,
+                fcmToken: String) =
+        loginUseCase(LoginUseCase.Params(LoginRequest(email, password,fcmToken)), viewModelScope, this)
         { it.fold(::handleFailure, ::handleLoginResponse) }
 
     private fun handleLoginResponse(data: NewUser) {

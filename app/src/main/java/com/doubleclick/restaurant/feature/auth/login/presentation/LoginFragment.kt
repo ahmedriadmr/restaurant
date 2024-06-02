@@ -49,7 +49,7 @@ class LoginFragment : BaseFragment(R.layout.fragment_login) {
 
 
         binding.login.setOnClickListener {
-            viewModel.doLogin(binding.email.text.toString(), binding.password.text.toString())
+            login()
         }
         binding.goToSignUp.setOnClickListener {
             findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToSignUpFragment())
@@ -67,7 +67,14 @@ class LoginFragment : BaseFragment(R.layout.fragment_login) {
             }
         }
     }
-
+    private fun login() = lifecycleScope.launch {
+        viewModel.token().collect { token ->
+            viewModel.doLogin(
+                binding.email.text.toString(), binding.password.text.toString(),
+                token
+            )
+        }
+    }
     private fun handleLogin(data: NewUser) {
         Toast.makeText(requireContext(), "You Logged In Successfully ${data.first_name}", Toast.LENGTH_SHORT).show()
         viewLifecycleOwner.lifecycleScope.launch {
