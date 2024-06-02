@@ -86,9 +86,13 @@ class CartFragment : BaseFragment(R.layout.fragment_cart_new), OnClickAlert {
 
     private fun renderListCart(cart: List<CartData>, refreshData: (() -> Unit)?) {
         when {
-            cart.isEmpty() -> refreshData?.invoke()
+            cart.isEmpty() -> {
+                refreshData?.invoke()
+                binding.checkout.visibility = View.GONE
+            }
             else -> {
                 cartAdapter.submitList(cart)
+                binding.checkout.visibility = View.VISIBLE
             }
         }
 
