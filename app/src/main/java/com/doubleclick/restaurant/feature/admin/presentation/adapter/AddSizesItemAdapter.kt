@@ -10,14 +10,15 @@ import com.doubleclick.restaurant.feature.admin.data.addProduct.request.Size
 
 
 class AddSizesItemAdapter: RecyclerView.Adapter<AddSizesItemAdapter.ViewHolder>() {
-    private val items = mutableListOf(Size())
-    internal var clickListener: (List<Size>) -> Unit = { _ -> }
+    val items = mutableListOf(Size())
+    internal var clickListener: (List<Size>, Boolean) -> Unit = { _, _ -> }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(LayoutItemSizeBinding.inflate(LayoutInflater.from(parent.context), parent, false))
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(items[position],clickListener)
+        holder.bind(items[position], clickListener)
     }
 
     override fun getItemCount(): Int = items.size
@@ -25,7 +26,7 @@ class AddSizesItemAdapter: RecyclerView.Adapter<AddSizesItemAdapter.ViewHolder>(
     fun addItem(size: Size) {
         items.add(size)
         notifyItemInserted(items.size - 1)
-        clickListener(items) // Update the list whenever an item is added
+        checkIfAllSizesFilled()
     }
 
     fun removeItem(position: Int) {
@@ -33,12 +34,17 @@ class AddSizesItemAdapter: RecyclerView.Adapter<AddSizesItemAdapter.ViewHolder>(
             items.removeAt(position)
             notifyItemRemoved(position)
             notifyItemRangeChanged(position, items.size)
-            clickListener(items) // Update the list whenever an item is removed
+            checkIfAllSizesFilled()
         }
     }
-    inner class ViewHolder(private val binding: LayoutItemSizeBinding,) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(size: Size,clickListener: (List<Size>) -> Unit = { _ -> }) {
-            // Bind data to views
+
+    private fun checkIfAllSizesFilled() {
+        val allFilled = items.all { it.name.isNotEmpty() && it.price.isNotEmpty() }
+        clickListener(items, allFilled)
+    }
+
+    inner class ViewHolder(private val binding: LayoutItemSizeBinding) : RecyclerView.ViewHolder(binding.root) {
+        fun bind(size: Size, clickListener: (List<Size>, Boolean) -> Unit) {
             binding.sizeName.setText(size.name)
             binding.sizePrice.setText(size.price)
 
@@ -49,7 +55,7 @@ class AddSizesItemAdapter: RecyclerView.Adapter<AddSizesItemAdapter.ViewHolder>(
 
                 override fun afterTextChanged(s: Editable?) {
                     size.name = s.toString()
-                    clickListener(items) // Update the list whenever the name changes
+                    checkIfAllSizesFilled()
                 }
             })
 
@@ -60,11 +66,12 @@ class AddSizesItemAdapter: RecyclerView.Adapter<AddSizesItemAdapter.ViewHolder>(
 
                 override fun afterTextChanged(s: Editable?) {
                     size.price = s.toString()
-                    clickListener(items) // Update the list whenever the price changes
+                    checkIfAllSizesFilled()
                 }
             })
+
             binding.delete.setOnClickListener {
-                removeItem(position)
+                removeItem(adapterPosition)
             }
 
 

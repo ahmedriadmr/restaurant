@@ -247,7 +247,9 @@
                 android:layout_height="50dp"
                 android:layout_gravity="center"
                 android:layout_marginVertical="10dp"
-                android:background="@drawable/bg_ripple"
+                android:background="@drawable/bg_black_fill"
+                android:backgroundTint="@color/selection_color_button"
+                android:enabled="false"
                 android:gravity="center"
                 android:text="@string/create_product"
                 android:textColor="@color/white" />

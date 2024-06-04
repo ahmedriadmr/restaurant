@@ -3,6 +3,7 @@ package com.doubleclick.restaurant.presentation.ui.admin.ui
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.viewModels
 import com.doubleclick.restaurant.R
 import com.doubleclick.restaurant.core.extension.failure
@@ -28,10 +29,10 @@ class AddProductFragment : BaseFragment(R.layout.fragment_add_product) {
     private val viewModel: AdminViewModel by viewModels()
     private val adapter = AddSizesItemAdapter()
     private val categoriesListAdapter = SelectCategoryItemAdapter()
-    private var categoryId : String = ""
-    private var allSizes : List<Size> = emptyList()
-    private var isVip : Int = 0
-
+    private var categoryId: String = ""
+    private var isVip: Int = 0
+    private var isCategorySelected = false
+    private var addedSizes = false
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -39,44 +40,51 @@ class AddProductFragment : BaseFragment(R.layout.fragment_add_product) {
         binding.categories.adapter = categoriesListAdapter
 
         with(viewModel) {
-            observe(listCategories) { categories -> renderListCategories(categories){categoriesListAdapter.submitList(null)}}
+            observe(listCategories) { categories -> renderListCategories(categories) { categoriesListAdapter.submitList(null) } }
             observe(addProduct, ::renderAddProduct)
             loading(loading, ::renderLoading)
             failure(failure, ::handleFailure)
             getCategories()
         }
+
         binding.llCategory.setOnClickListener {
-            if(binding.categories.visibility == View.VISIBLE){
-                binding.categories.visibility = View.GONE
-            } else {
-                binding.categories.visibility = View.VISIBLE
-            }
+            binding.categories.visibility = if (binding.categories.visibility == View.VISIBLE) View.GONE else View.VISIBLE
         }
 
         binding.addMore.setOnClickListener {
-            // For example, add a new size with default values or from input fields
             adapter.addItem(Size("", ""))
         }
+
         categoriesListAdapter.clickListenerChooseCategory = { id ->
             categoryId = id
+            isCategorySelected = true
+            checkEnableShopInformationButton()
         }
 
-        adapter.clickListener = { sizes ->
-            allSizes = sizes
+        adapter.clickListener = { sizes, allFilled ->
+            addedSizes = allFilled
+            checkEnableShopInformationButton()
         }
+
         binding.isVip.setOnCheckedChangeListener { _, isChecked ->
             isVip = if (isChecked) 1 else 0
         }
+
         binding.upload.setOnClickListener {
-            viewModel.addProduct(AddProductRequest(categoryId.toInt(),binding.description.text.toString(),binding.name.text.toString(),allSizes,isVip))
+            viewModel.addProduct(AddProductRequest(categoryId.toInt(), binding.description.text.toString(), binding.name.text.toString(), adapter.items, isVip))
         }
 
-    }
-    private fun renderListCategories(categories: List<Categories>, refreshData: (() -> Unit)?) {
-        when {
-            categories.isEmpty() -> refreshData?.invoke()
-            else -> categoriesListAdapter.submitList(categories)
+        binding.name.doOnTextChanged { _, _, _, _ ->
+            checkEnableShopInformationButton()
         }
+
+        binding.description.doOnTextChanged { _, _, _, _ ->
+            checkEnableShopInformationButton()
+        }
+    }
+
+    private fun renderListCategories(categories: List<Categories>, refreshData: (() -> Unit)?) {
+        if (categories.isEmpty()) refreshData?.invoke() else categoriesListAdapter.submitList(categories)
     }
 
     private fun renderAddProduct(data: AddProductResponse) {
@@ -87,7 +95,17 @@ class AddProductFragment : BaseFragment(R.layout.fragment_add_product) {
         ProgressHandler.handleProgress(loading.isLoading, requireContext())
     }
 
+    private fun showInformationButton(isEnabled: Boolean) {
+        binding.upload.isEnabled = isEnabled
+    }
 
+    private fun checkEnableShopInformationButton() {
+        if (view != null) {
+            val firstNameEmpty = binding.name.text.isNullOrBlank()
+            val descriptionEmpty = binding.description.text.isNullOrBlank()
+            showInformationButton(!firstNameEmpty && !descriptionEmpty && isCategorySelected && addedSizes)
+        }
+    }
 }
 
 
