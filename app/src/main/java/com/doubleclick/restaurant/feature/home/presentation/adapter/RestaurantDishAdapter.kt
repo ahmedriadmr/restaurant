@@ -35,6 +35,13 @@ class RestaurantDishAdapter: ListAdapter<Item, RestaurantDishAdapter.ViewHolder>
         ) {
             binding.rvSize.adapter = sizeDishAdapter
             sizeDishAdapter.submitList(item.sizes)
+            if (item.sizes.size == 1) {
+                binding.price.text = "$dollarSign${item.sizes.firstOrNull()?.price.toString()}"
+                binding.addToCart.setOnClickListener {
+                    clickShowItem(item.sizes.firstOrNull()?.id.toString(), item.sizes.firstOrNull()?.price.toString())
+                }
+            }
+
             binding.nameFood.text = item.name
             binding.nameDes.text = item.description
             if (!item.image.isNullOrEmpty()) {
