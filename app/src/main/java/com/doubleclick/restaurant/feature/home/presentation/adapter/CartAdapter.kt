@@ -121,7 +121,9 @@ class CartAdapter : ListAdapter<CartData, CartAdapter.ViewHolder>(Differ) {
         }
         cartUpdated(totalCartPrice.formatted)
     }
-
+    fun updateTotalPrice(cartItems: List<CartData>) {
+        calculateTotalPrice(cartItems)
+    }
     object Differ : DiffUtil.ItemCallback<CartData>() {
         override fun areItemsTheSame(oldItem: CartData, newItem: CartData): Boolean {
             return oldItem.id == newItem.id

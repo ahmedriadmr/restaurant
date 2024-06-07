@@ -75,10 +75,10 @@ class CartFragment : BaseFragment(R.layout.fragment_cart_new), OnClickAlert {
                     dialog.findViewById<TextView>(R.id.remove)?.setOnClickListener {
 
                         viewModel.deleteCart(contact.id)
-
-
                         dialog.dismiss()
+                        cartAdapter.updateTotalPrice(cartAdapter.currentList.filter { it.id != contact.id })
                     }
+
 
 
                 }
