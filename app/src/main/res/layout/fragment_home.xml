@@ -18,27 +18,32 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="5dp"
+                android:src="@drawable/ic_baseline_arrow_back_ios_24" />
 
             <com.doubleclick.circleimageview.CircleImageView
                 android:id="@+id/circleImageView"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
+                android:layout_gravity="center"
                 android:padding="5dp"
-                android:src="@drawable/image"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:src="@drawable/image" />
 
             <TextView
                 android:id="@+id/title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_marginStart="8dp"
                 android:fontFamily="@font/roboto"
                 android:text="@string/app_name"
@@ -50,19 +55,16 @@
 
             <ImageView
                 android:id="@+id/all_orders"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:layout_gravity="bottom"
-                android:paddingHorizontal="10dp"
-                android:layout_marginBottom="10dp"
-                android:layout_marginStart="100dp"
+                android:layout_marginStart="50dp"
                 android:layout_marginEnd="5dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/title"
-                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginBottom="10dp"
+                android:paddingHorizontal="15dp"
                 android:src="@drawable/book" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
 
     </androidx.appcompat.widget.Toolbar>
 

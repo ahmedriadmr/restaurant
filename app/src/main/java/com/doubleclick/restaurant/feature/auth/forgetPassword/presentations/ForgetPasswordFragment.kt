@@ -34,6 +34,10 @@ class ForgetPasswordFragment : BaseFragment(R.layout.fragment_forget_password) {
             failure(failure, ::handleFailure)
         }
 
+        binding.back.setOnClickListener {
+            findNavController().popBackStack()
+        }
+
         binding.send.setOnClickListener {
             viewModel.doForgetPassword(binding.email.text.toString())
         }

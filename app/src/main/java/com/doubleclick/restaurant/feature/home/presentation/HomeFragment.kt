@@ -44,13 +44,15 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
 
 
         with(viewModel) {
-            observe(listCategories) { categories -> renderListCategories(categories){categoriesListAdapter.submitList(null)}}
+            observe(listCategories) { categories -> renderListCategories(categories) { categoriesListAdapter.submitList(null) } }
             observe(putCart, ::renderPutCart)
             loading(loading, ::renderLoading)
             failure(failure, ::handleFailure)
             getCategories()
         }
-
+        binding.back.setOnClickListener {
+            requireActivity().onBackPressedDispatcher.onBackPressed()
+        }
         binding.rvCategory.adapter = categoriesListAdapter
         binding.rvDishes.adapter = dishesListAdapter
 
@@ -59,8 +61,8 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
             renderListDishes(items)
         }
 
-        dishesListAdapter.clickShowItem = { id , total ->
-            viewModel.putCart(PutCartRequest("1" , id , total))
+        dishesListAdapter.clickShowItem = { id, total ->
+            viewModel.putCart(PutCartRequest("1", id, total))
         }
 
         binding.allOrders.setOnClickListener {
@@ -96,7 +98,6 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
     }
 
 
-
     private fun renderListCategories(categories: List<Categories>, refreshData: (() -> Unit)?) {
         binding.swipeRefreshLayout.isRefreshing = false
         when {
@@ -104,15 +105,17 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
             else -> categoriesListAdapter.submitList(categories)
         }
     }
-    private fun renderPutCart( data: PutCartResponse) {
+
+    private fun renderPutCart(data: PutCartResponse) {
         Toast.makeText(requireContext(), data.message, Toast.LENGTH_SHORT).show()
     }
+
     private fun renderListDishes(items: List<Item>) {
         val nonVipItems = items.filter { it.vip == "0" }
         viewLifecycleOwner.lifecycleScope.launch {
-            if(viewModel.appSettingsSource.user().firstOrNull()?.role == "user"){
+            if (viewModel.appSettingsSource.user().firstOrNull()?.role == "user") {
                 dishesListAdapter.submitList(nonVipItems)
-            } else if (appSettingsSource.user().firstOrNull()?.role == "waiter"){
+            } else if (appSettingsSource.user().firstOrNull()?.role == "waiter") {
                 dishesListAdapter.submitList(items)
             } else {
                 dishesListAdapter.submitList(nonVipItems)

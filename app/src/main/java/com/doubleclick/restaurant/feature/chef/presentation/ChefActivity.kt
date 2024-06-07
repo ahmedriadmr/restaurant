@@ -39,6 +39,9 @@ class ChefActivity : BaseActivity() {
             loading(loading, ::renderLoading)
 
         }
+        binding.back.setOnClickListener {
+            onBackPressedDispatcher.onBackPressed()
+        }
     }
     override fun renderAuthenticating(user: UserAccess?) {
         super.renderAuthenticating(user)

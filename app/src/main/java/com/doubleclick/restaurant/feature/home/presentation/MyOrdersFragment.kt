@@ -7,6 +7,7 @@ import android.view.View
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.doubleclick.restaurant.R
 import com.doubleclick.restaurant.core.extension.failure
 import com.doubleclick.restaurant.core.extension.loading
@@ -39,6 +40,9 @@ class MyOrdersFragment : BaseFragment(R.layout.fragment_my_orders) {
             getOrders()
         }
         binding.rvMyOrders.adapter = ordersAdapter
+        binding.back.setOnClickListener {
+            findNavController().popBackStack()
+        }
         ordersAdapter.clickCancelOrder = { id ->
             val dialog = AlertDialogCancelOrder(requireActivity())
             dialog.show()

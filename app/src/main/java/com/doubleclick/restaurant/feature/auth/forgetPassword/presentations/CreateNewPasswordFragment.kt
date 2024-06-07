@@ -5,6 +5,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.doubleclick.restaurant.R
 import com.doubleclick.restaurant.core.extension.failure
@@ -33,9 +34,11 @@ class CreateNewPasswordFragment : BaseFragment(R.layout.fragment_create_new_pass
             loading(loading, ::renderLoading)
             failure(failure, ::handleFailure)
         }
-
+        binding.back.setOnClickListener {
+            findNavController().popBackStack()
+        }
         binding.resetPassword.setOnClickListener {
-            viewModel.doResetPassword(navArgs.email,binding.password.text.toString(),binding.confirmPassword.text.toString())
+            viewModel.doResetPassword(navArgs.email, binding.password.text.toString(), binding.confirmPassword.text.toString())
         }
         binding.password.doOnTextChanged { _, _, _, _ ->
             checkEnableButton()
@@ -59,14 +62,17 @@ class CreateNewPasswordFragment : BaseFragment(R.layout.fragment_create_new_pass
     private fun renderResetPassword(data: ForgetPasswordResponse) {
         Toast.makeText(context, " ${data.message}", Toast.LENGTH_SHORT).show()
     }
+
     private fun sendButton(isEnabled: Boolean) {
         binding.resetPassword.isEnabled = isEnabled
     }
+
     private fun checkEnableButton() {
         val password = binding.password.text.length >= 8
         val confirmPassword = binding.confirmPassword.text.length >= 8
-        sendButton(password && confirmPassword )
+        sendButton(password && confirmPassword)
     }
+
     private fun renderLoading(loading: Either.Loading) {
         ProgressHandler.handleProgress(loading.isLoading, requireContext())
     }

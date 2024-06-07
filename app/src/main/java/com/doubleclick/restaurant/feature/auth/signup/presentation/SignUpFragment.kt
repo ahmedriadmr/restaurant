@@ -39,10 +39,10 @@ class SignUpFragment : BaseFragment(R.layout.fragment_sign_up) {
             failure(failure, ::handleFailure)
         }
 
+        binding.back.setOnClickListener {
+            findNavController().popBackStack()
+        }
 
-//        binding.back.setOnClickListener {
-//            findNavController().popBackStack()
-//        }
 
         binding.guest.setOnClickListener {
             navigator.showHome(requireContext())

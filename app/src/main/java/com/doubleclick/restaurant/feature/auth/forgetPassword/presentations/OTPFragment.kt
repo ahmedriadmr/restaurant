@@ -35,7 +35,9 @@ class OTPFragment : BaseFragment(R.layout.fragment_o_t_p) {
             loading(loading, ::renderLoading)
             failure(failure, ::handleFailure)
         }
-
+        binding.back.setOnClickListener {
+            findNavController().popBackStack()
+        }
         binding.verify.setOnClickListener {
             viewModel.doVerifyOtp(binding.code.text.toString())
         }

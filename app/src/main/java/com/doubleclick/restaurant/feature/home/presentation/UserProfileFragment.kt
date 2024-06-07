@@ -40,15 +40,17 @@ class UserProfileFragment : BaseFragment(R.layout.fragment_user_profile) {
     }
 
     private fun onClick() {
+
+        binding.back.setOnClickListener {
+            findNavController().popBackStack()
+        }
         binding.accountFragment.setOnClickListener {
             findNavController().navigate(UserProfileFragmentDirections.actionUserProfileFragmentToAccountFragment())
         }
         binding.myOrdersFragment.setOnClickListener {
             findNavController().navigate(UserProfileFragmentDirections.actionUserProfileFragmentToMyOrdersFragment())
         }
-//        binding.infoFragment.setOnClickListener {
-//
-//        }
+
         binding.logout.setOnClickListener {
             viewModel.doLogout()
         }

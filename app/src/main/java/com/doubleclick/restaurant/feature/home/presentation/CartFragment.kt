@@ -48,6 +48,9 @@ class CartFragment : BaseFragment(R.layout.fragment_cart_new), OnClickAlert {
             getCart()
         }
         binding.rvCart.adapter = cartAdapter
+        binding.back.setOnClickListener {
+            findNavController().popBackStack()
+        }
         cartAdapter.cartUpdated = { totalPrice ->
             binding.totalPrice.text = "$dollarSign$totalPrice"
         }
@@ -90,6 +93,7 @@ class CartFragment : BaseFragment(R.layout.fragment_cart_new), OnClickAlert {
                 refreshData?.invoke()
                 binding.checkout.visibility = View.GONE
             }
+
             else -> {
                 cartAdapter.submitList(cart)
                 binding.checkout.visibility = View.VISIBLE
