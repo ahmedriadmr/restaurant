@@ -19,7 +19,12 @@ class NavigationComponentHelper {
         ) {
             smoothBottomBar.onItemSelectedListener = object : OnItemSelectedListener {
                 override fun onItemSelect(pos: Int): Boolean {
-                    return NavigationUI.onNavDestinationSelected(menu.getItem(pos), navController)
+                    val menuItem = if (pos >= 0 && pos < menu.size()) menu.getItem(pos) else null
+                    return if (menuItem != null) {
+                        NavigationUI.onNavDestinationSelected(menuItem, navController)
+                    } else {
+                        false
+                    }
                 }
             }
 
@@ -51,11 +56,6 @@ class NavigationComponentHelper {
             })
         }
 
-        /**
-         * Determines whether the given `destId` matches the NavDestination. This handles
-         * both the default case (the destination's id matches the given id) and the nested case where
-         * the given id is a parent/grandparent/etc of the destination.
-         */
         fun matchDestination(
             destination: NavDestination,
             @IdRes destId: Int
