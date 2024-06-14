@@ -50,9 +50,7 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
             failure(failure, ::handleFailure)
             getCategories()
         }
-        binding.back.setOnClickListener {
-            requireActivity().onBackPressedDispatcher.onBackPressed()
-        }
+
         binding.rvCategory.adapter = categoriesListAdapter
         binding.rvDishes.adapter = dishesListAdapter
 
