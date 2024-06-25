@@ -78,7 +78,7 @@
                 </LinearLayout>
 
                 <!-- Image below the horizontal LinearLayout -->
-                <ImageView
+                <com.doubleclick.circleimageview.CircleImageView
                     android:id="@+id/image"
                     android:layout_width="260dp"
                     android:layout_height="260dp"
