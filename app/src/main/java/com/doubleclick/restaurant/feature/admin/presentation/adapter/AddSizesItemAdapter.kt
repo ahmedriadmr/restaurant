@@ -70,7 +70,7 @@ class AddSizesItemAdapter: RecyclerView.Adapter<AddSizesItemAdapter.ViewHolder>(
                 }
             })
 
-            binding.delete.setOnClickListener {
+            binding.deleteSize.setOnClickListener {
                 removeItem(adapterPosition)
             }
 

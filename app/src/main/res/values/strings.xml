@@ -304,7 +304,8 @@
     <string name="category">Category</string>
     <string name="upload_image">Upload image</string>
     <string name="product_size">Size</string>
-    <string name="add_more">Add more</string>
+    <string name="add_more_sizes">Add more Sizes</string>
+    <string name="add_more_ingredients">Add more Ingredients</string>
     <string name="ellipsis">&#8230;</string>
     <string name="edit">Edit</string>
     <string name="_edit_"><u>Edit</u></string>

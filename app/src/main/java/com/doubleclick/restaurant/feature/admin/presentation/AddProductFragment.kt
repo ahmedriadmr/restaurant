@@ -16,8 +16,10 @@ import com.doubleclick.restaurant.core.platform.BaseFragment
 import com.doubleclick.restaurant.databinding.FragmentAddProductBinding
 import com.doubleclick.restaurant.feature.admin.AdminViewModel
 import com.doubleclick.restaurant.feature.admin.data.addProduct.request.AddProductRequest
+import com.doubleclick.restaurant.feature.admin.data.addProduct.request.Ingredient
 import com.doubleclick.restaurant.feature.admin.data.addProduct.request.Size
 import com.doubleclick.restaurant.feature.admin.data.addProduct.response.AddProductResponse
+import com.doubleclick.restaurant.feature.admin.presentation.adapter.AddIngredientsAdapter
 import com.doubleclick.restaurant.feature.admin.presentation.adapter.AddSizesItemAdapter
 import com.doubleclick.restaurant.feature.admin.presentation.adapter.SelectCategoryItemAdapter
 import com.doubleclick.restaurant.feature.home.data.Categories.Categories
@@ -33,10 +35,13 @@ class AddProductFragment : BaseFragment(R.layout.fragment_add_product) {
     private var isVip: Int = 0
     private var isCategorySelected = false
     private var addedSizes = false
+    private var addedIngredients = false
+    private val addIngredientsAdapter = AddIngredientsAdapter()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.rvSizes.adapter = adapter
+        binding.rvIngredients.adapter = addIngredientsAdapter
         binding.categories.adapter = categoriesListAdapter
 
         with(viewModel) {
@@ -51,8 +56,11 @@ class AddProductFragment : BaseFragment(R.layout.fragment_add_product) {
             binding.categories.visibility = if (binding.categories.visibility == View.VISIBLE) View.GONE else View.VISIBLE
         }
 
-        binding.addMore.setOnClickListener {
+        binding.addMoreSizes.setOnClickListener {
             adapter.addItem(Size("", ""))
+        }
+        binding.addMoreIngredients.setOnClickListener {
+            addIngredientsAdapter.addItem(Ingredient(""))
         }
 
         categoriesListAdapter.clickListenerChooseCategory = { id ->
@@ -65,13 +73,17 @@ class AddProductFragment : BaseFragment(R.layout.fragment_add_product) {
             addedSizes = allFilled
             checkEnableShopInformationButton()
         }
+        addIngredientsAdapter.clickListener = { ingredients, allFilled ->
+            addedIngredients = allFilled
+            checkEnableShopInformationButton()
+        }
 
         binding.isVip.setOnCheckedChangeListener { _, isChecked ->
             isVip = if (isChecked) 1 else 0
         }
 
         binding.upload.setOnClickListener {
-            viewModel.addProduct(AddProductRequest(categoryId.toInt(), binding.description.text.toString(), binding.name.text.toString(), adapter.items, isVip))
+            viewModel.addProduct(AddProductRequest(categoryId.toInt(), binding.description.text.toString(),addIngredientsAdapter.items, binding.name.text.toString(), adapter.items, isVip))
         }
 
         binding.name.doOnTextChanged { _, _, _, _ ->
@@ -103,7 +115,7 @@ class AddProductFragment : BaseFragment(R.layout.fragment_add_product) {
         if (view != null) {
             val firstNameEmpty = binding.name.text.isNullOrBlank()
             val descriptionEmpty = binding.description.text.isNullOrBlank()
-            showInformationButton(!firstNameEmpty && !descriptionEmpty && isCategorySelected && addedSizes)
+            showInformationButton(!firstNameEmpty && !descriptionEmpty && isCategorySelected && addedSizes && addedIngredients)
         }
     }
 }

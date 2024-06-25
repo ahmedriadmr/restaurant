@@ -16,13 +16,14 @@ import com.doubleclick.restaurant.utils.Constant.dollarSign
 class RestaurantDishAdapter: ListAdapter<Item, RestaurantDishAdapter.ViewHolder>(Differ) {
 
     internal var clickShowItem: (String,String) -> Unit = {_, _ -> }
+    internal var clickShowIngredients: (Item) -> Unit = { _ -> }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(parent.inflate(R.layout.layout_item_dish_in_menu))
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val binding = LayoutItemDishInMenuBinding.bind(holder.itemView)
-        holder.bind(binding, getItem(position), clickShowItem)
+        holder.bind(binding, getItem(position), clickShowItem,clickShowIngredients)
 
     }
 
@@ -31,7 +32,8 @@ class RestaurantDishAdapter: ListAdapter<Item, RestaurantDishAdapter.ViewHolder>
         fun bind(
             binding: LayoutItemDishInMenuBinding,
             item: Item,
-            clickShowItem: (String,String) -> Unit
+            clickShowItem: (String,String) -> Unit,
+            clickShowIngredients: (Item) -> Unit
         ) {
             binding.rvSize.adapter = sizeDishAdapter
             sizeDishAdapter.submitList(item.sizes)
@@ -57,7 +59,9 @@ class RestaurantDishAdapter: ListAdapter<Item, RestaurantDishAdapter.ViewHolder>
                     clickShowItem(id , price.toString())
                 }
             }
-
+            binding.imageFood.setOnClickListener {
+                clickShowIngredients(item)
+            }
 
         }
 

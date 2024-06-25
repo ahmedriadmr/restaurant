@@ -201,7 +201,7 @@
                 tools:listitem="@layout/layout_item_size" />
 
             <LinearLayout
-                android:id="@+id/add_more"
+                android:id="@+id/add_more_sizes"
                 android:layout_width="200dp"
                 android:layout_height="30dp"
                 android:layout_gravity="center"
@@ -222,7 +222,46 @@
                     android:drawablePadding="10dp"
                     android:gravity="center"
                     android:paddingHorizontal="10dp"
-                    android:text="@string/add_more"
+                    android:text="@string/add_more_sizes"
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+
+
+            </LinearLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_ingredients"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="false"
+                android:layout_marginTop="10dp"
+                android:orientation="vertical"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:itemCount="2"
+                tools:listitem="@layout/layout_add_ingredient" />
+
+            <LinearLayout
+                android:id="@+id/add_more_ingredients"
+                android:layout_width="200dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bg_et"
+                android:gravity="center">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_baseline_add_24" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:drawablePadding="10dp"
+                    android:gravity="center"
+                    android:paddingHorizontal="10dp"
+                    android:text="@string/add_more_ingredients"
                     android:textColor="@color/black"
                     android:textSize="14sp" />
 

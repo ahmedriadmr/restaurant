@@ -8,7 +8,12 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.doubleclick.restaurant.feature.home.presentation.HomeFragment"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_dishFragment"
+            app:destination="@id/dishFragment" />
+
+    </fragment>
     <fragment
         android:id="@+id/cartFragment"
         android:name="com.doubleclick.restaurant.feature.home.presentation.CartFragment"
@@ -44,4 +49,14 @@
         android:id="@+id/myOrdersFragment"
         android:name="com.doubleclick.restaurant.feature.home.presentation.MyOrdersFragment"
         tools:layout="@layout/fragment_my_orders" />
+    <fragment
+        android:id="@+id/dishFragment"
+        android:name="com.doubleclick.restaurant.feature.home.presentation.DishFragment"
+        tools:layout="@layout/fragment_dish"
+        android:label="DishFragment" >
+
+        <argument
+            android:name="item"
+            app:argType="com.doubleclick.restaurant.feature.home.data.Categories.Item" />
+    </fragment>
 </navigation>
