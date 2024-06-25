@@ -37,6 +37,7 @@
     <color name="bg_color_black">#1A1A1A</color>
     <color name="gray">#D1D1D6</color>
     <color name="gray_dark">#8E8E93</color>
+    <color name="gray_light">#EFEFEF</color>
     <color name="green">#1F9120</color>
     <color name="yellow">#F3FD00</color>
     <color name="yellow_dark">#E1B400</color>
