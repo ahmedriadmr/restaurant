@@ -44,6 +44,8 @@
     <color name="purple">#800080</color>
     <color name="orange">#FFA500</color>
     <color name="grey_dark">#AEAEB2</color>
+    <color name="yellow_new">#FFCC00</color>
+    <color name="grey_new">#9E9E9E</color>
 
     <integer-array name="progress_colors">
         <item>@color/green</item>

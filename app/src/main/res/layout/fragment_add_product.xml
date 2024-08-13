@@ -271,14 +271,16 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="VIP"
+                android:text="@string/vip_word"
                 android:textColor="@color/black"
                 android:textSize="16sp" />
 
             <com.google.android.material.switchmaterial.SwitchMaterial
                 android:id="@+id/is_vip"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:thumbTint="@color/vip_switch_colors"
+                android:trackTint="@color/vip_switch_colors"/>
 
             <TextView
                 android:id="@+id/upload"

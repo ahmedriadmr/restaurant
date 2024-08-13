@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.viewModels
 import com.doubleclick.restaurant.R
 import com.doubleclick.restaurant.core.extension.failure
@@ -63,7 +64,14 @@ class ListOrdersFragment : BaseFragment(R.layout.fragment_list_orders) {
 
     private fun renderSearchOrders(order: List<SearchOrdersData>, refreshData: (() -> Unit)?) {
         when {
-            order.isEmpty() -> refreshData?.invoke()
+            order.isEmpty() -> {
+                refreshData?.invoke()
+                binding.rvMyOrders.visibility = View.GONE
+                binding.emptyView.visibility = View.VISIBLE
+                binding.imageEmpty.setImageDrawable(
+                    context?.let { ContextCompat.getDrawable(it, R.drawable.group_95) }
+                )
+            }
             else -> {
                 ordersAdapter.submitList(order)
             }
@@ -72,7 +80,7 @@ class ListOrdersFragment : BaseFragment(R.layout.fragment_list_orders) {
 
     private fun renderCancelOrder(data: CancelOrderResponse) {
         Toast.makeText(requireContext(), data.message, Toast.LENGTH_SHORT).show()
-        viewModel.getOrders()
+        viewModel.searchOrders(SearchOrdersRequest(OrderState.ONGOING.value))
     }
 
     private fun renderLoading(loading: Either.Loading) {

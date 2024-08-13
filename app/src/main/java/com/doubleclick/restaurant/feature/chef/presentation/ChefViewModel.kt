@@ -1,6 +1,7 @@
 package com.doubleclick.restaurant.feature.chef.presentation
 
 import androidx.lifecycle.ViewModel
+import com.doubleclick.restaurant.core.platform.local.AppSettingsSource
 import com.doubleclick.restaurant.feature.chef.domain.ChefUseCase
 import com.doubleclick.restaurant.feature.chef.domain.FinishOrderUserCase
 import com.doubleclick.restaurant.feature.chef.domain.model.Status
@@ -13,7 +14,8 @@ import javax.inject.Inject
 @HiltViewModel
 class ChefViewModel @Inject constructor(
     private val chefUseCase: ChefUseCase,
-    private val finishOrderUserCase: FinishOrderUserCase
+    private val finishOrderUserCase: FinishOrderUserCase,
+    val appSettingsSource: AppSettingsSource
 ) : ViewModel() {
 
     fun getOrders(status: Status) = flow {

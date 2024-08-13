@@ -83,7 +83,16 @@ class AddProductFragment : BaseFragment(R.layout.fragment_add_product) {
         }
 
         binding.upload.setOnClickListener {
-            viewModel.addProduct(AddProductRequest(categoryId.toInt(), binding.description.text.toString(),addIngredientsAdapter.items, binding.name.text.toString(), adapter.items, isVip))
+            viewModel.addProduct(
+                AddProductRequest(
+                    categoryId.toInt(),
+                    binding.description.text.toString(),
+                    addIngredientsAdapter.items,
+                    binding.name.text.toString(),
+                    adapter.items,
+                    isVip
+                )
+            )
         }
 
         binding.name.doOnTextChanged { _, _, _, _ ->

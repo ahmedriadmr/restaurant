@@ -49,8 +49,8 @@ class RestaurantDishAdapter: ListAdapter<Item, RestaurantDishAdapter.ViewHolder>
             if (!item.image.isNullOrEmpty()) {
                 binding.imageFood.load(Constant.BASE_URL_IMAGE_ITEMS + item.image) {
                     crossfade(true)
-                    placeholder(R.drawable.image)
-                    error(R.drawable.image)
+                    placeholder(R.drawable.group)
+                    error(R.drawable.group)
                 }
             }
             sizeDishAdapter.clickShowSize = { id , price ->

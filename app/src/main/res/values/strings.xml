@@ -386,6 +386,9 @@
     <string name="no">No</string>
     <string name="successfully_you_will_receive_your_order_soon">Successfully! You will Receive \n your order soon</string>
     <string name="home_page">Home Page</string>
+    <string name="el_faro_del_estrecho">El Faro del Estrecho</string>
+    <string name="no_orders">No Orders</string>
+    <string name="vip_word">VIP</string>
 
 
     <string-array name="sizes">

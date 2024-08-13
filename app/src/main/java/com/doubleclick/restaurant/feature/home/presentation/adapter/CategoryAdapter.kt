@@ -47,9 +47,9 @@ class CategoryAdapter : ListAdapter<com.doubleclick.restaurant.feature.home.data
             // Load image with fallback for null or empty URL
             binding.image.load(Constant.BASE_URL_IMAGE_CATEGORIES + item.image) {
                 crossfade(true)
-                placeholder(R.drawable.image)
-                error(R.drawable.image)
-                fallback(R.drawable.image)
+                placeholder(R.drawable.group)
+                error(R.drawable.group)
+                fallback(R.drawable.group)
             }
 
             itemView.setOnClickListener {

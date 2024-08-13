@@ -216,7 +216,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/Did_you_not_receive_OTP_Resend"
-                android:textColor="@color/dark_brown"
+                android:textColor="@color/black"
                 android:textSize="14sp" />
 
 

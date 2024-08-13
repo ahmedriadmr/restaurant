@@ -6,9 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import com.doubleclick.restaurant.R
 import com.doubleclick.restaurant.core.exception.Failure
 import com.doubleclick.restaurant.databinding.FragmentOrderChefBinding
 import com.doubleclick.restaurant.feature.chef.domain.model.Data
@@ -58,24 +60,33 @@ class ListOrderChefFragment : Fragment() {
         }
     }
 
-    private fun finish(order_id:String) = lifecycleScope.launch {
-        chefViewModel.finishOrder(order_id).collect{
-            it.fold(::failure,::finishSuccess)
+    private fun finish(order_id: String) = lifecycleScope.launch {
+        chefViewModel.finishOrder(order_id).collect {
+            it.fold(::failure, ::finishSuccess)
         }
     }
 
     private fun finishSuccess(message: Message) {
-        Toast.makeText(requireActivity(), message.message,Toast.LENGTH_SHORT).show()
+        Toast.makeText(requireActivity(), message.message, Toast.LENGTH_SHORT).show()
         getOrder()
     }
 
     private fun success(data: List<Data>) {
         Log.d(TAG, "good: $data")
-        binding.rvOrders.adapter = OrderChefAdapter(data){
+        binding.rvOrders.adapter = OrderChefAdapter(data) {
             finish(it)
         }
-        binding.swipeRefreshLayout.isRefreshing = false
+        if (data.isEmpty()) {
+            binding.rvOrders.visibility = View.GONE
+            binding.emptyView.visibility = View.VISIBLE
+
+            binding.imageEmpty.setImageDrawable(
+                context?.let { ContextCompat.getDrawable(it, R.drawable.group_96) }
+            )
+            binding.swipeRefreshLayout.isRefreshing = false
+        }
     }
+
 
     private fun failure(failure: Failure) {
         Log.d(TAG, "failure: $failure")
