@@ -1,6 +1,7 @@
 package com.doubleclick.restaurant.feature.auth.forgetPassword.presentations
 
 import android.os.Bundle
+import android.view.KeyEvent
 import android.view.View
 import android.widget.Toast
 import androidx.core.widget.doOnTextChanged
@@ -32,6 +33,7 @@ class OTPFragment : BaseFragment(R.layout.fragment_o_t_p) {
         super.onViewCreated(view, savedInstanceState)
         with(viewModel) {
             observe(verifyOtp, ::renderVerifyOtp)
+            observe(forgetPassword, ::renderForgetPassword)
             loading(loading, ::renderLoading)
             failure(failure, ::handleFailure)
         }
@@ -39,11 +41,33 @@ class OTPFragment : BaseFragment(R.layout.fragment_o_t_p) {
             findNavController().popBackStack()
         }
         binding.verify.setOnClickListener {
-            viewModel.doVerifyOtp(binding.code.text.toString())
+            viewModel.doVerifyOtp(
+                "${binding.firstNum.text}${binding.secondNum.text}${binding.thirdNum.text}${binding.fourthNum.text}${binding.fifthNum.text}${binding.sixthNum.text}"
+            )
         }
-        binding.code.doOnTextChanged { _, _, _, _ ->
+        binding.resendOtp.setOnClickListener {
+            viewModel.doForgetPassword(navArgs.email)
+        }
+        binding.firstNum.doOnTextChanged { _, _, _, _ ->
             checkEnableButton()
         }
+        binding.secondNum.doOnTextChanged { _, _, _, _ ->
+            checkEnableButton()
+        }
+        binding.thirdNum.doOnTextChanged { _, _, _, _ ->
+            checkEnableButton()
+        }
+        binding.fourthNum.doOnTextChanged { _, _, _, _ ->
+            checkEnableButton()
+        }
+        binding.fifthNum.doOnTextChanged { _, _, _, _ ->
+            checkEnableButton()
+        }
+        binding.sixthNum.doOnTextChanged { _, _, _, _ ->
+            checkEnableButton()
+        }
+
+        setupOtpInputFields()
 
     }
 
@@ -51,13 +75,54 @@ class OTPFragment : BaseFragment(R.layout.fragment_o_t_p) {
         Toast.makeText(context, " ${data.message}", Toast.LENGTH_SHORT).show()
         findNavController().navigate(OTPFragmentDirections.actionOTPFragmentToCreateNewPasswordFragment(navArgs.email))
     }
+
+    private fun renderForgetPassword(@Suppress("UNUSED_PARAMETER") data: ForgetPasswordResponse) {
+    }
+
+    private fun setupOtpInputFields() {
+        val otpEditTexts = arrayOf(
+            binding.firstNum, binding.secondNum, binding.thirdNum, binding.fourthNum, binding.fifthNum, binding.sixthNum
+        )
+
+        for (i in otpEditTexts.indices) {
+            val currentEditText = otpEditTexts[i]
+            val previousEditText = if (i > 0) otpEditTexts[i - 1] else null
+
+            currentEditText.setOnKeyListener { _, keyCode, event ->
+                if (event.action == KeyEvent.ACTION_DOWN && keyCode == KeyEvent.KEYCODE_DEL && currentEditText.text.isNullOrEmpty()) {
+                    // If backspace is pressed and the current field is empty, move focus to the previous field
+                    previousEditText?.requestFocus()
+                    return@setOnKeyListener true
+                }
+                false
+            }
+
+            currentEditText.doOnTextChanged { text, _, _, _ ->
+                if (text.isNullOrBlank()) {
+                    // If the field becomes empty (due to backspace), move focus to the previous field
+                    previousEditText?.requestFocus()
+                } else if (text.length == 1 && i < otpEditTexts.lastIndex) {
+                    // If a digit is entered and it's not the last field, move focus to the next field
+                    otpEditTexts[i + 1].requestFocus()
+                }
+            }
+        }
+    }
+
     private fun sendButton(isEnabled: Boolean) {
         binding.verify.isEnabled = isEnabled
     }
+
     private fun checkEnableButton() {
-        val code = binding.code.text.isNullOrBlank()
-        sendButton(!code )
+        val firstNum = binding.firstNum.text.isNullOrBlank()
+        val secondNum = binding.secondNum.text.isNullOrBlank()
+        val thirdNum = binding.thirdNum.text.isNullOrBlank()
+        val fourthNum = binding.fourthNum.text.isNullOrBlank()
+        val fifthNum = binding.fifthNum.text.isNullOrBlank()
+        val sixthNum = binding.sixthNum.text.isNullOrBlank()
+        sendButton(!firstNum && !secondNum && !thirdNum && !fourthNum && !fifthNum && !sixthNum)
     }
+
     private fun renderLoading(loading: Either.Loading) {
         ProgressHandler.handleProgress(loading.isLoading, requireContext())
     }

@@ -29,15 +29,13 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
-            <TextView
+            <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="90dp"
-                android:fontFamily="@font/fredericka_the_great"
+                android:layout_marginTop="50dp"
                 android:gravity="center_horizontal"
-                android:text="@string/menu"
-                android:textColor="@color/bg_color_black"
-                android:textSize="50sp" />
+                android:src="@drawable/group"
+                android:textColor="@color/bg_color_black" />
 
             <LinearLayout
                 android:layout_width="match_parent"

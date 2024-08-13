@@ -43,6 +43,7 @@
     <color name="yellow_dark">#E1B400</color>
     <color name="purple">#800080</color>
     <color name="orange">#FFA500</color>
+    <color name="grey_dark">#AEAEB2</color>
 
     <integer-array name="progress_colors">
         <item>@color/green</item>

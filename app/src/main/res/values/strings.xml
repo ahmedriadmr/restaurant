@@ -141,7 +141,7 @@
     <string name="payment_made_successfully">El pago se ha realizado \ncorrectamente.</string>
     <string name="continue_buying">Continuar comprando</string>
     <string name="make_order">Realizar pedido</string>
-    <string name="Did_you_not_receive_OTP_Resend">No recibiste OTP? Reenviar</string>
+    <string name="Did_you_not_receive_OTP_Resend">Didn’t receive OTP ? Resend</string>
     <string name="Fill_in_your_new_password">Rellena tu nueva contraseña, \n recuerda que debe ser distinta \n a la anterior.</string>
     <string name="restore_password">Restablecer contraseña</string>
     <string name="user_repetition_placeholder">%1$s/%2$s</string>
